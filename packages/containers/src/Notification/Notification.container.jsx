@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types';
-import { List, Map } from 'immutable';
 import Component from '@talend/react-components/lib/Notification';
 import { cmfConnect } from '@talend/react-cmf';
 
-export const DEFAULT_STATE = new Map({
-	notifications: new List(),
-});
+export const DEFAULT_STATE = {
+	notifications: [],
+};
 
 function Notification(props) {
-	const state = (props.state || DEFAULT_STATE).toJS();
+	const state = props.state || DEFAULT_STATE;
 	return (
 		<Component
 			leaveFn={i => props.deleteNotification(i)}

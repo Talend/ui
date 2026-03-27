@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { Headers, Response } from 'node-fetch';
 import { call, put } from 'redux-saga/effects';
 
@@ -19,7 +20,6 @@ import http, {
 	HTTPError,
 	httpFetch,
 	httpGet,
-	httpHead,
 	httpPatch,
 	httpPost,
 	httpPut,
@@ -31,7 +31,7 @@ import http, {
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
 
 beforeEach(() => {
-	jest.clearAllMocks();
+	vi.clearAllMocks();
 });
 
 describe('http.get', () => {
@@ -170,19 +170,18 @@ describe('http.delete', () => {
 });
 
 describe('handleBody', () => {
-	it('should manage the body of the response like text if no header', done => {
-		handleBody(new Response('{"foo": 42}', {})).then(({ data, response }) => {
+	it('should manage the body of the response like text if no header', () => {
+		return handleBody(new Response('{"foo": 42}', {})).then(({ data, response }) => {
 			expect(data).toBe('{"foo": 42}');
 			expect(response instanceof Response).toBeTruthy();
-			done();
 		});
 	});
 
-	it('should manage the body of the response like a json', done => {
+	it('should manage the body of the response like a json', () => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 
-		handleBody(
+		return handleBody(
 			new Response('{"foo": 42}', {
 				headers,
 			}),
@@ -191,52 +190,48 @@ describe('handleBody', () => {
 				foo: 42,
 			});
 			expect(response instanceof Response).toBe(true);
-			done();
 		});
 	});
 
-	it('should manage the body of the response like a blob', done => {
+	it('should manage the body of the response like a blob', () => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/zip');
 
-		const blob = jest.fn(() => Promise.resolve());
+		const blob = vi.fn(() => Promise.resolve());
 
-		handleBody({ blob, headers }).then(() => {
+		return handleBody({ blob, headers }).then(() => {
 			expect(blob).toHaveBeenCalled();
-			done();
 		});
 	});
 
-	it('should manage the body of the response like a text', done => {
+	it('should manage the body of the response like a text', () => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'text/plain');
 
-		handleBody(
+		return handleBody(
 			new Response('foo', {
 				headers,
 			}),
 		).then(({ data, response }) => {
 			expect(data).toBe('foo');
 			expect(response instanceof Response).toBe(true);
-			done();
 		});
 	});
 
-	it('should manage the body of the response like a text by default', done => {
-		handleBody(new Response('')).then(({ data, response }) => {
+	it('should manage the body of the response like a text by default', () => {
+		return handleBody(new Response('')).then(({ data, response }) => {
 			expect(data).toBe('');
 			expect(response instanceof Response).toBe(true);
-			done();
 		});
 	});
 });
 
 describe('#handleHttpResponse', () => {
-	it('should handle the response with 2xx code', done => {
+	it('should handle the response with 2xx code', () => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 
-		handleHttpResponse(
+		return handleHttpResponse(
 			new Response('{"foo": 42}', {
 				status: HTTP_STATUS.OK,
 				headers,
@@ -246,39 +241,36 @@ describe('#handleHttpResponse', () => {
 				foo: 42,
 			});
 			expect(response instanceof Response).toBe(true);
-			done();
 		});
 	});
 
-	it('should handle the response with a code different of 2xx', done => {
+	it('should handle the response with a code different of 2xx', () => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 
-		handleHttpResponse(
+		return handleHttpResponse(
 			new Response('{"foo": 42}', {
 				status: HTTP_STATUS.FORBIDDEN,
 				headers,
 			}),
 		).catch(response => {
 			expect(response instanceof Response).toBe(true);
-			done();
 		});
 	});
 
-	it('should handle the response with NO_CONTENT code', done => {
-		handleHttpResponse(
+	it('should handle the response with NO_CONTENT code', () => {
+		return handleHttpResponse(
 			new Response('', {
 				status: HTTP_STATUS.NO_CONTENT,
 			}),
 		).then(({ data, response }) => {
 			expect(data).toBe('');
 			expect(response instanceof Response).toBe(true);
-			done();
 		});
 	});
 
-	it('should handle the response for HEAD requests', done => {
-		handleHttpResponse(
+	it('should handle the response for HEAD requests', () => {
+		return handleHttpResponse(
 			new Response('{"foo": 42}', {
 				status: HTTP_STATUS.OK,
 			}),
@@ -286,17 +278,16 @@ describe('#handleHttpResponse', () => {
 		).then(({ data, response }) => {
 			expect(data).toBe('');
 			expect(response instanceof Response).toBe(true);
-			done();
 		});
 	});
 });
 
 describe('#handleError', () => {
-	it('should manage the error', done => {
+	it('should manage the error', () => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 
-		handleError(
+		return handleError(
 			new Response('{"foo": 42}', {
 				status: HTTP_STATUS.FORBIDDEN,
 				statusText: 'Forbidden',
@@ -308,7 +299,6 @@ describe('#handleError', () => {
 				foo: 42,
 			});
 			expect(error.response instanceof Response).toBe(true);
-			done();
 		});
 	});
 });
@@ -872,6 +862,9 @@ it('should wrap the request and not notify with generic http error if silent opt
 });
 
 describe('#httpFetch with CRSF token', () => {
+	beforeEach(() => {
+		global.fetch = vi.fn((url, config) => Promise.resolve(config.response));
+	});
 	beforeAll(() => {
 		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True;`;
 	});
@@ -879,7 +872,7 @@ describe('#httpFetch with CRSF token', () => {
 	afterAll(() => {
 		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
 	});
-	it('should get the CRFS token', done => {
+	it('should get the CRFS token', () => {
 		const url = '/foo';
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
@@ -894,13 +887,7 @@ describe('#httpFetch with CRSF token', () => {
 			bar: 42,
 		};
 
-		httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
-			expect(body.data).toEqual({
-				foo: 42,
-			});
-			expect(body.response instanceof Response).toBe(true);
-			done();
-		});
+		const promise = httpFetch(url, config, HTTP_METHODS.GET, payload);
 
 		expect(fetch).toHaveBeenCalledWith(url, {
 			body: '{"bar":42}',
@@ -913,6 +900,13 @@ describe('#httpFetch with CRSF token', () => {
 			method: HTTP_METHODS.GET,
 			response: config.response,
 		});
+
+		return promise.then(body => {
+			expect(body.data).toEqual({
+				foo: 42,
+			});
+			expect(body.response instanceof Response).toBe(true);
+		});
 	});
 });
 
@@ -924,6 +918,9 @@ describe('#httpFetch with CSRF handling configuration', () => {
 		},
 	};
 
+	beforeEach(() => {
+		global.fetch = vi.fn((url, config) => Promise.resolve(config.response));
+	});
 	beforeAll(() => {
 		HTTP.defaultConfig = null;
 
@@ -936,7 +933,7 @@ describe('#httpFetch with CSRF handling configuration', () => {
 		document.cookie = `${defaultHttpConfiguration.security.CSRFTokenCookieKey}=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
 	});
 
-	it('check if httpFetch is called with the security configuration', done => {
+	it('check if httpFetch is called with the security configuration', () => {
 		setDefaultConfig(defaultHttpConfiguration);
 
 		expect(getDefaultConfig()).toEqual(defaultHttpConfiguration);
@@ -954,13 +951,7 @@ describe('#httpFetch with CSRF handling configuration', () => {
 			bar: 42,
 		};
 
-		httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
-			expect(body.data).toEqual({
-				foo: 42,
-			});
-			expect(body.response instanceof Response).toBe(true);
-			done();
-		});
+		const promise = httpFetch(url, config, HTTP_METHODS.GET, payload);
 
 		expect(fetch).toHaveBeenCalledWith(url, {
 			...defaultHttpConfiguration,
@@ -974,15 +965,25 @@ describe('#httpFetch with CSRF handling configuration', () => {
 			method: HTTP_METHODS.GET,
 			response: config.response,
 		});
+
+		return promise.then(body => {
+			expect(body.data).toEqual({
+				foo: 42,
+			});
+			expect(body.response instanceof Response).toBe(true);
+		});
 	});
 });
 
 describe('#httpFetch', () => {
+	beforeEach(() => {
+		global.fetch = vi.fn((url, config) => Promise.resolve(config.response));
+	});
 	afterEach(() => {
 		HTTP.defaultConfig = null;
 	});
 
-	it('should fetch the request', done => {
+	it('should fetch the request', () => {
 		const url = '/foo';
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
@@ -997,13 +998,7 @@ describe('#httpFetch', () => {
 			bar: 42,
 		};
 
-		httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
-			expect(body.data).toEqual({
-				foo: 42,
-			});
-			expect(body.response instanceof Response).toBe(true);
-			done();
-		});
+		const promise = httpFetch(url, config, HTTP_METHODS.GET, payload);
 
 		expect(fetch).toHaveBeenCalledWith(url, {
 			body: '{"bar":42}',
@@ -1015,9 +1010,16 @@ describe('#httpFetch', () => {
 			method: HTTP_METHODS.GET,
 			response: config.response,
 		});
+
+		return promise.then(body => {
+			expect(body.data).toEqual({
+				foo: 42,
+			});
+			expect(body.response instanceof Response).toBe(true);
+		});
 	});
 
-	it('should fetch the request with the default settings', done => {
+	it('should fetch the request with the default settings', () => {
 		const url = '/foo';
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
@@ -1038,13 +1040,7 @@ describe('#httpFetch', () => {
 			},
 		});
 
-		httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
-			expect(body.data).toEqual({
-				foo: 42,
-			});
-			expect(body.response instanceof Response).toBe(true);
-			done();
-		});
+		const promise = httpFetch(url, config, HTTP_METHODS.GET, payload);
 
 		expect(fetch).toHaveBeenCalledWith(url, {
 			body: '{"bar":42}',
@@ -1057,9 +1053,16 @@ describe('#httpFetch', () => {
 			method: HTTP_METHODS.GET,
 			response: config.response,
 		});
+
+		return promise.then(body => {
+			expect(body.data).toEqual({
+				foo: 42,
+			});
+			expect(body.response instanceof Response).toBe(true);
+		});
 	});
 
-	it('should fetch the request with a FormData', done => {
+	it('should fetch the request with a FormData', () => {
 		const url = '/foo';
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
@@ -1072,13 +1075,7 @@ describe('#httpFetch', () => {
 		};
 		const payload = new FormData();
 
-		httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
-			expect(body.data).toEqual({
-				foo: 42,
-			});
-			expect(body.response instanceof Response).toBe(true);
-			done();
-		});
+		const promise = httpFetch(url, config, HTTP_METHODS.GET, payload);
 
 		expect(fetch).toHaveBeenCalledWith(url, {
 			body: payload,
@@ -1089,9 +1086,16 @@ describe('#httpFetch', () => {
 			method: HTTP_METHODS.GET,
 			response: config.response,
 		});
+
+		return promise.then(body => {
+			expect(body.data).toEqual({
+				foo: 42,
+			});
+			expect(body.response instanceof Response).toBe(true);
+		});
 	});
 
-	it('should fail the request', done => {
+	it('should fail the request', () => {
 		const url = '/foo';
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
@@ -1106,14 +1110,7 @@ describe('#httpFetch', () => {
 			bar: 42,
 		};
 
-		httpFetch(url, config, HTTP_METHODS.GET, payload).then(body => {
-			expect(body instanceof Error).toBe(true);
-			expect(body.data).toEqual({
-				foo: 42,
-			});
-			expect(body.response instanceof Response).toBe(true);
-			done();
-		});
+		const promise = httpFetch(url, config, HTTP_METHODS.GET, payload);
 
 		expect(fetch).toHaveBeenCalledWith(url, {
 			body: '{"bar":42}',
@@ -1124,6 +1121,14 @@ describe('#httpFetch', () => {
 			},
 			method: HTTP_METHODS.GET,
 			response: config.response,
+		});
+
+		return promise.then(body => {
+			expect(body instanceof Error).toBe(true);
+			expect(body.data).toEqual({
+				foo: 42,
+			});
+			expect(body.response instanceof Response).toBe(true);
 		});
 	});
 });
@@ -1321,7 +1326,7 @@ describe('setDefaultLanguage', () => {
 	it('should not redefine the Accept Language if no defaultConfig', () => {
 		expect(() => {
 			setDefaultLanguage('ja');
-		}).toThrow('');
+		}).toThrow();
 	});
 
 	it('should redefine the Accept Language', () => {

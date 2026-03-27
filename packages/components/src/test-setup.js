@@ -21,6 +21,16 @@ vi.mock('@talend/utils', async () => {
 globalThis.jest = vi;
 globalThis.xit = it.skip;
 
+// Node v25+ declares `localStorage` on globalThis, which prevents vitest/jsdom from
+// overriding it with jsdom's Storage. Use the JSDOM instance directly to fix this.
+const jsdomLocalStorage = globalThis.jsdom?.window?.localStorage;
+if (jsdomLocalStorage) {
+	Object.defineProperty(globalThis, 'localStorage', {
+		configurable: true,
+		value: jsdomLocalStorage,
+	});
+}
+
 // Suppress React warnings in tests, as they are not relevant to the test results and can clutter the output.
 const originalConsoleError = console.error;
 vi.spyOn(console, 'error').mockImplementation((...args) => {

@@ -70,8 +70,9 @@ export const getSinkPorts = createSelector(
  */
 export const getEmitterPortsForNode = createSelector(
 	getEmitterPorts as any,
-	(ports: PortRecordMap): PortRecord => (nodeId: string) =>
-		ports.filter((port: any) => Port.getNodeId(port) === nodeId),
+	(ports: PortRecordMap): PortRecord =>
+		(nodeId: string) =>
+			ports.filter((port: any) => Port.getNodeId(port) === nodeId),
 );
 
 /**
@@ -79,8 +80,9 @@ export const getEmitterPortsForNode = createSelector(
  */
 export const getSinkPortsForNode = createSelector(
 	getSinkPorts as any,
-	(ports: PortRecordMap): PortRecord => (nodeId: string) =>
-		ports.filter((port: any) => Port.getNodeId(port) === nodeId),
+	(ports: PortRecordMap): PortRecord =>
+		(nodeId: string) =>
+			ports.filter((port: any) => Port.getNodeId(port) === nodeId),
 );
 
 /**

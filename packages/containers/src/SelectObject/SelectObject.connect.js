@@ -1,4 +1,4 @@
-import { cmfConnect } from '@talend/react-cmf';
+import cmf, { cmfConnect } from '@talend/react-cmf';
 
 import Container, { DEFAULT_STATE } from './SelectObject.container';
 import { DISPLAY_NAME as FILTER_NAME, QUERY_ATTR } from '../FilterBar/FilterBar.container';
@@ -7,7 +7,7 @@ import { DISPLAY_NAME as TREE_NAME } from '../TreeView/TreeView.container';
 export function mapStateToProps(state, ownProps) {
 	const props = {};
 	if (ownProps.source) {
-		props.sourceData = state.cmf.collections.getIn(ownProps.source.split('.'));
+		props.sourceData = cmf.selectors.collections.get(state, ownProps.source.split('.'));
 	}
 	if (ownProps.nameAttr && ownProps.tree) {
 		props.tree = {
@@ -15,15 +15,11 @@ export function mapStateToProps(state, ownProps) {
 			...ownProps.tree,
 		};
 	}
-	const filterState = state.cmf.components.getIn([FILTER_NAME, ownProps.id]);
-	if (filterState) {
-		props.query = filterState.get(QUERY_ATTR, '');
-	} else {
-		props.query = '';
-	}
-	const treeState = state.cmf.components.getIn([TREE_NAME, ownProps.id]);
+	const filterState = state.cmf.components?.[FILTER_NAME]?.[ownProps.id];
+	props.query = filterState?.[QUERY_ATTR] ?? '';
+	const treeState = state.cmf.components?.[TREE_NAME]?.[ownProps.id];
 	if (treeState) {
-		props.selectedId = treeState.get('selectedId');
+		props.selectedId = treeState.selectedId;
 	}
 	return props;
 }

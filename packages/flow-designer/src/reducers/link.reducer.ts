@@ -48,13 +48,9 @@ export default function linkReducer(state = defaultState, action: any) {
 							'properties',
 							fromJS(action.data && action.data.properties) || Map(),
 						),
-						graphicalAttributes: new LinkGraphicalAttributes(
-							action.graphicalAttributes,
-						).set(
+						graphicalAttributes: new LinkGraphicalAttributes(action.graphicalAttributes).set(
 							'properties',
-							fromJS(
-								action.graphicalAttributes && action.graphicalAttributes.properties,
-							) || Map(),
+							fromJS(action.graphicalAttributes && action.graphicalAttributes.properties) || Map(),
 						),
 					}),
 				) // parcourir l'ensemble des parents et set le composant cible en tant que sucessors '
@@ -75,21 +71,11 @@ export default function linkReducer(state = defaultState, action: any) {
 					state.getIn(['ports', action.sourceId]).nodeId,
 				)
 				.setIn(
-					[
-						'out',
-						state.getIn(['ports', action.sourceId]).nodeId,
-						action.sourceId,
-						action.linkId,
-					],
+					['out', state.getIn(['ports', action.sourceId]).nodeId, action.sourceId, action.linkId],
 					action.linkId,
 				)
 				.setIn(
-					[
-						'in',
-						state.getIn(['ports', action.targetId]).nodeId,
-						action.targetId,
-						action.linkId,
-					],
+					['in', state.getIn(['ports', action.targetId]).nodeId, action.targetId, action.linkId],
 					action.linkId,
 				);
 		case FLOWDESIGNER_LINK_SET_TARGET:
@@ -116,12 +102,7 @@ export default function linkReducer(state = defaultState, action: any) {
 					action.linkId,
 				])
 				.setIn(
-					[
-						'in',
-						state.getIn(['ports', action.targetId]).nodeId,
-						action.targetId,
-						action.linkId,
-					],
+					['in', state.getIn(['ports', action.targetId]).nodeId, action.targetId, action.linkId],
 					action.linkId,
 				)
 				.deleteIn([
@@ -132,8 +113,7 @@ export default function linkReducer(state = defaultState, action: any) {
 				.setIn(
 					[
 						'childrens',
-						state.getIn(['ports', state.getIn(['links', action.linkId]).sourceId])
-							.nodeId,
+						state.getIn(['ports', state.getIn(['links', action.linkId]).sourceId]).nodeId,
 						state.getIn(['ports', action.targetId]).nodeId,
 					],
 					state.getIn(['ports', action.targetId]).nodeId,
@@ -162,12 +142,7 @@ export default function linkReducer(state = defaultState, action: any) {
 					action.linkId,
 				])
 				.setIn(
-					[
-						'out',
-						state.getIn(['ports', action.sourceId]).nodeId,
-						action.sourceId,
-						action.linkId,
-					],
+					['out', state.getIn(['ports', action.sourceId]).nodeId, action.sourceId, action.linkId],
 					action.linkId,
 				)
 				.deleteIn([
@@ -178,8 +153,7 @@ export default function linkReducer(state = defaultState, action: any) {
 				.setIn(
 					[
 						'parents',
-						state.getIn(['ports', state.getIn(['links', action.linkId]).targetId])
-							.nodeId,
+						state.getIn(['ports', state.getIn(['links', action.linkId]).targetId]).nodeId,
 						state.getIn(['ports', action.sourceId]).nodeId,
 					],
 					state.getIn(['ports', action.sourceId]).nodeId,
@@ -253,10 +227,7 @@ export default function linkReducer(state = defaultState, action: any) {
 				return state.mergeIn(['links', action.linkId, 'data'], fromJS(action.data));
 			} catch (error) {
 				console.error(error);
-				return state.mergeIn(
-					['links', action.linkId, 'data', 'properties'],
-					fromJS(action.data),
-				);
+				return state.mergeIn(['links', action.linkId, 'data', 'properties'], fromJS(action.data));
 			}
 
 		case FLOWDESIGNER_LINK_REMOVE_DATA:

@@ -1,17 +1,16 @@
-import { Map } from 'immutable';
-
+import { vi } from 'vitest';
 import reducer, { defaultState } from '../../src/reducers/componentsReducers';
 
-global.console = { warn: jest.fn() };
+global.console = { warn: vi.fn() };
 
 describe('check component management reducer', () => {
-	const initialState = defaultState.set(
-		'component1',
-		new Map().set('key1', new Map().set('searchQuery', '')),
-	);
+	const initialState = {
+		...defaultState,
+		component1: { key1: { searchQuery: '' } },
+	};
 
 	beforeEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	it(`REACT_CMF.COMPONENT_ADD_STATE should properly add component/collection
@@ -23,11 +22,10 @@ describe('check component management reducer', () => {
 				key: 'key',
 				initialComponentState: { searchQuery: 'data' },
 			}),
-		).toEqual(
-			new Map()
-				.set('component1', new Map().set('key1', new Map().set('searchQuery', '')))
-				.set('componentName', new Map().set('key', new Map().set('searchQuery', 'data'))),
-		);
+		).toEqual({
+			component1: { key1: { searchQuery: '' } },
+			componentName: { key: { searchQuery: 'data' } },
+		});
 	});
 
 	it(`REACT_CMF.COMPONENT_ADD_STATE should properly add component/collection
@@ -40,11 +38,10 @@ describe('check component management reducer', () => {
 				key: 'key',
 				initialComponentState: undefined,
 			}),
-		).toEqual(
-			new Map()
-				.set('component1', new Map().set('key1', new Map().set('searchQuery', '')))
-				.set('componentName', new Map().set('key', new Map())),
-		);
+		).toEqual({
+			component1: { key1: { searchQuery: '' } },
+			componentName: { key: {} },
+		});
 	});
 
 	it(`REACT_CMF.COMPONENT_ADD_STATE should properly add component/collection
@@ -56,12 +53,9 @@ describe('check component management reducer', () => {
 				key: 'key',
 				initialComponentState: 'initialState',
 			}),
-		).toEqual(
-			new Map().set(
-				'component1',
-				new Map().set('key1', new Map().set('searchQuery', '')).set('key', 'initialState'),
-			),
-		);
+		).toEqual({
+			component1: { key1: { searchQuery: '' }, key: 'initialState' },
+		});
 	});
 
 	it('REACT_CMF.COMPONENT_ADD_STATE throw when a couple of componentName, key already exist', () => {
@@ -86,9 +80,9 @@ describe('check component management reducer', () => {
 				key: 'key1',
 				componentState: { searchQuery: 'data' },
 			}),
-		).toEqual(
-			new Map().set('component1', new Map().set('key1', new Map().set('searchQuery', 'data'))),
-		);
+		).toEqual({
+			component1: { key1: { searchQuery: 'data' } },
+		});
 	});
 
 	it(`REACT_CMF.COMPONENT_MERGE_STATE should throw when a couple of
@@ -112,7 +106,7 @@ describe('check component management reducer', () => {
 				componentName: 'component1',
 				key: 'key1',
 			}),
-		).toEqual(new Map().set('component1', new Map()));
+		).toEqual({ component1: {} });
 	});
 	it(`removeComponentState throw when a couple of componentName,
 		collectionId doesn't exist`, () => {

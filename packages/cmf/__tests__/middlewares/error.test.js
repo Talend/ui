@@ -1,19 +1,16 @@
-import getErrorMiddleware, {
-	URL_REQUIRED_MESSAGE,
-} from '../../src/middlewares/error';
-import {
-	HTTP_METHODS,
-} from '../../src/middlewares/http/constants';
+import { vi } from 'vitest';
+import getErrorMiddleware, { URL_REQUIRED_MESSAGE } from '../../src/middlewares/error';
+import { HTTP_METHODS } from '../../src/middlewares/http/constants';
 
 describe('CMF error middleware getErrorMiddleware', () => {
 	it('should return a middleware using slug', () => {
 		const middlewareFactory = getErrorMiddleware('/api/errors');
 		expect(typeof middlewareFactory).toBe('function');
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 			state: {},
 		};
-		const next = (action) => {
+		const next = action => {
 			if (action.type === 'THROW') {
 				throw new Error('message');
 			}

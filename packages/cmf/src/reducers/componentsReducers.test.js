@@ -1,0 +1,142 @@
+import reducer, { defaultState } from './componentsReducers';
+
+global.console = { warn: vi.fn() };
+
+describe('check component management reducer', () => {
+	const initialState = {
+		...defaultState,
+		component1: { key1: { searchQuery: '' } },
+	};
+
+	beforeEach(() => {
+		vi.clearAllMocks();
+	});
+
+	it(`REACT_CMF.COMPONENT_ADD_STATE should properly add component/collection
+		state tracking to the store if nor the component/key exist`, () => {
+		expect(
+			reducer(initialState, {
+				type: 'REACT_CMF.COMPONENT_ADD_STATE',
+				componentName: 'componentName',
+				key: 'key',
+				initialComponentState: { searchQuery: 'data' },
+			}),
+		).toEqual({
+			component1: { key1: { searchQuery: '' } },
+			componentName: { key: { searchQuery: 'data' } },
+		});
+	});
+
+	it(`REACT_CMF.COMPONENT_ADD_STATE should properly add component/collection
+		state tracking to the store if nor the component/key exist
+		event if initialState is undefined`, () => {
+		expect(
+			reducer(initialState, {
+				type: 'REACT_CMF.COMPONENT_ADD_STATE',
+				componentName: 'componentName',
+				key: 'key',
+				initialComponentState: undefined,
+			}),
+		).toEqual({
+			component1: { key1: { searchQuery: '' } },
+			componentName: { key: {} },
+		});
+	});
+
+	it(`REACT_CMF.COMPONENT_ADD_STATE should properly add component/collection
+		state tracking to the store if the key don't exist`, () => {
+		expect(
+			reducer(initialState, {
+				type: 'REACT_CMF.COMPONENT_ADD_STATE',
+				componentName: 'component1',
+				key: 'key',
+				initialComponentState: 'initialState',
+			}),
+		).toEqual({
+			component1: { key1: { searchQuery: '' }, key: 'initialState' },
+		});
+	});
+
+	it('REACT_CMF.COMPONENT_ADD_STATE throw when a couple of componentName, key already exist', () => {
+		const action = {
+			type: 'REACT_CMF.COMPONENT_ADD_STATE',
+			componentName: 'component1',
+			key: 'key1',
+			initialComponentState: 'initialState',
+		};
+		reducer(initialState, action);
+		expect(console.warn).toHaveBeenCalled();
+		expect(console.warn.mock.calls[0][0])
+			.toEqual(`Beware component component1 try to recreate an existing
+ State namespace key1, meaning that the original one will be overloaded`);
+	});
+
+	it(`REACT_CMF.COMPONENT_MERGE_STATE should properly merge
+		component/key state into the store`, () => {
+		expect(
+			reducer(initialState, {
+				type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+				componentName: 'component1',
+				key: 'key1',
+				componentState: { searchQuery: 'data' },
+			}),
+		).toEqual({
+			component1: { key1: { searchQuery: 'data' } },
+		});
+	});
+
+	it(`REACT_CMF.COMPONENT_MERGE_STATE should throw when a couple of
+		componentName, keyId doesn't exist`, () => {
+		const action = {
+			type: 'REACT_CMF.COMPONENT_MERGE_STATE',
+			componentName: 'component',
+			key: 'key',
+			componentState: { searchQuery: 'data' },
+		};
+		expect(() => reducer(initialState, action))
+			.toThrow(`Error, the component component try to mutate a non existing
+ State namespace key, this namespace may be not yet created or already removed.`);
+	});
+
+	it(`REACT_CMF.COMPONENT_REMOVE_STATE should properly add
+		component/key state tracking to the store`, () => {
+		expect(
+			reducer(initialState, {
+				type: 'REACT_CMF.COMPONENT_REMOVE_STATE',
+				componentName: 'component1',
+				key: 'key1',
+			}),
+		).toEqual({ component1: {} });
+	});
+
+	it(`removeComponentState throw when a couple of componentName,
+		collectionId doesn't exist`, () => {
+		const action = {
+			type: 'REACT_CMF.COMPONENT_REMOVE_STATE',
+			componentName: 'component',
+			key: 'key',
+		};
+		reducer(initialState, action);
+		expect(console.warn).toHaveBeenCalled();
+		expect(console.warn.mock.calls[0][0])
+			.toEqual(`Beware the component component try to remove a non existing
+ State namespace key, it isn't a normal behavior execpt if two component are binded
+ to this specific namespace`);
+	});
+
+	it('should recall itself on action.cmf.componentState', () => {
+		const action = {
+			type: 'REACT_CMF.COMPONENT_ADD_STATE',
+			componentName: 'componentName',
+			key: 'key',
+			initialComponentState: { searchQuery: 'data' },
+		};
+		const subAction = {
+			type: 'WHAT_EVER',
+			cmf: {
+				componentState: action,
+			},
+		};
+		expect(reducer(initialState, action)).toEqual(reducer(initialState, subAction));
+	});
+});

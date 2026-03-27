@@ -126,6 +126,23 @@ describe('getMenuItem', () => {
 	});
 });
 
+// Verify items accepts plain arrays.
+describe('ActionDropdown — plain array items', () => {
+	it('should render all items from a plain JS array', () => {
+		const props = {
+			id: 'dropdown-id',
+			label: 'Dropdown',
+			items: [
+				{ id: 'item1', label: 'Alpha' },
+				{ id: 'item2', label: 'Beta' },
+			],
+		};
+		render(<ActionDropdown {...props} />);
+		expect(screen.getByRole('menuitem', { name: 'Alpha' })).toBeInTheDocument();
+		expect(screen.getByRole('menuitem', { name: 'Beta' })).toBeInTheDocument();
+	});
+});
+
 describe('InjectDropdownMenuItem', () => {
 	it('should render MenuItem with props divider', () => {
 		render(

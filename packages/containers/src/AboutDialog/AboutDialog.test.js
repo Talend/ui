@@ -1,6 +1,5 @@
-import { Map, List } from 'immutable';
-
 import Container from './AboutDialog.container';
+
 import Connected, { mapStateToProps } from './AboutDialog.connect';
 import Constants from './AboutDialog.constant';
 
@@ -13,11 +12,7 @@ describe('Connected AboutDialog', () => {
 	it('should mapStateToProps with an empty list of products', () => {
 		const state = {
 			cmf: {
-				collections: new Map({
-					AboutDialog: {
-						[Constants.COLLECTION_ID]: new List(),
-					},
-				}),
+				collections: {},
 			},
 		};
 		const ownProps = {};

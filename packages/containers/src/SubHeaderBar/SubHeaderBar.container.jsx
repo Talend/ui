@@ -1,12 +1,11 @@
 import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import Component from '@talend/react-components/lib/SubHeaderBar';
-import Immutable from 'immutable';
 import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
 
 export const DISPLAY_NAME = 'Container(SubHeaderBar)';
-export const DEFAULT_STATE = new Immutable.Map({});
+export const DEFAULT_STATE = {};
 
 class SubHeaderBar extends RComponent {
 	static displayName = DISPLAY_NAME;
@@ -65,7 +64,7 @@ class SubHeaderBar extends RComponent {
 		const props = {
 			...omit(this.props, cmfConnect.INJECTED_PROPS),
 			...eventHandlerProps,
-			...state.toJS(),
+			...state,
 		};
 
 		return <Component {...props} />;

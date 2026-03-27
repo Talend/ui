@@ -78,17 +78,13 @@ function indexPortMap(ports: PortRecordMap): PortRecordMap {
  */
 function setPort(state: State, port: PortRecordType) {
 	const index: number =
-		port.graphicalAttributes.properties.index ||
-		calculateNewPortIndex(state.get('ports'), port);
+		port.graphicalAttributes.properties.index || calculateNewPortIndex(state.get('ports'), port);
 	const newState = state.setIn(
 		['ports', port.id],
 		new PortRecord({
 			id: port.id,
 			nodeId: port.nodeId,
-			data: Map(port.data).set(
-				'properties',
-				fromJS(port.data && port.data.properties) || Map(),
-			),
+			data: Map(port.data).set('properties', fromJS(port.data && port.data.properties) || Map()),
 			graphicalAttributes: Map(port.graphicalAttributes)
 				.set('position', new PositionRecord(port.graphicalAttributes.position))
 				.set(
@@ -121,10 +117,7 @@ export default function portReducer(state: State, action: PortAction): State {
 	switch (action.type) {
 		case FLOWDESIGNER_PORT_ADD:
 			if (!state.getIn(['nodes', action.nodeId])) {
-				invariant(
-					false,
-					`Can't set a new port ${action.id} on non existing node ${action.nodeId}`,
-				);
+				invariant(false, `Can't set a new port ${action.id} on non existing node ${action.nodeId}`);
 			}
 
 			return setPort(state, {
@@ -151,10 +144,7 @@ export default function portReducer(state: State, action: PortAction): State {
 		}
 		case FLOWDESIGNER_PORT_SET_GRAPHICAL_ATTRIBUTES:
 			if (!state.getIn(['ports', action.portId])) {
-				invariant(
-					false,
-					`Can't set an graphical attribute on non existing port ${action.portId}`,
-				);
+				invariant(false, `Can't set an graphical attribute on non existing port ${action.portId}`);
 			}
 
 			try {
@@ -194,10 +184,7 @@ export default function portReducer(state: State, action: PortAction): State {
 				return state.mergeIn(['ports', action.portId, 'data'], fromJS(action.data));
 			} catch (error) {
 				console.error(error);
-				return state.mergeIn(
-					['ports', action.portId, 'data', 'properties'],
-					fromJS(action.data),
-				);
+				return state.mergeIn(['ports', action.portId, 'data', 'properties'], fromJS(action.data));
 			}
 
 		case FLOWDESIGNER_PORT_REMOVE_DATA:
@@ -223,16 +210,8 @@ export default function portReducer(state: State, action: PortAction): State {
 						),
 					)
 					.deleteIn(['ports', action.portId])
-					.deleteIn([
-						'out',
-						state.getIn(['ports', action.portId, 'nodeId']),
-						action.portId,
-					])
-					.deleteIn([
-						'in',
-						state.getIn(['ports', action.portId, 'nodeId']),
-						action.portId,
-					]);
+					.deleteIn(['out', state.getIn(['ports', action.portId, 'nodeId']), action.portId])
+					.deleteIn(['in', state.getIn(['ports', action.portId, 'nodeId']), action.portId]);
 				return newState.mergeDeep({
 					ports: indexPortMap(
 						filterPortsByDirection(

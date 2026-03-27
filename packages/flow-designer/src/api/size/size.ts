@@ -93,9 +93,7 @@ export const setHeight = curry((height: number, size: SizeRecordType) => {
 	if (isSizeElseThrow(size) && typeof height === 'number') {
 		return size.set('height', height);
 	}
-	throwInDev(
-		`height should be a number, was given ${height.toString()}  of type ${typeof height}`,
-	);
+	throwInDev(`height should be a number, was given ${height.toString()}  of type ${typeof height}`);
 	return size;
 });
 

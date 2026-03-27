@@ -9,6 +9,12 @@
  * You have to import the mock from the complete path, ie:
  *
  * ```import mock from 'react-cmf/lib/mock';```
+ *
+ * MIGRATION NOTE (Immutable removal):
+ * `mock.store.getState().cmf.collections` is now a plain object `{}` (was Immutable.Map).
+ * `mock.store.getState().cmf.components` is now a plain object (was Immutable.Map via fromJS()).
+ * Consumers should use plain object access (`collections['key']`) instead of `.get('key')`.
+ * This is aligned with the Epic 5 direction where the real store will also use plain objects.
  */
 import store from './store';
 import Provider from './provider';

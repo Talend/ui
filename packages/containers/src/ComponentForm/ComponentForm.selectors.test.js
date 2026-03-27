@@ -1,4 +1,3 @@
-import Immutable from 'immutable';
 import { isComponentFormDirty } from './ComponentForm.selectors';
 import { TCompForm } from './ComponentForm.component';
 
@@ -9,11 +8,9 @@ describe('ComponentForm selectors', () => {
 			// given
 			const state = {
 				cmf: {
-					components: Immutable.fromJS({
-						[TCompForm.displayName]: {
-							[componentName]: {},
-						},
-					}),
+					components: {
+						[TCompForm.displayName]: { [componentName]: {} },
+					},
 				},
 			};
 			// when
@@ -26,11 +23,9 @@ describe('ComponentForm selectors', () => {
 			// given
 			const state = {
 				cmf: {
-					components: Immutable.fromJS({
-						[TCompForm.displayName]: {
-							[componentName]: { dirty: false },
-						},
-					}),
+					components: {
+						[TCompForm.displayName]: { [componentName]: { dirty: false } },
+					},
 				},
 			};
 			// when
@@ -43,11 +38,9 @@ describe('ComponentForm selectors', () => {
 			// given
 			const state = {
 				cmf: {
-					components: Immutable.fromJS({
-						[TCompForm.displayName]: {
-							[componentName]: { dirty: true },
-						},
-					}),
+					components: {
+						[TCompForm.displayName]: { [componentName]: { dirty: true } },
+					},
 				},
 			};
 			// when

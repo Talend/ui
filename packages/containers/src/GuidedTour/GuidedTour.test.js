@@ -1,12 +1,11 @@
 import { screen, render } from '@testing-library/react';
-import { fromJS } from 'immutable';
 import Connect from './GuidedTour.connect';
 import Container from './GuidedTour.container';
 
 const defaultProps = {
-	state: fromJS({
+	state: {
 		show: true,
-	}),
+	},
 	steps: [
 		{
 			content: {

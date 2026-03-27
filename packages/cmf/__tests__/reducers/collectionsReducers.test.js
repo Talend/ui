@@ -1,17 +1,25 @@
-import { Map, List, fromJS } from 'immutable';
+import collectionsReducers, {
+	defaultState,
+	getId,
+	getActionWithCollectionIdAsArray,
+} from '../../src/reducers/collectionsReducers';
 
-import collectionsReducers, { defaultState, getId, getActionWithCollectionIdAsArray } from '../../src/reducers/collectionsReducers';
+const initialState = { ...defaultState, collection1: 'super data' };
 
-const initialState = defaultState.set('collection1', 'super data');
-
-const listInitialState = defaultState.set(
-	'collectionid',
-	new List().set(0, { id: 0, label: 'test data 0' }).set(1, { id: 1, label: 'test data 1' })
-);
-const mapInitialState = defaultState.set(
-	'collectionid',
-	new Map().set('test0', 'test data 0').set('test1', 'test data 1')
-);
+const listInitialState = {
+	...defaultState,
+	collectionid: [
+		{ id: 0, label: 'test data 0' },
+		{ id: 1, label: 'test data 1' },
+	],
+};
+const mapInitialState = {
+	...defaultState,
+	collectionid: {
+		test0: 'test data 0',
+		test1: 'test data 1',
+	},
+};
 
 describe('check collection management reducer', () => {
 	it('should return state if no action passed', () => {
@@ -19,97 +27,127 @@ describe('check collection management reducer', () => {
 	});
 
 	it('REACT_CMF.COLLECTION_ADD_OR_REPLACE should properly add data into store', () => {
-		expect(collectionsReducers(initialState, {
-			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			collectionId: ['collectionId'],
-			data: 'data can be anything',
-		})).toEqual(new Map()
-			.set('collection1', 'super data')
-			.set('collectionId', 'data can be anything'));
+		expect(
+			collectionsReducers(initialState, {
+				type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
+				collectionId: ['collectionId'],
+				data: 'data can be anything',
+			}),
+		).toEqual({
+			collection1: 'super data',
+			collectionId: 'data can be anything',
+		});
 	});
 
 	it('REACT_CMF.COLLECTION_ADD_OR_REPLACE should properly replace data into store', () => {
-		expect(collectionsReducers(initialState, {
-			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			collectionId: ['collection1'],
-			data: 'data can be anything',
-		})).toEqual(new Map().set('collection1', 'data can be anything'));
+		expect(
+			collectionsReducers(initialState, {
+				type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
+				collectionId: ['collection1'],
+				data: 'data can be anything',
+			}),
+		).toEqual({ collection1: 'data can be anything' });
 	});
 
 	it('REACT_CMF.COLLECTION_ADD_OR_REPLACE should properly add nested collection into store', () => {
-		const initState = fromJS({
+		const initState = {
 			collection1: {
 				data: 'data can be anything',
 			},
-		});
-		const expectedResult = initState.setIn(['collection1', 'nestedCollection'], fromJS(['item 1', 'item 2']));
-		expect(collectionsReducers(initState, {
-			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			collectionId: ['collection1', 'nestedCollection'],
-			data: ['item 1', 'item 2'],
-		})).toEqual(expectedResult);
+		};
+		const expectedResult = {
+			collection1: {
+				data: 'data can be anything',
+				nestedCollection: ['item 1', 'item 2'],
+			},
+		};
+		expect(
+			collectionsReducers(initState, {
+				type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
+				collectionId: ['collection1', 'nestedCollection'],
+				data: ['item 1', 'item 2'],
+			}),
+		).toEqual(expectedResult);
 	});
 
 	it('REACT_CMF.COLLECTION_ADD_OR_REPLACE should properly replace nested collection into store', () => {
-		const initState = fromJS({
+		const initState = {
 			collection1: {
 				nestedCollection: 'data can be anything',
 			},
-		});
-		const expectedResult = initState.setIn(['collection1', 'nestedCollection'], fromJS(['item 1', 'item 2']));
-		expect(collectionsReducers(initState, {
-			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			collectionId: ['collection1', 'nestedCollection'],
-			data: ['item 1', 'item 2'],
-		})).toEqual(expectedResult);
+		};
+		const expectedResult = {
+			collection1: {
+				nestedCollection: ['item 1', 'item 2'],
+			},
+		};
+		expect(
+			collectionsReducers(initState, {
+				type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
+				collectionId: ['collection1', 'nestedCollection'],
+				data: ['item 1', 'item 2'],
+			}),
+		).toEqual(expectedResult);
 	});
 
 	it('REACT_CMF.COLLECTION_REMOVE should properly remove collection from the store', () => {
-		expect(collectionsReducers(initialState, {
-			type: 'REACT_CMF.COLLECTION_REMOVE',
-			collectionId: ['collection1'],
-		})).toEqual(new Map());
+		expect(
+			collectionsReducers(initialState, {
+				type: 'REACT_CMF.COLLECTION_REMOVE',
+				collectionId: ['collection1'],
+			}),
+		).toEqual({});
 	});
 
 	it('REACT_CMF.COLLECTION_REMOVE should properly remove nested collection from the store', () => {
-		const initState = fromJS({
+		const initState = {
 			collection: {
 				nestedCollection: {
 					list: ['item 1', 'item 2'],
 				},
 			},
-		});
-		const expectedResult = initState.deleteIn(['collection', 'nestedCollection', 'list']);
-		expect(collectionsReducers(initState, {
-			type: 'REACT_CMF.COLLECTION_REMOVE',
-			collectionId: ['collection', 'nestedCollection', 'list'],
-		})).toEqual(expectedResult);
+		};
+		const expectedResult = {
+			collection: {
+				nestedCollection: {},
+			},
+		};
+		expect(
+			collectionsReducers(initState, {
+				type: 'REACT_CMF.COLLECTION_REMOVE',
+				collectionId: ['collection', 'nestedCollection', 'list'],
+			}),
+		).toEqual(expectedResult);
 	});
 
-	it('REACT_CMF.COLLECTION_REMOVE should throw when collection doesn\'t exist', () => {
+	it("REACT_CMF.COLLECTION_REMOVE should throw when collection doesn't exist", () => {
 		expect(() => {
 			collectionsReducers(initialState, {
 				type: 'REACT_CMF.COLLECTION_REMOVE',
 				collectionId: ['unknown collection'],
 			});
-		}).toThrowError('Can\'t remove collection unknown collection since it doesn\'t exist.');
+		}).toThrowError("Can't remove collection unknown collection since it doesn't exist.");
 	});
 });
 
 describe('REACT_CMF.COLLECTION_MUTATE', () => {
-	it('shouldn\'t mutate if id doesn\'t exist', () => {
-		expect(collectionsReducers(mapInitialState, {
-			type: 'REACT_CMF.COLLECTION_MUTATE',
-			id: ['wrongCollectionid'],
-			operation: {},
-		})).toEqual(mapInitialState);
+	it("shouldn't mutate if id doesn't exist", () => {
+		expect(
+			collectionsReducers(mapInitialState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				id: ['wrongCollectionid'],
+				operation: {},
+			}),
+		).toEqual(mapInitialState);
 	});
 
-	it('shouldn\'t mutate if no operations', () => {
-		expect(collectionsReducers(mapInitialState, {
-			type: 'REACT_CMF.COLLECTION_MUTATE',
-			id: ['collectionid'],
-		})).toEqual(mapInitialState);
+	it("shouldn't mutate if no operations", () => {
+		expect(
+			collectionsReducers(mapInitialState, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				id: ['collectionid'],
+			}),
+		).toEqual(mapInitialState);
 	});
 
 	describe('#add', () => {
@@ -121,7 +159,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					add: [{ id: 2, label: 'test data 2' }],
 				},
 			});
-			expect(nextState.get('collectionid').toJS()).toEqual([
+			expect(nextState.collectionid).toEqual([
 				{ id: 0, label: 'test data 0' },
 				{ id: 1, label: 'test data 1' },
 				{ id: 2, label: 'test data 2' },
@@ -129,15 +167,13 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 		});
 
 		it('should insert elements to nested List properly', () => {
-			const initState = fromJS({
+			const initState = {
 				collection: {
 					nestedCollection: {
-						list: [
-							{ id: 0, label: 'test data 0' },
-						],
+						list: [{ id: 0, label: 'test data 0' }],
 					},
 				},
-			});
+			};
 			const nextState = collectionsReducers(initState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
 				id: ['collection', 'nestedCollection', 'list'],
@@ -148,7 +184,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					],
 				},
 			});
-			expect(nextState.getIn(['collection', 'nestedCollection', 'list']).toJS()).toEqual([
+			expect(nextState.collection.nestedCollection.list).toEqual([
 				{ id: 0, label: 'test data 0' },
 				{ id: 1, label: 'test data 1' },
 				{ id: 2, label: 'test data 2' },
@@ -163,17 +199,17 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					add: [{ test2: 'test data 2' }],
 				},
 			});
-			expect(nextState).toEqual(
-				new Map().set('collectionid', fromJS({
+			expect(nextState).toEqual({
+				collectionid: {
 					test0: 'test data 0',
 					test1: 'test data 1',
 					test2: 'test data 2',
-				}))
-			);
+				},
+			});
 		});
 
 		it('should insert elements to nested Map properly', () => {
-			const initState = fromJS({
+			const initState = {
 				collection: {
 					nestedCollection: {
 						obj: {
@@ -182,7 +218,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 						},
 					},
 				},
-			});
+			};
 			const nextState = collectionsReducers(initState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
 				id: ['collection', 'nestedCollection', 'obj'],
@@ -190,19 +226,17 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					add: [{ test2: 'test data 2' }],
 				},
 			});
-			expect(nextState).toEqual(
-				fromJS({
-					collection: {
-						nestedCollection: {
-							obj: {
-								test0: 'test data 0',
-								test1: 'test data 1',
-								test2: 'test data 2',
-							},
+			expect(nextState).toEqual({
+				collection: {
+					nestedCollection: {
+						obj: {
+							test0: 'test data 0',
+							test1: 'test data 1',
+							test2: 'test data 2',
 						},
 					},
-				}),
-			);
+				},
+			});
 		});
 	});
 
@@ -215,13 +249,11 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					delete: [0],
 				},
 			});
-			expect(nextState.get('collectionid').toJS()).toEqual([
-				{ id: 1, label: 'test data 1' },
-			]);
+			expect(nextState.collectionid).toEqual([{ id: 1, label: 'test data 1' }]);
 		});
 
 		it('should delete elements from nested List properly', () => {
-			const initState = fromJS({
+			const initState = {
 				collection: {
 					nestedCollection: {
 						list: [
@@ -231,7 +263,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 						],
 					},
 				},
-			});
+			};
 			const nextState = collectionsReducers(initState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
 				id: ['collection', 'nestedCollection', 'list'],
@@ -239,9 +271,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					delete: [0, 1],
 				},
 			});
-			expect(nextState.getIn(['collection', 'nestedCollection', 'list']).toJS()).toEqual([
-				{ id: 2, label: 'test data 2' },
-			]);
+			expect(nextState.collection.nestedCollection.list).toEqual([{ id: 2, label: 'test data 2' }]);
 		});
 
 		it('should delete elements from Map properly', () => {
@@ -252,15 +282,15 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					delete: ['test0'],
 				},
 			});
-			expect(nextState).toEqual(
-				new Map().set('collectionid', fromJS({
+			expect(nextState).toEqual({
+				collectionid: {
 					test1: 'test data 1',
-				}))
-			);
+				},
+			});
 		});
 
 		it('should delete elements from nested Map properly', () => {
-			const initState = fromJS({
+			const initState = {
 				collection: {
 					nestedCollection: {
 						obj: {
@@ -270,7 +300,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 						},
 					},
 				},
-			});
+			};
 			const nextState = collectionsReducers(initState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
 				id: ['collection', 'nestedCollection', 'obj'],
@@ -278,12 +308,12 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					delete: ['test0', 'test1'],
 				},
 			});
-			expect(nextState.getIn(['collection', 'nestedCollection', 'obj']).toJS()).toEqual({
+			expect(nextState.collection.nestedCollection.obj).toEqual({
 				test2: 'test data 2',
 			});
 		});
 
-		it('should delete nothing when ids don\'t match in List', () => {
+		it("should delete nothing when ids don't match in List", () => {
 			const nextState = collectionsReducers(listInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
 				id: ['collectionid'],
@@ -294,7 +324,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 			expect(nextState).toEqual(listInitialState);
 		});
 
-		it('should delete nothing when ids don\'t match in Map', () => {
+		it("should delete nothing when ids don't match in Map", () => {
 			const nextState = collectionsReducers(mapInitialState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
 				id: ['collectionid'],
@@ -317,14 +347,14 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					},
 				},
 			});
-			expect(nextState.get('collectionid').toJS()).toEqual([
+			expect(nextState.collectionid).toEqual([
 				{ id: 0, label: 'new test data 0' },
 				{ id: 1, label: 'test data 1' },
 			]);
 		});
 
 		it('should update elements of nested List properly', () => {
-			const initState = fromJS({
+			const initState = {
 				collection: {
 					nestedCollection: {
 						list: [
@@ -334,7 +364,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 						],
 					},
 				},
-			});
+			};
 			const nextState = collectionsReducers(initState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
 				id: ['collection', 'nestedCollection', 'list'],
@@ -345,7 +375,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					},
 				},
 			});
-			expect(nextState.getIn(['collection', 'nestedCollection', 'list']).toJS()).toEqual([
+			expect(nextState.collection.nestedCollection.list).toEqual([
 				{ id: 0, label: 'new test data 0' },
 				{ id: 1, label: 'new test data 1' },
 				{ id: 2, label: 'test data 2' },
@@ -362,16 +392,16 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					},
 				},
 			});
-			expect(nextState).toEqual(
-				new Map().set('collectionid', fromJS({
+			expect(nextState).toEqual({
+				collectionid: {
 					test0: 'new test data 0',
 					test1: 'test data 1',
-				}))
-			);
+				},
+			});
 		});
 
 		it('should update elements of nested Map properly', () => {
-			const initState = fromJS({
+			const initState = {
 				collection: {
 					nestedCollection: {
 						obj: {
@@ -381,7 +411,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 						},
 					},
 				},
-			});
+			};
 			const nextState = collectionsReducers(initState, {
 				type: 'REACT_CMF.COLLECTION_MUTATE',
 				id: ['collection', 'nestedCollection', 'obj'],
@@ -392,7 +422,7 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 					},
 				},
 			});
-			expect(nextState.getIn(['collection', 'nestedCollection', 'obj']).toJS()).toEqual({
+			expect(nextState.collection.nestedCollection.obj).toEqual({
 				test0: 'new test data 0',
 				test1: 'new test data 1',
 				test2: 'test data 2',
@@ -403,28 +433,37 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 
 describe('should properly perform all operations if collectionId is string', () => {
 	it('REACT_CMF.COLLECTION_ADD_OR_REPLACE should properly add data into store', () => {
-		expect(collectionsReducers(initialState, {
-			type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
-			collectionId: 'collectionId',
-			data: 'data can be anything',
-		})).toEqual(new Map()
-			.set('collection1', 'super data')
-			.set('collectionId', 'data can be anything'));
+		expect(
+			collectionsReducers(initialState, {
+				type: 'REACT_CMF.COLLECTION_ADD_OR_REPLACE',
+				collectionId: 'collectionId',
+				data: 'data can be anything',
+			}),
+		).toEqual({
+			collection1: 'super data',
+			collectionId: 'data can be anything',
+		});
 	});
 
 	it('REACT_CMF.COLLECTION_REMOVE should properly remove collection from the store', () => {
-		const initState = fromJS({
+		const initState = {
 			collection: {
 				nestedCollection: {
 					list: ['item 1', 'item 2'],
 				},
 			},
-		});
-		const expectedResult = initState.deleteIn(['collection', 'nestedCollection', 'list']);
-		expect(collectionsReducers(initState, {
-			type: 'REACT_CMF.COLLECTION_REMOVE',
-			collectionId: 'collection.nestedCollection.list',
-		})).toEqual(expectedResult);
+		};
+		const expectedResult = {
+			collection: {
+				nestedCollection: {},
+			},
+		};
+		expect(
+			collectionsReducers(initState, {
+				type: 'REACT_CMF.COLLECTION_REMOVE',
+				collectionId: 'collection.nestedCollection.list',
+			}),
+		).toEqual(expectedResult);
 	});
 
 	it('REACT_CMF.COLLECTION_MUTATE should mutate List properly', () => {
@@ -435,7 +474,7 @@ describe('should properly perform all operations if collectionId is string', () 
 				add: [{ id: 2, label: 'test data 2' }],
 			},
 		});
-		expect(nextState.get('collectionid').toJS()).toEqual([
+		expect(nextState.collectionid).toEqual([
 			{ id: 0, label: 'test data 0' },
 			{ id: 1, label: 'test data 1' },
 			{ id: 2, label: 'test data 2' },
@@ -444,20 +483,9 @@ describe('should properly perform all operations if collectionId is string', () 
 });
 
 describe('getId', () => {
-	it('should return mutable element id', () => {
+	it('should return element id', () => {
 		// given
 		const element = { id: 'toto' };
-
-		// when
-		const id = getId(element);
-
-		// then
-		expect(id).toBe('toto');
-	});
-
-	it('should return immutable element id', () => {
-		// given
-		const element = fromJS({ id: 'toto' });
 
 		// when
 		const id = getId(element);

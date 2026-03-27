@@ -78,41 +78,31 @@ describe('port api', () => {
 			// given
 			// when
 			// expect
-			expect(() =>
-				Port.create(improperId as any, nodeId, index, topology, portType),
-			).toThrow();
+			expect(() => Port.create(improperId as any, nodeId, index, topology, portType)).toThrow();
 		});
 		it('throw if given an improper NodeId', () => {
 			// given
 			// when
 			// expect
-			expect(() =>
-				Port.create(id, improperNodeId as any, index, topology, portType),
-			).toThrow();
+			expect(() => Port.create(id, improperNodeId as any, index, topology, portType)).toThrow();
 		});
 		it('throw if given an improper index', () => {
 			// given
 			// when
 			// expect
-			expect(() =>
-				Port.create(id, nodeId, improperIndex as any, topology, portType),
-			).toThrow();
+			expect(() => Port.create(id, nodeId, improperIndex as any, topology, portType)).toThrow();
 		});
 		it('throw if given an improper topology', () => {
 			// given
 			// when
 			// expect
-			expect(() =>
-				Port.create(id, nodeId, index, impropertopology as any, portType),
-			).toThrow();
+			expect(() => Port.create(id, nodeId, index, impropertopology as any, portType)).toThrow();
 		});
 		it('throw if given an improper componentType', () => {
 			// given
 			// when
 			// expect
-			expect(() =>
-				Port.create(id, nodeId, index, topology, improperPortType as any),
-			).toThrow();
+			expect(() => Port.create(id, nodeId, index, topology, improperPortType as any)).toThrow();
 		});
 	});
 

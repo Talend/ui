@@ -1,5 +1,5 @@
-import { Map } from 'immutable';
 import Component from '@talend/react-components/lib/TabBar';
+
 import Connected, { DEFAULT_STATE } from './TabBar.connect';
 import { getComponentState, getSelectedKey } from './TabBar.selectors';
 
@@ -12,10 +12,12 @@ describe('TabBar connected', () => {
 
 describe('TabBar selectors', () => {
 	let mockState;
-	const componentState = Map({ selectedKey: 'hello' });
+	const componentState = { selectedKey: 'hello' };
 	beforeEach(() => {
 		mockState = {
-			cmf: { components: Map({ [Component.displayName]: Map({ thisTabBar: componentState }) }) },
+			cmf: {
+				components: { [Component.displayName]: { thisTabBar: componentState } },
+			},
 		};
 	});
 

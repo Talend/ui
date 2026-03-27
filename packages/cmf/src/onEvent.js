@@ -1,5 +1,4 @@
 import get from 'lodash/get';
-import Immutable from 'immutable';
 import CONSTANT from './constant';
 
 function serializeEvent(event) {
@@ -59,9 +58,7 @@ function getOnEventSetStateHandler(instance, props, config, currentHandler) {
 				}
 			} else if (value === 'toggle') {
 				// because toggle need to read the state we dispatch it with a function
-				instance.props.setState(_props =>
-					instance.props.setState({ [key]: !_props.state.get(key) }),
-				);
+				instance.props.setState(_props => instance.props.setState({ [key]: !_props.state[key] }));
 			} else {
 				// eslint-disable-next-line no-param-reassign
 				acc[key] = value;
@@ -84,7 +81,7 @@ const ACTION_CREATOR = 'ACTION_CREATOR';
 const DISPATCH = 'DISPATCH';
 const SETSTATE = 'SETSTATE';
 
-const INITIAL_STATE = new Immutable.Map();
+const INITIAL_STATE = {};
 
 function addOnEventSupport(handlerType, instance, props, key) {
 	if (CONSTANT[`IS_HANDLER_${handlerType}_REGEX`].test(key)) {

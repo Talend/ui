@@ -30,9 +30,7 @@ export function isMapElseThrow(map: Map<any, any>) {
 export function isKeyElseThrow(key: string | number) {
 	const test = isString(key);
 	if (!test) {
-		throwInDev(
-			`key should be a string, was given ${key && key.toString()} of type ${typeof key}`,
-		);
+		throwInDev(`key should be a string, was given ${key && key.toString()} of type ${typeof key}`);
 	}
 	return test;
 }

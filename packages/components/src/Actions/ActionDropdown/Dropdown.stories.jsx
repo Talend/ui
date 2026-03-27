@@ -1,6 +1,4 @@
 /* eslint-disable no-console */
-import Immutable from 'immutable';
-
 import FilterBar from '../../FilterBar';
 import Action from '../Action';
 import ActionDropdown from './ActionDropdown.component';
@@ -59,10 +57,10 @@ const contentAndLoadingAdditionalContent = {
 	],
 };
 
-const withImmutable = {
+const withPlainItems = {
 	id: 'context-dropdown-related-items',
-	label: 'related immutable items',
-	items: Immutable.fromJS([
+	label: 'related items',
+	items: [
 		{
 			id: 'context-dropdown-item-document-1',
 			icon: 'talend-file-json-o',
@@ -79,10 +77,10 @@ const withImmutable = {
 			'data-feature': 'actiondropdown.items',
 			onClick: () => console.log('document 2 click'),
 		},
-	]),
+	],
 };
 
-const openWithImmutable = { ...withImmutable, open: true };
+const openWithPlainItems = { ...withPlainItems, open: true };
 
 const withComponents = {
 	id: 'context-dropdown-custom-items',
@@ -288,9 +286,9 @@ export const Default = {
 			<div id="toolTip">
 				<ActionDropdown {...propsTooltip} />
 			</div>
-			<h3>With immutable items :</h3>
+			<h3>With plain object items :</h3>
 			<div id="default">
-				<ActionDropdown {...withImmutable} />
+				<ActionDropdown {...withPlainItems} />
 			</div>
 			<h3>Loading additional content</h3>
 			<div id="loadingAdditionalContent">
@@ -300,9 +298,9 @@ export const Default = {
 			<div id="contentAndLoadingAdditionalContent">
 				<ActionDropdown {...contentAndLoadingAdditionalContent} />
 			</div>
-			<h3>Opened and with immutable items :</h3>
-			<div id="openImmutable">
-				<ActionDropdown {...openWithImmutable} />
+			<h3>Opened and with plain object items :</h3>
+			<div id="openPlainItems">
+				<ActionDropdown {...openWithPlainItems} />
 			</div>
 		</div>
 	),

@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import Immutable from 'immutable';
 import { action } from 'storybook/actions';
 
 import ActionDropdown from '.';
@@ -45,7 +44,7 @@ export function Default({ onSelect }) {
 		displayMode: 'dropdown',
 		label: 'my immutable items',
 		onSelect,
-		items: Immutable.fromJS([
+		items: [
 			{
 				id: 'item1',
 				label: 'First immutable label',
@@ -54,7 +53,7 @@ export function Default({ onSelect }) {
 				id: 'item2',
 				label: '2nd immutable',
 			},
-		]),
+		],
 	};
 
 	return (

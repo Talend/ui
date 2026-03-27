@@ -1,31 +1,31 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`reducers.ack.ackReducer > should reduce addContext 1`] = `
-Immutable.Map {
-  "123": Immutable.Map {
+{
+  "123": {
+    "actionCreator": "my super action creator",
     "data": {
       "foo": "bar",
     },
-    "actionCreator": "my super action creator",
   },
 }
 `;
 
 exports[`reducers.ack.ackReducer > should reduce deleteACK 1`] = `
-Immutable.Map {
-  "456": Immutable.Map {
+{
+  "456": {
     "foo": "bar",
   },
 }
 `;
 
 exports[`reducers.ack.ackReducer > should reduce receiveMessage 1`] = `
-Immutable.Map {
-  "123": Immutable.Map {
+{
+  "123": {
     "foo": "bar",
     "received": true,
   },
-  "456": Immutable.Map {
+  "456": {
     "foo": "bar",
   },
 }
@@ -33,12 +33,12 @@ Immutable.Map {
 
 exports[`reducers.ackProcessed higher order reducer > should reduce addContext 1`] = `
 {
-  "ack": Immutable.Map {
-    "123": Immutable.Map {
+  "ack": {
+    "123": {
+      "actionCreator": "my super action creator",
       "data": {
         "foo": "bar",
       },
-      "actionCreator": "my super action creator",
     },
   },
 }
@@ -46,8 +46,8 @@ exports[`reducers.ackProcessed higher order reducer > should reduce addContext 1
 
 exports[`reducers.ackProcessed higher order reducer > should reduce deleteACK 1`] = `
 {
-  "ack": Immutable.Map {
-    "456": Immutable.Map {
+  "ack": {
+    "456": {
       "foo": "bar",
     },
   },
@@ -56,12 +56,12 @@ exports[`reducers.ackProcessed higher order reducer > should reduce deleteACK 1`
 
 exports[`reducers.ackProcessed higher order reducer > should reduce receiveMessage 1`] = `
 {
-  "ack": Immutable.Map {
-    "123": Immutable.Map {
+  "ack": {
+    "123": {
       "foo": "bar",
       "received": true,
     },
-    "456": Immutable.Map {
+    "456": {
       "foo": "bar",
     },
   },

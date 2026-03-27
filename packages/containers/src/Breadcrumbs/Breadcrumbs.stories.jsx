@@ -1,7 +1,6 @@
-import { Map } from 'immutable';
 import Breadcrumbs from '.';
 
-const initialState = new Map({
+const initialState = {
 	items: [
 		{ text: 'Text A', title: 'Text title A', actionCreator: 'breadcrumb:folder:openA' },
 		{ text: 'Text B', title: 'Text title B', actionCreator: 'breadcrumb:folder:openB' },
@@ -12,7 +11,7 @@ const initialState = new Map({
 		},
 	],
 	maxItems: 3,
-});
+};
 
 export default {
 	title: 'Breadcrumb',

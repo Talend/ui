@@ -155,9 +155,7 @@ describe('Size', () => {
 			// given
 			// when
 			// expect
-			expect(() => Size.setHeight(height, improperTestSize)).toThrow(
-				isNotProperSizeException,
-			);
+			expect(() => Size.setHeight(height, improperTestSize)).toThrow(isNotProperSizeException);
 		});
 	});
 });

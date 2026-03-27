@@ -1,14 +1,13 @@
 import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import Component from '@talend/react-components/lib/EditableText';
-import Immutable from 'immutable';
 import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
 
 export const DISPLAY_NAME = 'Container(EditableText)';
-export const DEFAULT_STATE = new Immutable.Map({
+export const DEFAULT_STATE = {
 	editMode: false,
-});
+};
 
 class EditableText extends RComponent {
 	static displayName = DISPLAY_NAME;
@@ -91,7 +90,7 @@ class EditableText extends RComponent {
 			onCancel: this.onCancel,
 			onSubmit: this.onSubmit,
 			onChange: this.onChange,
-			...state.toJS(),
+			...state,
 		};
 		return <Component {...props} />;
 	}

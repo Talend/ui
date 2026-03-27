@@ -509,9 +509,7 @@ describe('Link', () => {
 			// given
 			// when
 			// expect
-			expect(() => Link.deleteGraphicalAttribute(key, improperLink)).toThrow(
-				isNotLinkException,
-			);
+			expect(() => Link.deleteGraphicalAttribute(key, improperLink)).toThrow(isNotLinkException);
 		});
 	});
 });

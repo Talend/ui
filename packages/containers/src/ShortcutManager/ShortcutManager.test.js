@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Map } from 'immutable';
 
 import { mock } from '@talend/react-cmf';
 
@@ -21,7 +20,7 @@ describe('handles routes', () => {
 			esc: { '/test': '/test/next' },
 		},
 	};
-	state.cmf.components = new Map();
+	state.cmf.components = {};
 	state.routing = {
 		locationBeforeTransitions: {
 			pathname: '/test',

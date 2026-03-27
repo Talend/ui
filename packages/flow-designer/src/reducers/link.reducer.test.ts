@@ -87,10 +87,7 @@ describe('check linkreducer', () => {
 					}),
 				),
 		)
-		.set(
-			'parents',
-			Map().set('id1', Map()).set('id2', Map().set('id1', 'id1')).set('id3', Map()),
-		)
+		.set('parents', Map().set('id1', Map()).set('id2', Map().set('id1', 'id1')).set('id3', Map()))
 		.set(
 			'childrens',
 			Map().set('id1', Map().set('id2', 'id2')).set('id2', Map()).set('id3', Map()),

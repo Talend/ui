@@ -51,8 +51,8 @@ AppLoaderContainer.propTypes = {
  */
 export function mapStateToProps(state, ownProps) {
 	return {
-		loading: !get(ownProps, 'hasCollections', []).every(collectionName =>
-			state.cmf.collections.has(collectionName),
+		loading: !get(ownProps, 'hasCollections', []).every(
+			collectionName => collectionName in state.cmf.collections,
 		),
 	};
 }

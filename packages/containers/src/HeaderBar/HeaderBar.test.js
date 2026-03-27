@@ -1,8 +1,8 @@
-import { Map, List } from 'immutable';
 import { render, screen } from '@testing-library/react';
 
 // eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
+
 import Container, { DEFAULT_STATE } from './HeaderBar.container';
 import Connected, { mapStateToProps } from './HeaderBar.connect';
 import Constants from './HeaderBar.constant';
@@ -28,9 +28,9 @@ describe('Container HeaderBar', () => {
 					url: 'http://foo.bar',
 				},
 			],
-			state: new Map({
+			state: {
 				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
-			}),
+			},
 		};
 
 		render(await prepareCMF(<Container {...props} />));
@@ -65,9 +65,9 @@ describe('Container HeaderBar', () => {
 					},
 				],
 			},
-			state: new Map({
+			state: {
 				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
-			}),
+			},
 		};
 		render(await prepareCMF(<Container {...props} />));
 		expect(screen.getAllByRole('menuitem')).toHaveLength(3);
@@ -90,9 +90,9 @@ describe('Container HeaderBar', () => {
 			prepareProducts: jest.fn(products =>
 				products.map(product => ({ ...product, label: `${product.label} and bar` })),
 			),
-			state: new Map({
+			state: {
 				productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS,
-			}),
+			},
 		};
 
 		render(<Container {...props} />);
@@ -103,9 +103,9 @@ describe('Container HeaderBar', () => {
 	it('should render HeaderBar container while fetching items', async () => {
 		const props = {
 			...containerProps,
-			state: new Map({
+			state: {
 				productsFetchState: Constants.FETCHING_PRODUCTS,
-			}),
+			},
 		};
 
 		render(await prepareCMF(<Container {...props} />));
@@ -124,11 +124,7 @@ describe('Connected HeaderBar', () => {
 	it('should mapStateToProps with an empty list of products', () => {
 		const state = {
 			cmf: {
-				collections: new Map({
-					HeaderBar: {
-						[Constants.COLLECTION_ID]: new List(),
-					},
-				}),
+				collections: {},
 			},
 		};
 		const ownProps = {};
@@ -146,9 +142,7 @@ describe('Connected HeaderBar', () => {
 		const apps = [{ url: 'foobar' }];
 		const state = {
 			cmf: {
-				collections: new Map({
-					[Constants.COLLECTION_ID]: new List(apps),
-				}),
+				collections: { [Constants.COLLECTION_ID]: apps },
 			},
 		};
 		const ownProps = {};

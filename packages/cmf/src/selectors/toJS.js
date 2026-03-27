@@ -1,19 +1,15 @@
 function toJS(data) {
-	if (data) {
-		if (typeof data.toJS === 'function') {
-			return data.toJS();
-		}
-		throw new Error('the selector return a data which is not an immutable');
-	}
-	return undefined;
+	return data;
 }
 
 /**
- * toJS is an higher order selector.
- * It modify a given selector to return the value as a POJO
+ * toJS is a higher order selector.
+ * The store is now plain JS — this wrapper is retained for backward compatibility
+ * and memoization only (prevents unnecessary re-renders when selector result is the
+ * same reference). No conversion is performed.
  * Note: your selector must use only one selector
  * @param {function} selector the selector
- * @returns the POJO associated to the given selector
+ * @returns the value returned by the given selector (already a plain JS value)
  */
 export default function getToJSMemoized(selector) {
 	if (typeof selector !== 'function') {

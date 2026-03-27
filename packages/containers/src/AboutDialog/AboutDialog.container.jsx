@@ -1,14 +1,13 @@
 import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
-import { Map } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import Component from '@talend/react-components/lib/AboutDialog';
 import Constants from './AboutDialog.constant';
 
-export const DEFAULT_STATE = new Map({
+export const DEFAULT_STATE = {
 	expanded: false,
-});
+};
 
 class AboutDialog extends RComponent {
 	static displayName = 'Container(AboutDialog)';
@@ -26,7 +25,7 @@ class AboutDialog extends RComponent {
 	}
 
 	toggle() {
-		this.props.setState(({ state }) => ({ expanded: !state.get('expanded') }));
+		this.props.setState(({ state }) => ({ expanded: !state?.expanded }));
 	}
 
 	hide() {
@@ -39,9 +38,9 @@ class AboutDialog extends RComponent {
 			<Component
 				onToggle={this.toggle}
 				onHide={this.hide}
-				expanded={state.get('expanded')}
-				show={state.get('show')}
-				loading={state.get('loading')}
+				expanded={state?.expanded}
+				show={state?.show}
+				loading={state?.loading}
 				{...omit(props, cmfConnect.INJECTED_PROPS)}
 			/>
 		);

@@ -1,6 +1,6 @@
 import { screen, render, fireEvent } from '@testing-library/react';
-import { Map } from 'immutable';
 import Container, { DEFAULT_STATE, DISPLAY_NAME } from './SubHeaderBar.container';
+
 import Connect from './SubHeaderBar.connect';
 import { getComponentState } from './SubHeaderBar.selectors';
 
@@ -50,11 +50,11 @@ describe('SubHeaderBar container', () => {
 
 describe('SubHeaderBar selectors', () => {
 	let mockState;
-	const componentState = Map({});
+	const componentState = {};
 	beforeEach(() => {
 		mockState = {
 			cmf: {
-				components: Map({ [DISPLAY_NAME]: Map({ mySubHeaderBar: componentState }) }),
+				components: { [DISPLAY_NAME]: { mySubHeaderBar: componentState } },
 			},
 		};
 	});

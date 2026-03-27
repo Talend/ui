@@ -2,7 +2,6 @@
 
 /* eslint-disable react/display-name */
 import { fireEvent, render, screen } from '@testing-library/react';
-import { fromJS, List as ImmutableList, Map } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 
 // eslint-disable-next-line @talend/import-depth
@@ -70,7 +69,7 @@ const settings = {
 	actions,
 };
 
-const items = fromJS([
+const items = [
 	{
 		id: 1,
 		name: 'Title with actions',
@@ -98,7 +97,7 @@ const items = fromJS([
 		modified: '2016-09-22',
 		author: 'Jean-Pierre DUPONT with super long name',
 	},
-]);
+];
 
 vi.mock('@talend/react-components/lib/List', () => ({
 	default: ({ getProps, ...props }) => (
@@ -144,7 +143,7 @@ describe('Container List', () => {
 				<Container
 					cellDictionary={{ custom: { component: 'componentId' } }}
 					getComponent={getComponent}
-					items={fromJS([])}
+					items={[]}
 					getProps={getProps}
 				/>,
 				{ cmfModule },
@@ -172,7 +171,7 @@ describe('Container List', () => {
 				<Container
 					getProps={getProps}
 					getComponent={getComponent}
-					items={fromJS([])}
+					items={[]}
 					headerDictionary={{ custom: { component: 'componentId' } }}
 				/>,
 				{ cmfModule },
@@ -492,7 +491,7 @@ describe('Container List', () => {
 				left: ['object:remove'],
 			};
 			multiSelectionSetting.setState = jest.fn();
-			const state = fromJS({ selectedItems: [] });
+			const state = { selectedItems: [] };
 			multiSelectionSetting.state = state;
 			render(
 				await prepareCMF(
@@ -505,8 +504,8 @@ describe('Container List', () => {
 			const props = getProps.mock.calls[0][0];
 			props.list.itemProps.onToggle({}, { id: 1 });
 			// then
-			expect(multiSelectionSetting.setState.mock.calls[0][0]).toMatchObject({
-				selectedItems: expect.any(ImmutableList),
+			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
+				selectedItems: [1],
 			});
 		});
 
@@ -519,7 +518,7 @@ describe('Container List', () => {
 				left: ['object:remove'],
 			};
 			multiSelectionSetting.setState = jest.fn();
-			const state = fromJS({ selectedItems: [1] });
+			const state = { selectedItems: [1] };
 			multiSelectionSetting.state = state;
 			render(
 				await prepareCMF(
@@ -533,7 +532,7 @@ describe('Container List', () => {
 			props.list.itemProps.onToggle({}, { id: 1 });
 			// then
 			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
-				selectedItems: new ImmutableList([]),
+				selectedItems: [],
 			});
 		});
 		it('should select all items', async () => {
@@ -546,7 +545,7 @@ describe('Container List', () => {
 				left: ['object:remove'],
 			};
 			multiSelectionSetting.setState = jest.fn();
-			const state = fromJS({ selectedItems: [] });
+			const state = { selectedItems: [] };
 			multiSelectionSetting.state = state;
 			render(
 				await prepareCMF(
@@ -559,9 +558,8 @@ describe('Container List', () => {
 			const props = getProps.mock.calls[0][0];
 			props.list.itemProps.onToggleAll();
 			// then
-
 			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
-				selectedItems: new ImmutableList([1, 2, 3]),
+				selectedItems: [1, 2, 3],
 			});
 		});
 
@@ -574,7 +572,7 @@ describe('Container List', () => {
 				left: ['object:remove'],
 			};
 			multiSelectionSetting.setState = jest.fn();
-			const state = fromJS({ selectedItems: [1, 2, 3] });
+			const state = { selectedItems: [1, 2, 3] };
 			multiSelectionSetting.state = state;
 			render(
 				await prepareCMF(
@@ -588,7 +586,7 @@ describe('Container List', () => {
 			props.list.itemProps.onToggleAll();
 			// then
 			expect(multiSelectionSetting.setState.mock.calls[0][0]).toEqual({
-				selectedItems: new ImmutableList([]),
+				selectedItems: [],
 			});
 		});
 
@@ -601,7 +599,7 @@ describe('Container List', () => {
 				left: ['object:remove'],
 			};
 			multiSelectionSetting.setState = jest.fn();
-			const state = fromJS({ selectedItems: [1, 2, 3] });
+			const state = { selectedItems: [1, 2, 3] };
 			multiSelectionSetting.state = state;
 
 			// when
@@ -629,14 +627,14 @@ describe('Connected List', () => {
 		// given
 		const state = {
 			cmf: {
-				components: fromJS({
+				components: {
 					'Container(List)': {
-						cid: DEFAULT_STATE.toJS(),
+						cid: DEFAULT_STATE,
 					},
-				}),
-				collections: fromJS({
+				},
+				collections: {
 					cid: items,
-				}),
+				},
 			},
 		};
 
@@ -651,18 +649,18 @@ describe('Connected List', () => {
 		// given
 		const state = {
 			cmf: {
-				components: fromJS({
+				components: {
 					'Container(List)': {
-						default: DEFAULT_STATE.toJS(),
+						default: DEFAULT_STATE,
 					},
-				}),
-				collections: new Map(),
+				},
+				collections: {},
 			},
 		};
 
 		// when : no collectionId defined
 		const props = mapStateToProps(state, {
-			items: fromJS(items),
+			items: items,
 		});
 
 		// then
@@ -673,10 +671,10 @@ describe('Connected List', () => {
 		// given
 		const state = {
 			cmf: {
-				components: fromJS({
+				components: {
 					'Container(List)': {
 						cid: {
-							...DEFAULT_STATE.toJS(),
+							...DEFAULT_STATE,
 							toolbar: {
 								pagination: {
 									onChange: 'pagination:change',
@@ -684,8 +682,8 @@ describe('Connected List', () => {
 							},
 						},
 					},
-				}),
-				collections: fromJS({
+				},
+				collections: {
 					cid: {
 						pagination: {
 							totalResults: 36,
@@ -694,7 +692,7 @@ describe('Connected List', () => {
 						},
 						items,
 					},
-				}),
+				},
 			},
 		};
 
@@ -709,7 +707,7 @@ describe('Connected List', () => {
 		// given
 		const state = {
 			cmf: {
-				components: fromJS({
+				components: {
 					'Container(List)': {
 						default: {
 							displayMode: 'large',
@@ -721,25 +719,25 @@ describe('Connected List', () => {
 							filterDocked: true,
 						},
 					},
-				}),
-				collections: new Map(),
+				},
+				collections: {},
 			},
 		};
 		const initalSettings = cloneDeep(settings);
-		initalSettings.items = fromJS(items);
+		initalSettings.items = items;
 		initalSettings.toolbar.filter.defaultFiltering = false;
 		// when : no collectionId defined
 		const props = mapStateToProps(state, initalSettings);
 
 		// then
-		expect(props.items.size).toBe(items.size);
+		expect(props.items.length).toBe(items.length);
 	});
 
 	it('should disable sorting when defaultSorting is set to false', () => {
 		// given
 		const state = {
 			cmf: {
-				components: fromJS({
+				components: {
 					'Container(List)': {
 						default: {
 							displayMode: 'large',
@@ -751,25 +749,25 @@ describe('Connected List', () => {
 							filterDocked: true,
 						},
 					},
-				}),
-				collections: new Map(),
+				},
+				collections: {},
 			},
 		};
 		const initalSettings = cloneDeep(settings);
-		initalSettings.items = fromJS(items);
+		initalSettings.items = items;
 		initalSettings.toolbar.sort.defaultSorting = false;
 		// when : no collectionId defined
 		const props = mapStateToProps(state, initalSettings);
 
 		// then
-		expect(props.items.toJS()[0].id).toBe(1);
+		expect(props.items[0].id).toBe(1);
 	});
 
 	it('should disable paging when defaultPaging is set to false', () => {
 		// given
 		const state = {
 			cmf: {
-				components: fromJS({
+				components: {
 					'Container(List)': {
 						default: {
 							displayMode: 'large',
@@ -781,17 +779,17 @@ describe('Connected List', () => {
 							filterDocked: true,
 						},
 					},
-				}),
-				collections: new Map(),
+				},
+				collections: {},
 			},
 		};
 		const initalSettings = cloneDeep(settings);
-		initalSettings.items = fromJS(items);
+		initalSettings.items = items;
 		initalSettings.toolbar.pagination.defaultPaging = false;
 		// when : no collectionId defined
 		const props = mapStateToProps(state, initalSettings);
 
 		// then
-		expect(props.items.size).toBe(items.size);
+		expect(props.items.length).toBe(items.length);
 	});
 });

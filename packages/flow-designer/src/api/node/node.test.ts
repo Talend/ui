@@ -115,9 +115,7 @@ describe('Node', () => {
 			// given
 			// when
 			// expect
-			expect(() => Node.create(id, position, improperSize, nodeType)).toThrow(
-				improperSizeMessage,
-			);
+			expect(() => Node.create(id, position, improperSize, nodeType)).toThrow(improperSizeMessage);
 		});
 		it('throw if given an improper componentType', () => {
 			// given
@@ -545,9 +543,7 @@ you should use Position module functions to create and transform Position`);
 			// given
 			// when
 			// expect
-			expect(() => Node.deleteGraphicalAttribute(key, improperNode)).toThrow(
-				isNotNodeException,
-			);
+			expect(() => Node.deleteGraphicalAttribute(key, improperNode)).toThrow(isNotNodeException);
 		});
 	});
 });

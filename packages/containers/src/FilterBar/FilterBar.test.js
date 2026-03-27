@@ -1,5 +1,5 @@
-import { Map } from 'immutable';
-import { screen, render, fireEvent } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import Container, { DEFAULT_STATE, DISPLAY_NAME } from './FilterBar.container';
 import Connected from './FilterBar.connect';
 import { getComponentState, getQuery } from './FilterBar.selectors';
@@ -29,7 +29,7 @@ describe('Filter container', () => {
 		const props = {
 			onFilter: jest.fn(),
 			setState: jest.fn(),
-			state: Map({ docked: false }),
+			state: { docked: false },
 		};
 		render(<Container {...props} />);
 		const query = 'foo';
@@ -40,7 +40,7 @@ describe('Filter container', () => {
 		const props = {
 			onFilter: jest.fn(),
 			setState: jest.fn(),
-			state: Map({ docked: false }),
+			state: { docked: false },
 		};
 		const query = 'foo';
 		render(<Container {...props} />);
@@ -58,7 +58,7 @@ describe('Filter container', () => {
 		const props = {
 			onBlur: jest.fn(),
 			setState: jest.fn(),
-			state: Map({ docked: false }),
+			state: { docked: false },
 		};
 		render(<Container {...props} />);
 		fireEvent.blur(document.querySelector('input'));
@@ -68,7 +68,7 @@ describe('Filter container', () => {
 		const props = {
 			onBlur: jest.fn(),
 			setState: jest.fn(),
-			state: Map({ docked: false }),
+			state: { docked: false },
 			onFocus: jest.fn(),
 		};
 		render(<Container {...props} />);
@@ -76,13 +76,9 @@ describe('Filter container', () => {
 		expect(props.onFocus).toHaveBeenCalled();
 	});
 	it('should call setState when onToggle event trigger', () => {
-		const state = Map({ docked: false });
-		const prevState = { state };
-		const setState = jest.fn(fn => {
-			prevState.state = fn(prevState);
-		});
+		const state = { docked: false };
 		const props = {
-			setState,
+			setState: jest.fn(),
 			state,
 			dockable: true,
 			onToggle: jest.fn(),
@@ -90,21 +86,20 @@ describe('Filter container', () => {
 		render(<Container {...props} />);
 		fireEvent.blur(document.querySelector('input'));
 		expect(props.setState).toHaveBeenCalled();
-		expect(prevState.state).not.toBe(state);
-		expect(prevState.state.get('docked')).toBe(true);
+		expect(props.setState).toHaveBeenCalledWith({ docked: true });
 		expect(props.onToggle).toHaveBeenCalled();
 	});
 });
 
 describe('Filter Selectors', () => {
 	it('should return the filter component state', () => {
-		const componentState = Map({
+		const componentState = {
 			query: 'Toto was here',
 			docked: true,
-		});
+		};
 		const state = {
 			cmf: {
-				components: Map({ [DISPLAY_NAME]: Map({ myFilterComponent: componentState }) }),
+				components: { [DISPLAY_NAME]: { myFilterComponent: componentState } },
 			},
 		};
 		expect(getComponentState(state, 'myFilterComponent')).toEqual(componentState);
@@ -112,19 +107,19 @@ describe('Filter Selectors', () => {
 	it('should return the default filter component state', () => {
 		const state = {
 			cmf: {
-				components: Map(),
+				components: {},
 			},
 		};
 		expect(getComponentState(state, 'myFilterComponent')).toEqual(DEFAULT_STATE);
 	});
 	it('should return the query', () => {
-		const componentState = Map({
+		const componentState = {
 			query: 'Hello world',
 			docked: true,
-		});
+		};
 		const state = {
 			cmf: {
-				components: Map({ [DISPLAY_NAME]: Map({ myFilterComponent: componentState }) }),
+				components: { [DISPLAY_NAME]: { myFilterComponent: componentState } },
 			},
 		};
 		expect(getQuery(state, 'myFilterComponent')).toEqual('Hello world');

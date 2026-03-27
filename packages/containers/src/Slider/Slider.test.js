@@ -1,7 +1,7 @@
 /* eslint-disable testing-library/no-container */
-import { Map } from 'immutable';
 import { render } from '@testing-library/react';
 import Container, { DISPLAY_NAME } from './Slider.container';
+
 import Connected from './Slider.connect';
 import { getComponentState, getValue } from './Slider.selectors';
 
@@ -17,9 +17,7 @@ describe('Filter container', () => {
 		const props = {
 			id: 'filter',
 		};
-		const initialState = new Map({
-			value: 15,
-		});
+		const initialState = { value: 15 };
 		const { container } = render(<Container props={props} initialState={initialState} />);
 		expect(container.firstChild).toMatchSnapshot();
 	});
@@ -58,24 +56,20 @@ describe('Filter container', () => {
 
 describe('Slider Selectors', () => {
 	it('should return the slider component state', () => {
-		const componentState = Map({
-			value: '12',
-		});
+		const componentState = { value: '12' };
 		const state = {
 			cmf: {
-				components: Map({ [DISPLAY_NAME]: Map({ mySliderComponent: componentState }) }),
+				components: { [DISPLAY_NAME]: { mySliderComponent: componentState } },
 			},
 		};
 		expect(getComponentState(state, 'mySliderComponent')).toEqual(componentState);
 	});
 
 	it('should return the value', () => {
-		const componentState = Map({
-			value: 12,
-		});
+		const componentState = { value: 12 };
 		const state = {
 			cmf: {
-				components: Map({ [DISPLAY_NAME]: Map({ mySliderComponent: componentState }) }),
+				components: { [DISPLAY_NAME]: { mySliderComponent: componentState } },
 			},
 		};
 		expect(getValue(state, 'mySliderComponent')).toEqual(12);

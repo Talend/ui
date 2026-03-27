@@ -33,10 +33,7 @@ const nodeReducer = (state: State = defaultState, action: any) => {
 	switch (action.type) {
 		case FLOWDESIGNER_NODE_ADD:
 			if (state.getIn(['nodes', action.nodeId])) {
-				invariant(
-					false,
-					`Can not create node ${action.nodeId} since it does already exist`,
-				);
+				invariant(false, `Can not create node ${action.nodeId} since it does already exist`);
 			}
 
 			return state
@@ -49,18 +46,10 @@ const nodeReducer = (state: State = defaultState, action: any) => {
 							'properties',
 							fromJS(action.data && action.data.properties) || Map(),
 						),
-						graphicalAttributes: new NodeGraphicalAttributes(
-							fromJS(action.graphicalAttributes),
-						)
+						graphicalAttributes: new NodeGraphicalAttributes(fromJS(action.graphicalAttributes))
 							.set('nodeSize', new SizeRecord(action.graphicalAttributes.nodeSize))
-							.set(
-								'position',
-								new PositionRecord(action.graphicalAttributes.position),
-							)
-							.set(
-								'properties',
-								fromJS(action.graphicalAttributes.properties) || Map(),
-							),
+							.set('position', new PositionRecord(action.graphicalAttributes.position))
+							.set('properties', fromJS(action.graphicalAttributes.properties) || Map()),
 					}),
 				)
 				.setIn(['out', action.nodeId], Map())
@@ -107,13 +96,7 @@ const nodeReducer = (state: State = defaultState, action: any) => {
 					['nodes', action.nodeId, 'graphicalAttributes', 'position'],
 					new PositionRecord(action.nodePosition),
 				)
-				.deleteIn([
-					'nodes',
-					action.nodeId,
-					'graphicalAttributes',
-					'properties',
-					'startPosition',
-				]);
+				.deleteIn(['nodes', action.nodeId, 'graphicalAttributes', 'properties', 'startPosition']);
 		case FLOWDESIGNER_NODE_APPLY_MOVEMENT:
 			return state.update('nodes', (nodes: NodeRecordMap) =>
 				nodes.map(node => {
@@ -142,19 +125,13 @@ const nodeReducer = (state: State = defaultState, action: any) => {
 			);
 		case FLOWDESIGNER_NODE_SET_TYPE:
 			if (!state.getIn(['nodes', action.nodeId])) {
-				invariant(
-					false,
-					`Can't set node.type on node ${action.nodeid} since it doesn't exist`,
-				);
+				invariant(false, `Can't set node.type on node ${action.nodeid} since it doesn't exist`);
 			}
 
 			return state.setIn(['nodes', action.nodeId, 'type'], action.nodeType);
 		case FLOWDESIGNER_NODE_SET_GRAPHICAL_ATTRIBUTES:
 			if (!state.getIn(['nodes', action.nodeId])) {
-				invariant(
-					false,
-					`Can't set a graphical attribute on non existing node ${action.nodeId}`,
-				);
+				invariant(false, `Can't set a graphical attribute on non existing node ${action.nodeId}`);
 			}
 
 			try {
@@ -194,10 +171,7 @@ const nodeReducer = (state: State = defaultState, action: any) => {
 				return state.mergeIn(['nodes', action.nodeId, 'data'], fromJS(action.data));
 			} catch (error) {
 				console.error(error);
-				return state.mergeIn(
-					['nodes', action.nodeId, 'data', 'properties'],
-					fromJS(action.data),
-				);
+				return state.mergeIn(['nodes', action.nodeId, 'data', 'properties'], fromJS(action.data));
 			}
 
 		case FLOWDESIGNER_NODE_REMOVE_DATA:

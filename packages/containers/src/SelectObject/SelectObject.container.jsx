@@ -2,12 +2,11 @@ import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
-import Immutable, { List } from 'immutable';
 
 import Component from './SelectObject.component';
 
 export const DISPLAY_NAME = 'Container(SelectObject)';
-export const DEFAULT_STATE = new Immutable.Map({});
+export const DEFAULT_STATE = {};
 
 function noop() {}
 
@@ -18,11 +17,11 @@ function noop() {}
  */
 export function getById(items, id, { idAttr = 'id' } = {}) {
 	let found;
-	items.forEach(item => {
-		if (item.get(idAttr) === id) {
-			found = item.toJS();
-		} else if (!found && item.get('children', new List()).size > 0) {
-			found = getById(item.get('children'), id, { idAttr });
+	(items || []).forEach(item => {
+		if (item[idAttr] === id) {
+			found = item;
+		} else if (!found && (item.children ?? []).length > 0) {
+			found = getById(item.children, id, { idAttr });
 		}
 	});
 	return found;
@@ -35,7 +34,7 @@ export function getById(items, id, { idAttr = 'id' } = {}) {
  * @return {Boolean}
  */
 function isLeafElement(item) {
-	return item.get('children', new List()).size === 0;
+	return (item.children ?? []).length === 0;
 }
 
 /**
@@ -46,14 +45,14 @@ function isLeafElement(item) {
  * @param {String} query the query element used to match
  * @param {String} nameAttr the attribute of item on which should be matched
  * @param {callback} onMatch callback to call if match happen
- * @param {List<Object>} accumulator
+ * @param {Array<Object>} accumulator
  */
 function matchOnLeaf(item, currentPosition, query, nameAttr, onMatch, accumulator) {
-	const currentElementName = item.get(nameAttr, '');
+	const currentElementName = item[nameAttr] ?? '';
 	if (currentElementName.toLowerCase().includes(query.toLowerCase())) {
-		const withElementPosition = item.set('currentPosition', currentPosition);
+		const withElementPosition = { ...item, currentPosition };
 		onMatch(item);
-		return accumulator.push(withElementPosition);
+		return [...accumulator, withElementPosition];
 	}
 	return accumulator;
 }
@@ -65,7 +64,7 @@ function matchOnLeaf(item, currentPosition, query, nameAttr, onMatch, accumulato
  * @param {Object} options {query, items, idAttr }
  */
 export function filter(
-	items = new List(),
+	items = [],
 	query = '',
 	{ nameAttr = 'name', onMatch = noop } = {},
 	currentPosition = 'root',
@@ -75,15 +74,15 @@ export function filter(
 			if (isLeafElement(item)) {
 				return matchOnLeaf(item, currentPosition, query, nameAttr, onMatch, accumulator);
 			}
-			const currentElementName = item.get(nameAttr, '');
+			const currentElementName = item[nameAttr] ?? '';
 			const result = filter(
-				item.get('children'),
+				item.children,
 				query,
 				{ nameAttr },
 				`${currentPosition} > ${currentElementName}`,
 			);
-			return accumulator.concat(result);
-		}, new List());
+			return [...accumulator, ...result];
+		}, []);
 	}
 	return items;
 }
@@ -94,32 +93,31 @@ export function filter(
  * @param {Object} options {query, items, idAttr }
  */
 export function filterAll(
-	items = new List(),
+	items = [],
 	query = '',
 	{ nameAttr = 'name', onMatch = noop } = {},
 	currentPosition = 'root',
 ) {
-	const result = new List();
-
 	if (query) {
 		return items.reduce((acc, item) => {
-			const name = item.get(nameAttr, '');
-			const children = item.get('children', null);
+			const name = item[nameAttr] ?? '';
+			const children = item.children ?? null;
 			let results = acc;
 			if (name.toLowerCase().includes(query.toLowerCase())) {
 				onMatch(item);
-				results = acc.push(item.set('currentPosition', currentPosition));
+				results = [...acc, { ...item, currentPosition }];
 			}
 			if (children) {
-				results = results.concat(
-					filterAll(children, query, { nameAttr }, `${currentPosition} > ${name}`),
-				);
+				results = [
+					...results,
+					...filterAll(children, query, { nameAttr }, `${currentPosition} > ${name}`),
+				];
 			}
 			return results;
-		}, result);
+		}, []);
 	}
 
-	return result;
+	return [];
 }
 
 class SelectObject extends RComponent {
@@ -142,7 +140,7 @@ class SelectObject extends RComponent {
 	};
 
 	static defaultProps = {
-		sourceData: new Immutable.List(),
+		sourceData: [],
 		idAttr: 'id',
 		nameAttr: 'name',
 		breadCrumbsRootLabel: 'root',
@@ -163,7 +161,7 @@ class SelectObject extends RComponent {
 	}
 
 	onResultsClick(event, item) {
-		this.props.setState({ selectedId: item.get(this.props.idAttr) });
+		this.props.setState({ selectedId: item[this.props.idAttr] });
 	}
 
 	render() {
@@ -172,7 +170,7 @@ class SelectObject extends RComponent {
 		const filterMethod =
 			this.props.filterMode === SelectObject.FILTER_MODE.ALL ? this.filterAll : this.filter;
 		const matches = [];
-		let selectedId = state.get('selectedId') || props.selectedId;
+		let selectedId = state.selectedId || props.selectedId;
 		function addMatch(item) {
 			matches.push(item);
 		}
@@ -189,7 +187,7 @@ class SelectObject extends RComponent {
 			);
 			delete props.tree;
 			if (!selectedId && matches.length === 1) {
-				selectedId = matches[0].get('id');
+				selectedId = matches[0].id;
 			}
 			props.results = {
 				onClick: this.onResultsClick,

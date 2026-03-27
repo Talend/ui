@@ -1,19 +1,20 @@
+import { vi } from 'vitest';
 import onError from '../src/onError';
 import { store as mock } from '../src/mock';
 
-window.addEventListener = jest.fn();
-window.removeEventListener = jest.fn();
+window.addEventListener = vi.fn();
+window.removeEventListener = vi.fn();
 
 function activateSentry() {
 	window.Sentry = {
-		captureException: jest.fn(),
-		configureScope: jest.fn(),
-		init: jest.fn(c => {
+		captureException: vi.fn(),
+		configureScope: vi.fn(),
+		init: vi.fn(c => {
 			if (c.dsn === 'fail') {
 				throw new Error('mock fail');
 			}
 		}),
-		withScope: jest.fn(),
+		withScope: vi.fn(),
 	};
 }
 
@@ -25,8 +26,8 @@ describe('onError', () => {
 		state = { foo: { ok: 'should be kept', password: 'secret', keyUndefined: undefined } };
 		store = mock.store(state);
 		window.addEventListener.mockClear();
-		store.dispatch = jest.fn();
-		console.error = jest.fn();
+		store.dispatch = vi.fn();
+		console.error = vi.fn();
 		config = {
 			onError: {
 				reportURL: '/api/v1/report',
@@ -34,7 +35,7 @@ describe('onError', () => {
 		};
 		process.env.NODE_ENV = 'production';
 		onError.bootstrap(config, store);
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	afterEach(() => {
@@ -73,7 +74,7 @@ describe('onError', () => {
 	describe('middleware', () => {
 		it('should let normal action happens', () => {
 			const mid = onError.middleware();
-			const next = jest.fn();
+			const next = vi.fn();
 			const action = {
 				type: 'TEST',
 			};
@@ -99,7 +100,7 @@ describe('onError', () => {
 		});
 		it('should add action in singleton', () => {
 			const mid = onError.middleware();
-			const next = jest.fn();
+			const next = vi.fn();
 			const action = {
 				type: 'FOO',
 				sensitive: true,
@@ -112,7 +113,7 @@ describe('onError', () => {
 		it('should keep last 20 actions', () => {
 			// eslint-disable-next-line no-plusplus
 			const mid = onError.middleware();
-			const next = jest.fn();
+			const next = vi.fn();
 			for (let index = 0; index < 30; index++) {
 				mid(next)({ type: `FOO ${index}`, password: 'secret' });
 			}
@@ -123,7 +124,7 @@ describe('onError', () => {
 	});
 	describe('createObjectURL', () => {
 		it('should use window.URL.createObjectURL', () => {
-			window.URL.createObjectURL = jest.fn();
+			window.URL.createObjectURL = vi.fn();
 			const error = new Error('sth bad 2');
 			onError.createObjectURL(error);
 			expect(window.URL.createObjectURL).toHaveBeenCalled();
@@ -137,7 +138,7 @@ describe('onError', () => {
 	describe('revokeObjectURL', () => {
 		it('should use window.URL.revokeObjectURL', () => {
 			const url = {};
-			window.URL.revokeObjectURL = jest.fn();
+			window.URL.revokeObjectURL = vi.fn();
 			onError.revokeObjectURL(url);
 			expect(window.URL.revokeObjectURL).toHaveBeenCalledWith(url);
 		});
@@ -162,7 +163,7 @@ describe('onError', () => {
 			onError.bootstrap(config, store);
 			const options = { tags: [{ key: 'tag', value: 'value' }] };
 			const error = new Error('foo');
-			const setTag = jest.fn();
+			const setTag = vi.fn();
 			onError.report(error, options);
 			expect(window.Sentry.withScope).toHaveBeenCalled();
 			const onScope = window.Sentry.withScope.mock.calls[0][0];
