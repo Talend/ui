@@ -6,17 +6,17 @@ import App from '../src/App';
 import ErrorBoundary from '../src/components/ErrorBoundary/ErrorBoundary.component';
 import RegistryProvider from '../src/RegistryProvider';
 
-jest.mock('react-redux', () => ({
+vi.mock('react-redux', () => ({
 	esModule: true,
-	Provider: jest.fn(props => <div className="ReactReduxProvider">{props.children}</div>),
-	connect: jest.requireActual('react-redux').connect,
+	Provider: vi.fn(props => <div className="ReactReduxProvider">{props.children}</div>),
+	connect: vi.importActual('react-redux').connect,
 }));
 
-jest.mock('../src/RegistryProvider', () =>
-	jest.fn(props => <div className="RegistryProvider">{props.children}</div>),
+vi.mock('../src/RegistryProvider', () =>
+	vi.fn(props => <div className="RegistryProvider">{props.children}</div>),
 );
-jest.mock('../src/components/ErrorBoundary/ErrorBoundary.component', () =>
-	jest.fn(props => <div className="ErrorBoundary">{props.children}</div>),
+vi.mock('../src/components/ErrorBoundary/ErrorBoundary.component', () =>
+	vi.fn(props => <div className="ErrorBoundary">{props.children}</div>),
 );
 
 describe('CMF App', () => {

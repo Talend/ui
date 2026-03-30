@@ -12,59 +12,59 @@ import registry from '../src/registry';
 import sagas from '../src/sagas';
 import storeAPI from '../src/store';
 
-jest.mock('react-dom/client', () => ({
-	createRoot: jest.fn().mockImplementation(() => ({
-		render: jest.fn(),
+vi.mock('react-dom/client', () => ({
+	createRoot: vi.fn().mockImplementation(() => ({
+		render: vi.fn(),
 	})),
 }));
 
-jest.mock('redux-saga', () => ({
+vi.mock('redux-saga', () => ({
 	__esModule: true, // this property makes it work
 	default: (() => {
-		const run = jest.fn();
-		const middleware = jest.fn(() => ({ reduxSagaMocked: true, run }));
+		const run = vi.fn();
+		const middleware = vi.fn(() => ({ reduxSagaMocked: true, run }));
 		middleware.run = run;
 		middleware.clearRun = () => run.mockClear();
 		return middleware;
 	})(),
 	effects: {
-		spawn: jest.fn(),
+		spawn: vi.fn(),
 	},
 }));
-jest.mock('../src/onError', () => ({
-	report: jest.fn(),
-	bootstrap: jest.fn(),
+vi.mock('../src/onError', () => ({
+	report: vi.fn(),
+	bootstrap: vi.fn(),
 }));
-jest.mock('../src/registry', () => ({
-	registerMany: jest.fn(),
-	getRegistry: jest.fn(),
+vi.mock('../src/registry', () => ({
+	registerMany: vi.fn(),
+	getRegistry: vi.fn(),
 }));
-jest.mock('../src/actionCreator', () => ({
-	registerMany: jest.fn(),
+vi.mock('../src/actionCreator', () => ({
+	registerMany: vi.fn(),
 }));
-jest.mock('../src/component', () => ({
-	registerMany: jest.fn(),
+vi.mock('../src/component', () => ({
+	registerMany: vi.fn(),
 }));
-jest.mock('../src/expression', () => ({
-	registerMany: jest.fn(),
+vi.mock('../src/expression', () => ({
+	registerMany: vi.fn(),
 }));
-jest.mock('../src/sagas', () => ({
-	registerMany: jest.fn(),
+vi.mock('../src/sagas', () => ({
+	registerMany: vi.fn(),
 }));
-jest.mock('../src/register', () => ({
-	registerInternals: jest.fn(),
+vi.mock('../src/register', () => ({
+	registerInternals: vi.fn(),
 }));
 
-jest.mock('../src/store', () => ({
-	addPreReducer: jest.fn(),
-	setHttpMiddleware: jest.fn(),
-	initialize: jest.fn(() => ({ dispatch: jest.fn(), applyMiddleware: jest.fn() })),
+vi.mock('../src/store', () => ({
+	addPreReducer: vi.fn(),
+	setHttpMiddleware: vi.fn(),
+	initialize: vi.fn(() => ({ dispatch: vi.fn(), applyMiddleware: vi.fn() })),
 }));
 
 describe('bootstrap', () => {
 	beforeEach(() => {
 		onError.bootstrap.mockClear();
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 	describe('error management', () => {
 		it('should bootstrap onError', async () => {
@@ -97,7 +97,7 @@ describe('bootstrap', () => {
 			registry.registerMany.mockClear();
 			const options = {
 				registry: {
-					foo: jest.fn(),
+					foo: vi.fn(),
 				},
 			};
 			await bootstrap(options);
@@ -107,7 +107,7 @@ describe('bootstrap', () => {
 			component.registerMany.mockClear();
 			const options = {
 				components: {
-					foo: jest.fn(),
+					foo: vi.fn(),
 				},
 			};
 			await bootstrap(options);
@@ -117,7 +117,7 @@ describe('bootstrap', () => {
 			expression.registerMany.mockClear();
 			const options = {
 				expressions: {
-					foo: jest.fn(),
+					foo: vi.fn(),
 				},
 			};
 			await bootstrap(options);
@@ -127,7 +127,7 @@ describe('bootstrap', () => {
 			actionCreator.registerMany.mockClear();
 			const options = {
 				actionCreators: {
-					foo: jest.fn(),
+					foo: vi.fn(),
 				},
 			};
 			await bootstrap(options);
@@ -137,7 +137,7 @@ describe('bootstrap', () => {
 			sagas.registerMany.mockClear();
 			const options = {
 				sagas: {
-					foo: jest.fn(),
+					foo: vi.fn(),
 				},
 			};
 			await bootstrap(options);
@@ -156,14 +156,14 @@ describe('bootstrap', () => {
 	describe('redux', () => {
 		it('should call storeAPI.addPreReducer if options.preReducer', async () => {
 			const options = {
-				preReducer: jest.fn(),
+				preReducer: vi.fn(),
 			};
 			await bootstrap(options);
 			expect(storeAPI.addPreReducer).toHaveBeenCalledWith(options.preReducer);
 		});
 		it('should call storeAPI.setHttpMiddleware if options.preReducer', async () => {
 			const options = {
-				httpMiddleware: jest.fn(),
+				httpMiddleware: vi.fn(),
 			};
 			await bootstrap(options);
 			expect(storeAPI.setHttpMiddleware).toHaveBeenCalledWith(options.httpMiddleware);
@@ -172,7 +172,7 @@ describe('bootstrap', () => {
 			storeAPI.initialize.mockClear();
 			createSagaMiddleware.mockClear();
 			const options = {
-				reducer: { app: jest.fn() },
+				reducer: { app: vi.fn() },
 				preloadedState: {},
 				middlewares: [],
 			};

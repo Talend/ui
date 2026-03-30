@@ -31,7 +31,7 @@ import http, {
 const CSRFToken = 'hNjmdpuRgQClwZnb2c59F9gZhCi8jv9x';
 
 beforeEach(() => {
-	jest.clearAllMocks();
+	vi.clearAllMocks();
 });
 
 describe('http.get', () => {
@@ -199,7 +199,7 @@ describe('handleBody', () => {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/zip');
 
-		const blob = jest.fn(() => Promise.resolve());
+		const blob = vi.fn(() => Promise.resolve());
 
 		handleBody({ blob, headers }).then(() => {
 			expect(blob).toHaveBeenCalled();

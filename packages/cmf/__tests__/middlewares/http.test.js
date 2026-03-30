@@ -17,7 +17,7 @@ import { HTTP_METHODS, HTTP_STATUS } from '../../src/middlewares/http/constants'
 
 describe('CMF http middleware', () => {
 	beforeEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	it('should be available from middlewares/http', () => {
@@ -165,9 +165,9 @@ describe('CMF http middleware', () => {
 
 	it('should httpMiddleware return function', () => {
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const middleware = httpMiddleware(store)(next);
 		expect(typeof middleware).toBe('function');
 	});
@@ -178,9 +178,9 @@ describe('CMF http middleware', () => {
 		}
 
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			url: 'foo',
 			type: HTTP_METHODS.POST,
@@ -228,9 +228,9 @@ describe('CMF http middleware', () => {
 		}
 
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const formData = new FormData();
 		const action = {
 			url: 'foo',
@@ -277,9 +277,9 @@ describe('CMF http middleware', () => {
 
 	it('should httpMiddleware handle response promise with error', done => {
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			type: HTTP_METHODS.POST,
 			body: { label: 'great test' },
@@ -315,9 +315,9 @@ describe('CMF http middleware', () => {
 
 	it('should httpMiddleware handle response promise with error if the body is not a JSON', done => {
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			type: HTTP_METHODS.POST,
 			body: { label: 'great test' },
@@ -353,9 +353,9 @@ describe('CMF http middleware', () => {
 
 	it('should handle onError callback if this action property is a typeof function', done => {
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			type: HTTP_METHODS.POST,
 			body: { label: 'great test' },
@@ -454,7 +454,7 @@ describe('json function', () => {
 
 describe('httpMiddleware configuration', () => {
 	beforeEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	it('should use its parameter for CSRF handling if a security configuration is given', done => {
@@ -470,9 +470,9 @@ describe('httpMiddleware configuration', () => {
 		};
 
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			url: 'foo',
 			type: HTTP_METHODS.POST,
@@ -537,9 +537,9 @@ describe('httpMiddleware configuration', () => {
 		}
 
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			url: 'foo',
 			type: HTTP_METHODS.POST,
@@ -605,9 +605,9 @@ describe('httpMiddleware configuration', () => {
 		}
 
 		const store = {
-			dispatch: jest.fn(),
+			dispatch: vi.fn(),
 		};
-		const next = jest.fn();
+		const next = vi.fn();
 		const action = {
 			url: 'foo',
 			type: HTTP_METHODS.POST,
@@ -620,8 +620,8 @@ describe('httpMiddleware configuration', () => {
 			},
 		};
 		const interceptor = {
-			request: jest.fn(config => config),
-			response: jest.fn(r => r),
+			request: vi.fn(config => config),
+			response: vi.fn(r => r),
 		};
 		interceptors.push(interceptor);
 		// when

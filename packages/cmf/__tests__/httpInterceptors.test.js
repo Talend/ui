@@ -5,8 +5,8 @@ describe('interceptors', () => {
 	let interceptor;
 	beforeEach(() => {
 		interceptor = {
-			request: jest.fn(config => Object.assign({ foo: 'foo' }, config)),
-			response: jest.fn(resp => Object.assign({ bar: 'bar' }, resp)),
+			request: vi.fn(config => Object.assign({ foo: 'foo' }, config)),
+			response: vi.fn(resp => Object.assign({ bar: 'bar' }, resp)),
 		};
 		interceptors.push(interceptor);
 	});
@@ -32,7 +32,7 @@ describe('interceptors', () => {
 			request: () => {
 				throw error;
 			},
-			requestError: jest.fn(e => e),
+			requestError: vi.fn(e => e),
 		};
 		interceptors.push(failInterceptor);
 		interceptors.onRequest({}).finally(() => {
@@ -47,7 +47,7 @@ describe('interceptors', () => {
 				new Promise((resolve, reject) => {
 					return reject(msg);
 				}),
-			requestError: jest.fn((e, v) => v),
+			requestError: vi.fn((e, v) => v),
 		};
 		interceptors.push(failInterceptor);
 		interceptors.onRequest({}).then(() => {
@@ -70,7 +70,7 @@ describe('interceptors', () => {
 			response: () => {
 				throw error;
 			},
-			responseError: jest.fn(e => e),
+			responseError: vi.fn(e => e),
 		};
 		interceptors.push(failInterceptor);
 		interceptors.onResponse({}).finally(() => {
@@ -82,7 +82,7 @@ describe('interceptors', () => {
 		const msg = 'reject in interceptor response';
 		const failInterceptor = {
 			response: () => new Promise((resolve, reject) => reject(msg)),
-			responseError: jest.fn((e, v) => v),
+			responseError: vi.fn((e, v) => v),
 		};
 		interceptors.push(failInterceptor);
 		interceptors.onResponse({}).then(() => {
