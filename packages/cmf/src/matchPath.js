@@ -32,7 +32,14 @@ export default function matchPath(pathname, options = {}) {
 	if (typeof options === 'string') options = { path: options }; // eslint-disable-line no-param-reassign
 
 	const { path = '/', exact = false, strict = false } = options;
-	const { re, keys } = compilePath(path, { end: exact, strict });
+	let delimiter = '/';
+
+	// path-to-regexp has changed its behavior since 8.4.0 so wildcard patterns needs a different delimiter
+	if (path.includes('{*')) {
+		delimiter = '/{';
+	}
+
+	const { re, keys } = compilePath(path, { end: exact, strict, delimiter });
 	const match = re.exec(pathname);
 
 	if (!match) return null;
