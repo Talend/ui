@@ -1,5 +1,4 @@
 ---
-'@talend/react-cmf-router': minor
 '@talend/react-cmf': minor
 ---
 
