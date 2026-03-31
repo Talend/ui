@@ -5,8 +5,8 @@ describe('interceptors', () => {
 	let interceptor;
 	beforeEach(() => {
 		interceptor = {
-			request: jest.fn(config => Object.assign({ foo: 'foo' }, config)),
-			response: jest.fn(resp => Object.assign({ bar: 'bar' }, resp)),
+			request: vi.fn(config => Object.assign({ foo: 'foo' }, config)),
+			response: vi.fn(resp => Object.assign({ bar: 'bar' }, resp)),
 		};
 		interceptors.push(interceptor);
 	});
@@ -14,80 +14,66 @@ describe('interceptors', () => {
 		interceptors._clear();
 	});
 
-	it('should onRequest call interceptors every request', done => {
-		interceptors.onRequest({}).then(config => {
-			expect(config.foo).toBe('foo');
-			done();
-		});
+	it('should onRequest call interceptors every request', async () => {
+		const config = await interceptors.onRequest({});
+		expect(config.foo).toBe('foo');
 	});
-	it('should onResponse in interceptors', done => {
-		interceptors.onResponse({}).then(response => {
-			expect(response.bar).toBe('bar');
-			done();
-		});
+	it('should onResponse in interceptors', async () => {
+		const response = await interceptors.onResponse({});
+		expect(response.bar).toBe('bar');
 	});
-	it('should interceptor requestError be called if JS Error has been thrown', done => {
+	it('should interceptor requestError be called if JS Error has been thrown', async () => {
 		const error = new Error('ERROR fail in interceptor');
 		const failInterceptor = {
 			request: () => {
 				throw error;
 			},
-			requestError: jest.fn(e => e),
+			requestError: vi.fn(e => e),
 		};
 		interceptors.push(failInterceptor);
-		interceptors.onRequest({}).finally(() => {
-			expect(failInterceptor.requestError).toHaveBeenCalledWith(error);
-			done();
-		});
+		await interceptors.onRequest({}).finally(() => {});
+		expect(failInterceptor.requestError).toHaveBeenCalledWith(error);
 	});
-	it('should interceptor requestError be called if interceptor.request promise rejected', done => {
+	it('should interceptor requestError be called if interceptor.request promise rejected', async () => {
 		const msg = 'reject in interceptor';
 		const failInterceptor = {
 			request: () =>
 				new Promise((resolve, reject) => {
 					return reject(msg);
 				}),
-			requestError: jest.fn((e, v) => v),
+			requestError: vi.fn((e, v) => v),
 		};
 		interceptors.push(failInterceptor);
-		interceptors.onRequest({}).then(() => {
-			expect(failInterceptor.requestError).toHaveBeenCalledWith(msg);
-			done();
-		});
+		await interceptors.onRequest({});
+		expect(failInterceptor.requestError).toHaveBeenCalledWith(msg);
 	});
-	it('should interceptor response be called onResponse', done => {
+	it('should interceptor response be called onResponse', async () => {
 		const res = { data: 'foo' };
-		interceptors.onResponse(res).then(response => {
-			expect(interceptor.response).toHaveBeenCalledWith(res);
-			expect(response.bar).toBe('bar');
-			expect(response.data).toBe('foo');
-			done();
-		});
+		const response = await interceptors.onResponse(res);
+		expect(interceptor.response).toHaveBeenCalledWith(res);
+		expect(response.bar).toBe('bar');
+		expect(response.data).toBe('foo');
 	});
-	it('should interceptor responseError be called if JS Error has been thrown', done => {
+	it('should interceptor responseError be called if JS Error has been thrown', async () => {
 		const error = new Error('ERROR fail in interceptor');
 		const failInterceptor = {
 			response: () => {
 				throw error;
 			},
-			responseError: jest.fn(e => e),
+			responseError: vi.fn(e => e),
 		};
 		interceptors.push(failInterceptor);
-		interceptors.onResponse({}).finally(() => {
-			expect(failInterceptor.responseError).toHaveBeenCalledWith(error);
-			done();
-		});
+		await interceptors.onResponse({}).finally(() => {});
+		expect(failInterceptor.responseError).toHaveBeenCalledWith(error);
 	});
-	it('should interceptor responseError be called if response reject', done => {
+	it('should interceptor responseError be called if response reject', async () => {
 		const msg = 'reject in interceptor response';
 		const failInterceptor = {
 			response: () => new Promise((resolve, reject) => reject(msg)),
-			responseError: jest.fn((e, v) => v),
+			responseError: vi.fn((e, v) => v),
 		};
 		interceptors.push(failInterceptor);
-		interceptors.onResponse({}).then(() => {
-			expect(failInterceptor.responseError).toHaveBeenCalledWith(msg);
-			done();
-		});
+		await interceptors.onResponse({});
+		expect(failInterceptor.responseError).toHaveBeenCalledWith(msg);
 	});
 });

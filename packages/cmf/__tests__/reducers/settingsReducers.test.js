@@ -1,9 +1,5 @@
 import CONSTANT from '../../src/constant';
-import reducer, {
-	defaultState,
-	attachRef,
-	attachRefs,
-} from '../../src/reducers/settingsReducers';
+import reducer, { defaultState, attachRef, attachRefs } from '../../src/reducers/settingsReducers';
 
 /* eslint-disable no-console */
 
@@ -29,7 +25,7 @@ describe('settingsReducers.attachRef', () => {
 		const shouldThrow = () => {
 			attachRefs(ref, props);
 		};
-		expect(shouldThrow).toThrow(new Error('CMF/Settings: Reference \'myref\' not found'));
+		expect(shouldThrow).toThrow("CMF/Settings: Reference 'myref' not found");
 	});
 	it('should not do anything if obj parameter is not an object', () => {
 		const testFunction = () => '';
@@ -44,9 +40,7 @@ describe('settingsReducers.attachRef', () => {
 
 	it('should try to resolve _ref if obj is an object', () => {
 		const ref = { stuff: 'res' };
-		expect(attachRef(ref, { _ref: 'stuff' })).toEqual(
-			{ 0: 'r', 1: 'e', 2: 's' }
-		);
+		expect(attachRef(ref, { _ref: 'stuff' })).toEqual({ 0: 'r', 1: 'e', 2: 's' });
 	});
 });
 
@@ -72,7 +66,7 @@ describe('CMF settinsReducers', () => {
 	});
 	it('should understand REQUEST_KO on 404', () => {
 		const oldError = console.error;
-		console.error = jest.fn();
+		console.error = vi.fn();
 		const action = {
 			type: CONSTANT.REQUEST_KO,
 			error: {
@@ -93,7 +87,7 @@ describe('CMF settinsReducers', () => {
 		const state = reducer(undefined, action);
 		expect(state).not.toBe(undefined);
 		expect(state.initialized).toBe(false);
-		expect(console.error).toHaveBeenCalledWith('Settings can\'t be loaded Not Found', action.error);
+		expect(console.error).toHaveBeenCalledWith("Settings can't be loaded Not Found", action.error);
 		console.error = oldError.bind(console);
 	});
 });

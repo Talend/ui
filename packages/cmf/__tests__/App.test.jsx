@@ -6,18 +6,26 @@ import App from '../src/App';
 import ErrorBoundary from '../src/components/ErrorBoundary/ErrorBoundary.component';
 import RegistryProvider from '../src/RegistryProvider';
 
-jest.mock('react-redux', () => ({
-	esModule: true,
-	Provider: jest.fn(props => <div className="ReactReduxProvider">{props.children}</div>),
-	connect: jest.requireActual('react-redux').connect,
-}));
+vi.mock('react-redux', async importOriginal => {
+	const mod = await importOriginal(); // type is inferred
 
-jest.mock('../src/RegistryProvider', () =>
-	jest.fn(props => <div className="RegistryProvider">{props.children}</div>),
-);
-jest.mock('../src/components/ErrorBoundary/ErrorBoundary.component', () =>
-	jest.fn(props => <div className="ErrorBoundary">{props.children}</div>),
-);
+	return {
+		...mod,
+		esModule: true,
+		Provider: vi.fn(props => <div className="ReactReduxProvider">{props.children}</div>),
+	};
+});
+
+vi.mock('../src/RegistryProvider', () => {
+	return {
+		default: vi.fn(props => <div className="RegistryProvider">{props.children}</div>),
+	};
+});
+vi.mock('../src/components/ErrorBoundary/ErrorBoundary.component', () => {
+	return {
+		default: vi.fn(props => <div className="ErrorBoundary">{props.children}</div>),
+	};
+});
 
 describe('CMF App', () => {
 	it('App should init stuff', () => {

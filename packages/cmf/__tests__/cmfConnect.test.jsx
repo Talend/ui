@@ -1,5 +1,5 @@
 /**
- * @jest-environment jsdom
+ * @vi-environment jsdom
  */
 import { Component } from 'react';
 
@@ -130,7 +130,7 @@ describe('cmfConnect', () => {
 		});
 		it('should pass view settings together with own props when calling mapStateToProps', () => {
 			const state = mock.store.state();
-			const mapStateToProps = jest.fn();
+			const mapStateToProps = vi.fn();
 			const ownProps = { view: 'simple' };
 			getStateToProps({
 				state,
@@ -161,7 +161,7 @@ describe('cmfConnect', () => {
 			const stateProps = { id: 'stateProps', stateProps: true };
 			const dispatchProps = { id: 'dispatchProps', dispatchProps: true };
 			const ownProps = { id: 'ownProps', ownProps: true };
-			const mergeProps = jest.fn();
+			const mergeProps = vi.fn();
 			getMergeProps({
 				mergeProps,
 				stateProps,
@@ -174,8 +174,8 @@ describe('cmfConnect', () => {
 
 	describe('#getDispatchToProps', () => {
 		it('should call getStateAccessors', () => {
-			const dispatch = jest.fn();
-			const mapDispatchToProps = jest.fn();
+			const dispatch = vi.fn();
+			const mapDispatchToProps = vi.fn();
 			const ownProps = {};
 			const props = getDispatchToProps({
 				componentId: 'testId',
@@ -213,7 +213,7 @@ describe('cmfConnect', () => {
 		Button.displayName = 'Button';
 		const CMFConnectedButton = cmfConnect({})(Button);
 		it('should create a connected component even without params', () => {
-			const TestComponent = jest.fn();
+			const TestComponent = vi.fn();
 			TestComponent.displayName = 'TestComponent';
 			mapStateToViewProps.cache.clear();
 			const CMFConnected = cmfConnect()(TestComponent);
@@ -222,7 +222,7 @@ describe('cmfConnect', () => {
 		});
 
 		it('should create a connected component', () => {
-			const TestComponent = jest.fn(props => <div {...props} />);
+			const TestComponent = vi.fn(props => <div {...props} />);
 			TestComponent.displayName = 'TestComponent';
 			mapStateToViewProps.cache.clear();
 			const CMFConnected = cmfConnect({})(TestComponent);
@@ -326,8 +326,8 @@ describe('cmfConnect', () => {
 				withDispatchActionCreator: true,
 			})(TestComponent);
 			const props = {
-				dispatchActionCreator: jest.fn(),
-				deleteState: jest.fn(),
+				dispatchActionCreator: vi.fn(),
+				deleteState: vi.fn(),
 			};
 			const context = mock.store.context();
 			render(
@@ -363,15 +363,15 @@ describe('cmfConnect', () => {
 		});
 
 		it('should componentDidMount initState and dispatchActionCreator after the saga', () => {
-			const TestComponent = jest.fn(() => null);
+			const TestComponent = vi.fn(() => null);
 			TestComponent.displayName = 'TestComponent';
 			const STATE = new Map();
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const props = {
 				didMountActionCreator: 'hello',
-				deleteState: jest.fn(),
-				dispatchActionCreator: jest.fn(),
-				initState: jest.fn(),
+				deleteState: vi.fn(),
+				dispatchActionCreator: vi.fn(),
+				initState: vi.fn(),
 				initialState: STATE,
 				foo: 'bar',
 				saga: 'saga',
@@ -401,13 +401,13 @@ describe('cmfConnect', () => {
 		});
 
 		it('should componentDidMount support saga', () => {
-			const TestComponent = jest.fn(() => null);
+			const TestComponent = vi.fn(() => null);
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const props = {
 				saga: 'hello',
-				dispatchActionCreator: jest.fn(),
-				deleteState: jest.fn(),
+				dispatchActionCreator: vi.fn(),
+				deleteState: vi.fn(),
 			};
 			const context = mock.store.context();
 			render(
@@ -430,13 +430,13 @@ describe('cmfConnect', () => {
 		});
 
 		it('should componentWillUnmount support saga', () => {
-			const TestComponent = jest.fn(() => null);
+			const TestComponent = vi.fn(() => null);
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const props = {
 				saga: 'hello',
-				dispatchActionCreator: jest.fn(),
-				deleteState: jest.fn(),
+				dispatchActionCreator: vi.fn(),
+				deleteState: vi.fn(),
 			};
 			const context = mock.store.context();
 			const { unmount } = render(
@@ -457,18 +457,18 @@ describe('cmfConnect', () => {
 		});
 
 		it('should componentWillUnMount dispatchActionCreator', () => {
-			const TestComponent = jest.fn(() => null);
+			const TestComponent = vi.fn(() => null);
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const props = {
 				willUnmountActionCreator: 'bye',
-				dispatchActionCreator: jest.fn(),
-				deleteState: jest.fn(),
+				dispatchActionCreator: vi.fn(),
+				deleteState: vi.fn(),
 				foo: 'bar',
 			};
 			const context = mock.store.context();
 			context.registry = {
-				'actionCreator:bye': jest.fn(),
+				'actionCreator:bye': vi.fn(),
 			};
 			const { unmount } = render(
 				<mock.Provider {...context}>
@@ -498,7 +498,7 @@ describe('cmfConnect', () => {
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
 			const context = mock.store.context();
-			context.store.dispatch = jest.fn();
+			context.store.dispatch = vi.fn();
 
 			const { unmount } = render(
 				<mock.Provider {...context}>
@@ -525,7 +525,7 @@ describe('cmfConnect', () => {
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
 			const context = mock.store.context();
-			context.store.dispatch = jest.fn();
+			context.store.dispatch = vi.fn();
 
 			const { unmount } = render(
 				<mock.Provider {...context}>
@@ -551,7 +551,7 @@ describe('cmfConnect', () => {
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
 			const context = mock.store.context();
-			context.store.dispatch = jest.fn();
+			context.store.dispatch = vi.fn();
 
 			const { unmount } = render(
 				<mock.Provider {...context}>
@@ -577,7 +577,7 @@ describe('cmfConnect', () => {
 			expect(CMFConnected.displayName).toBe('Connect(CMF(TestComponent))');
 			expect(CMFConnected.WrappedComponent).toBe(TestComponent);
 			const context = mock.store.context();
-			context.store.dispatch = jest.fn();
+			context.store.dispatch = vi.fn();
 
 			const { unmount } = render(
 				<mock.Provider {...context}>
@@ -606,7 +606,7 @@ describe('cmfConnect', () => {
 			TestComponent.displayName = 'TestComponent';
 			const CMFConnected = cmfConnect({})(TestComponent);
 			const context = mock.store.context();
-			context.store.dispatch = jest.fn();
+			context.store.dispatch = vi.fn();
 
 			render(
 				<mock.Provider {...context}>
@@ -648,7 +648,7 @@ describe('cmfConnect', () => {
 				type: 'MY_BUTTON_CLICKED',
 			};
 			const context = mock.store.context();
-			context.store.dispatch = jest.fn();
+			context.store.dispatch = vi.fn();
 
 			render(
 				<mock.Provider {...context}>
@@ -666,7 +666,7 @@ describe('cmfConnect', () => {
 		it('should transform onEventActionCreator props to onEvent handler', () => {
 			const onClickActionCreator = 'myactionCreator';
 			const context = mock.store.context();
-			context.store.dispatch = jest.fn();
+			context.store.dispatch = vi.fn();
 			context.registry = {
 				'actionCreator:myactionCreator': event => ({ type: 'FETCH_STUFF', event }),
 			};
@@ -693,7 +693,7 @@ describe('cmfConnect', () => {
 				},
 			};
 			const context = mock.store.context();
-			context.store.dispatch = jest.fn();
+			context.store.dispatch = vi.fn();
 			context.registry = {
 				'actionCreator:myfetch': (event, data) => ({
 					type: 'FETCH_CONFIGURED',
@@ -721,7 +721,7 @@ describe('cmfConnect', () => {
 				disabled: true,
 			};
 			const context = mock.store.context();
-			context.store.dispatch = jest.fn();
+			context.store.dispatch = vi.fn();
 
 			render(
 				<mock.Provider {...context}>
@@ -762,7 +762,7 @@ describe('cmfConnect', () => {
 					},
 				};
 			};
-			context.store.dispatch = jest.fn();
+			context.store.dispatch = vi.fn();
 
 			render(
 				<mock.Provider {...context}>

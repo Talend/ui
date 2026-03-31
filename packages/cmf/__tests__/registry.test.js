@@ -49,7 +49,7 @@ describe('CMF registry', () => {
 
 	it('addToRegistry should warn that a registered item is overridden', () => {
 		// given
-		console.warn = jest.fn();
+		console.warn = vi.fn();
 		registry.addToRegistry('jso', 'value');
 
 		expect(console.warn).not.toHaveBeenCalled();
@@ -76,7 +76,7 @@ describe('CMF registry', () => {
 	});
 
 	it('should test the registerMany function', () => {
-		const register = jest.fn();
+		const register = vi.fn();
 		const registerMany = registry.getRegisterMany(register);
 
 		const context = { registry: {} };

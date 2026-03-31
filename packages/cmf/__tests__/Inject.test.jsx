@@ -6,7 +6,7 @@ import { mock } from '../src';
 describe('Inject', () => {
 	it('should render', () => {
 		// given
-		const MyComponent = jest.fn(props => <span {...props}>Hello</span>);
+		const MyComponent = vi.fn(props => <span {...props}>Hello</span>);
 		MyComponent.displayName = 'MyComponent';
 		const registry = {
 			'_.route.component:MyComponent': MyComponent,
@@ -27,7 +27,7 @@ describe('Inject', () => {
 
 	it('should render error if component not found', () => {
 		// given
-		const MyComponent = jest.fn();
+		const MyComponent = vi.fn();
 		MyComponent.displayName = 'MyComponent';
 
 		// when

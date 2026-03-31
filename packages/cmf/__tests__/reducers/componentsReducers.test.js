@@ -2,7 +2,7 @@ import { Map } from 'immutable';
 
 import reducer, { defaultState } from '../../src/reducers/componentsReducers';
 
-global.console = { warn: jest.fn() };
+global.console = { warn: vi.fn() };
 
 describe('check component management reducer', () => {
 	const initialState = defaultState.set(
@@ -11,7 +11,7 @@ describe('check component management reducer', () => {
 	);
 
 	beforeEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	it(`REACT_CMF.COMPONENT_ADD_STATE should properly add component/collection
