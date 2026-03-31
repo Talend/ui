@@ -6,6 +6,7 @@ vi.unmock('@talend/design-system');
 
 describe('DateTime widget', () => {
 	beforeEach(() => {
+		vi.resetAllMocks();
 		window.HTMLElement.prototype.getBoundingClientRect = () => ({ width: 42 });
 		vi.useFakeTimers();
 	});
@@ -30,9 +31,7 @@ describe('DateTime widget', () => {
 		onFinish: vi.fn(),
 		options: {},
 	};
-	beforeEach(() => {
-		vi.resetAllMocks();
-	});
+
 	it('should render an InputDateTimePicker', () => {
 		// when
 		const { container } = render(<DateTimeWidget {...props} />);
@@ -74,6 +73,8 @@ describe('DateTime widget', () => {
 	describe('onChange', () => {
 		it('should call props onChange', async () => {
 			// given
+			const date = new Date(2026, 10, 10);
+			vi.setSystemTime(date);
 			render(<DateTimeWidget {...props} options={{ dateFormat: 'DD/MM/YYYY' }} />);
 
 			// when
@@ -95,6 +96,8 @@ describe('DateTime widget', () => {
 
 		it('should convert valid date to timestamp', async () => {
 			// given
+			const date = new Date(2026, 10, 10);
+			vi.setSystemTime(date);
 			const timestampSchema = {
 				...schema,
 				schema: { type: 'number' },
