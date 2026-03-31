@@ -1,5 +1,11 @@
 # @talend/react-forms
 
+## 16.1.2
+
+### Patch Changes
+
+- 5d7e74e: Mock some dates in test that does not handle daylight saving change
+
 ## 16.1.1
 
 ### Patch Changes
