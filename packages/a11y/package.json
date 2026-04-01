@@ -44,14 +44,14 @@
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/date-fns": "^2.6.3",
-    "@types/react": "^18.3.27",
+    "@types/react": "^18.3.28",
     "@types/react-dom": "^18.3.7",
-    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/coverage-v8": "^4.1.2",
     "date-fns": "^3.6.0",
-    "eslint": "^10.0.3",
+    "eslint": "^10.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.2"
   },
   "peerDependencies": {
     "react": "^18.3.1",

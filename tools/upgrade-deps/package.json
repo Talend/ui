@@ -9,18 +9,18 @@
   "main": "src/index.js",
   "dependencies": {
     "@yarnpkg/lockfile": "^1.1.0",
-    "semver": "^7.7.3",
-    "strip-ansi": "^7.1.2",
+    "semver": "^7.7.4",
+    "strip-ansi": "^7.2.0",
     "yarn-deduplicate": "^6.0.2"
   },
   "devDependencies": {
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/scripts-core": "^20.0.0",
-    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/coverage-v8": "^4.1.2",
     "cpx2": "^8.0.0",
-    "eslint": "^10.0.3",
-    "vitest": "^4.0.18"
+    "eslint": "^10.1.0",
+    "vitest": "^4.1.2"
   },
   "license": "Apache-2.0",
   "homepage": "https://github.com/Talend/ui",

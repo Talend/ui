@@ -46,9 +46,9 @@
     "@talend/utils": "^3.7.1",
     "commander": "^6.2.1",
     "hoist-non-react-statics": "^3.3.2",
-    "immutable": "^3.8.2",
+    "immutable": "^3.8.3",
     "invariant": "^2.2.4",
-    "lodash": "^4.17.23",
+    "lodash": "^4.18.0",
     "nested-combine-reducers": "^1.2.2",
     "path-to-regexp": "^8.4.1",
     "prop-types": "^15.8.1",
@@ -61,8 +61,8 @@
     "redux-thunk": "^2.4.2"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^5.1.4",
-    "@vitest/coverage-v8": "^4.0.18",
+    "@vitejs/plugin-react": "^5.2.0",
+    "@vitest/coverage-v8": "^4.1.2",
     "@redux-saga/testing-utils": "^1.2.1",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
@@ -71,13 +71,13 @@
     "@talend/scripts-config-babel": "^13.10.1",
     "@talend/scripts-config-react-webpack": "^17.1.1",
     "@testing-library/react": "^14.3.1",
-    "eslint": "^10.0.3",
+    "eslint": "^10.1.0",
     "node-fetch": "^2.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "redux-mock-store": "^1.5.5",
     "redux-saga-tester": "^1.0.874",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.2"
   },
   "peerDependencies": {
     "react": "^18.3.1",

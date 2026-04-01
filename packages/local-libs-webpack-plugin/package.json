@@ -32,8 +32,8 @@
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/scripts-core": "^20.0.0",
-    "@vitest/coverage-v8": "^4.0.18",
-    "eslint": "^10.0.3",
-    "vitest": "^4.0.18"
+    "@vitest/coverage-v8": "^4.1.2",
+    "eslint": "^10.1.0",
+    "vitest": "^4.1.2"
   }
 }
