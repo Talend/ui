@@ -1,7 +1,0 @@
-import{j as e}from"./index-DaShFRXU.js";import{u as a}from"./index-DHDqBCU2.js";import{M as c}from"./blocks-BaT2wbDw.js";import{t as o}from"./TalendDesignTokens-JgHEBmOa.js";import"./iframe-RKzAlfgz.js";import{D as l}from"./Dialog-DmOPWrFN.js";import"./index-DjqjNkHf.js";import"./useCopyToClipboard-CqJnkQzD.js";import{T as i}from"./TokenValue-BJ3HUtlL.js";import"./index-CIZ_P_pj.js";import"./preload-helper-PPVm8Dsz.js";import"./dictionary-CKKJDmnH.js";function s(n){const t={h1:"h1",h2:"h2",...a(),...n.components};return e.jsxs(e.Fragment,{children:[e.jsx(c,{title:"Design Tokens/Measures"}),`
-`,e.jsx(t.h1,{id:"measures",children:"Measures"}),`
-`,e.jsx(l,{}),`
-`,e.jsx(t.h2,{id:"spacing",children:"Spacing"}),`
-`,e.jsx(i,{style:r=>({padding:r.value,backgroundColor:o.coralColorAccentBackground,minHeight:"100%"}),type:"measure",category:"spacing",children:r=>e.jsx("div",{style:{border:`${o.coralBorderSDashed} ${o.coralColorAccentBorder}`,borderRadius:o.coralRadiusM,backgroundColor:o.coralColorNeutralBackground,display:"flex",justifyContent:"center",alignItems:"center",width:"100%",minHeight:"100%"},children:r.value})}),`
-`,e.jsx(t.h2,{id:"sizing",children:"Sizing"}),`
-`,e.jsx(i,{style:r=>({minHeight:"100%"}),type:"measure",category:"sizing",children:r=>e.jsx("div",{style:{display:"flex",justifyContent:"center",alignItems:"center",height:r.value},children:r.value})})]})}function k(n={}){const{wrapper:t}={...a(),...n.components};return t?e.jsx(t,{...n,children:e.jsx(s,{...n})}):s(n)}export{k as default};
