@@ -22,7 +22,7 @@
   "devDependencies": {
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
-    "eslint": "^10.0.3"
+    "eslint": "^10.1.0"
   },
   "publishConfig": {
     "access": "public"
