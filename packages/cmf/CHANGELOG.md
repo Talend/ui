@@ -1,5 +1,12 @@
 # @talend/react-cmf
 
+## 12.2.0
+
+### Minor Changes
+
+- 5d7e74e: Upgrade path-to-regexp to fix CVE
+  Reintroduce react-cmf unit tests
+
 ## 12.1.1
 
 ### Patch Changes
