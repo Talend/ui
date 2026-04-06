@@ -80,7 +80,7 @@
     "eslint": "^10.1.0",
     "stylelint": "^17.6.0",
     "i18next": "^23.16.8",
-    "msw": "2.12.7",
+    "msw": "2.13.0",
     "@storybook/addon-a11y": "^10.3.3",
     "@storybook/addon-links": "^10.3.3",
     "prop-types": "^15.8.1",
