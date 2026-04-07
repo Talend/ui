@@ -13,7 +13,6 @@ const jsxA11yPlugin = require('eslint-plugin-jsx-a11y');
 const prettierPlugin = require('eslint-plugin-prettier');
 const prettierConfig = require('eslint-config-prettier');
 const talendPlugin = require('@talend/eslint-plugin');
-const jestDomPlugin = require('eslint-plugin-jest-dom');
 const testingLibraryPlugin = require('eslint-plugin-testing-library');
 const mdxPlugin = require('eslint-plugin-mdx');
 
