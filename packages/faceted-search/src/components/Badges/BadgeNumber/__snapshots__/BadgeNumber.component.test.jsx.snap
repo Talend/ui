@@ -1,0 +1,91 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BadgeNumber > should mount a default badge 1`] = `
+<div
+  class="tc-badge _tc-badge_56447e tc-badge-display-large _tc-badge-display-large_56447e _tc-badge-faceted_771407 __tc-badge-faceted_771407_56447e tc-badge-readonly _tc-badge-readonly_56447e"
+>
+  <div
+    class="tc-badge-button _tc-badge-button_56447e"
+    id="tc-badge-select-myId-badge-number"
+  >
+    <span
+      aria-describedby="mocked-uuid-4"
+      aria-label="Price"
+      class="tc-badge-category _tc-badge-category_56447e"
+    >
+      Price
+    </span>
+    <div
+      class="_tc-badge-operator_8469bc _tc-badge-operator-large_8469bc"
+    >
+      <div
+        class="_tc-badge-operator-button_8469bc"
+      >
+        <button
+          aria-busy="false"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-label="Does not contain"
+          class="_clickable_5222c6 _button_9243c0 _tertiary_58aebf _size-S_9243c0"
+          id="myId-badge-number-operator-action-overlay"
+          title="Does not contain"
+          type="button"
+        >
+          <span
+            class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270"
+          >
+            <svg
+              aria-hidden="true"
+              class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-not-equal"
+              focusable="false"
+              name="talend-not-equal"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+            />
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="_tc-badge-faceted-overlay_771407"
+    >
+      <button
+        aria-busy="false"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        aria-label="All"
+        class="_clickable_5222c6 _button_9243c0 _tertiary_58aebf _size-S_9243c0"
+        id="myId-badge-number-action-overlay"
+        title="All"
+        type="button"
+      >
+        <span
+          class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270"
+        >
+          <span>
+            All
+          </span>
+        </span>
+      </button>
+    </div>
+    <button
+      aria-describedby="mocked-uuid-5"
+      aria-label="Remove filter"
+      class="tc-badge-delete-icon _tc-badge-delete-icon_56447e btn-icon-only btn btn-link"
+      data-feature="filter.remove"
+      id="tc-badge-delete-myId-badge-number"
+      role="button"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-cross"
+        focusable="false"
+        name="talend-cross"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </button>
+  </div>
+</div>
+`;
