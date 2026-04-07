@@ -4,7 +4,7 @@
   "compilerOptions": {
     "allowJs": false,
     "declaration": true,
-    "target": "ES5",
-    "module": "CommonJs"
+    "rootDir": "./src",
+    "module": "ESNext"
   }
 }
