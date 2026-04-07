@@ -1,0 +1,50 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Container(ActionDropdown) > should render 1`] = `
+<div
+  class="dropdown btn-group btn-group-default"
+>
+  <button
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-label="foo"
+    class="_tc-dropdown-button_0099c3 tc-dropdown-button dropdown-toggle btn btn-default"
+    i18n="[object Object]"
+    id="foo"
+    role="button"
+    type="button"
+  >
+    <span
+      class="tc-dropdown-button-title-label"
+    >
+      foo
+    </span>
+    <svg
+      aria-hidden="true"
+      class="tc-svg-icon tc-icon _svg_bf5f45 _tc-dropdown-caret_0099c3 tc-icon-name-talend-caret-down"
+      focusable="false"
+      name="talend-caret-down"
+      pointer-events="none"
+      shape-rendering="geometricPrecision"
+    />
+  </button>
+  <ul
+    aria-labelledby="foo"
+    class="dropdown-menu"
+    role="menu"
+  >
+    <li
+      class="disabled"
+      role="presentation"
+    >
+      <a
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+      >
+        No options
+      </a>
+    </li>
+  </ul>
+</div>
+`;
