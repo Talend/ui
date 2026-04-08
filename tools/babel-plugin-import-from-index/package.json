@@ -23,8 +23,6 @@
     "semver": "^7.7.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.2",
     "babel-plugin-tester": "^10.1.0",
     "globals": "^15.15.0"
   },

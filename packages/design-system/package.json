@@ -69,7 +69,6 @@
     "@types/react-is": "^18.3.1",
     "@types/react-transition-group": "^2.9.2",
     "@types/react-virtualized": "^9.22.3",
-    "@vitejs/plugin-react": "^5.2.0",
     "concurrently": "^8.2.2",
     "focus-outline-manager": "^1.0.2",
     "i18next": "^23.16.8",

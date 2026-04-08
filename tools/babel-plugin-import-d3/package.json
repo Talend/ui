@@ -20,8 +20,6 @@
     "test:update": "vitest run --update"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.2",
     "babel-plugin-tester": "^10.1.0"
   },
   "babel": {
