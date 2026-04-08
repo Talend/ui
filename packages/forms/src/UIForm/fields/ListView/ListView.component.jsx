@@ -238,4 +238,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 export { ListViewWidget };
 
-export default withTranslation(I18N_DOMAIN_FORMS)(ListViewWidget);
+const I18NListViewWidget = /** @type {typeof ListViewWidget} */ (
+	withTranslation(I18N_DOMAIN_FORMS)(ListViewWidget)
+);
+
+export default I18NListViewWidget;

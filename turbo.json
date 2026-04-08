@@ -2,17 +2,17 @@
   // generate turbo repo config
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
-    "build": {
-      "outputs": ["dist/**", "lib/**"]
-    },
     "build:lib": {
+      "dependsOn": ["^build:lib"],
       "outputs": ["dist/**", "lib/**"]
     },
     "build:lib:esm": {
+      "dependsOn": ["^build:lib:esm"],
       "outputs": ["lib-esm/**"]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": ["^lint"],
+      "outputs": ["eslint-report.json", "stylelint-report.json"]
     }
   }
 }

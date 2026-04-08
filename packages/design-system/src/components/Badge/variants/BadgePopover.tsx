@@ -1,4 +1,4 @@
-import { forwardRef, Fragment, PropsWithChildren, Ref, useState } from 'react';
+import { forwardRef, Fragment, PropsWithChildren, useState } from 'react';
 
 import { Divider } from '../../Divider';
 import { Popover } from '../../Popover';
@@ -15,7 +15,7 @@ export type BadgePopoverProps = PropsWithChildren<
 	}
 >;
 
-const BadgePopover = forwardRef((props: BadgePopoverProps, ref: Ref<HTMLSpanElement>) => {
+const BadgePopover = forwardRef<HTMLSpanElement, BadgePopoverProps>((props, ref) => {
 	const { children, value } = props;
 
 	const [showPopover, setShowPopover] = useState(false);

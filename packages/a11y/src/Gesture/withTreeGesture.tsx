@@ -3,12 +3,12 @@ import { Component, ComponentType, KeyboardEvent } from 'react';
 
 import { focusOn } from './focus';
 
-function getAllItems(ref: HTMLElement) {
+function getAllItems(ref: HTMLElement): HTMLElement[] {
 	const nodes = ref.closest('ul[role="tree"]');
 	if (nodes) {
-		return nodes.querySelectorAll('li[role="treeitem"]');
+		return Array.from(nodes.querySelectorAll<HTMLElement>('li[role="treeitem"]'));
 	}
-	return null;
+	return [];
 }
 
 function getFirstItem(ref: HTMLElement): HTMLElement | null {
@@ -21,8 +21,8 @@ function getFirstItem(ref: HTMLElement): HTMLElement | null {
 
 function getLastItem(ref: HTMLElement): HTMLElement | null {
 	const nodes = getAllItems(ref);
-	if (nodes && nodes.length > 0) {
-		return nodes.item(nodes.length - 1) as HTMLElement;
+	if (nodes.length > 0) {
+		return nodes[nodes.length - 1];
 	}
 	return null;
 }
@@ -36,24 +36,21 @@ function getParentItem(ref: HTMLElement): HTMLElement | null {
 }
 
 function getFirstChildItem(ref: HTMLElement): HTMLElement | null {
-	return ref.querySelector('li[role="treeitem"]');
+	return ref.querySelector<HTMLElement>('li[role="treeitem"]');
 }
 
 function getNextItem(ref: HTMLElement): HTMLElement | null {
 	let nextElement = null;
-	let currentFound;
-	let hasNext;
+	let currentFound = false;
+	let hasNext = false;
 
-	const nodes = getAllItems(ref)?.values();
-	if (!nodes) {
-		return nextElement;
-	}
+	const nodes = getAllItems(ref).values();
 
 	do {
 		const { value, done } = nodes.next();
 
 		if (currentFound) {
-			nextElement = value;
+			nextElement = value ?? null;
 			hasNext = false;
 		} else {
 			currentFound = value === ref;
@@ -64,14 +61,11 @@ function getNextItem(ref: HTMLElement): HTMLElement | null {
 	return nextElement;
 }
 
-function getPreviousItem(ref: HTMLElement) {
+function getPreviousItem(ref: HTMLElement): HTMLElement | null {
 	let previousElement = null;
-	let hasNext;
+	let hasNext = false;
 
-	const nodes = getAllItems(ref)?.values();
-	if (!nodes) {
-		return previousElement;
-	}
+	const nodes = getAllItems(ref).values();
 
 	do {
 		const { value, done } = nodes.next();
@@ -80,7 +74,7 @@ function getPreviousItem(ref: HTMLElement) {
 		if (currentFound) {
 			hasNext = false;
 		} else {
-			previousElement = value;
+			previousElement = value ?? null;
 			hasNext = !done;
 		}
 	} while (hasNext);

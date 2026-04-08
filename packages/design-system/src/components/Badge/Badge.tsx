@@ -1,4 +1,4 @@
-import { forwardRef, Ref } from 'react';
+import { forwardRef } from 'react';
 import { BadgeVariantType } from './primitive/BadgePrimitive';
 import BadgeDropdown, { BadgeDropdownProps } from './variants/BadgeDropdown';
 import BadgePopover, { BadgePopoverProps } from './variants/BadgePopover';
@@ -12,7 +12,7 @@ type BadgePopoverType = BadgeVariantType<'popover', BadgePopoverProps>;
 
 export type BadgeProps = BadgeValueType | BadgeTagType | BadgeDropdownType | BadgePopoverType;
 
-export const Badge = forwardRef((props: BadgeProps, ref: Ref<HTMLSpanElement>) => {
+export const Badge = forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
 	switch (props.variant) {
 		case 'badge': {
 			const { variant, ...rest } = props;
