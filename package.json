@@ -3,6 +3,7 @@
     "build": "yarn build:lib && yarn build:lib:esm",
     "build:lib": "turbo run build:lib",
     "build:lib:esm": "turbo run build:lib:esm",
+    "clean:build": "rimraf {packages,tools,fork}/*/{lib,lib-esm,dist}",
     "start": "yarn workspace @talend/ui-playground run start",
     "start-storybook": "yarn workspace @talend/ui-storybook-one run start",
     "release": "yarn pre-release && yarn changeset publish",
