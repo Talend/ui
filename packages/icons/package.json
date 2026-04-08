@@ -34,11 +34,8 @@
     "build:webfont": "node scripts/build-webfont.mjs",
     "build:types": "tsc --emitDeclarationOnly",
     "type-check": "tsc --noEmit",
-    "test": "echo no test",
-    "test:cov": "echo no test",
     "start": "storybook dev -p 6010",
     "build-storybook": "storybook build",
-    "lint": "echo nothing to lint",
     "svgo": "svgo -rf src/svg --config svgo-icons.config.mjs && svgo -rf src/filters --config svgo-filters.config.mjs"
   },
   "files": [
