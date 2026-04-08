@@ -11,8 +11,7 @@
   },
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "echo nothing to test"
+    "lint": "eslint -o eslint-report.json --format json ."
   },
   "dependencies": {
     "cross-spawn": "^7.0.6",

@@ -13,6 +13,17 @@
     "lint": {
       "dependsOn": ["^lint"],
       "outputs": ["eslint-report.json", "stylelint-report.json"]
+    },
+    "test:demo": {
+      "dependsOn": ["^test:demo"],
+      "outputs": [".storybook-static/**"]
+    },
+    "test": {
+      "dependsOn": ["^test"]
+    },
+    "test:cov": {
+      "dependsOn": ["^test:cov"],
+      "outputs": ["coverage/**"]
     }
   }
 }

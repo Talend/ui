@@ -17,7 +17,6 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "start": "echo nothing to start",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage",

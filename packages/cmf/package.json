@@ -19,7 +19,6 @@
   },
   "scripts": {
     "build:lib": "talend-scripts build && talend-scripts build --esm",
-    "start": "echo nothing to start",
     "test": "vitest run",
     "test:update": "vitest run --update",
     "test:watch": "vitest --watch",
