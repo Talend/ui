@@ -80,7 +80,6 @@
     "@types/react-transition-group": "^2.9.2",
     "@types/react-virtualized": "^9.22.3",
     "@vitejs/plugin-react": "^5.2.0",
-    "@vitest/coverage-v8": "^4.1.2",
     "concurrently": "^8.2.2",
     "eslint": "^10.1.0",
     "focus-outline-manager": "^1.0.2",
@@ -97,8 +96,7 @@
     "react-i18next": "^13.5.0",
     "react-router-dom": "~6.3.0",
     "stylelint": "^17.6.0",
-    "storybook": "^10.3.3",
-    "vitest": "^4.1.2"
+    "storybook": "^10.3.3"
   },
   "peerDependencies": {
     "@talend/icons": "^8.0.0",

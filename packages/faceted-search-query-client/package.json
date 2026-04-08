@@ -53,9 +53,7 @@
     "@talend/scripts-config-babel": "^13.10.1",
     "@talend/scripts-config-react-webpack": "^17.1.1",
     "@talend/scripts-config-typescript": "^12.1.1",
-    "@vitest/coverage-v8": "^4.1.2",
-    "eslint": "^10.1.0",
-    "vitest": "^4.1.2"
+    "eslint": "^10.1.0"
   },
   "peerDependencies": {
     "@talend/react-faceted-search": "^22.0.0"

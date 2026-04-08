@@ -67,7 +67,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.2.0",
-    "@vitest/coverage-v8": "^4.1.2",
     "@talend/locales-tui-forms": "^15.2.0",
     "@talend/react-components": "^18.1.1",
     "@talend/eslint-config": "^14.1.2",
@@ -92,8 +91,7 @@
     "react-dom": "^18.3.1",
     "react-virtualized": "^9.22.6",
     "react-i18next": "^13.5.0",
-    "react-test-renderer": "^18.3.1",
-    "vitest": "^4.1.2"
+    "react-test-renderer": "^18.3.1"
   },
   "peerDependencies": {
     "i18next": "^23.16.8",

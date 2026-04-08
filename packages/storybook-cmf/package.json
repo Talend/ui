@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.2.0",
-    "@vitest/coverage-v8": "^4.1.2",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/react-cmf": "^12.2.0",
@@ -47,8 +46,7 @@
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
     "redux-saga": "^1.4.2",
-    "storybook": "^10.3.3",
-    "vitest": "^4.1.2"
+    "storybook": "^10.3.3"
   },
   "dependencies": {
     "prop-types": "^15.8.1"

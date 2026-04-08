@@ -47,7 +47,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.2.0",
-    "@vitest/coverage-v8": "^4.1.2",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/scripts-config-typescript": "^12.1.1",
@@ -66,8 +65,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-test-renderer": "^18.3.1",
-    "sinon": "^11.1.2",
-    "vitest": "^4.1.2"
+    "sinon": "^11.1.2"
   },
   "dependencies": {
     "classnames": "^2.5.1",

@@ -42,7 +42,6 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^4.1.2",
     "@redux-saga/testing-utils": "^1.2.1",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
@@ -53,8 +52,7 @@
     "eslint": "^10.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "redux-saga-tester": "^1.0.874",
-    "vitest": "^4.1.2"
+    "redux-saga-tester": "^1.0.874"
   },
   "publishConfig": {
     "access": "public"

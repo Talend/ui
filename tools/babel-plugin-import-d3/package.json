@@ -25,10 +25,8 @@
     "@talend/scripts-core": "^20.0.0",
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.2",
-    "@vitest/coverage-v8": "^4.1.2",
     "babel-plugin-tester": "^10.1.0",
-    "eslint": "^10.1.0",
-    "vitest": "^4.1.2"
+    "eslint": "^10.1.0"
   },
   "babel": {
     "presets": [

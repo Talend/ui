@@ -81,7 +81,6 @@
     "@types/topojson-client": "^3.1.5",
     "@types/topojson-specification": "^1.0.5",
     "@vitejs/plugin-react": "^5.2.0",
-    "@vitest/coverage-v8": "^4.1.2",
     "eslint": "^10.1.0",
     "stylelint": "^17.6.0",
     "cross-env": "^10.1.0",
@@ -90,8 +89,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^13.5.0",
-    "storybook": "^10.3.3",
-    "vitest": "^4.1.2"
+    "storybook": "^10.3.3"
   },
   "peerDependencies": {
     "i18next": "^23.16.8",

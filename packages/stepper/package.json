@@ -53,7 +53,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.2.0",
-    "@vitest/coverage-v8": "^4.1.2",
     "@talend/icons": "^8.0.0",
     "@talend/eslint-config": "^14.1.2",
     "@talend/eslint-plugin": "^1.8.1",
@@ -76,8 +75,7 @@
     "react-dom": "^18.3.1",
     "react-i18next": "^13.5.0",
     "react-redux": "^7.2.9",
-    "react-transition-group": "^2.9.0",
-    "vitest": "^4.1.2"
+    "react-transition-group": "^2.9.0"
   },
   "peerDependencies": {
     "i18next": "^23.16.8",
