@@ -1,0 +1,105 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Component SelectObject > should render 1`] = `
+<div
+  class="mock-provider"
+>
+  <div
+    class="tc-select-object _wrapper_1038ee"
+  >
+    <form
+      class="_filter_274451 my-custom-filter _filter_1038ee"
+      role="search"
+    >
+      <div
+        class="form-group"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon _svg_bf5f45 _search-icon_274451 _search-focused_274451 tc-icon-name-talend-search"
+          focusable="false"
+          name="talend-search"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+        <input
+          aria-label="Filter"
+          autocomplete="off"
+          class="_search_274451 form-control"
+          id="my-tree-input"
+          name="search"
+          placeholder="Filter"
+          role="searchbox"
+          type="search"
+          value=""
+        />
+      </div>
+    </form>
+    <div
+      class="_container_1038ee"
+    >
+      <div
+        class="tc-treeview _tc-treeview_541c07 _tree_1038ee"
+      >
+        <header
+          class="_tc-treeview-header_541c07 sr-only"
+        >
+          <span
+            id="tc-treeview-title"
+          >
+            Folders
+          </span>
+        </header>
+        <ul
+          aria-labelledby="tc-treeview-title"
+          class="_tc-treeview-list_541c07"
+          role="tree"
+        >
+          <li
+            aria-level="1"
+            aria-posinset="1"
+            aria-selected="false"
+            aria-setsize="1"
+            class="tc-treeview-item-li _tc-treeview-li_fa0e07"
+            id="tc-treeview-0"
+            role="treeitem"
+            tabindex="0"
+          >
+            <div
+              class="tc-treeview-item _tc-treeview-item_fa0e07"
+              style="padding-left: 30px;"
+            >
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon _svg_bf5f45 _tc-treeview-folder_fa0e07 tc-icon-name-talend-folder-closed"
+                focusable="false"
+                name="talend-folder-closed"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
+              <span
+                class="tc-treeview-item-name _tc-treeview-item-name_fa0e07"
+              >
+                foo
+              </span>
+              <div
+                class="_tc-treeview-item-ctrl_fa0e07"
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+      <dl
+        class="_json-schema-renderer_451877 json-schema-renderer _preview_1038ee"
+      >
+        <dt>
+          name
+        </dt>
+        <dd>
+          foo
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+`;

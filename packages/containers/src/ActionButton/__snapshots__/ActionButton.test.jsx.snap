@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CMF(Container(ActionButton)) > should render 1`] = `
+<button
+  aria-label="click"
+  class="btn btn-default"
+  data-extra="foo"
+  type="button"
+>
+  <span>
+    click
+  </span>
+</button>
+`;

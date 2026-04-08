@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SidePanel > should render 1`] = `
+<nav
+  class="_tc-side-panel_51c071 tc-side-panel"
+  role="navigation"
+  style="width: 0px;"
+>
+  <div
+    class="_toggle-btn_51c071 tc-side-panel-toggle-btn"
+  >
+    <button
+      aria-describedby="00000000-0000-4000-8000-000000000000"
+      aria-label="Collapse menu"
+      class="btn-icon-only btn btn-link"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-opener"
+        focusable="false"
+        name="talend-opener"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </button>
+  </div>
+  <div
+    class="_action-list-container_51c071 tc-side-panel-action-list-container"
+  >
+    <ul
+      class="nav nav-pills nav-stacked _tc-action-list_74e843 tc-action-list _tc-side-panel-list_51c071 tc-side-panel-list"
+    />
+  </div>
+</nav>
+`;

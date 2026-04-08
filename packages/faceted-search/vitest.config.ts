@@ -2,18 +2,7 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-	plugins: [react({ include: /\.[jt]sx?$/ })],
-	esbuild: {
-		loader: 'tsx',
-		include: /src\/.*\.[jt]sx?$/,
-		exclude: [],
-		jsx: 'automatic',
-		tsconfigRaw: {
-			compilerOptions: {
-				jsx: 'react-jsx',
-			},
-		},
-	},
+	plugins: [react({ include: /src\/.*\.[jt]sx?$/ })],
 	test: {
 		globals: true,
 		environment: 'jsdom',
