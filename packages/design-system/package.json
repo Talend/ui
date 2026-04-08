@@ -57,6 +57,8 @@
     "typeface-source-sans-pro": "^1.1.13"
   },
   "devDependencies": {
+    "@talend/icons": "^8.0.0",
+    "@talend/storybook-docs": "^3.1.1",
     "@storybook/addon-a11y": "^10.3.3",
     "@storybook/addon-links": "^10.3.3",
     "@storybook/react": "^10.3.3",

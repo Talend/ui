@@ -57,6 +57,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
+    "@talend/design-tokens": "^4.1.1",
     "@types/node": "^20.19.37",
     "fantasticon": "^4.1.0",
     "mkdirp": "^1.0.4",
