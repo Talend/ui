@@ -14,10 +14,6 @@
     "glob": "^11.1.0",
     "which": "^2.0.2"
   },
-  "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "eslint": "^10.1.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Talend/ui.git"

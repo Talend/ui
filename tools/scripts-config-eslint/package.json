@@ -19,7 +19,6 @@
     "test:cov": "vitest run --coverage",
     "test:update": "vitest run --update"
   },
-  "devDependencies": {},
   "dependencies": {
     "@eslint/compat": "^2.0.3",
     "@eslint/js": "^9.39.4",

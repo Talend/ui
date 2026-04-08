@@ -60,11 +60,6 @@
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.3"
   },
-  "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "eslint": "^10.1.0"
-  },
   "publishConfig": {
     "access": "public"
   }

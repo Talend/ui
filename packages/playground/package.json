@@ -22,14 +22,11 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@talend/dynamic-cdn-webpack-plugin": "^14.5.1",
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
     "@talend/scripts-core": "^20.0.0",
     "@talend/scripts-config-babel": "^13.10.1",
     "@talend/scripts-config-stylelint": "^5.0.0",
     "copy-webpack-plugin": "^14.0.0",
     "cross-env": "^10.1.0",
-    "eslint": "^10.1.0",
     "webpack": "^5.105.4"
   },
   "dependencies": {

@@ -48,9 +48,6 @@
     "webpack-merge": "^5.10.0",
     "yargs": "^15.4.1"
   },
-  "devDependencies": {
-    "eslint": "^10.1.0"
-  },
   "publishConfig": {
     "access": "public"
   }

@@ -37,17 +37,10 @@
     "@talend/utils": "^3.7.1"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-core": "^20.0.0",
-    "@talend/scripts-config-typescript": "^12.1.1",
-    "@testing-library/react": "^14.3.1",
-    "@testing-library/user-event": "^14.6.1",
     "@types/date-fns": "^2.6.3",
     "@types/react": "^18.3.28",
     "@types/react-dom": "^18.3.7",
     "date-fns": "^3.6.0",
-    "eslint": "^10.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

@@ -60,8 +60,6 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
     "@talend/scripts-config-typescript": "^12.1.1",
     "@types/node": "^20.19.37",
     "fantasticon": "^4.1.0",

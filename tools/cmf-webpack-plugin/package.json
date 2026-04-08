@@ -30,9 +30,7 @@
     "webpack-sources": "^3.3.4"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/scripts-config-babel": "^13.10.1",
-    "eslint": "^10.1.0"
+    "@talend/scripts-config-babel": "^13.10.1"
   },
   "publishConfig": {
     "access": "public"
