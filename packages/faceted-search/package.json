@@ -59,7 +59,6 @@
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.6.1",
     "cross-env": "^10.1.0",
-    "stylelint": "^17.6.0",
     "i18next": "^23.16.8",
     "storybook": "^10.3.3",
     "prop-types": "^15.8.1",

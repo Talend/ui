@@ -83,7 +83,6 @@
     "react-hook-form": "^7.72.0",
     "react-i18next": "^13.5.0",
     "react-router-dom": "~6.3.0",
-    "stylelint": "^17.6.0",
     "storybook": "^10.3.3"
   },
   "peerDependencies": {

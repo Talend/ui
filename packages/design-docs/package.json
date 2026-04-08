@@ -43,7 +43,6 @@
     "@storybook/addon-docs": "^10.3.3",
     "@storybook/react-vite": "^10.3.3",
     "@types/react": "^18.3.28",
-    "stylelint": "^17.6.0",
     "i18next": "^23.16.8",
     "mdx-embed": "^1.1.2",
     "react": "^18.3.1",
