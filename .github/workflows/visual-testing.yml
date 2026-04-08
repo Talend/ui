@@ -36,7 +36,9 @@ jobs:
         uses: ./.github/actions/setup-node
 
       - name: Install dependencies
-        run: yarn --frozen-lock
+        run: |
+          yarn --frozen-lock
+          yarn build
 
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'

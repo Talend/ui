@@ -1,0 +1,18 @@
+{
+  // generate turbo repo config
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "outputs": ["dist/**", "lib/**"]
+    },
+    "build:lib": {
+      "outputs": ["dist/**", "lib/**"]
+    },
+    "build:lib:esm": {
+      "outputs": ["lib-esm/**"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    }
+  }
+}

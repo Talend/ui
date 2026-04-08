@@ -32,6 +32,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn install --frozen-lockfile
 
+      - name: Build
+        run: yarn build
+
       - name: Build Demo
         run: yarn test:demo
 
