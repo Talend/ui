@@ -80,6 +80,8 @@
     "warning": "^3.0.0"
   },
   "devDependencies": {
+    "@talend/bootstrap-theme": "^10.1.1",
+    "@talend/design-system": "^12.1.1",
     "@storybook/addon-a11y": "^10.3.3",
     "@storybook/addon-links": "^10.3.3",
     "@storybook/react": "^10.3.3",

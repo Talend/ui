@@ -28,7 +28,7 @@
     },
     "test:demo": {
       "dependsOn": ["^test:demo"],
-      "outputs": [".storybook-static/**"]
+      "outputs": ["storybook-static/**"]
     },
     "test": {
       "dependsOn": ["^test"]
