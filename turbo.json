@@ -18,6 +18,10 @@
       "dependsOn": ["^build:lib"],
       "outputs": ["dist/**"]
     },
+    "@talend/storybook-docs#build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["lib/**", "dist/**"]
+    },
     "build:lib:esm": {
       "dependsOn": ["^build:lib:esm"],
       "outputs": ["lib-esm/**"]
