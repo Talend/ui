@@ -3,7 +3,6 @@
   "compilerOptions": {
     "types": ["node"],
     "jsx": "react-jsx",
-    "outDir": "dist",
     "noEmit": false,
     "module": "Node16",
     "moduleResolution": "node16",
