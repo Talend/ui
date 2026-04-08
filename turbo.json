@@ -4,7 +4,19 @@
   "tasks": {
     "build:lib": {
       "dependsOn": ["^build:lib"],
-      "outputs": ["dist/**", "lib/**"]
+      "outputs": ["lib/**"]
+    },
+    "@talend/bootstrap-theme#build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["dist/**"]
+    },
+    "@talend/icons#build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["dist/**"]
+    },
+    "@talend/scripts-config-storybook-lib#build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["dist/**"]
     },
     "build:lib:esm": {
       "dependsOn": ["^build:lib:esm"],
