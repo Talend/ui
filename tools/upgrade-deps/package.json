@@ -14,7 +14,6 @@
     "yarn-deduplicate": "^6.0.2"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^20.0.0",
     "cpx2": "^8.0.0"
   },
   "license": "Apache-2.0",

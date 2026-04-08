@@ -17,9 +17,6 @@
     "@talend/scripts-utils": "^2.8.1",
     "cross-spawn": "^7.0.6"
   },
-  "devDependencies": {
-    "@talend/scripts-core": "^20.0.0"
-  },
   "keywords": [
     "i18next",
     "talend"

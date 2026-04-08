@@ -37,10 +37,6 @@
     "test:cov": "vitest run --coverage"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^20.0.0",
-    "@talend/scripts-config-babel": "^13.10.1",
-    "@talend/scripts-config-react-webpack": "^17.1.1",
-    "@talend/scripts-config-typescript": "^12.1.1",
     "@types/node-fetch": "^2.6.13",
     "node-fetch": "^2.7.0",
     "react-dom": "^18.3.1",

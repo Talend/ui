@@ -31,11 +31,6 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@vitejs/plugin-react": "^5.2.0",
-    "@talend/babel-plugin-import-from-index": "^1.13.1",
-    "@talend/babel-plugin-assets-api": "^1.9.1",
-    "@talend/scripts-core": "^20.0.0",
-    "@talend/scripts-config-typescript": "^12.1.1",
-    "@talend/scripts-config-react-webpack": "^17.1.1",
     "@testing-library/react": "^14.3.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@types/d3": "^7.4.3",

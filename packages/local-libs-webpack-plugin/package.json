@@ -27,8 +27,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "@talend/scripts-core": "^20.0.0"
   }
 }

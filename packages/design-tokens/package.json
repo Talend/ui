@@ -53,11 +53,6 @@
   },
   "devDependencies": {
     "sass": "^1.98.0",
-    "@talend/scripts-core": "^20.0.0",
-    "@talend/scripts-config-react-webpack": "^17.1.1",
-    "@talend/scripts-config-typescript": "^12.1.1",
-    "@talend/babel-plugin-import-from-index": "^1.13.1",
-    "@talend/babel-plugin-assets-api": "^1.9.1",
     "typeface-source-sans-pro": "^1.1.13",
     "webpack": "^5.105.4"
   },

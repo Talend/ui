@@ -48,14 +48,8 @@
     "json-schema"
   ],
   "devDependencies": {
-    "@talend/babel-plugin-assets-api": "^1.9.1",
-    "@talend/babel-plugin-import-from-index": "^1.13.1",
-    "@talend/scripts-config-react-webpack": "^17.1.1",
-    "@talend/scripts-config-typescript": "^12.1.1",
-    "@talend/scripts-core": "^20.0.0",
     "@types/chai": "^3.5.2",
     "@types/node": "^6.14.13",
-    "rimraf": "^6.1.3",
     "webpack": "^5.105.4"
   },
   "dependencies": {

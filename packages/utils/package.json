@@ -33,9 +33,6 @@
     "test:update": "vitest run --update"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^20.0.0",
-    "@talend/scripts-config-stylelint": "^5.0.0",
-    "@talend/scripts-config-typescript": "^12.1.1",
     "@types/date-fns": "^2.6.3",
     "@types/lodash": "^4.17.24"
   },

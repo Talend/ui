@@ -22,7 +22,6 @@
     "@babel/types": "^7.29.0"
   },
   "devDependencies": {
-    "@talend/scripts-core": "^20.0.0",
     "babel-plugin-tester": "^10.1.0"
   }
 }
