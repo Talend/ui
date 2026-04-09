@@ -1,5 +1,4 @@
 {
-  // generate turbo repo config
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build:lib": {
