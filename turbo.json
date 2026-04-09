@@ -10,6 +10,10 @@
       "dependsOn": ["^build:lib"],
       "outputs": ["dist/**"]
     },
+    "@talend/design-system#build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["lib/**", "lib-esm/**"]
+    },
     "@talend/icons#build:lib": {
       "dependsOn": ["^build:lib"],
       "outputs": ["dist/**"]
