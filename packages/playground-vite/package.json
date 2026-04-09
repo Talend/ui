@@ -7,10 +7,9 @@
   "main": "app/index.js",
   "scripts": {
     "build": "vite build && cmf-settings",
-    "test": "echo nothing to test in playground",
     "start": "vite dev",
     "start-dist": "node serve-dist.mjs",
-    "lint": "eslint -o eslint-report.json --format json ."
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "repository": {
     "type": "git",

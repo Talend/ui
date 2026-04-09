@@ -28,7 +28,7 @@
   "scripts": {
     "build:lib": "tsc",
     "build:watch": "tsc --watch",
-    "lint": "eslint -o eslint-report.json --format json .",
+    "eslint": "eslint -o eslint-report.json --format json .",
     "update:msw": "npx msw init public/msw --save"
   },
   "files": [

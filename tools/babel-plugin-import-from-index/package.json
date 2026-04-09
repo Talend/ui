@@ -14,10 +14,10 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json ./src",
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
-    "test:update": "vitest run --update"
+    "eslint": "eslint -o eslint-report.json --format json ./src",
+    "vitest:run": "vitest run",
+    "vitest:cov": "vitest run --coverage",
+    "vitest:update": "vitest run --update"
   },
   "dependencies": {
     "semver": "^7.7.4"

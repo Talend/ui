@@ -19,15 +19,14 @@
     "build:lib:esm": "talend-scripts build --esm",
     "build-storybook": "storybook build",
     "build:lib": "talend-scripts build",
-    "test": "cross-env TZ=UTC vitest run",
+    "vitest:run": "cross-env TZ=UTC vitest run",
     "test:watch": "cross-env TZ=UTC vitest",
-    "test:cov": "cross-env TZ=UTC vitest run --coverage",
-    "lint:js": "eslint -o eslint-report.json --format json .",
-    "lint:css": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
-    "lint": "npm run lint:js && npm run lint:css",
+    "vitest:cov": "cross-env TZ=UTC vitest run --coverage",
+    "eslint:run": "eslint -o eslint-report.json --format json .",
+    "stylelint:run": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
     "start": "talend-scripts start-storybook -p 6008",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "test:update": "cross-env TZ=UTC vitest run --update"
+    "vitest:update": "cross-env TZ=UTC vitest run --update"
   },
   "keywords": [
     "react",

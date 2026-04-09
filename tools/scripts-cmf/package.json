@@ -10,7 +10,7 @@
     "cmf-settings": "./cmf-settings.js"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json ."
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "dependencies": {
     "commander": "^6.2.1",

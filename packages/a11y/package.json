@@ -15,10 +15,10 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "test": "vitest run",
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test:update": "vitest run --update",
-    "test:cov": "vitest run --coverage"
+    "vitest:run": "vitest run",
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:update": "vitest run --update",
+    "vitest:cov": "vitest run --coverage"
   },
   "keywords": [
     "react",

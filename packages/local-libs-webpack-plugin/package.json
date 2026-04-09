@@ -5,10 +5,10 @@
   "main": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "test": "vitest run --passWithNoTests",
-    "test:cov": "vitest run --coverage --passWithNoTests",
-    "test:update": "vitest run --update --passWithNoTests",
-    "lint": "eslint -o eslint-report.json --format json ."
+    "vitest:run": "vitest run --passWithNoTests",
+    "vitest:cov": "vitest run --coverage --passWithNoTests",
+    "vitest:update": "vitest run --update --passWithNoTests",
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "keywords": [
     "webpack",

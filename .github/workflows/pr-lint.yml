@@ -42,7 +42,9 @@ jobs:
       - name: eslint + stylelint
         continue-on-error: true
         id: eslint
-        run: yarn lint
+        run: |
+          yarn eslint:run --concurrency=1
+          yarn stylelint:run --concurrency=1
 
       - name: Merge lint
         uses: ./.github/actions/lint-merge-report

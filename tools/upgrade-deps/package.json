@@ -23,12 +23,11 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "vitest run",
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:run": "vitest run",
     "test:watch": "vitest --watch",
-    "test:update": "vitest run --update",
-    "test:cov": "vitest run --coverage",
-    "test:cron": "vitest run"
+    "vitest:update": "vitest run --update",
+    "vitest:cov": "vitest run --coverage"
   },
   "publishConfig": {
     "access": "public"

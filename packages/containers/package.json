@@ -19,15 +19,14 @@
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "start": "storybook dev -p 6007",
-    "test": "vitest run",
+    "vitest:run": "vitest run",
     "test:watch": "vitest --watch",
-    "test:cov": "vitest run --coverage",
-    "test:demo": "storybook build",
-    "lint:js": "eslint -o eslint-report.json --format json .",
-    "lint:css": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
-    "lint": "npm run lint:js && npm run lint:css",
+    "vitest:cov": "vitest run --coverage",
+    "storybook:build": "storybook build",
+    "eslint:run": "eslint -o eslint-report.json --format json .",
+    "stylelint:run": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "test:update": "vitest run --update"
+    "vitest:update": "vitest run --update"
   },
   "keywords": [
     "react",

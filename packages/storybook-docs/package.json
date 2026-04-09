@@ -10,10 +10,8 @@
     "build:lib": "talend-scripts build && npm run build:styles",
     "build:lib:esm": "talend-scripts build --esm",
     "start": "npm run storybook",
-    "lint:js": "eslint -o eslint-report.json --format json .",
-    "lint:css": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
-    "lint": "npm run lint:js && npm run lint:css",
-    "test": "echo no test",
+    "eslint:run": "eslint -o eslint-report.json --format json .",
+    "stylelint:run": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
     "storybook": "storybook dev -p 6106",
     "build-storybook": "storybook build --docs"
   },

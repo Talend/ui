@@ -19,12 +19,12 @@
   "scripts": {
     "build:lib:esm": "talend-scripts build --esm",
     "build:lib": "talend-scripts build",
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "vitest run",
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:run": "vitest run",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test:update": "vitest run --update",
-    "test:cov": "vitest run --coverage"
+    "vitest:update": "vitest run --update",
+    "vitest:cov": "vitest run --coverage"
   },
   "files": [
     "CHANGELOG.md",

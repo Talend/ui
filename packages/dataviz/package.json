@@ -17,14 +17,13 @@
     "build:lib:esm": "talend-scripts build --esm",
     "build-storybook": "storybook build",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "lint:js": "eslint -o eslint-report.json --format json .",
-    "lint:css": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
-    "lint": "npm run lint:js && npm run lint:css",
+    "eslint:run": "eslint -o eslint-report.json --format json .",
+    "stylelint:run": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
     "start": "storybook dev -p 6006",
-    "test": "cross-env TZ=UTC vitest run",
-    "test:update": "cross-env TZ=UTC vitest run --update",
+    "vitest:run": "cross-env TZ=UTC vitest run",
+    "vitest:update": "cross-env TZ=UTC vitest run --update",
     "test:watch": "cross-env TZ=UTC vitest",
-    "test:cov": "cross-env TZ=UTC vitest run --coverage --coverage.reporter=json-summary"
+    "vitest:cov": "cross-env TZ=UTC vitest run --coverage --coverage.reporter=json-summary"
   },
   "keywords": [
     "react",

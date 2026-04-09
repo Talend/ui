@@ -8,8 +8,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "echo \"Nothing to test\""
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",

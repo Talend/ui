@@ -38,19 +38,23 @@
       "dependsOn": ["^build:lib:esm"],
       "outputs": ["lib-esm/**"]
     },
-    "lint": {
-      "dependsOn": ["^lint"],
-      "outputs": ["eslint-report.json", "stylelint-report.json"]
+    "eslint:run": {
+      "dependsOn": ["^eslint:run"],
+      "outputs": ["eslint-report.json"]
     },
-    "test:demo": {
-      "dependsOn": ["^test:demo"],
+    "stylelint:run": {
+      "dependsOn": ["^stylelint:run"],
+      "outputs": ["stylelint-report.json"]
+    },
+    "storybook:build": {
+      "dependsOn": ["^storybook:build"],
       "outputs": ["storybook-static/**"]
     },
-    "test": {
-      "dependsOn": ["^test"]
+    "vitest:run": {
+      "dependsOn": ["^vitest:run"]
     },
-    "test:cov": {
-      "dependsOn": ["^test:cov"],
+    "vitest:cov": {
+      "dependsOn": ["^vitest:cov"],
       "outputs": ["coverage/**"]
     }
   }

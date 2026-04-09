@@ -18,12 +18,12 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "test": "vitest run",
+    "vitest:run": "vitest run",
     "test:watch": "vitest --watch",
-    "test:cov": "vitest run --coverage",
-    "lint": "eslint -o eslint-report.json --format json .",
+    "vitest:cov": "vitest run --coverage",
+    "eslint": "eslint -o eslint-report.json --format json .",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "test:update": "vitest run --update"
+    "vitest:update": "vitest run --update"
   },
   "keywords": [
     "react",

@@ -14,8 +14,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "echo \"Nothing to test\""
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "peerDependencies": {
     "@talend/icons": "^8.0.0"

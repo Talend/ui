@@ -13,12 +13,12 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "lint": "eslint -o eslint-report.json --format json .",
+    "eslint": "eslint -o eslint-report.json --format json .",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
-    "test:cov": "vitest run --coverage",
-    "test": "vitest run",
-    "test:update": "vitest run --update"
+    "vitest:cov": "vitest run --coverage",
+    "vitest:run": "vitest run",
+    "vitest:update": "vitest run --update"
   },
   "author": "json-schema-form",
   "contributors": [

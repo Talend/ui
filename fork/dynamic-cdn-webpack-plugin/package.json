@@ -16,9 +16,9 @@
     "access": "public"
   },
   "scripts": {
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
-    "test:update": "vitest run --update"
+    "vitest:run": "vitest run",
+    "vitest:cov": "vitest run --coverage",
+    "vitest:update": "vitest run --update"
   },
   "files": [
     "index.js",

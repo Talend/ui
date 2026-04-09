@@ -18,11 +18,11 @@
     "node": ">=14"
   },
   "scripts": {
-    "test": "vitest run index.test.js",
-    "test:cov": "vitest run --coverage index.test.js",
-    "test:update": "vitest run --update index.test.js",
+    "vitest:run": "vitest run index.test.js",
+    "vitest:cov": "vitest run --coverage index.test.js",
+    "vitest:update": "vitest run --update index.test.js",
     "test:cron": "vitest run modules.test.js",
-    "lint": "eslint -o eslint-report.json --format json ."
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "files": [
     "index.js",

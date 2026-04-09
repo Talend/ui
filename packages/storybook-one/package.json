@@ -5,10 +5,10 @@
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.ts",
   "scripts": {
-    "test:demo": "storybook build",
+    "storybook:build": "storybook build",
     "build-storybook": "storybook build",
     "start-storybook": "storybook dev",
-    "lint": "eslint -o eslint-report.json --format json .",
+    "eslint": "eslint -o eslint-report.json --format json .",
     "start": "storybook dev"
   },
   "repository": {

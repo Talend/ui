@@ -7,11 +7,8 @@
   "scripts": {
     "build:lib": "webpack",
     "start": "webpack serve --mode=development",
-    "test": "echo no test for @talend/bootstrap-theme",
-    "test:cov": "echo no test for @talend/bootstrap-theme",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint -o eslint-report.json --format json .",
-    "lint:css": "stylelint --config .stylelintrc.js --formatter json -o stylelint-report.json 'src/**/*.{css,scss}'"
+    "eslint:run": "eslint -o eslint-report.json --format json .",
+    "stylelint:run": "stylelint --config .stylelintrc.js --formatter json -o stylelint-report.json 'src/**/*.{css,scss}'"
   },
   "keywords": [
     "talend",

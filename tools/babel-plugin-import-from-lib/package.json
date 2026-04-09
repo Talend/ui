@@ -4,10 +4,10 @@
   "description": "This plugin transform imports of lib using /lib path",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
-    "test:update": "vitest run --update"
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:run": "vitest run",
+    "vitest:cov": "vitest run --coverage",
+    "vitest:update": "vitest run --update"
   },
   "repository": {
     "type": "git",

@@ -4,8 +4,7 @@
   "main": "src/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin"
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "repository": {
     "type": "git",

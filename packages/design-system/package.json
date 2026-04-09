@@ -19,13 +19,12 @@
     "build:lib": "talend-scripts build && talend-scripts build --esm",
     "watch": "talend-scripts build --watch",
     "watch:esm": "talend-scripts build --watch --esm",
-    "test": "vitest run",
-    "test:update": "vitest run --update",
-    "test:cov": "vitest run --coverage",
+    "vitest:run": "vitest run",
+    "vitest:update": "vitest run --update",
+    "vitest:cov": "vitest run --coverage",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "lint:js": "eslint -o eslint-report.json --format json .",
-    "lint:css": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
-    "lint": "npm run lint:js && npm run lint:css",
+    "eslint:run": "eslint -o eslint-report.json --format json .",
+    "stylelint:run": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
     "start": "storybook dev"
   },
   "repository": {

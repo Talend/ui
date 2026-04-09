@@ -24,13 +24,13 @@
   "scripts": {
     "build:lib": "talend-scripts build --tsc",
     "build:lib:esm": "talend-scripts build --esm",
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:run": "vitest run",
+    "vitest:cov": "vitest run --coverage",
     "test:noisy": "vitest run",
     "test:watch": "vitest --watch",
     "extends": "talend-scripts extends",
-    "test:update": "vitest run --update"
+    "vitest:update": "vitest run --update"
   },
   "devDependencies": {
     "@types/date-fns": "^2.6.3",

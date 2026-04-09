@@ -10,8 +10,7 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "echo \"Nothing to test\""
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "repository": {
     "type": "git",

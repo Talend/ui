@@ -19,11 +19,11 @@
   },
   "scripts": {
     "build:lib": "talend-scripts build && talend-scripts build --esm",
-    "test": "vitest run",
-    "test:update": "vitest run --update",
+    "vitest:run": "vitest run",
+    "vitest:update": "vitest run --update",
     "test:watch": "vitest --watch",
-    "test:cov": "vitest run --coverage",
-    "lint": "eslint -o eslint-report.json --format json ."
+    "vitest:cov": "vitest run --coverage",
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "keywords": [
     "react",

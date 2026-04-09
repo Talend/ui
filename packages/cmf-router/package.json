@@ -19,11 +19,11 @@
   "scripts": {
     "build:lib:esm": "talend-scripts build --esm",
     "build:lib": "talend-scripts build",
-    "test": "vitest run",
+    "vitest:run": "vitest run",
     "test:watch": "vitest",
-    "test:cov": "vitest run --coverage",
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test:update": "vitest run --update"
+    "vitest:cov": "vitest run --coverage",
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:update": "vitest run --update"
   },
   "dependencies": {
     "@talend/react-cmf": "^12.2.0",

@@ -7,11 +7,10 @@
   "scripts": {
     "build-storybook": "storybook build --docs",
     "start-storybook": "storybook dev -p 6006 --docs",
-    "lint:js": "eslint -o eslint-report.json --format json .",
-    "lint:css": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
-    "lint": "npm run lint:js && npm run lint:css",
+    "eslint:run": "eslint -o eslint-report.json --format json .",
+    "stylelint:run": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
     "start": "storybook dev -p 6006 --docs",
-    "test:demo": "storybook build --docs"
+    "storybook:build": "storybook build --docs"
   },
   "repository": {
     "type": "git",

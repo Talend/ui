@@ -1,4 +1,5 @@
 import { vi, describe, it, expect } from 'vitest';
+import config from '../index';
 
 vi.mock('eslint-plugin-mdx', () => ({
 	configs: { flat: {} },
@@ -6,8 +7,7 @@ vi.mock('eslint-plugin-mdx', () => ({
 }));
 
 describe('eslint config', () => {
-	it('should require', () => {
-		const config = require('../index');
+	it('should exists', () => {
 		expect(config).toBeDefined();
 	});
 });
