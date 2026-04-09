@@ -13,9 +13,8 @@
     "vitest:run": "cross-env TZ=UTC turbo run vitest:run",
     "vitest:cov": "cross-env TZ=UTC turbo run vitest:cov",
     "vitest:update": "cross-env TZ=UTC talend-yarn-workspace run vitest:update",
-    "storybook:start": "yarn workspace @talend/ui-storybook-one run start",
     "storybook:build": "turbo run storybook:build",
-    "test:cron": "talend-yarn-workspace run test:cron",
+    "storybook:start": "yarn workspace @talend/ui-storybook-one run start",
     "storybook:start-components": "yarn workspace @talend/react-components run start",
     "storybook:start-containers": "yarn workspace  @talend/react-containers run start",
     "storybook:start-dataviz": "yarn workspace @talend/react-dataviz run start",
@@ -24,6 +23,7 @@
     "storybook:start-forms": "yarn workspace  @talend/react-forms run start",
     "storybook:start-theme": "yarn workspace @talend/bootstrap-theme run start",
     "storybook:start-icons": "yarn workspace @talend/icons run start-storybook",
+    "test:cron": "talend-yarn-workspace run test:cron",
     "changelog": "git log --pretty=\"format:%C(bold green)%ad%C(reset) %s\" --date=short --color",
     "prepare": "husky install"
   },
