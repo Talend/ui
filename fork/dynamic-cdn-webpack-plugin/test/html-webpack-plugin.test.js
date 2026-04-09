@@ -30,10 +30,9 @@ describe('html-webpack-plugin integration', () => {
 
 		// then
 		const indexFile = fs
-			.readFileSync(
-				path.resolve(__dirname, './fixtures/output/html-webpack-plugin/index.html'),
-				{ encoding: 'utf-8' },
-			)
+			.readFileSync(path.resolve(__dirname, './fixtures/output/html-webpack-plugin/index.html'), {
+				encoding: 'utf-8',
+			})
 			.toString();
 		expect(indexFile).toContain('src="/app.js"');
 		expect(indexFile).toContain('src="https://unpkg.com/react@15.6.1/dist/react.js"');

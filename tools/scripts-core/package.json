@@ -20,7 +20,7 @@
   "scripts": {
     "lint": "eslint -o eslint-report.json --format json .",
     "test": "vitest run",
-    "test:cov": "vitest run"
+    "test:cov": "vitest run --coverage"
   },
   "peerDependencies": {
     "@talend/scripts-config-react-webpack": ">=16.0.0"
