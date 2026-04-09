@@ -5,6 +5,7 @@
     "allowJs": true,
     "checkJs": false,
     "declaration": true,
-    "noEmit": false
+    "noEmit": false,
+    "rootDir": "src"
   }
 }

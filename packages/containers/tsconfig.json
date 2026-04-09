@@ -1,9 +1,9 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["custom.d.ts", "src/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "types": ["jest", "@testing-library/jest-dom"],
+    "rootDir": "./src",
     "allowJs": true,
     "checkJs": false,
     "declaration": true,
