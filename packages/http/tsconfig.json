@@ -6,6 +6,7 @@
     "declaration": true,
     "target": "ES5",
     "module": "CommonJs",
+    "moduleResolution": "node",
     "types": ["jest"]
   }
 }

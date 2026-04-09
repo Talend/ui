@@ -15,10 +15,10 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "test": "vitest run",
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test:update": "vitest run --update",
-    "test:cov": "vitest run --coverage"
+    "vitest:run": "vitest run",
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:update": "vitest run --update",
+    "vitest:cov": "vitest run --coverage"
   },
   "keywords": [
     "react",
@@ -37,21 +37,12 @@
     "@talend/utils": "^3.7.1"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-core": "^20.0.0",
-    "@talend/scripts-config-typescript": "^12.1.1",
-    "@testing-library/react": "^14.3.1",
-    "@testing-library/user-event": "^14.6.1",
     "@types/date-fns": "^2.6.3",
     "@types/react": "^18.3.28",
     "@types/react-dom": "^18.3.7",
-    "@vitest/coverage-v8": "^4.1.2",
     "date-fns": "^3.6.0",
-    "eslint": "^10.1.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "vitest": "^4.1.2"
+    "react-dom": "^18.3.1"
   },
   "peerDependencies": {
     "react": "^18.3.1",

@@ -5,12 +5,7 @@
   "main": "assets/javascripts/bootstrap.js",
   "style": "assets/stylesheets/_bootstrap.scss",
   "sass": "assets/stylesheets/_bootstrap.scss",
-  "scripts": {
-    "build": "echo nothing to build in bootsrap-sass",
-    "test": "echo nothing to test in bootsrap-sass",
-    "test:update": "echo nothing to test in bootsrap-sass",
-    "test:cov": "echo nothing to test in bootsrap-sass"
-  },
+  "scripts": {},
   "files": [
     "assets",
     "CHANGELOG.md",
@@ -38,10 +33,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "eslint": "^10.1.0"
   }
 }

@@ -2,17 +2,15 @@ import { createContext, useContext, useState } from 'react';
 import type { ChangeEvent, PropsWithChildren } from 'react';
 import { useCopyToClipboard } from 'react-use';
 
-import tokens from '@talend/design-tokens';
-
 import { infoFromFigma as icons } from '../dist/info';
 import metadata from '../src/metadata.json';
 
 const iconColorTokens = {
-	'neutral/icon': tokens.coralColorNeutralIcon,
-	'accent/icon': tokens.coralColorAccentIcon,
-	'warning/icon': tokens.coralColorWarningIcon,
-	'danger/icon': tokens.coralColorDangerIcon,
-	'beta/icon': tokens.coralColorBetaIcon,
+	'neutral/icon': 'var(--coral-color-neutral-icon)',
+	'accent/icon': 'var(--coral-color-accent-icon)',
+	'warning/icon': 'var(--coral-color-warning-icon)',
+	'danger/icon': 'var(--coral-color-danger-icon)',
+	'beta/icon': 'var(--coral-color-beta-icon)',
 };
 
 export const iconSizes = {
@@ -186,7 +184,7 @@ export const Grid = ({
 };
 
 const IconList = (props: PropsWithChildren<any>) => (
-	<div {...props} style={{ paddingBlock: tokens.coralSpacingM }} />
+	<div {...props} style={{ paddingBlock: 'var(--coral-spacing-m)' }} />
 );
 
 export const IconGallery = ({ children }: PropsWithChildren<HTMLElement>) => {
@@ -252,9 +250,9 @@ export const IconItem = ({
 	const iconMetadata = metadata.find(data => data.name.endsWith(size + '/' + name));
 	const isFound = size
 		? iconMetadata &&
-		  Object.values(iconMetadata).some(property =>
+			Object.values(iconMetadata).some(property =>
 				property.toString().toLocaleLowerCase().includes(searchContext.query),
-		  )
+			)
 		: true;
 	return (
 		<div {...rest}>
@@ -262,8 +260,8 @@ export const IconItem = ({
 				<div
 					style={{
 						display: 'flex',
-						gap: tokens.coralSpacingM,
-						paddingBlock: tokens.coralSpacingXs,
+						gap: 'var(--coral-spacing-m)',
+						paddingBlock: 'var(--coral-spacing-xs)',
 					}}
 				>
 					<div
@@ -271,11 +269,11 @@ export const IconItem = ({
 							display: 'flex',
 							justifyContent: 'center',
 							alignItems: 'center',
-							width: tokens.coralSizingM,
-							height: tokens.coralSizingM,
-							border: `${tokens.coralBorderSSolid} ${tokens.coralColorNeutralBorderWeak}`,
-							boxShadow: tokens.coralElevationShadowAccent,
-							borderRadius: tokens.coralRadiusS,
+							width: 'var(--coral-sizing-m)',
+							height: 'var(--coral-sizing-m)',
+							border: `var(--coral-border-s-solid) var(--coral-color-neutral-border-weak)`,
+							boxShadow: 'var(--coral-elevation-shadow-accent)',
+							borderRadius: 'var(--coral-radius-s)',
 						}}
 					>
 						<div role="button" onClick={onIconClickHandler} tabIndex={0}>
@@ -288,7 +286,7 @@ export const IconItem = ({
 						tabIndex={0}
 						style={{
 							flex: 1,
-							font: tokens.coralParagraphM,
+							font: 'var(--coral-paragraph-m)',
 						}}
 					>
 						{size ? (
@@ -310,8 +308,8 @@ export const IconItem = ({
 									'description' in iconMetadata &&
 									iconMetadata.description.length > 0 && (
 										<>
-											<dt style={{ color: tokens.coralColorNeutralTextWeak }}>Desc</dt>
-											<dd style={{ color: tokens.coralColorNeutralTextWeak }}>
+											<dt style={{ color: 'var(--coral-color-neutral-text-weak)' }}>Desc</dt>
+											<dd style={{ color: 'var(--coral-color-neutral-text-weak)' }}>
 												{iconMetadata.description}
 											</dd>
 										</>

@@ -1,30 +1,30 @@
 import { focusOn } from './focus';
 
-function getAllItems(ref: HTMLElement): NodeList {
-	const closest = ref.closest('[role="list"]');
+function getAllItems(ref: HTMLElement): HTMLElement[] {
+	const closest = ref.closest<HTMLElement>('[role="list"]');
 	if (!closest) {
-		return new NodeList();
+		return [];
 	}
-	return closest.querySelectorAll('[role="listitem"]');
+	return Array.from(closest.querySelectorAll<HTMLElement>('[role="listitem"]'));
 }
 
-function getNextItem(ref: HTMLElement, loop: boolean) {
-	let nextElement;
-	let currentFound;
-	let hasNext;
+function getNextItem(ref: HTMLElement, loop: boolean): HTMLElement | null {
+	let nextElement: HTMLElement | null = null;
+	let currentFound = false;
+	let hasNext = false;
 
 	const nodes = getAllItems(ref);
 	const iterator = nodes.values();
 
-	if (loop && ref === nodes.item(nodes.length - 1)) {
-		return nodes.item(0);
+	if (loop && ref === nodes[nodes.length - 1]) {
+		return nodes[0] ?? null;
 	}
 
 	do {
 		const { value, done } = iterator.next();
 
 		if (currentFound) {
-			nextElement = value;
+			nextElement = value ?? null;
 			hasNext = false;
 		} else {
 			currentFound = value === ref;
@@ -35,15 +35,15 @@ function getNextItem(ref: HTMLElement, loop: boolean) {
 	return nextElement;
 }
 
-function getPreviousItem(ref: HTMLElement, loop: boolean) {
-	let previousElement;
-	let hasNext;
+function getPreviousItem(ref: HTMLElement, loop: boolean): HTMLElement | null {
+	let previousElement: HTMLElement | null = null;
+	let hasNext = false;
 
 	const nodes = getAllItems(ref);
 	const iterator = nodes.values();
 
-	if (loop && ref === nodes.item(0)) {
-		return nodes.item(nodes.length - 1);
+	if (loop && ref === nodes[0]) {
+		return nodes[nodes.length - 1] ?? null;
 	}
 
 	do {
@@ -53,7 +53,7 @@ function getPreviousItem(ref: HTMLElement, loop: boolean) {
 		if (currentFound) {
 			hasNext = false;
 		} else {
-			previousElement = value;
+			previousElement = value ?? null;
 			hasNext = !done;
 		}
 	} while (hasNext);

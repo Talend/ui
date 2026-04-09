@@ -5,13 +5,10 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "build:lib": "rimraf ./dist && webpack",
+    "build:lib": "webpack",
     "start": "webpack serve --mode=development",
-    "test": "echo no test for @talend/bootstrap-theme",
-    "test:cov": "echo no test for @talend/bootstrap-theme",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint -o eslint-report.json --format json .",
-    "lint:css": "stylelint --config .stylelintrc.js --formatter json -o stylelint-report.json 'src/**/*.{css,scss}'"
+    "eslint:run": "eslint -o eslint-report.json --format json .",
+    "stylelint:run": "stylelint --config .stylelintrc.js --formatter json -o stylelint-report.json 'src/**/*.{css,scss}'"
   },
   "keywords": [
     "talend",
@@ -33,20 +30,14 @@
     "@talend/design-tokens": "^4.1.1"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-config-stylelint": "^5.0.0",
-    "@talend/scripts-core": "^20.0.0",
     "copy-webpack-plugin": "^14.0.0",
     "css-minimizer-webpack-plugin": "^8.0.0",
     "css-loader": "^7.1.4",
-    "eslint": "^10.1.0",
     "html-webpack-plugin": "^5.6.6",
     "mini-css-extract-plugin": "^2.10.2",
     "postcss": "^8.5.8",
     "postcss-loader": "^8.2.1",
     "postcss-preset-env": "^7.8.3",
-    "rimraf": "^6.1.3",
     "sass": "^1.98.0",
     "sass-loader": "^14.2.1",
     "style-loader": "^3.3.4",

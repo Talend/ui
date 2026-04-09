@@ -18,10 +18,10 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "vitest run",
-    "test:update": "vitest run --update",
-    "test:cov": "vitest run --coverage"
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:run": "vitest run",
+    "vitest:update": "vitest run --update",
+    "vitest:cov": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
@@ -30,15 +30,6 @@
   "author": "Talend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@vitejs/plugin-react": "^5.2.0",
-    "@vitest/coverage-v8": "^4.1.2",
-    "@talend/babel-plugin-import-from-index": "^1.13.1",
-    "@talend/babel-plugin-assets-api": "^1.9.1",
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-core": "^20.0.0",
-    "@talend/scripts-config-typescript": "^12.1.1",
-    "@talend/scripts-config-react-webpack": "^17.1.1",
     "@testing-library/react": "^14.3.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@types/d3": "^7.4.3",
@@ -51,7 +42,6 @@
     "@types/react-test-renderer": "^18.3.1",
     "@types/redux-mock-store": "^1.5.0",
     "@types/redux-thunk": "^2.1.0",
-    "eslint": "^10.1.0",
     "i18next": "^23.16.8",
     "immutable": "^3.8.3",
     "lodash": "^4.18.0",
@@ -64,8 +54,7 @@
     "redux": "^4.2.1",
     "redux-mock-store": "^1.5.5",
     "redux-thunk": "^2.4.2",
-    "reselect": "^4.1.8",
-    "vitest": "^4.1.2"
+    "reselect": "^4.1.8"
   },
   "peerDependencies": {
     "immutable": "^3.8.3",

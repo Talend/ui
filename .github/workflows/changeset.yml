@@ -46,7 +46,9 @@ jobs:
 
       - name: Install and Build
         if: steps.changesetfiles.outputs.count == 1
-        run: yarn --frozen-lockfile
+        run: |
+          yarn --frozen-lockfile
+          yarn build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 

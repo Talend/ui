@@ -8,8 +8,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "echo \"Nothing to test\""
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
@@ -22,10 +21,6 @@
     "read-pkg-up": "^7.0.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
-    "eslint": "^10.1.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
     "globals": "^15.15.0"
   },
   "publishConfig": {

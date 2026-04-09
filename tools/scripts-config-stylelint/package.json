@@ -10,7 +10,7 @@
     "url": "https://github.com/Talend/ui/issues"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json ."
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "repository": {
     "type": "git",
@@ -18,11 +18,6 @@
   },
   "dependencies": {
     "stylelint-config-standard": "^40.0.0"
-  },
-  "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "eslint": "^10.1.0"
   },
   "publishConfig": {
     "access": "public"

@@ -11,19 +11,12 @@
   },
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "echo nothing to test"
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "dependencies": {
     "cross-spawn": "^7.0.6",
     "generate-password": "^1.7.1",
     "rimraf": "^6.1.3"
-  },
-  "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-core": "^20.0.0",
-    "eslint": "^10.1.0"
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",

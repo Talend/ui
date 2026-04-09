@@ -1,0 +1,60 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["lib/**"]
+    },
+    "@talend/bootstrap-theme#build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["dist/**"]
+    },
+    "@talend/design-system#build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["lib/**", "lib-esm/**"]
+    },
+    "@talend/design-tokens#build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["lib/**", "dist/**"]
+    },
+    "@talend/react-cmf#build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["lib/**", "lib-esm/**"]
+    },
+    "@talend/icons#build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["dist/**"]
+    },
+    "@talend/scripts-config-storybook-lib#build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["dist/**"]
+    },
+    "@talend/storybook-docs#build:lib": {
+      "dependsOn": ["^build:lib"],
+      "outputs": ["lib/**", "dist/**"]
+    },
+    "build:lib:esm": {
+      "dependsOn": ["^build:lib:esm"],
+      "outputs": ["lib-esm/**"]
+    },
+    "eslint:run": {
+      "dependsOn": ["^eslint:run"],
+      "outputs": ["eslint-report.json"]
+    },
+    "stylelint:run": {
+      "dependsOn": ["^stylelint:run"],
+      "outputs": ["stylelint-report.json"]
+    },
+    "storybook:build": {
+      "dependsOn": ["^storybook:build"],
+      "outputs": ["storybook-static/**"]
+    },
+    "vitest:run": {
+      "dependsOn": ["^vitest:run"]
+    },
+    "vitest:cov": {
+      "dependsOn": ["^vitest:cov"],
+      "outputs": ["coverage/**"]
+    }
+  }
+}

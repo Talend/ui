@@ -5,6 +5,7 @@
     "noImplicitAny": false,
     "declaration": true,
     "target": "ES5",
-    "module": "CommonJs"
+    "module": "CommonJs",
+    "moduleResolution": "node"
   }
 }

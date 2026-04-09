@@ -14,20 +14,14 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
-    "test:update": "vitest run --update"
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:run": "vitest run",
+    "vitest:cov": "vitest run --coverage",
+    "vitest:update": "vitest run --update"
   },
   "dependencies": {
     "@talend/scripts-config-cdn": "^10.17.1",
     "requireindex": "^1.2.0"
-  },
-  "devDependencies": {
-    "@talend/scripts-config-babel": "^13.10.1",
-    "@vitest/coverage-v8": "^4.1.2",
-    "eslint": "^10.1.0",
-    "vitest": "^4.1.2"
   },
   "engines": {
     "node": ">=14"

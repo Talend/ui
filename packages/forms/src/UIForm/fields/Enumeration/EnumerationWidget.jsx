@@ -1083,4 +1083,8 @@ EnumerationForm.defaultProps = {
 };
 
 export { EnumerationForm };
-export default withTranslation(I18N_DOMAIN_FORMS)(EnumerationForm);
+const I18NEnumerationForm = /** @type {typeof EnumerationForm} */ (
+	withTranslation(I18N_DOMAIN_FORMS)(EnumerationForm)
+);
+
+export default I18NEnumerationForm;

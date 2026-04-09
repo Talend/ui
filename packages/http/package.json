@@ -30,26 +30,16 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "start": "echo nothing to start",
-    "test": "vitest run",
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test:update": "vitest run --update",
-    "test:cov": "vitest run --coverage"
+    "vitest:run": "vitest run",
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:update": "vitest run --update",
+    "vitest:cov": "vitest run --coverage"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^4.1.2",
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-core": "^20.0.0",
-    "@talend/scripts-config-babel": "^13.10.1",
-    "@talend/scripts-config-react-webpack": "^17.1.1",
-    "@talend/scripts-config-typescript": "^12.1.1",
     "@types/node-fetch": "^2.6.13",
-    "eslint": "^10.1.0",
     "node-fetch": "^2.7.0",
     "react-dom": "^18.3.1",
-    "react": "^18.3.1",
-    "vitest": "^4.1.2"
+    "react": "^18.3.1"
   },
   "jest": {
     "collectCoverageFrom": [

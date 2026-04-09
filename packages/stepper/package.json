@@ -19,15 +19,14 @@
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "test": "vitest run",
+    "vitest:run": "vitest run",
     "test:noisy": "vitest run",
     "test:watch": "vitest --watch",
-    "test:cov": "vitest run --coverage",
-    "lint:js": "eslint -o eslint-report.json --format json .",
-    "lint:css": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
-    "lint": "npm run lint:js && npm run lint:css",
+    "vitest:cov": "vitest run --coverage",
+    "eslint:run": "eslint -o eslint-report.json --format json .",
+    "stylelint:run": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
     "start": "talend-scripts start-storybook -p 6006",
-    "test:update": "vitest run --update"
+    "vitest:update": "vitest run --update"
   },
   "keywords": [
     "react",
@@ -52,21 +51,8 @@
     "lodash": "^4.18.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^5.2.0",
-    "@vitest/coverage-v8": "^4.1.2",
     "@talend/icons": "^8.0.0",
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-config-babel": "^13.10.1",
-    "@talend/scripts-config-prettier": "^12.7.1",
-    "@talend/scripts-config-react-webpack": "^17.1.1",
-    "@talend/scripts-config-storybook-lib": "^6.1.1",
-    "@talend/scripts-config-stylelint": "^5.0.0",
-    "@talend/scripts-config-typescript": "^12.1.1",
-    "@talend/scripts-core": "^20.0.0",
     "@testing-library/react-hooks": "^8.0.1",
-    "eslint": "^10.1.0",
-    "stylelint": "^17.6.0",
     "i18next": "^23.16.8",
     "immutable": "^3.8.3",
     "jsdom": "^26.1.0",
@@ -76,8 +62,7 @@
     "react-dom": "^18.3.1",
     "react-i18next": "^13.5.0",
     "react-redux": "^7.2.9",
-    "react-transition-group": "^2.9.0",
-    "vitest": "^4.1.2"
+    "react-transition-group": "^2.9.0"
   },
   "peerDependencies": {
     "i18next": "^23.16.8",

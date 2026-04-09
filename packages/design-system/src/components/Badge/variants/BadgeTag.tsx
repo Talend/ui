@@ -1,9 +1,9 @@
-import { forwardRef, Ref } from 'react';
+import { forwardRef } from 'react';
 import BadgePrimitive, { BadgePrimitiveProps } from '../primitive/BadgePrimitive';
 
 export type BadgeTagProps = Omit<BadgePrimitiveProps, 'semanticIcon'>;
 
-const BadgeTag = forwardRef((props: BadgeTagProps, ref: Ref<HTMLSpanElement>) => {
+const BadgeTag = forwardRef<HTMLSpanElement, BadgeTagProps>((props, ref) => {
 	return <BadgePrimitive {...props} ref={ref} semanticIcon={'none'} />;
 });
 

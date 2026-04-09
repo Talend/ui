@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import classNames from 'classnames';
 
-import { IconNameWithSize } from '@talend/icons';
+import type { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import { SizedIcon } from '../../Icon';
 import { StackHorizontal } from '../../Stack';

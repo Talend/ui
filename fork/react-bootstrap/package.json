@@ -19,12 +19,12 @@
   "scripts": {
     "build:lib:esm": "talend-scripts build --esm",
     "build:lib": "talend-scripts build",
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "vitest run",
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:run": "vitest run",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test:update": "vitest run --update",
-    "test:cov": "vitest run --coverage"
+    "vitest:update": "vitest run --update",
+    "vitest:cov": "vitest run --coverage"
   },
   "files": [
     "CHANGELOG.md",
@@ -46,28 +46,17 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^5.2.0",
-    "@vitest/coverage-v8": "^4.1.2",
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-config-typescript": "^12.1.1",
-    "@talend/scripts-core": "^20.0.0",
-    "@talend/scripts-config-babel": "^13.10.1",
-    "@talend/scripts-config-react-webpack": "^17.1.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.6.1",
     "chai": "^4.5.0",
     "chalk": "^2.4.2",
     "create-react-class": "^15.7.0",
-    "cross-env": "^10.1.0",
-    "eslint": "^10.1.0",
     "lodash": "^4.18.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-test-renderer": "^18.3.1",
-    "sinon": "^11.1.2",
-    "vitest": "^4.1.2"
+    "sinon": "^11.1.2"
   },
   "dependencies": {
     "classnames": "^2.5.1",

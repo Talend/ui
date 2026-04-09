@@ -4,21 +4,15 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
-    "test:update": "vitest run --update"
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:run": "vitest run",
+    "vitest:cov": "vitest run --coverage",
+    "vitest:update": "vitest run --update"
   },
   "dependencies": {
     "fs-extra": "^10.1.0",
     "glob": "^11.1.0",
     "which": "^2.0.2"
-  },
-  "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@vitest/coverage-v8": "^4.1.2",
-    "eslint": "^10.1.0",
-    "vitest": "^4.1.2"
   },
   "repository": {
     "type": "git",
