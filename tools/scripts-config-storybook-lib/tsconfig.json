@@ -1,6 +1,8 @@
 {
   "extends": "@talend/scripts-config-typescript/tsconfig.json",
   "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "./dist",
     "types": ["node"],
     "jsx": "react-jsx",
     "noEmit": false,
