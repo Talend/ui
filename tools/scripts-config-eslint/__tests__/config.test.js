@@ -1,3 +1,5 @@
+import { vi, describe, it, expect } from 'vitest';
+
 vi.mock('eslint-plugin-mdx', () => ({
 	configs: { flat: {} },
 	rules: {},
@@ -5,7 +7,6 @@ vi.mock('eslint-plugin-mdx', () => ({
 
 describe('eslint config', () => {
 	it('should require', () => {
-		// eslint-disable-next-line global-require
 		const config = require('../index');
 		expect(config).toBeDefined();
 	});
