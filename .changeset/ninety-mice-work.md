@@ -2,4 +2,4 @@
 '@talend/http': minor
 ---
 
-Export httpFetch to allow sending payload in DELETE request
+Add function to allow sending HTTP DELETE with request body
