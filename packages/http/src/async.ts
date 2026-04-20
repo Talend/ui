@@ -73,6 +73,24 @@ export async function httpDelete<T>(
 }
 
 /**
+ * function - fetch a url with DELETE method and request body
+ *
+ * @param  {string} url     url to request
+ * @param  {object} config  option that you want apply to the request
+ * @param  {object} payload payload to send with the request
+ * @example
+ * import { http } from '@talend/http/async';
+ * await http.delete('/foo'))
+ */
+export async function httpDeleteWithPayload<T>(
+	url: string,
+	payload: any,
+	config?: TalendRequestInit,
+): Promise<TalendHttpResponse<T>> {
+	return httpFetch<T>(url, config, HTTP_METHODS.DELETE, payload);
+}
+
+/**
  * function - fetch a url with GET method
  *
  * @param  {string} url     url to request
@@ -110,6 +128,7 @@ export const http = {
 	patch: httpPatch,
 	put: httpPut,
 	delete: httpDelete,
+	deleteWithPayload: httpDeleteWithPayload,
 	head: httpHead,
 	REQUEST_STATUS,
 };
