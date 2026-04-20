@@ -1,5 +1,15 @@
 # @talend/http
 
+## 4.2.0
+
+### Minor Changes
+
+- 671e2a3: Add `httpDeleteWithPayload` function to allow sending HTTP DELETE with request body
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
 ## 4.1.1
 
 ### Patch Changes

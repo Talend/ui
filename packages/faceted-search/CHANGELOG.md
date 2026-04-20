@@ -1,5 +1,15 @@
 # Changelog
 
+## 22.1.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- 0a659cc: test: update to use jsx file extension
+- Updated dependencies [4408b98]
+- Updated dependencies [0a659cc]
+  - @talend/design-tokens@4.1.2
+
 ## 22.1.1
 
 ### Patch Changes

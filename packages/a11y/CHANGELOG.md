@@ -1,5 +1,11 @@
 # @talend/react-a11y
 
+## 4.3.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
 ## 4.3.1
 
 ### Patch Changes

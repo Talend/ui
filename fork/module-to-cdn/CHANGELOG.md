@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.18.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
 ## 9.18.1
 
 ### Patch Changes
