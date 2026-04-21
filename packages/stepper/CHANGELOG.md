@@ -1,5 +1,16 @@
 # @talend/react-stepper
 
+## 13.1.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- Updated dependencies [4408b98]
+- Updated dependencies [0a659cc]
+  - @talend/react-components@18.1.2
+  - @talend/design-system@12.1.2
+  - @talend/design-tokens@4.1.2
+
 ## 13.1.1
 
 ### Patch Changes

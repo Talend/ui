@@ -1,5 +1,28 @@
 # @talend/ui-playground
 
+## 0.6.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- Updated dependencies [4408b98]
+- Updated dependencies [0a659cc]
+- Updated dependencies [0a659cc]
+- Updated dependencies [0a659cc]
+- Updated dependencies [0a659cc]
+  - @talend/assets-api@2.1.2
+  - @talend/react-cmf-router@9.2.1
+  - @talend/react-cmf@12.2.1
+  - @talend/react-components@18.1.2
+  - @talend/react-containers@12.1.2
+  - @talend/react-dataviz@8.1.2
+  - @talend/design-system@12.1.2
+  - @talend/design-tokens@4.1.2
+  - @talend/react-faceted-search@22.1.2
+  - @talend/react-forms@16.1.3
+  - @talend/icons@8.0.1
+  - @talend/bootstrap-theme@10.1.2
+
 ## 0.6.1
 
 ### Patch Changes

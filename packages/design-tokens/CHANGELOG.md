@@ -1,5 +1,12 @@
 # @talend/design-tokens
 
+## 4.1.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- 0a659cc: fix: update ts config
+
 ## 4.1.1
 
 ### Patch Changes
