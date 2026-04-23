@@ -36,7 +36,7 @@ jobs:
         run: yarn test:cov
 
       - name: Jest Coverage Comment
-        uses: MishaKav/jest-coverage-comment@c480abe47ef4f7bcd87bd8b5e6043fdfb1c4d270 #1.0.32
+        uses: MishaKav/jest-coverage-comment@40d7aed38d0fbaea266c34c12ab06356eec894eb #1.0.33
         with:
           multiple-files: |
             assets-api, ./packages/assets-api/coverage/coverage-summary.json
