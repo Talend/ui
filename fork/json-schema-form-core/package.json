@@ -48,7 +48,7 @@
     "json-schema"
   ],
   "devDependencies": {
-    "@vitest/coverage-v8": "^4.1.2",
+    "@vitest/coverage-v8": "^4.1.5",
     "@talend/babel-plugin-assets-api": "^1.9.1",
     "@talend/babel-plugin-import-from-index": "^1.13.1",
     "@talend/eslint-config": "^14.1.3",
@@ -58,10 +58,10 @@
     "@talend/scripts-core": "^20.0.0",
     "@types/chai": "^3.5.2",
     "@types/node": "^6.14.13",
-    "eslint": "^10.1.0",
+    "eslint": "^10.2.1",
     "rimraf": "^6.1.3",
-    "vitest": "^4.1.2",
-    "webpack": "^5.105.4"
+    "vitest": "^4.1.5",
+    "webpack": "^5.106.2"
   },
   "dependencies": {
     "json-refs": "3.0.15",
