@@ -42,10 +42,10 @@
     "@talend/scripts-config-react-webpack": "^17.1.1",
     "@talend/scripts-config-typescript": "^12.1.1",
     "@types/node": "^6.14.13",
-    "@vitest/coverage-v8": "^4.1.2",
-    "eslint": "^10.1.0",
+    "@vitest/coverage-v8": "^4.1.5",
+    "eslint": "^10.2.1",
     "read-pkg-up": "^7.0.1",
-    "vitest": "^4.1.2"
+    "vitest": "^4.1.5"
   },
   "publishConfig": {
     "access": "public"

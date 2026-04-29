@@ -20,26 +20,26 @@
     "test:update": "vitest run --update"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^4.1.2",
-    "vitest": "^4.1.2"
+    "@vitest/coverage-v8": "^4.1.5",
+    "vitest": "^4.1.5"
   },
   "dependencies": {
-    "@eslint/compat": "^2.0.3",
+    "@eslint/compat": "^2.0.5",
     "@eslint/js": "^9.39.4",
     "@talend/eslint-plugin": "^1.8.1",
     "@testing-library/dom": "^9.3.4",
-    "@typescript-eslint/parser": "^8.58.0",
-    "@typescript-eslint/eslint-plugin": "^8.58.0",
-    "eslint": "^10.1.0",
+    "@typescript-eslint/parser": "^8.59.1",
+    "@typescript-eslint/eslint-plugin": "^8.59.1",
+    "eslint": "^10.2.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-mdx": "^3.7.0",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-testing-library": "^7.16.2",
     "globals": "^15.15.0",
-    "typescript-eslint": "^8.58.0"
+    "typescript-eslint": "^8.59.1"
   },
   "publishConfig": {
     "access": "public"
