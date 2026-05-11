@@ -48,7 +48,7 @@
     "assert": "^2.1.0",
     "esbuild-plugin-react-virtualized": "^1.0.6",
     "i18next": "^23.16.8",
-    "i18next-http-backend": "^1.4.5",
+    "i18next-http-backend": "^3.0.5",
     "vite": "^7.3.1",
     "lodash": "^4.18.0",
     "msw": "2.12.7",
