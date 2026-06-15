@@ -1,0 +1,1 @@
+import{al as c}from"./iframe-BqWCCsDL.js";import{j as g}from"./_setToString-DixzDcZd.js";var r,a;function v(){if(a)return r;a=1;var e="\\ud800-\\udfff",s="\\u0300-\\u036f",o="\\ufe20-\\ufe2f",u="\\u20d0-\\u20ff",f=s+o+u,n="\\ufe0e\\ufe0f",t="\\u200d",i=RegExp("["+t+e+f+n+"]");function d(m){return i.test(m)}return r=d,r}var l=g();const b=c(l);export{b as l,v as r};
