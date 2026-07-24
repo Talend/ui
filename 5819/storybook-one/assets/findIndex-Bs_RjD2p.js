@@ -1,0 +1,1 @@
+import{c as I}from"./_baseFindIndex-CutqICjM.js";import{a as v}from"./_baseIteratee-BG8_VsIo.js";import{r as l}from"./toInteger-XM5FEIPu.js";var n,a;function g(){if(a)return n;a=1;var d=I(),u=v(),o=l(),f=Math.max;function s(r,x,i){var t=r==null?0:r.length;if(!t)return-1;var e=i==null?0:o(i);return e<0&&(e=f(t+e,0)),d(r,u(x,3),e)}return n=s,n}export{g as r};
