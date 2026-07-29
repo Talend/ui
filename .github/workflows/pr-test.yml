@@ -32,8 +32,12 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Build
+        run: yarn build
+
       - name: Test
-        run: yarn test:cov
+        run: |
+          yarn vitest:cov --concurrency=1
 
       - name: Jest Coverage Comment
         uses: MishaKav/jest-coverage-comment@c480abe47ef4f7bcd87bd8b5e6043fdfb1c4d270 #1.0.32

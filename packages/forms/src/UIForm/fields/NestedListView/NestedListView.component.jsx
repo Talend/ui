@@ -289,4 +289,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 export { NestedListViewWidget };
 
-export default withTranslation(I18N_DOMAIN_FORMS)(NestedListViewWidget);
+const I18NNestedListViewWidget = /** @type {typeof NestedListViewWidget} */ (
+	withTranslation(I18N_DOMAIN_FORMS)(NestedListViewWidget)
+);
+
+export default I18NNestedListViewWidget;

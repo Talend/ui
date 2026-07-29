@@ -12,8 +12,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "echo \"Nothing to test\""
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "license": "Apache-2.0",
   "publishConfig": {
@@ -21,10 +20,5 @@
   },
   "dependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0"
-  },
-  "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "eslint": "^10.1.0"
   }
 }

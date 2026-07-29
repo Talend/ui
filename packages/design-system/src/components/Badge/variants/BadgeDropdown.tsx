@@ -82,7 +82,7 @@ export type BadgeDropdownProps = Omit<BadgePrimitiveProps, 'children'> &
 		value: BadgeDropdownItem[];
 	};
 
-const BadgeDropdown = forwardRef((props: BadgeDropdownProps, ref: Ref<HTMLSpanElement>) => {
+const BadgeDropdown = forwardRef<HTMLSpanElement, BadgeDropdownProps>((props, ref) => {
 	const {
 		onChange,
 		selectedId,
