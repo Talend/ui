@@ -1,6 +1,6 @@
 {
   "name": "@talend/ui-playground",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Showcase Talend/UI",
   "private": true,
   "main": "app/index.js",

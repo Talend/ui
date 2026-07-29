@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-faceted-search",
-  "version": "22.1.1",
+  "version": "22.1.2",
   "description": "Faceted search",
   "main": "lib/index.js",
   "module": "./lib-esm/index.js",

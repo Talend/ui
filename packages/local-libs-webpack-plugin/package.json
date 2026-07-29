@@ -1,14 +1,14 @@
 {
   "name": "@talend/local-libs-webpack-plugin",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Easier development on local libraries",
   "main": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "vitest:run": "vitest run --passWithNoTests",
-    "vitest:cov": "vitest run --coverage --passWithNoTests",
-    "vitest:update": "vitest run --update --passWithNoTests",
-    "eslint": "eslint -o eslint-report.json --format json ."
+    "test": "vitest run --passWithNoTests",
+    "test:cov": "vitest run --coverage --passWithNoTests",
+    "test:update": "vitest run --update --passWithNoTests",
+    "lint": "eslint -o eslint-report.json --format json ."
   },
   "keywords": [
     "webpack",

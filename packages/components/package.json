@@ -51,7 +51,7 @@
     "@talend/design-tokens": "^4.1.1",
     "@talend/icons": "^8.0.0",
     "@talend/react-a11y": "^4.3.1",
-    "@talend/react-bootstrap": "^4.1.1",
+    "@talend/react-bootstrap": "^5.0.0",
     "@talend/utils": "^3.7.1",
     "classnames": "^2.5.1",
     "d3": "^7.9.0",
@@ -121,5 +121,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "18.1.1"
+  "version": "18.1.2"
 }

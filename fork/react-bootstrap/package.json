@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-bootstrap",
-  "version": "4.1.1",
+  "version": "5.0.0",
   "description": "Bootstrap 3 components built with React",
   "repository": {
     "type": "git",
