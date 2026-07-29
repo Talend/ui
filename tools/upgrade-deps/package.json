@@ -9,7 +9,7 @@
   "main": "src/index.js",
   "dependencies": {
     "@yarnpkg/lockfile": "^1.1.0",
-    "semver": "^7.7.4",
+    "semver": "^7.8.5",
     "strip-ansi": "^7.2.0",
     "yarn-deduplicate": "^6.0.2"
   },

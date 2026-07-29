@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@types/date-fns": "^2.6.3",
-    "@types/react": "^18.3.28",
+    "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
     "date-fns": "^3.6.0",
     "react": "^18.3.1",

@@ -43,20 +43,20 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^12.1.1",
-    "@talend/design-tokens": "^4.1.1",
-    "@talend/react-components": "^18.1.1",
+    "@talend/design-system": "^12.1.2",
+    "@talend/design-tokens": "^4.1.2",
+    "@talend/react-components": "^18.1.2",
     "classnames": "^2.5.1",
     "invariant": "^2.2.4",
-    "lodash": "^4.18.0"
+    "lodash": "^4.18.1"
   },
   "devDependencies": {
-    "@talend/icons": "^8.0.0",
+    "@talend/icons": "^8.0.1",
     "@testing-library/react-hooks": "^8.0.1",
     "i18next": "^23.16.8",
     "immutable": "^3.8.3",
     "jsdom": "^26.1.0",
-    "prettier": "^3.8.1",
+    "prettier": "^3.9.6",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
