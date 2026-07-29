@@ -28,6 +28,9 @@ jobs:
       - name: Install
         run: yarn install --frozen-lockfile
 
+      - name: Build
+        run: yarn build
+
       - name: Pre-release talend/ui
         id: version
         run: |

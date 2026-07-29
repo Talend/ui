@@ -13,15 +13,6 @@
     "strip-ansi": "^7.2.0",
     "yarn-deduplicate": "^6.0.2"
   },
-  "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-core": "^20.0.0",
-    "@vitest/coverage-v8": "^4.1.2",
-    "cpx2": "^8.0.0",
-    "eslint": "^10.1.0",
-    "vitest": "^4.1.2"
-  },
   "license": "Apache-2.0",
   "homepage": "https://github.com/Talend/ui",
   "bugs": {
@@ -32,12 +23,11 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "vitest run",
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:run": "vitest run",
     "test:watch": "vitest --watch",
-    "test:update": "vitest run --update",
-    "test:cov": "vitest run --coverage",
-    "test:cron": "vitest run"
+    "vitest:update": "vitest run --update",
+    "vitest:cov": "vitest run --coverage"
   },
   "publishConfig": {
     "access": "public"
