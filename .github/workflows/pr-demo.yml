@@ -32,8 +32,11 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn install --frozen-lockfile
 
+      - name: Build
+        run: yarn build
+
       - name: Build Demo
-        run: yarn test:demo
+        run: yarn storybook:build
 
       - name: Checkout demo branch
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1

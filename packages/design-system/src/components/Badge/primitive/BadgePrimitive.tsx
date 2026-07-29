@@ -1,4 +1,4 @@
-import { Children, PropsWithChildren, Ref } from 'react';
+import { Children, forwardRef, PropsWithChildren } from 'react';
 
 import classnames from 'classnames';
 import { DataAttributes } from 'src/types';
@@ -58,49 +58,54 @@ function BadgeDivider() {
 export type BadgePrimitiveProps = {
 	label: string;
 	onClose?: () => void;
-	ref: Ref<HTMLSpanElement>;
 	semanticIcon?: SemanticIcon;
 } & Partial<DataAttributes>;
 
-function BadgePrimitive({
-	children,
-	'data-testid': dataTestId,
-	'data-test': dataTest,
-	label,
-	onClose,
-	ref,
-	semanticIcon = 'none',
-}: PropsWithChildren<BadgePrimitiveProps>) {
-	// TODO BADGE - handle onClose to manage close button
+const BadgePrimitive = forwardRef<HTMLSpanElement, PropsWithChildren<BadgePrimitiveProps>>(
+	(
+		{
+			children,
+			'data-testid': dataTestId,
+			'data-test': dataTest,
+			label,
+			onClose,
+			semanticIcon = 'none',
+		},
+		ref,
+	) => {
+		// TODO BADGE - handle onClose to manage close button
 
-	// TODO BADGE - handle semanticIcon to display semantic icon
+		// TODO BADGE - handle semanticIcon to display semantic icon
 
-	// TODO BADGE - implement withOperator props
+		// TODO BADGE - implement withOperator props
 
-	const defaultTestId = 'badge-label';
+		const defaultTestId = 'badge-label';
 
-	return (
-		<span className={classnames(styles.badge)} ref={ref}>
-			<StackHorizontal
-				gap="XXS"
-				padding={{ top: 0, right: 'XXS', bottom: 0, left: 'XXS' }}
-				align="center"
-				display="inline"
-			>
-				<span
-					className={classnames(styles.badge__label)}
-					data-testid={dataTestId ? `${dataTestId}.${defaultTestId}` : defaultTestId}
-					data-test={dataTest ? `${dataTest}.${defaultTestId}` : defaultTestId}
+		return (
+			<span className={classnames(styles.badge)} ref={ref}>
+				<StackHorizontal
+					gap="XXS"
+					padding={{ top: 0, right: 'XXS', bottom: 0, left: 'XXS' }}
+					align="center"
+					display="inline"
 				>
-					{label}
-				</span>
+					<span
+						className={classnames(styles.badge__label)}
+						data-testid={dataTestId ? `${dataTestId}.${defaultTestId}` : defaultTestId}
+						data-test={dataTest ? `${dataTest}.${defaultTestId}` : defaultTestId}
+					>
+						{label}
+					</span>
 
-				{Children.count(children) > 0 && <BadgeDivider />}
+					{Children.count(children) > 0 && <BadgeDivider />}
 
-				{children}
-			</StackHorizontal>
-		</span>
-	);
-}
+					{children}
+				</StackHorizontal>
+			</span>
+		);
+	},
+);
+
+BadgePrimitive.displayName = 'BadgePrimitive';
 
 export default BadgePrimitive;
