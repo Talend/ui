@@ -1,5 +1,15 @@
 ## [v0.32.5]
 
+## 5.0.0
+
+### Major Changes
+
+- 0a659cc: Move sources with react code from js to jsx.
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
 ## 4.1.1
 
 ### Patch Changes

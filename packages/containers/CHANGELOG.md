@@ -1,5 +1,17 @@
 # @talend/react-containers
 
+## 12.1.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- 0a659cc: test: update to use jsx file extension
+- Updated dependencies [4408b98]
+  - @talend/react-cmf@12.2.1
+  - @talend/react-components@18.1.2
+  - @talend/design-system@12.1.2
+  - @talend/react-forms@16.1.3
+
 ## 12.1.1
 
 ### Patch Changes

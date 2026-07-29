@@ -1,5 +1,11 @@
 # @talend/react-faceted-search-query-client
 
+## 3.1.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
 ## 3.1.1
 
 ### Patch Changes

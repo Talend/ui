@@ -1,5 +1,15 @@
 # @talend/bootstrap-theme
 
+## 10.1.2
+
+### Patch Changes
+
+- 0a659cc: fix: update webpack config used to build it
+- Updated dependencies [4408b98]
+- Updated dependencies [0a659cc]
+  - @talend/design-tokens@4.1.2
+  - @talend/bootstrap-sass@5.6.2
+
 ## 10.1.1
 
 ### Patch Changes

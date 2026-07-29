@@ -1,5 +1,11 @@
 # @talend/react-cmf
 
+## 12.2.1
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
 ## 12.2.0
 
 ### Minor Changes

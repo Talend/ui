@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 2.1.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
 ## 2.1.1
 
 ### Patch Changes

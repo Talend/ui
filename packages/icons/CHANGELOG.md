@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 8.0.1
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
 ## 8.0.0
 
 ### Major Changes

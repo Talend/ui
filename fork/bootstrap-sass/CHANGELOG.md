@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.6.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
 ## 5.6.1
 
 ### Patch Changes

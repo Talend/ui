@@ -1,5 +1,13 @@
 # Changelog
 
+## 9.2.1
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- Updated dependencies [4408b98]
+  - @talend/react-cmf@12.2.1
+
 ## 9.2.0
 
 ### Minor Changes
