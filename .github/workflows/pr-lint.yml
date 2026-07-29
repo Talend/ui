@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 #v7.0.0
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
@@ -36,10 +36,15 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Build
+        run: yarn build
+
       - name: eslint + stylelint
         continue-on-error: true
         id: eslint
-        run: yarn lint
+        run: |
+          yarn eslint:run --concurrency=1
+          yarn stylelint:run --concurrency=1
 
       - name: Merge lint
         uses: ./.github/actions/lint-merge-report

@@ -203,4 +203,8 @@ FileWidget.defaultProps = {
 
 export { FileWidget, base64Decode, getFileName };
 
-export default withTranslation(I18N_DOMAIN_FORMS)(FileWidget);
+const I18NFileWidget = /** @type {typeof FileWidget} */ (
+	withTranslation(I18N_DOMAIN_FORMS)(FileWidget)
+);
+
+export default I18NFileWidget;
