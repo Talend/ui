@@ -1,0 +1,4 @@
+import{j as t}from"./index-fdwP0JqU.js";import{u as s,M as i}from"./blocks-CssP7NA1.js";import{t as a}from"./TalendDesignTokens-JgHEBmOa.js";import"./iframe-CflQkm59.js";import{D as m}from"./Dialog-Cd1l1e3P.js";import"./index-BesgmHsy.js";import"./useCopyToClipboard-ColnSTlK.js";import{T as u}from"./TokenValue-BgHTEN0l.js";import"./index-B7T4ecw2.js";import"./preload-helper-PPVm8Dsz.js";import"./dictionary-CKKJDmnH.js";function r(o){const e={h1:"h1",...s(),...o.components};return t.jsxs(t.Fragment,{children:[t.jsx(i,{title:"Design Tokens/Radius"}),`
+`,t.jsx(e.h1,{id:"radius",children:"Radius"}),`
+`,t.jsx(m,{}),`
+`,t.jsx(u,{style:n=>({borderRadius:n.value,backgroundColor:a.coralColorAccentBackground,display:"flex",justifyContent:"center",alignItems:"center"}),type:"radius",sortOnValue:!0,children:n=>n.value})]})}function g(o={}){const{wrapper:e}={...s(),...o.components};return e?t.jsx(e,{...o,children:t.jsx(r,{...o})}):r(o)}export{g as default};
