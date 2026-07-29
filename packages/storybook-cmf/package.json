@@ -19,10 +19,10 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "test": "vitest run",
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test:update": "vitest run --update",
-    "test:cov": "vitest run --coverage"
+    "vitest:run": "vitest run",
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:update": "vitest run --update",
+    "vitest:cov": "vitest run --coverage"
   },
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -34,21 +34,13 @@
     }
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^5.2.0",
-    "@vitest/coverage-v8": "^4.1.2",
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
     "@talend/react-cmf": "^12.2.0",
-    "@talend/scripts-core": "^20.0.0",
-    "@talend/scripts-config-babel": "^13.10.1",
     "@testing-library/react": "^14.3.1",
-    "eslint": "^10.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
     "redux-saga": "^1.4.2",
-    "storybook": "^10.3.3",
-    "vitest": "^4.1.2"
+    "storybook": "^10.3.3"
   },
   "dependencies": {
     "prop-types": "^15.8.1"
