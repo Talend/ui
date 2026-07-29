@@ -32,7 +32,7 @@
     "@babel/preset-env": "^7.29.2",
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
-    "@babel/core": "^7.29.0",
+    "@babel/core": "^7.29.6",
     "@changesets/cli": "^2.30.0",
     "@talend/eslint-plugin": "^1.8.1",
     "@talend/eslint-config": "^14.1.2",
