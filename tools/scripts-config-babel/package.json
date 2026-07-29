@@ -14,10 +14,10 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
-    "test:update": "vitest run --update"
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:run": "vitest run",
+    "vitest:cov": "vitest run --coverage",
+    "vitest:update": "vitest run --update"
   },
   "dependencies": {
     "@babel/core": "^7.29.0",
@@ -37,13 +37,7 @@
     "babel-plugin-angularjs-annotate": "^0.10.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
-    "@vitest/coverage-v8": "^4.1.2",
-    "eslint": "^10.1.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
-    "globals": "^15.15.0",
-    "vitest": "^4.1.2"
+    "globals": "^15.15.0"
   },
   "publishConfig": {
     "access": "public"

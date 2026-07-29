@@ -17,7 +17,7 @@ jobs:
       version: ${{ steps.version.outputs.version }}
     steps:
       - name: checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
@@ -27,6 +27,9 @@ jobs:
 
       - name: Install
         run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
 
       - name: Pre-release talend/ui
         id: version

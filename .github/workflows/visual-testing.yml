@@ -28,7 +28,7 @@ jobs:
     environment: pull_request_unsafe
     if: ( github.ref == 'refs/heads/master' || contains(github.event.pull_request.labels.*.name, 'need visual approval') )
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 #v7.0.0
         with:
           fetch-depth: 0
 
@@ -36,12 +36,14 @@ jobs:
         uses: ./.github/actions/setup-node
 
       - name: Install dependencies
-        run: yarn --frozen-lock
+        run: |
+          yarn --frozen-lock
+          yarn build
 
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'
         # https://github.com/chromaui/chromatic-cli/issues/739
-        uses: chromaui/action@f191a0224b10e1a38b2091cefb7b7a2337009116 #v16.0.0
+        uses: chromaui/action@7804f34e4e59c0d9b3c856848f46ad96d7897429 #v17.5.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
@@ -53,7 +55,7 @@ jobs:
       - name: Publish Master to DS Chromatic
         if: github.ref == 'refs/heads/master'
         # https://github.com/chromaui/chromatic-cli/issues/739
-        uses: chromaui/action@f191a0224b10e1a38b2091cefb7b7a2337009116 #v16.0.0
+        uses: chromaui/action@7804f34e4e59c0d9b3c856848f46ad96d7897429 #v17.5.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

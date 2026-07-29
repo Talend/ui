@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 #v7.0.0
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
@@ -32,11 +32,15 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Build
+        run: yarn build
+
       - name: Test
-        run: yarn test:cov
+        run: |
+          yarn vitest:cov --concurrency=1
 
       - name: Jest Coverage Comment
-        uses: MishaKav/jest-coverage-comment@c480abe47ef4f7bcd87bd8b5e6043fdfb1c4d270 #1.0.32
+        uses: MishaKav/jest-coverage-comment@40d7aed38d0fbaea266c34c12ab06356eec894eb #1.0.33
         with:
           multiple-files: |
             assets-api, ./packages/assets-api/coverage/coverage-summary.json
