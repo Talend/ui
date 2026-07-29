@@ -52,7 +52,7 @@
     "svg64": "^2.0.0",
     "terser": "^5.46.1",
     "terser-webpack-plugin": "^5.4.0",
-    "tmp": "^0.2.5",
+    "tmp": "^0.2.6",
     "url": "^0.11.4",
     "webpack": "^5.105.4",
     "webpack-bundle-analyzer": "^4.10.2",
