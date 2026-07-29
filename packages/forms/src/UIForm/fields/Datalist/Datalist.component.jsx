@@ -316,4 +316,6 @@ if (process.env.NODE_ENV !== 'production') {
 	};
 }
 
-export default withTranslation(I18N_DOMAIN_FORMS)(Datalist);
+const I18NDatalist = /** @type {typeof Datalist} */ (withTranslation(I18N_DOMAIN_FORMS)(Datalist));
+
+export default I18NDatalist;
