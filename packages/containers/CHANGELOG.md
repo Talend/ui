@@ -1,5 +1,17 @@
 # @talend/react-containers
 
+## 12.1.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/design-system@12.1.3
+  - @talend/react-components@18.1.3
+  - @talend/react-forms@16.1.4
+  - @talend/utils@3.7.2
+  - @talend/react-cmf@12.2.2
+
 ## 12.1.2
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @talend/scripts-config-babel
 
+## 13.10.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/babel-plugin-import-from-index@1.13.2
+  - @talend/babel-plugin-assets-api@1.9.2
+
 ## 13.10.1
 
 ### Patch Changes

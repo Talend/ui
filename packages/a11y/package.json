@@ -34,7 +34,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/utils": "^3.7.1"
+    "@talend/utils": "^3.7.2"
   },
   "devDependencies": {
     "@types/date-fns": "^2.6.3",
@@ -51,5 +51,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.3.2"
+  "version": "4.3.3"
 }

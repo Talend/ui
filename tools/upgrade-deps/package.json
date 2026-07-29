@@ -1,6 +1,6 @@
 {
   "name": "@talend/upgrade-deps",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "description": "CLI to help management of dependencies",
   "type": "module",
   "bin": {

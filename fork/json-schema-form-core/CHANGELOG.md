@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 2.1.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
 ## 2.1.2
 
 ### Patch Changes

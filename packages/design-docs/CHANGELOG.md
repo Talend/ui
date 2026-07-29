@@ -1,5 +1,16 @@
 # @talend/design-docs
 
+## 5.1.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/storybook-docs@3.1.2
+  - @talend/design-system@12.1.3
+  - @talend/design-tokens@4.1.3
+  - @talend/icons@8.0.2
+
 ## 5.1.2
 
 ### Patch Changes

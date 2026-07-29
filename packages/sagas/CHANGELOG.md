@@ -1,5 +1,13 @@
 # @talend/react-sagas
 
+## 10.1.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/react-cmf@12.2.2
+
 ## 10.1.2
 
 ### Patch Changes

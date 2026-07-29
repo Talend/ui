@@ -4,6 +4,15 @@
 
 ### Patch Changes
 
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/utils@3.7.2
+  - @talend/react-cmf@12.2.2
+
+## 12.1.2
+
+### Patch Changes
+
 - 4408b98: chore: upgrade dependencies
 - Updated dependencies [4408b98]
   - @talend/react-cmf@12.2.1
