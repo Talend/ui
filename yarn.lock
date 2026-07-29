@@ -3616,22 +3616,6 @@
   resolved "https://npm.pkg.github.com/download/@talend/locales-tui-forms/15.2.0/dee8f65820b7e4e26de8b7972a48fd108bb0ffeb#dee8f65820b7e4e26de8b7972a48fd108bb0ffeb"
   integrity sha512-6UMXC8/2qSB7u0ovYsvTqw0mtDsMUWTp/ahmuf4VtRGZDaHxwKl1TMhNgcVKDzwQc7AVzP4DBwG3MbzXqBEYlA==
 
-"@talend/react-bootstrap@^4.1.1":
-  version "4.1.1"
-  resolved "https://npm.pkg.github.com/download/@talend/react-bootstrap/4.1.1/9e5f4e6eba9b8b1c1af46fe6f34b0a8867a0a058#9e5f4e6eba9b8b1c1af46fe6f34b0a8867a0a058"
-  integrity sha512-l2A4kJdZtpFOkEpYN1Grqlksh/oCMWzmNTHiAZN+4pKfX/MmXC/M+lXd45an5DOWDP8Puui3AEIIr0WYKDES8w==
-  dependencies:
-    classnames "^2.5.1"
-    dom-helpers "^3.4.0"
-    invariant "^2.2.4"
-    prop-types "^15.8.1"
-    prop-types-extra "^1.1.1"
-    react-overlays "^0.9.3"
-    react-prop-types "^0.4.0"
-    react-transition-group "^2.9.0"
-    uncontrollable "^7.2.1"
-    warning "^3.0.0"
-
 "@testing-library/dom@^10.4.1":
   version "10.4.1"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-10.4.1.tgz#d444f8a889e9a46e9a3b4f3b88e0fcb3efb6cf95"

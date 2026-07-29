@@ -51,7 +51,7 @@
     "@talend/design-tokens": "^4.1.2",
     "@talend/icons": "^8.0.1",
     "@talend/react-a11y": "^4.3.2",
-    "@talend/react-bootstrap": "^4.1.1",
+    "@talend/react-bootstrap": "^5.0.0",
     "@talend/utils": "^3.7.1",
     "classnames": "^2.5.1",
     "d3": "^7.9.0",
