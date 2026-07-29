@@ -20,7 +20,7 @@
     "vitest:update": "vitest run --update"
   },
   "dependencies": {
-    "semver": "^7.7.4"
+    "semver": "^7.8.5"
   },
   "devDependencies": {
     "babel-plugin-tester": "^10.1.0",
