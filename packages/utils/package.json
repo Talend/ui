@@ -24,25 +24,17 @@
   "scripts": {
     "build:lib": "talend-scripts build --tsc",
     "build:lib:esm": "talend-scripts build --esm",
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:run": "vitest run",
+    "vitest:cov": "vitest run --coverage",
     "test:noisy": "vitest run",
     "test:watch": "vitest --watch",
     "extends": "talend-scripts extends",
-    "test:update": "vitest run --update"
+    "vitest:update": "vitest run --update"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-core": "^20.0.0",
-    "@talend/scripts-config-stylelint": "^5.0.0",
-    "@talend/scripts-config-typescript": "^12.1.1",
     "@types/date-fns": "^2.6.3",
-    "@types/lodash": "^4.17.24",
-    "@vitest/coverage-v8": "^4.1.2",
-    "eslint": "^10.1.0",
-    "vitest": "^4.1.2"
+    "@types/lodash": "^4.17.24"
   },
   "dependencies": {
     "date-fns": "^3.6.0",

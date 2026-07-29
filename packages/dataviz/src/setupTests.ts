@@ -16,6 +16,7 @@ i18next.use(initReactI18next).init({
 });
 
 // Polyfill ResizeObserver for jsdom
+// @ts-ignore
 global.ResizeObserver = class ResizeObserver {
 	observe() {}
 	unobserve() {}
