@@ -31423,7 +31423,7 @@ valueId?: string</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> UIForm</h2>
       <div class="badges">
-        <label for="c-143-forms-schema-core-props" class="badge ok as-toggle">21 prop types</label>
+        <label for="c-143-forms-schema-core-props" class="badge ok as-toggle">4 prop types</label>
         <label for="c-143-forms-schema-core-info" class="badge info as-toggle">1 info</label>
         <label for="c-143-forms-schema-core-stories" class="badge ok as-toggle">7 stories</label>
         
@@ -31457,127 +31457,20 @@ valueId?: string</code></pre>
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen)</small></span>
-              <span class="badge ok">21 prop types</span>
+              <span class="badge ok">4 prop types</span>
             </div>
-            <pre><code>Component: ../forms/src/UIForm/UIForm.container.jsx::default</code></pre>
+            <pre><code>Component: ../forms/src/FormSwitcher.tsx::default</code></pre>
             <pre><code>Props:</code></pre>
-            <pre><code>/**
- * Form element configuration: charsets
- */
-acceptCharset?: string
+            <pre><code>actions?: ActionProps[]
 
-/**
- * Form element configuration: submit action.
- *  This will be prevented if you provide an onSubmit props
- */
-action?: string
+data?: {
+	jsonSchema: any;
+	uiSchema: UiSchema;
+}
 
-/**
- * Actions buttons to display at the bottom of the form.
- * If not provided, a single submit button is displayed.
- */
-actions?: UIFormTranslatedComponent.propTypes.actions
+displayMode?: &#39;text&#39; | string
 
-/**
- * Form element configuration: auto complete
- */
-autoComplete?: string
-
-/**
- * Form custom classname
- */
-className?: string
-
-/**
- * Custom validation function.
- * Prototype: function customValidation(schema, value, properties)
- * Return format : errorMessage String | falsy
- * This is triggered on fields that has their uiSchema &gt; customValidation : true
- */
-customValidation?: func
-
-/**
- * Form schema configuration
- */
-data?: shape
-
-/**
- * Display mode: example &#39;text&#39;
- */
-displayMode?: string
-
-/**
- * Form definition: encoding type
- */
-encType?: string
-
-/**
- * Form definition: form id
- */
-id?: string
-
-/**
- * if initial data is present set initial state with it
- * if not use juste data
- * if initial data update
- * update initialData and liveData with it
- */
-initialData?: shape
-
-/**
- * Form element configuration: submit method.
- *  This will be prevented if you provide an onSubmit props
- */
-method?: string
-
-/**
- * Form definition: prevent html 5 validations
- */
-noHtml5Validate?: bool
-
-/**
- * The change callback.
- * Prototype: function onChange(event, { schema, value, properties })
- */
-onChange?: func
-
-/**
- * The errors callback.
- * Prototype: function onErrors(event, errors)
- */
-onErrors?: func
-
-/**
- * Form definition: reset callback
- */
-onReset?: func
-
-/**
- * Form definition: submit callback. This will prevent default submit behavior
- */
-onSubmit?: func
-
-/**
- * Trigger callback.
- * Prototype: function onTrigger(event, { trigger, schema, properties })
- */
-onTrigger?: func
-
-/**
- * Form element configuration: submit target.
- *  This will be prevented if you provide an onSubmit props
- */
-target?: string
-
-/**
- * Custom templates
- */
-templates?: object
-
-/**
- * Custom widgets
- */
-widgets?: object</code></pre>
+loading?: boolean</code></pre>
           </div>
         </div>
     
@@ -31677,7 +31570,7 @@ widgets?: object</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> UIForm</h2>
       <div class="badges">
-        <label for="c-144-forms-schema-fields-props" class="badge ok as-toggle">21 prop types</label>
+        <label for="c-144-forms-schema-fields-props" class="badge ok as-toggle">4 prop types</label>
         <label for="c-144-forms-schema-fields-info" class="badge info as-toggle">1 info</label>
         <label for="c-144-forms-schema-fields-stories" class="badge ok as-toggle">19 stories</label>
         
@@ -31711,127 +31604,20 @@ widgets?: object</code></pre>
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen)</small></span>
-              <span class="badge ok">21 prop types</span>
+              <span class="badge ok">4 prop types</span>
             </div>
-            <pre><code>Component: ../forms/src/UIForm/UIForm.container.jsx::default</code></pre>
+            <pre><code>Component: ../forms/src/FormSwitcher.tsx::default</code></pre>
             <pre><code>Props:</code></pre>
-            <pre><code>/**
- * Form element configuration: charsets
- */
-acceptCharset?: string
+            <pre><code>actions?: ActionProps[]
 
-/**
- * Form element configuration: submit action.
- *  This will be prevented if you provide an onSubmit props
- */
-action?: string
+data?: {
+	jsonSchema: any;
+	uiSchema: UiSchema;
+}
 
-/**
- * Actions buttons to display at the bottom of the form.
- * If not provided, a single submit button is displayed.
- */
-actions?: UIFormTranslatedComponent.propTypes.actions
+displayMode?: &#39;text&#39; | string
 
-/**
- * Form element configuration: auto complete
- */
-autoComplete?: string
-
-/**
- * Form custom classname
- */
-className?: string
-
-/**
- * Custom validation function.
- * Prototype: function customValidation(schema, value, properties)
- * Return format : errorMessage String | falsy
- * This is triggered on fields that has their uiSchema &gt; customValidation : true
- */
-customValidation?: func
-
-/**
- * Form schema configuration
- */
-data?: shape
-
-/**
- * Display mode: example &#39;text&#39;
- */
-displayMode?: string
-
-/**
- * Form definition: encoding type
- */
-encType?: string
-
-/**
- * Form definition: form id
- */
-id?: string
-
-/**
- * if initial data is present set initial state with it
- * if not use juste data
- * if initial data update
- * update initialData and liveData with it
- */
-initialData?: shape
-
-/**
- * Form element configuration: submit method.
- *  This will be prevented if you provide an onSubmit props
- */
-method?: string
-
-/**
- * Form definition: prevent html 5 validations
- */
-noHtml5Validate?: bool
-
-/**
- * The change callback.
- * Prototype: function onChange(event, { schema, value, properties })
- */
-onChange?: func
-
-/**
- * The errors callback.
- * Prototype: function onErrors(event, errors)
- */
-onErrors?: func
-
-/**
- * Form definition: reset callback
- */
-onReset?: func
-
-/**
- * Form definition: submit callback. This will prevent default submit behavior
- */
-onSubmit?: func
-
-/**
- * Trigger callback.
- * Prototype: function onTrigger(event, { trigger, schema, properties })
- */
-onTrigger?: func
-
-/**
- * Form element configuration: submit target.
- *  This will be prevented if you provide an onSubmit props
- */
-target?: string
-
-/**
- * Custom templates
- */
-templates?: object
-
-/**
- * Custom widgets
- */
-widgets?: object</code></pre>
+loading?: boolean</code></pre>
           </div>
         </div>
     
@@ -32092,7 +31878,7 @@ widgets?: object</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> UIForm</h2>
       <div class="badges">
-        <label for="c-145-forms-schema-fieldsets-props" class="badge ok as-toggle">21 prop types</label>
+        <label for="c-145-forms-schema-fieldsets-props" class="badge ok as-toggle">4 prop types</label>
         <label for="c-145-forms-schema-fieldsets-info" class="badge info as-toggle">1 info</label>
         <label for="c-145-forms-schema-fieldsets-stories" class="badge ok as-toggle">8 stories</label>
         
@@ -32126,127 +31912,20 @@ widgets?: object</code></pre>
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen)</small></span>
-              <span class="badge ok">21 prop types</span>
+              <span class="badge ok">4 prop types</span>
             </div>
-            <pre><code>Component: ../forms/src/UIForm/UIForm.container.jsx::default</code></pre>
+            <pre><code>Component: ../forms/src/FormSwitcher.tsx::default</code></pre>
             <pre><code>Props:</code></pre>
-            <pre><code>/**
- * Form element configuration: charsets
- */
-acceptCharset?: string
+            <pre><code>actions?: ActionProps[]
 
-/**
- * Form element configuration: submit action.
- *  This will be prevented if you provide an onSubmit props
- */
-action?: string
+data?: {
+	jsonSchema: any;
+	uiSchema: UiSchema;
+}
 
-/**
- * Actions buttons to display at the bottom of the form.
- * If not provided, a single submit button is displayed.
- */
-actions?: UIFormTranslatedComponent.propTypes.actions
+displayMode?: &#39;text&#39; | string
 
-/**
- * Form element configuration: auto complete
- */
-autoComplete?: string
-
-/**
- * Form custom classname
- */
-className?: string
-
-/**
- * Custom validation function.
- * Prototype: function customValidation(schema, value, properties)
- * Return format : errorMessage String | falsy
- * This is triggered on fields that has their uiSchema &gt; customValidation : true
- */
-customValidation?: func
-
-/**
- * Form schema configuration
- */
-data?: shape
-
-/**
- * Display mode: example &#39;text&#39;
- */
-displayMode?: string
-
-/**
- * Form definition: encoding type
- */
-encType?: string
-
-/**
- * Form definition: form id
- */
-id?: string
-
-/**
- * if initial data is present set initial state with it
- * if not use juste data
- * if initial data update
- * update initialData and liveData with it
- */
-initialData?: shape
-
-/**
- * Form element configuration: submit method.
- *  This will be prevented if you provide an onSubmit props
- */
-method?: string
-
-/**
- * Form definition: prevent html 5 validations
- */
-noHtml5Validate?: bool
-
-/**
- * The change callback.
- * Prototype: function onChange(event, { schema, value, properties })
- */
-onChange?: func
-
-/**
- * The errors callback.
- * Prototype: function onErrors(event, errors)
- */
-onErrors?: func
-
-/**
- * Form definition: reset callback
- */
-onReset?: func
-
-/**
- * Form definition: submit callback. This will prevent default submit behavior
- */
-onSubmit?: func
-
-/**
- * Trigger callback.
- * Prototype: function onTrigger(event, { trigger, schema, properties })
- */
-onTrigger?: func
-
-/**
- * Form element configuration: submit target.
- *  This will be prevented if you provide an onSubmit props
- */
-target?: string
-
-/**
- * Custom templates
- */
-templates?: object
-
-/**
- * Custom widgets
- */
-widgets?: object</code></pre>
+loading?: boolean</code></pre>
           </div>
         </div>
     
