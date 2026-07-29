@@ -11,24 +11,24 @@
   },
   "dependencies": {
     "read-pkg-up": "^7.0.1",
-    "@talend/module-to-cdn": "^9.18.1"
+    "@talend/module-to-cdn": "^9.18.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.2",
-    "@vitest/coverage-v8": "^4.1.2",
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@vitest/coverage-v8": "^4.1.10",
     "babel-plugin-tester": "^10.1.0",
-    "@eslint/js": "^9.39.4",
-    "eslint": "^10.1.0",
+    "@eslint/js": "^9.39.5",
+    "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-prettier": "^5.5.6",
     "globals": "^15.15.0",
     "react": "^18.3.1",
-    "vitest": "^4.1.2"
+    "vitest": "^4.1.10"
   },
   "babel": {
     "presets": [
