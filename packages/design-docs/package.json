@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-docs",
-  "version": "5.1.1",
+  "version": "5.1.2",
   "description": "Package containing design.talend.com stories",
   "homepage": "https://github.com/Talend/ui#readme",
   "main": "src/index.ts",

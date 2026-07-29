@@ -1,6 +1,6 @@
 {
   "name": "@talend/ui-playground-vite",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Showcase Talend/UI",
   "private": true,
   "type": "module",

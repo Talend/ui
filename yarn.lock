@@ -3586,11 +3586,6 @@
   resolved "https://npm.pkg.github.com/download/@talend/daikon-tql-client/1.3.1/75a764ec14b06355af3924f3b2d65ff8e61db4f0#75a764ec14b06355af3924f3b2d65ff8e61db4f0"
   integrity sha512-trwueNzgISaN2jSNBxuiHw76jWX2G/vtSrCtlTaoeS3NzsCIVUlGryqKZnuBLfZWJyVWeImx9xm34mBOHITMIQ==
 
-"@talend/design-tokens@^4.1.2":
-  version "4.1.2"
-  resolved "https://npm.pkg.github.com/download/@talend/design-tokens/4.1.2/161178e11c5e99097af752897d9d5dd536e2aa56#161178e11c5e99097af752897d9d5dd536e2aa56"
-  integrity sha512-IXkeV7fqmzcsZh9IyNk49bleqA4C+WQY+/h+BKk8TcYs+3bwVudi/0bUbtlv3l01b2U2ffIRcweO59hiIIQvAg==
-
 "@talend/locales-design-system@^7.15.1":
   version "7.15.1"
   resolved "https://npm.pkg.github.com/download/@talend/locales-design-system/7.15.1/decf29fc64fa075c3612586a55947cbd6e56b191#decf29fc64fa075c3612586a55947cbd6e56b191"
