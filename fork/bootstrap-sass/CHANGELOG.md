@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.6.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
 ## 5.6.2
 
 ### Patch Changes

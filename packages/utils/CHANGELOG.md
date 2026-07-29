@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.7.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
 ## 3.7.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 ## [v0.32.5]
 
+## 5.0.1
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
 ## 5.0.0
 
 ### Major Changes

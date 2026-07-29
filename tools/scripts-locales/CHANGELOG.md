@@ -1,5 +1,13 @@
 # @talend/scripts-locales
 
+## 1.6.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/scripts-utils@2.8.2
+
 ## 1.6.1
 
 ### Patch Changes

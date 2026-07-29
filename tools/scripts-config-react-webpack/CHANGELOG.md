@@ -1,5 +1,16 @@
 # @talend/scripts-config-react-webpack
 
+## 17.1.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/scripts-config-babel@13.10.2
+  - @talend/react-cmf-webpack-plugin@6.44.2
+  - @talend/scripts-config-cdn@10.17.2
+  - @talend/scripts-utils@2.8.2
+
 ## 17.1.1
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @talend/react-components
 
+## 18.1.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/design-tokens@4.1.3
+  - @talend/react-bootstrap@5.0.1
+  - @talend/assets-api@2.1.3
+  - @talend/icons@8.0.2
+  - @talend/bootstrap-theme@10.1.3
+  - @talend/utils@3.7.2
+  - @talend/react-a11y@4.3.3
+
 ## 18.1.2
 
 ### Patch Changes
