@@ -3581,65 +3581,15 @@
     "@svgr/plugin-jsx" "8.1.0"
     "@svgr/plugin-svgo" "8.1.0"
 
-"@talend/assets-api@^2.1.2":
-  version "2.1.2"
-  resolved "https://npm.pkg.github.com/download/@talend/assets-api/2.1.2/09918b9e4ded7a9f65a788749d3cbd6c4ddf366c#09918b9e4ded7a9f65a788749d3cbd6c4ddf366c"
-  integrity sha512-fO64kX9iQVq5KH+Q/Ccg+mSh3pt4vEOxg4lGwoMxVsBFtktM5K8AXeyc4d71yT+5T7Fi0emvW/h+T57GEQptUA==
-
-"@talend/bootstrap-sass@^5.6.2":
-  version "5.6.2"
-  resolved "https://npm.pkg.github.com/download/@talend/bootstrap-sass/5.6.2/9431dc534dfbead443d291ceddc5c79d5d2aa199#9431dc534dfbead443d291ceddc5c79d5d2aa199"
-  integrity sha512-qzoH2ktB05AzDLbcHUfXTZwa7nuHPPSnB9ZxEvDXtq6BQGu6ec4ntlBL0NkiRBoeNttKHbM8FteL2sY3uPPoIA==
-
-"@talend/bootstrap-theme@^10.1.2":
-  version "10.1.2"
-  resolved "https://npm.pkg.github.com/download/@talend/bootstrap-theme/10.1.2/2fae00475964ed01b1a1e076ebd11f589a3edcc7#2fae00475964ed01b1a1e076ebd11f589a3edcc7"
-  integrity sha512-7yFKup2jkeqoRkgxps/8TNQQQi6kHO0tnza68HjWFk4IalLstGRQgM9uqQkTxbEZTbntp8cV7hVFOqU/g2KT1w==
-  dependencies:
-    "@talend/bootstrap-sass" "^5.6.2"
-    "@talend/design-tokens" "^4.1.2"
-
 "@talend/daikon-tql-client@^1.3.1":
   version "1.3.1"
   resolved "https://npm.pkg.github.com/download/@talend/daikon-tql-client/1.3.1/75a764ec14b06355af3924f3b2d65ff8e61db4f0#75a764ec14b06355af3924f3b2d65ff8e61db4f0"
   integrity sha512-trwueNzgISaN2jSNBxuiHw76jWX2G/vtSrCtlTaoeS3NzsCIVUlGryqKZnuBLfZWJyVWeImx9xm34mBOHITMIQ==
 
-"@talend/design-system@^12.1.2":
-  version "12.1.2"
-  resolved "https://npm.pkg.github.com/download/@talend/design-system/12.1.2/9c9c549674d1c89478717e3d8f420b04df209c98#9c9c549674d1c89478717e3d8f420b04df209c98"
-  integrity sha512-jWlwHS4R2hWJRBj9A3JsJWS6hl9PQA79q54BdKeS0QByiBC9R1Z2boChCNsly7cVwxKQNXzw9RivAHaWNW+YgQ==
-  dependencies:
-    "@floating-ui/react" "^0.26.28"
-    "@talend/assets-api" "^2.1.2"
-    "@talend/design-tokens" "^4.1.2"
-    "@talend/utils" "^3.7.1"
-    classnames "^2.5.1"
-    modern-css-reset "^1.4.0"
-    react-is "^18.3.1"
-    react-transition-group "^2.9.0"
-    react-use "^17.6.0"
-    react-virtualized "^9.22.6"
-    typeface-inconsolata "^1.1.13"
-    typeface-source-sans-pro "^1.1.13"
-
 "@talend/design-tokens@^4.1.2":
   version "4.1.2"
   resolved "https://npm.pkg.github.com/download/@talend/design-tokens/4.1.2/161178e11c5e99097af752897d9d5dd536e2aa56#161178e11c5e99097af752897d9d5dd536e2aa56"
   integrity sha512-IXkeV7fqmzcsZh9IyNk49bleqA4C+WQY+/h+BKk8TcYs+3bwVudi/0bUbtlv3l01b2U2ffIRcweO59hiIIQvAg==
-
-"@talend/icons@^8.0.1":
-  version "8.0.1"
-  resolved "https://npm.pkg.github.com/download/@talend/icons/8.0.1/3cdaef81847944fc914da86a874c4ff3aefcdff1#3cdaef81847944fc914da86a874c4ff3aefcdff1"
-  integrity sha512-SR5x4o3f8/VFwgYS4DWntalvYL82h68o6GIr2LCfLzxQSpnxITOAuXEa5MFrQAcuupB12yDbWbQa4SXjJDuEIA==
-
-"@talend/json-schema-form-core@^2.1.2":
-  version "2.1.2"
-  resolved "https://npm.pkg.github.com/download/@talend/json-schema-form-core/2.1.2/6f8a20363d304a02768180e9d5c56c6fb16665a2#6f8a20363d304a02768180e9d5c56c6fb16665a2"
-  integrity sha512-kSddPgYN2ktGMZWdR7gUEWh31wCN2x8TosEHvmQ+poVn1estq5GYIRNEY/Ce0mO7GQHlrtqFLY2xXGStKepjdw==
-  dependencies:
-    json-refs "3.0.15"
-    objectpath "^1.2.2"
-    tv4 "^1.3.0"
 
 "@talend/locales-design-system@^7.15.1":
   version "7.15.1"
@@ -3671,17 +3621,10 @@
   resolved "https://npm.pkg.github.com/download/@talend/locales-tui-forms/15.2.0/dee8f65820b7e4e26de8b7972a48fd108bb0ffeb#dee8f65820b7e4e26de8b7972a48fd108bb0ffeb"
   integrity sha512-6UMXC8/2qSB7u0ovYsvTqw0mtDsMUWTp/ahmuf4VtRGZDaHxwKl1TMhNgcVKDzwQc7AVzP4DBwG3MbzXqBEYlA==
 
-"@talend/react-a11y@^4.3.2":
-  version "4.3.2"
-  resolved "https://npm.pkg.github.com/download/@talend/react-a11y/4.3.2/2aae41f1afd8b4d169112ef8155fc05e31a7ae29#2aae41f1afd8b4d169112ef8155fc05e31a7ae29"
-  integrity sha512-9pMpUcG+igx0TCh4KPy6FjXVmbjlzOKaZSb4UKNjSDpLyr5kXWVHi3oFx9ZgbN79z1jsjkiTP3wfpifEDfFRIA==
-  dependencies:
-    "@talend/utils" "^3.7.1"
-
-"@talend/react-bootstrap@^5.0.0":
-  version "5.0.0"
-  resolved "https://npm.pkg.github.com/download/@talend/react-bootstrap/5.0.0/a59f0a4577097b894e4a06d0d4c4c9d39d186d9b#a59f0a4577097b894e4a06d0d4c4c9d39d186d9b"
-  integrity sha512-yMyL2qYkUH52eT9WdgwHuw8g0LrihljNG7tPKnCErNz+LxtZ6iyDjnbQ/H3y/4fDKPN9KnVAHyx+tq0gE0AJTw==
+"@talend/react-bootstrap@^4.1.1":
+  version "4.1.1"
+  resolved "https://npm.pkg.github.com/download/@talend/react-bootstrap/4.1.1/9e5f4e6eba9b8b1c1af46fe6f34b0a8867a0a058#9e5f4e6eba9b8b1c1af46fe6f34b0a8867a0a058"
+  integrity sha512-l2A4kJdZtpFOkEpYN1Grqlksh/oCMWzmNTHiAZN+4pKfX/MmXC/M+lXd45an5DOWDP8Puui3AEIIr0WYKDES8w==
   dependencies:
     classnames "^2.5.1"
     dom-helpers "^3.4.0"
@@ -3693,154 +3636,6 @@
     react-transition-group "^2.9.0"
     uncontrollable "^7.2.1"
     warning "^3.0.0"
-
-"@talend/react-cmf-router@^9.2.1":
-  version "9.2.1"
-  resolved "https://npm.pkg.github.com/download/@talend/react-cmf-router/9.2.1/acc634e0876ac2dc98f36bb9899db51b598fd247#acc634e0876ac2dc98f36bb9899db51b598fd247"
-  integrity sha512-4eiL6UP+nT+EEuDKTbwLOPjyPKme4TiWi56AQA2lZfTZLok7vziz2QzqybYbaapXABhG72LX7pluZSZbMBeRqA==
-  dependencies:
-    "@talend/react-cmf" "^12.2.1"
-    connected-react-router "^6.9.3"
-    history "^5.3.0"
-    lodash "^4.18.0"
-    prop-types "^15.8.1"
-    react-redux "^7.2.9"
-    react-router "~6.3.0"
-    react-router-dom "~6.3.0"
-    redux-saga "^1.4.2"
-
-"@talend/react-cmf@^12.2.1":
-  version "12.2.1"
-  resolved "https://npm.pkg.github.com/download/@talend/react-cmf/12.2.1/23c83f3819b6ca2f78e2f931c71f0a616edb7fbb#23c83f3819b6ca2f78e2f931c71f0a616edb7fbb"
-  integrity sha512-UhS3pm3zeart7kA9c8RfGQHW0aFU4EIWZrdq7PYscoVpvpZx3+lded341UM0tOo5NPB/bm8l/uKhNuvHCj8vGw==
-  dependencies:
-    "@talend/scripts-cmf" "^1.8.1"
-    "@talend/utils" "^3.7.1"
-    commander "^6.2.1"
-    hoist-non-react-statics "^3.3.2"
-    immutable "^3.8.3"
-    invariant "^2.2.4"
-    lodash "^4.18.0"
-    nested-combine-reducers "^1.2.2"
-    path-to-regexp "^8.4.1"
-    prop-types "^15.8.1"
-    react-immutable-proptypes "^2.2.0"
-    react-redux "^7.2.9"
-    redux "^4.2.1"
-    redux-batched-actions "^0.5.0"
-    redux-batched-subscribe "^0.1.6"
-    redux-saga "^1.4.2"
-    redux-thunk "^2.4.2"
-
-"@talend/react-components@^18.1.2":
-  version "18.1.2"
-  resolved "https://npm.pkg.github.com/download/@talend/react-components/18.1.2/e5368756d82b8e4e78ec466fd989c62d624a578f#e5368756d82b8e4e78ec466fd989c62d624a578f"
-  integrity sha512-VKoijKYVQey5urzKTfDNIi57yb9vkWxvAi7vGpqH4Rb74joYm4afluGgq3twrBdKNtEEXOphgSmczPa5+EBGUg==
-  dependencies:
-    "@popperjs/core" "^2.11.8"
-    "@talend/assets-api" "^2.1.2"
-    "@talend/bootstrap-theme" "^10.1.2"
-    "@talend/design-tokens" "^4.1.2"
-    "@talend/icons" "^8.0.1"
-    "@talend/react-a11y" "^4.3.2"
-    "@talend/react-bootstrap" "^5.0.0"
-    "@talend/utils" "^3.7.1"
-    classnames "^2.5.1"
-    d3 "^7.9.0"
-    date-fns "^3.6.0"
-    dom-helpers "^3.4.0"
-    focus-outline-manager "^1.0.2"
-    immutable "^3.8.3"
-    invariant "^2.2.4"
-    lodash "^4.18.0"
-    memoize-one "^6.0.0"
-    rc-slider "^11.1.9"
-    react-autowhatever "10.2.0"
-    react-debounce-input "^3.3.0"
-    react-draggable "^4.5.0"
-    react-grid-layout "^1.5.3"
-    react-immutable-proptypes "^2.2.0"
-    react-is "^18.3.1"
-    react-popper "^2.3.0"
-    react-transition-group "^2.9.0"
-    react-use "^17.6.0"
-    react-virtualized "^9.22.6"
-    reactour "^1.19.4"
-    recharts "^2.15.4"
-    styled-components "^5.3.11"
-    warning "^3.0.0"
-
-"@talend/react-containers@^12.1.2":
-  version "12.1.2"
-  resolved "https://npm.pkg.github.com/download/@talend/react-containers/12.1.2/a5c603a1be1f763f6ef1e00cdebc414d9c61adb6#a5c603a1be1f763f6ef1e00cdebc414d9c61adb6"
-  integrity sha512-YABqVDhP4ZcMEs0DgzaUjlWbm/fv8/soTGSJtk8+/887AktJfEnVRROd4EahEKpT2zkXDHZ5MlJNoq6ZiJURNQ==
-  dependencies:
-    "@talend/design-system" "^12.1.2"
-    "@talend/react-cmf" "^12.2.1"
-    "@talend/react-components" "^18.1.2"
-    "@talend/react-forms" "^16.1.3"
-    "@talend/utils" "^3.7.1"
-    classnames "^2.5.1"
-    immutable "^3.8.3"
-    invariant "^2.2.4"
-    lodash "^4.18.0"
-    memoize-one "^6.0.0"
-    react-immutable-proptypes "^2.2.0"
-    redux-saga "^1.4.2"
-    reselect "^2.5.4"
-
-"@talend/react-dataviz@^8.1.2":
-  version "8.1.2"
-  resolved "https://npm.pkg.github.com/download/@talend/react-dataviz/8.1.2/4a12bdd614af516f31f70a37e65807b3884942f4#4a12bdd614af516f31f70a37e65807b3884942f4"
-  integrity sha512-xsMdv5OkzZg8Apk1KddITSo1Rbf8AaMLFTPpmP2m+XPuoZuaPyjK4IQcETZy/bpXhnCuGTnz87Bch0xRXqy3Sg==
-  dependencies:
-    "@talend/assets-api" "^2.1.2"
-    "@talend/design-tokens" "^4.1.2"
-    "@talend/react-components" "^18.1.2"
-    classnames "^2.5.1"
-    d3 "^7.9.0"
-    date-fns "^3.6.0"
-    geojson "^0.5.0"
-    lodash "^4.18.0"
-    recharts "^2.15.4"
-    topojson-client "^3.1.0"
-
-"@talend/react-faceted-search@^22.1.2":
-  version "22.1.2"
-  resolved "https://npm.pkg.github.com/download/@talend/react-faceted-search/22.1.2/0b65dd1fba4d430214b4e234b66ddc6555ed1fbe#0b65dd1fba4d430214b4e234b66ddc6555ed1fbe"
-  integrity sha512-t01Z5xpv7uayzTBz+2JI7yz8VR+f1B0bgZDv9Iyj6bA9+mvN61yTUe4cNJeXrtq6zANk+vV5rRDJT5m2NIosHQ==
-  dependencies:
-    "@talend/daikon-tql-client" "^1.3.1"
-    "@talend/design-tokens" "^4.1.2"
-    "@talend/utils" "^3.7.1"
-    classnames "^2.5.1"
-    date-fns "^3.6.0"
-    invariant "^2.2.4"
-    lodash "^4.18.0"
-
-"@talend/react-forms@^16.1.3":
-  version "16.1.3"
-  resolved "https://npm.pkg.github.com/download/@talend/react-forms/16.1.3/fa1df976160d0121d4db7081c76dc76208a06df9#fa1df976160d0121d4db7081c76dc76208a06df9"
-  integrity sha512-HntQWPnKsK0t3c5BhIB6Kw0WBwMr3UptCiBF8HlcXwaf752PrBpfKNMFKFNii40J9NsnxkoxEBKnBjQWjBCl7g==
-  dependencies:
-    "@talend/assets-api" "^2.1.2"
-    "@talend/design-system" "^12.1.2"
-    "@talend/design-tokens" "^4.1.2"
-    "@talend/icons" "^8.0.1"
-    "@talend/json-schema-form-core" "^2.1.2"
-    "@talend/react-components" "^18.1.2"
-    "@talend/utils" "^3.7.1"
-    ace-builds "1.10.1"
-    ajv "^6.14.0"
-    classnames "^2.5.1"
-    json-logic-js "^2.0.5"
-    lodash "^4.18.0"
-    memoize-one "^6.0.0"
-    react-ace "10.1.0"
-    react-autowhatever "10.2.0"
-    react-hook-form "^7.72.0"
-    react-jsonschema-form "0.51.0"
-    tv4 "^1.3.0"
 
 "@testing-library/dom@^10.4.1":
   version "10.4.1"
@@ -10556,7 +10351,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==
 
-lodash@^4, lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.18.0, lodash@^4.18.1:
+lodash@^4, lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.18.1:
   version "4.18.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.18.1.tgz#ff2b66c1f6326d59513de2407bf881439812771c"
   integrity sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==
@@ -12155,7 +11950,7 @@ path-to-regexp@^6.2.1, path-to-regexp@^6.3.0:
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-6.3.0.tgz#2b6a26a337737a8e1416f9272ed0766b1c0389f4"
   integrity sha512-Yhpw4T9C6hPpgPeA28us07OJeqZ5EzQTkbfwuhsUg0c237RomFoETJgmp2sa3F/41gfLE6G5cqcYwznmeEeOlQ==
 
-path-to-regexp@^8.4.1, path-to-regexp@^8.4.2:
+path-to-regexp@^8.4.2:
   version "8.4.2"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-8.4.2.tgz#795c420c4f7ca45c5b887366f622ee0c9852cccd"
   integrity sha512-qRcuIdP69NPm4qbACK+aDogI5CBDMi1jKe0ry5rSQJz8JVLsC7jV8XpiJjGRLLol3N+R5ihGYcrPLTno6pAdBA==
@@ -13104,7 +12899,7 @@ react-focus-lock@^2.12.1:
     use-callback-ref "^1.3.3"
     use-sidecar "^1.1.3"
 
-react-grid-layout@^1.5.3, react-grid-layout@^1.5.4:
+react-grid-layout@^1.5.4:
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/react-grid-layout/-/react-grid-layout-1.5.4.tgz#1a87880be13e6ba4cb0c455e044acdb247d5d87f"
   integrity sha512-AyScMfqhgRfie9ECXddQeaYmTuNlomDj9SIryF/+vtiwXS6IsxX3cI6CCWbSRXqbAePHW397nPxvnekO5gViPg==
@@ -13126,7 +12921,7 @@ react-helmet@^6.1.0:
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
 
-react-hook-form@^7.72.0, react-hook-form@^7.83.0:
+react-hook-form@^7.83.0:
   version "7.83.0"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.83.0.tgz#b4d43c42108645c2ae4d425ada2818d03522e8a9"
   integrity sha512-AXt8cMCmx5a7u4uvpb2uRFVrWQhllI4pV+LSykxIac/hjt44TnQkmX9BKuQi2i+LDC62esmiLpilkav+kjVf/A==
@@ -13321,7 +13116,7 @@ react-universal-interface@^0.6.2:
   resolved "https://registry.yarnpkg.com/react-universal-interface/-/react-universal-interface-0.6.2.tgz#5e8d438a01729a4dbbcbeeceb0b86be146fe2b3b"
   integrity sha512-dg8yXdcQmvgR13RIlZbTRQOoUrDciFVoSBZILwjE2LFISxZZ8loVJKAkuzswl5js8BHda79bIb2b84ehU8IjXw==
 
-react-use@^17.6.0, react-use@^17.6.1:
+react-use@^17.6.1:
   version "17.6.1"
   resolved "https://registry.yarnpkg.com/react-use/-/react-use-17.6.1.tgz#c9692540f2230b763e42076fbf350e7e33ec2e21"
   integrity sha512-uibb3pgzV4LFsYPHyXYGu7dD2+pyk/ZJlPH+AizBR3zolqPWyCleKcWWbUQaKSKfydwgnQ3ymGm1Ab3/saGHCA==
@@ -13533,7 +13328,7 @@ redux-saga-tester@^1.0.874:
   dependencies:
     babel-runtime "^6.11.6"
 
-redux-saga@^1.4.2, redux-saga@^1.5.1:
+redux-saga@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.5.1.tgz#2d6b971eb8c0f359d7d9c8dcd72830d928044e8f"
   integrity sha512-ZwnV/p+ABHoaDzyBrZshmIG/axRQG6AQJre8p9t1bPI/i6UzE5C9jGG9wgSKi8ojLMVyFLwmiDwFtuaul9c3wQ==
