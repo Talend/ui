@@ -1,17 +1,19 @@
 import { forwardRef, HTMLAttributes } from 'react';
 
-import { IconSize } from '@talend/icons';
+import type { IconSize } from '@talend/icons/dist/typeUtils';
 
 declare type LoadingIconSize = IconSize | 'XL' | 'XXL';
+const sizeMap: Record<LoadingIconSize, string> = {
+	XS: '0.5rem',
+	S: '0.75rem',
+	M: '1rem',
+	L: '1.5rem',
+	XL: '2.5rem',
+	XXL: '4rem',
+};
+
 const getNumericSize = (size: LoadingIconSize) => {
-	return {
-		XS: '0.5rem',
-		S: '0.75rem',
-		M: '1rem',
-		L: '1.5rem',
-		XL: '2.5rem',
-		XXL: '4rem',
-	}[size];
+	return sizeMap[size];
 };
 
 export type LoadingProps = HTMLAttributes<SVGSVGElement> & { size?: LoadingIconSize };

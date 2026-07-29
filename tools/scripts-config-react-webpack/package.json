@@ -14,8 +14,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "echo \"Nothing to test\""
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "peerDependencies": {
     "@talend/icons": "^8.0.0"
@@ -40,7 +39,7 @@
     "html-webpack-plugin": "^5.6.6",
     "inspectpack": "^4.7.1",
     "mini-css-extract-plugin": "^2.10.2",
-    "postcss": "^8.5.8",
+    "postcss": "^8.5.10",
     "postcss-loader": "^8.2.1",
     "postcss-safe-parser": "^6.0.0",
     "querystring-es3": "^0.2.1",
@@ -53,17 +52,12 @@
     "svg64": "^2.0.0",
     "terser": "^5.46.1",
     "terser-webpack-plugin": "^5.4.0",
-    "tmp": "^0.2.5",
+    "tmp": "^0.2.6",
     "url": "^0.11.4",
     "webpack": "^5.105.4",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.3"
-  },
-  "devDependencies": {
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "eslint": "^10.1.0"
+    "webpack-dev-server": "^5.2.5"
   },
   "publishConfig": {
     "access": "public"
