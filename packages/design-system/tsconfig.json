@@ -6,6 +6,7 @@
     "baseUrl": ".",
     "paths": {},
     "module": "CommonJs",
+    "moduleResolution": "node",
     "rootDirs": ["src"],
     "types": ["vitest/globals"]
   }
