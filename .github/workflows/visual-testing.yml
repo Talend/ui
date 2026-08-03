@@ -43,7 +43,7 @@ jobs:
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'
         # https://github.com/chromaui/chromatic-cli/issues/739
-        uses: chromaui/action@7804f34e4e59c0d9b3c856848f46ad96d7897429 #v17.5.0
+        uses: chromaui/action@14cfaef73576e69f95f47f60058063f46ca38719 #v18.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
@@ -55,7 +55,7 @@ jobs:
       - name: Publish Master to DS Chromatic
         if: github.ref == 'refs/heads/master'
         # https://github.com/chromaui/chromatic-cli/issues/739
-        uses: chromaui/action@7804f34e4e59c0d9b3c856848f46ad96d7897429 #v17.5.0
+        uses: chromaui/action@14cfaef73576e69f95f47f60058063f46ca38719 #v18.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
