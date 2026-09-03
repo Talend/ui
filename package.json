@@ -6,7 +6,7 @@
     "clean:build": "rimraf {packages,tools,fork}/*/{lib,lib-esm,dist}",
     "clean:demo": "rimraf {packages,tools,fork}/*/.storybook-static",
     "start": "yarn workspace @talend/ui-playground run start",
-    "release": "yarn pre-release && yarn changeset publish",
+    "release": "yarn changeset publish",
     "lint-staged": "lint-staged",
     "eslint:run": "turbo run eslint:run --continue=always",
     "stylelint:run": "turbo run stylelint:run --continue=always",
