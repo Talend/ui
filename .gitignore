@@ -47,6 +47,7 @@ lib/
 lib-esm/
 storybook-static/
 dist/
+.turbo/
 eslint-report.json
 stylelint-report.json
 i18n-extract
