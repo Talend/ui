@@ -42,7 +42,7 @@ jobs:
           yarn vitest:cov --concurrency=1
 
       - name: Jest Coverage Comment
-        uses: MishaKav/jest-coverage-comment@40d7aed38d0fbaea266c34c12ab06356eec894eb #1.0.33
+        uses: MishaKav/jest-coverage-comment@642ef024cc554a34b7082cea12c7bf63575ae151 #1.0.36
         with:
           multiple-files: |
             assets-api, ./packages/assets-api/coverage/coverage-summary.json
