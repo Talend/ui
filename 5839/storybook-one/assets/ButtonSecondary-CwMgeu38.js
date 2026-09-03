@@ -1,0 +1,1 @@
+import{r as o,j as t,aW as a}from"./iframe-DqLkcC_p.js";const e="_secondary_17x8q_1",n={secondary:e};function c(r,s){return t.jsx(a,{...r,ref:s,className:n.secondary})}const y=o.forwardRef(c);export{y as B};
