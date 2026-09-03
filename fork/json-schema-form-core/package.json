@@ -1,6 +1,6 @@
 {
   "name": "@talend/json-schema-form-core",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "JSON-Schema and JSON-UI-Schema utilities for form generation.",
   "main": "dist/index.js",
   "module": "./lib-esm/index.js",
@@ -13,12 +13,12 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "lint": "eslint -o eslint-report.json --format json .",
+    "eslint": "eslint -o eslint-report.json --format json .",
     "watch": "webpack --watch",
     "dist-untested": "webpack --config webpack.config.dist.js",
-    "test:cov": "vitest run --coverage",
-    "test": "vitest run",
-    "test:update": "vitest run --update"
+    "vitest:cov": "vitest run --coverage",
+    "vitest:run": "vitest run",
+    "vitest:update": "vitest run --update"
   },
   "author": "json-schema-form",
   "contributors": [
@@ -48,20 +48,9 @@
     "json-schema"
   ],
   "devDependencies": {
-    "@vitest/coverage-v8": "^4.0.18",
-    "@talend/babel-plugin-assets-api": "^1.9.1",
-    "@talend/babel-plugin-import-from-index": "^1.13.1",
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-config-react-webpack": "^17.1.1",
-    "@talend/scripts-config-typescript": "^12.1.1",
-    "@talend/scripts-core": "^20.0.0",
     "@types/chai": "^3.5.2",
     "@types/node": "^6.14.13",
-    "eslint": "^10.0.3",
-    "rimraf": "^6.1.2",
-    "vitest": "^4.0.18",
-    "webpack": "^5.104.1"
+    "webpack": "^5.109.2"
   },
   "dependencies": {
     "json-refs": "3.0.15",

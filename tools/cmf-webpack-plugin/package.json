@@ -4,8 +4,7 @@
   "main": "src/index.js",
   "mainSrc": "src/index.js",
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "echo nothing to test yet in @talend/react-cmf-webpack-plugin"
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "repository": {
     "type": "git",
@@ -26,13 +25,8 @@
   "homepage": "https://github.com/Talend/ui/blob/master/packages/cmf/README.md",
   "dependencies": {
     "@talend/scripts-cmf": "^1.8.1",
-    "lodash": "^4.17.23",
-    "webpack-sources": "^3.3.3"
-  },
-  "devDependencies": {
-    "@talend/eslint-config": "^14.1.1",
-    "@talend/scripts-config-babel": "^13.10.1",
-    "eslint": "^10.0.3"
+    "lodash": "^4.18.1",
+    "webpack-sources": "^3.5.1"
   },
   "publishConfig": {
     "access": "public"

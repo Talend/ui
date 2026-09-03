@@ -1,7 +1,7 @@
 {
   "name": "@talend/eslint-config",
   "description": "Eslint configuration for @talend/scripts-core",
-  "version": "14.1.2",
+  "version": "14.1.3",
   "license": "Apache-2.0",
   "main": "index.js",
   "author": "Talend Frontend <frontend@talend.com>",
@@ -14,34 +14,28 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
-    "test:update": "vitest run --update"
-  },
-  "devDependencies": {
-    "@vitest/coverage-v8": "^4.0.18",
-    "vitest": "^4.0.18"
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "vitest:run": "vitest run",
+    "vitest:cov": "vitest run --coverage",
+    "vitest:update": "vitest run --update"
   },
   "dependencies": {
-    "@eslint/compat": "^2.0.3",
-    "@eslint/js": "^9.17.0",
+    "@eslint/compat": "^2.1.0",
+    "@eslint/js": "^9.39.5",
     "@talend/eslint-plugin": "^1.8.1",
     "@testing-library/dom": "^9.3.4",
-    "@typescript-eslint/parser": "^8.19.1",
-    "@typescript-eslint/eslint-plugin": "^8.19.1",
-    "eslint": "^10.0.3",
+    "@typescript-eslint/parser": "^8.65.0",
+    "@typescript-eslint/eslint-plugin": "^8.65.0",
+    "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-angular": "^5.0.0",
-    "eslint-plugin-jest-dom": "^5.5.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-mdx": "^3.7.0",
-    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-mdx": "^3.8.1",
+    "eslint-plugin-prettier": "^5.5.6",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-testing-library": "^7.16.0",
-    "globals": "^15.14.0",
-    "typescript-eslint": "^8.56.1"
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-testing-library": "^7.16.2",
+    "globals": "^15.15.0",
+    "typescript-eslint": "^8.65.0"
   },
   "publishConfig": {
     "access": "public"

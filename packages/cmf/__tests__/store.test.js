@@ -43,7 +43,7 @@ describe('CMF store', () => {
 
 describe('addPreReducer', () => {
 	it('should add a reducer called by the cmf reducer', () => {
-		const myreducer = jest.fn();
+		const myreducer = vi.fn();
 		store.addPreReducer(myreducer);
 		const reducer = store.getReducer();
 		reducer(undefined, {});
@@ -57,13 +57,13 @@ describe('getMiddlewares', () => {
 		expect(Array.isArray(middlewares)).toBe(true);
 	});
 	it('should support first attr as function', () => {
-		const fn = jest.fn();
+		const fn = vi.fn();
 		const middlewares = store.getMiddlewares(fn);
 		expect(middlewares).toContain(fn);
 	});
 	it('should support first attr as array', () => {
-		const fn1 = jest.fn();
-		const fn2 = jest.fn();
+		const fn1 = vi.fn();
+		const fn2 = vi.fn();
 		const middlewares = store.getMiddlewares([fn1, fn2]);
 		expect(middlewares).toContain(fn1);
 		expect(middlewares).toContain(fn2);

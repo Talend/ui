@@ -17,7 +17,7 @@ describe('state', () => {
 	});
 
 	it('should getStateAccessors should support no DEFAULT_STATE', () => {
-		const dispatch = jest.fn();
+		const dispatch = vi.fn();
 		const props = getStateAccessors(dispatch, 'name', 'id', new Map());
 		expect(typeof props.setState).toBe('function');
 
@@ -30,7 +30,7 @@ describe('state', () => {
 	});
 
 	it('should getStateAccessors return accessors', () => {
-		const dispatch = jest.fn();
+		const dispatch = vi.fn();
 		const DEFAULT_STATE = new Map({ foo: 'bar' });
 		const props = getStateAccessors(dispatch, 'name', 'id', DEFAULT_STATE);
 		expect(typeof props.setState).toBe('function');
@@ -54,8 +54,8 @@ describe('state', () => {
 
 	it(`should call state if state is a function,
 		via applyCallback`, () => {
-		const dispatch = jest.fn();
-		const callBack = jest.fn();
+		const dispatch = vi.fn();
+		const callBack = vi.fn();
 		const DEFAULT_STATE = new Map({ foo: 'bar' });
 		const props = getStateAccessors(dispatch, 'name', 'id', DEFAULT_STATE);
 
@@ -82,7 +82,7 @@ describe('state', () => {
 
 	it('should initState call props.initState with initialState', () => {
 		const props = {
-			initState: jest.fn(),
+			initState: vi.fn(),
 			state: undefined,
 			initialState: undefined,
 		};

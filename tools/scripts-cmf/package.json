@@ -10,19 +10,14 @@
     "cmf-settings": "./cmf-settings.js"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json ."
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "dependencies": {
     "commander": "^6.2.1",
     "deepmerge": "^1.5.2",
     "i18next": "^23.16.8",
-    "lodash": "^4.17.23",
+    "lodash": "^4.18.1",
     "mkdirp": "^1.0.4"
-  },
-  "devDependencies": {
-    "@talend/eslint-config": "^14.1.1",
-    "@talend/eslint-plugin": "^1.8.1",
-    "eslint": "^10.0.3"
   },
   "repository": {
     "type": "git",

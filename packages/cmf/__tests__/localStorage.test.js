@@ -25,26 +25,28 @@ const state = {
 	},
 };
 
-const serializedState = JSON.stringify(Object.assign({}, state, {
-	cmf: {
-		components: {
-			Foo: {
-				default: {
-					foo: 'foo',
+const serializedState = JSON.stringify(
+	Object.assign({}, state, {
+		cmf: {
+			components: {
+				Foo: {
+					default: {
+						foo: 'foo',
+					},
 				},
 			},
+			collections: {
+				data: {},
+			},
 		},
-		collections: {
-			data: {},
-		},
-	},
-}));
+	}),
+);
 const KEY = 'test-cmf-localStorage';
 
 describe('reduxLocalStorage', () => {
 	const realEventListener = window.addEventListener;
 	beforeEach(() => {
-		window.addEventListener = jest.fn();
+		window.addEventListener = vi.fn();
 	});
 	afterAll(() => {
 		window.addEventListener = realEventListener;

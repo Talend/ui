@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 14.5.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- Updated dependencies [4408b98]
+  - @talend/module-to-cdn@9.18.2
+
 ## 14.5.1
 
 ### Patch Changes

@@ -1,0 +1,17 @@
+name: 'Lint merge report'
+description: 'Merge eslint and stylelint reports filtered by git diff'
+author: 'Talend'
+inputs:
+  base-branch:
+    description: 'Base branch to compare diff against'
+    required: true
+  head-branch:
+    description: 'Head branch (PR branch)'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Merge lint reports
+      shell: bash
+      run: node $GITHUB_ACTION_PATH/merge-lint-reports.mjs ${{ inputs.base-branch }} ${{ inputs.head-branch }}

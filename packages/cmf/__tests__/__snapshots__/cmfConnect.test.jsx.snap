@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`cmfConnect Higher Order Component should not remove the component state when unmount and cmfConnect keepComponentState is true 1`] = `
+exports[`cmfConnect > Higher Order Component > should not remove the component state when unmount and cmfConnect keepComponentState is true 1`] = `
 {
   "cmf": {
     "componentState": {
@@ -15,7 +15,7 @@ exports[`cmfConnect Higher Order Component should not remove the component state
 }
 `;
 
-exports[`cmfConnect Higher Order Component should not remove the component state when unmount and props keepComponentState is true 1`] = `
+exports[`cmfConnect > Higher Order Component > should not remove the component state when unmount and props keepComponentState is true 1`] = `
 {
   "cmf": {
     "componentState": {
@@ -30,7 +30,7 @@ exports[`cmfConnect Higher Order Component should not remove the component state
 }
 `;
 
-exports[`cmfConnect Higher Order Component should remove the component state when unmount 1`] = `
+exports[`cmfConnect > Higher Order Component > should remove the component state when unmount 1`] = `
 {
   "cmf": {
     "componentState": {
@@ -45,7 +45,7 @@ exports[`cmfConnect Higher Order Component should remove the component state whe
 }
 `;
 
-exports[`cmfConnect Higher Order Component should remove the component state when unmount 2`] = `
+exports[`cmfConnect > Higher Order Component > should remove the component state when unmount 2`] = `
 {
   "cmf": {
     "componentState": {
@@ -59,7 +59,7 @@ exports[`cmfConnect Higher Order Component should remove the component state whe
 }
 `;
 
-exports[`cmfConnect Higher Order Component should remove the component state when unmount and props keepComponentState is false 1`] = `
+exports[`cmfConnect > Higher Order Component > should remove the component state when unmount and props keepComponentState is false 1`] = `
 {
   "cmf": {
     "componentState": {
@@ -74,7 +74,7 @@ exports[`cmfConnect Higher Order Component should remove the component state whe
 }
 `;
 
-exports[`cmfConnect Higher Order Component should remove the component state when unmount and props keepComponentState is false 2`] = `
+exports[`cmfConnect > Higher Order Component > should remove the component state when unmount and props keepComponentState is false 2`] = `
 {
   "cmf": {
     "componentState": {

@@ -1,0 +1,210 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BasicSearch > should render the default html output with no badges 1`] = `
+<div
+  class="_tc-basic-search_71542c"
+  id="manager-id-basic-search"
+>
+  <div
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-owns="react-autowhatever-mocked-uuid-1"
+    class="_tc-typeahead-container_1e11d6 tc-typeahead-container _tc-basic-search-quicksearch_71542c"
+    role="combobox"
+  >
+    <div
+      class="tc-typeahead-typeahead-input-icon _typeahead-input-container_1e11d6 _typeahead-input-icon_1e11d6"
+    >
+      <div
+        class="icon-cls _icon-cls_1e11d6"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-search"
+          focusable="false"
+          name="talend-search"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </div>
+      <div
+        class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+      >
+        <span
+          class="_hidden_91f55b"
+        >
+          <label
+            class="_label_048b2f"
+            for="mocked-uuid-1"
+          />
+        </span>
+        <div
+          class="_inputShell_bca7b9"
+        >
+          <input
+            aria-activedescendant="react-autowhatever-mocked-uuid-1-section-0-item-0"
+            aria-autocomplete="list"
+            aria-controls="react-autowhatever-mocked-uuid-1"
+            autocomplete="off"
+            class="_input_876932 _typeahead-input_1e11d6 tc-typeahead-typeahead-input"
+            id="mocked-uuid-1"
+            placeholder="Find in a column..."
+            role="searchbox"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="_tc-basic-search-content_71542c"
+  >
+    <div
+      class="tc-badge _tc-badge_56447e tc-badge-display-large _tc-badge-display-large_56447e _tc-badge-faceted_771407 __tc-badge-faceted_771407_56447e tc-badge-readonly _tc-badge-readonly_56447e"
+    >
+      <div
+        class="tc-badge-button _tc-badge-button_56447e"
+        id="tc-badge-select-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
+      >
+        <span
+          aria-describedby="mocked-uuid-4"
+          aria-label="Name"
+          class="tc-badge-category _tc-badge-category_56447e"
+        >
+          Name
+        </span>
+        <div
+          class="_tc-badge-operator_8469bc _tc-badge-operator-large_8469bc"
+        >
+          <div
+            class="_tc-badge-operator-button_8469bc"
+          >
+            <button
+              aria-busy="false"
+              aria-expanded="false"
+              aria-haspopup="dialog"
+              aria-label="Equals"
+              class="_clickable_5222c6 _button_9243c0 _tertiary_58aebf _size-S_9243c0"
+              id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-operator-action-overlay"
+              title="Equals"
+              type="button"
+            >
+              <span
+                class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-equal"
+                  focusable="false"
+                  name="talend-equal"
+                  pointer-events="none"
+                  shape-rendering="geometricPrecision"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="_tc-badge-faceted-overlay_771407"
+        >
+          <button
+            aria-busy="false"
+            aria-expanded="false"
+            aria-haspopup="dialog"
+            aria-label="hello"
+            class="_clickable_5222c6 _button_9243c0 _tertiary_58aebf _size-S_9243c0"
+            id="name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text-action-overlay"
+            title="hello"
+            type="button"
+          >
+            <span
+              class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270"
+            >
+              <span>
+                hello
+              </span>
+            </span>
+          </button>
+        </div>
+        <button
+          aria-describedby="mocked-uuid-5"
+          aria-label="Remove filter"
+          class="tc-badge-delete-icon _tc-badge-delete-icon_56447e btn-icon-only btn btn-link"
+          data-feature="filter.remove"
+          id="tc-badge-delete-name-7bc9bd07-3b46-4b8c-a406-a08b6263de5b-badge-text"
+          role="button"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-cross"
+            focusable="false"
+            name="talend-cross"
+            pointer-events="none"
+            shape-rendering="geometricPrecision"
+          />
+        </button>
+      </div>
+    </div>
+    <div>
+      <button
+        aria-busy="false"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        class="_clickable_5222c6 _button_9243c0 _secondary_abe81c _size-S_9243c0"
+        data-feature="filter.basic.add"
+        type="button"
+      >
+        <span
+          class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270"
+        >
+          Add filter
+          <span
+            class="_button__caret_9243c0"
+          >
+            <svg
+              aria-hidden="true"
+              pointer-events="none"
+              shape-rendering="geometricPrecision"
+              style="width: 0.75rem; height: 0.75rem;"
+            >
+              <use
+                xlink:href="#chevron-down:S"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="_tc-basic-search-clear-content_71542c"
+  >
+    <button
+      aria-describedby="id-mocked-uuid-6"
+      aria-label="Remove all filters"
+      class="_clickable_5222c6 _buttonIcon_5aa719 _size_S_5aa719"
+      data-feature="filter.basic.clear"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        aria-hidden="true"
+        class="_buttonIcon__icon_5aa719"
+      >
+        <svg
+          aria-hidden="true"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+          style="width: 1rem; height: 1rem;"
+        >
+          <use
+            xlink:href="#trash:M"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;

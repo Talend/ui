@@ -1,5 +1,24 @@
 # Changelog
 
+## 9.2.1
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- Updated dependencies [4408b98]
+  - @talend/react-cmf@12.2.1
+
+## 9.2.0
+
+### Minor Changes
+
+- 03e7a07: Removed path-to-regexp package
+
+### Patch Changes
+
+- Updated dependencies [5d7e74e]
+  - @talend/react-cmf@12.2.0
+
 ## 9.1.1
 
 ### Patch Changes

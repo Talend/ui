@@ -1,6 +1,6 @@
 {
   "name": "@talend/design-tokens",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "description": "Talend Design Tokens",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -31,7 +31,7 @@
     "build:lib": "talend-scripts build && npm run build:css",
     "build:lib:esm": "talend-scripts build --esm",
     "build:css": "sass src/index.scss dist/TalendDesignTokens.css --no-source-map --style=compressed",
-    "lint": "eslint -o eslint-report.json --format json ."
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "keywords": [
     "talend",
@@ -52,17 +52,9 @@
     "access": "public"
   },
   "devDependencies": {
-    "sass": "^1.97.3",
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-core": "^20.0.0",
-    "@talend/scripts-config-react-webpack": "^17.1.1",
-    "@talend/scripts-config-typescript": "^12.1.1",
-    "@talend/babel-plugin-import-from-index": "^1.13.1",
-    "@talend/babel-plugin-assets-api": "^1.9.1",
-    "eslint": "^10.0.3",
+    "sass": "^1.102.0",
     "typeface-source-sans-pro": "^1.1.13",
-    "webpack": "^5.104.1"
+    "webpack": "^5.109.2"
   },
   "dependencies": {}
 }

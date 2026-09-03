@@ -1,5 +1,21 @@
 # @talend/react-components
 
+## 18.1.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- Updated dependencies [4408b98]
+- Updated dependencies [0a659cc]
+- Updated dependencies [0a659cc]
+- Updated dependencies [0a659cc]
+  - @talend/react-a11y@4.3.2
+  - @talend/assets-api@2.1.2
+  - @talend/design-tokens@4.1.2
+  - @talend/icons@8.0.1
+  - @talend/react-bootstrap@5.0.0
+  - @talend/bootstrap-theme@10.1.2
+
 ## 18.1.1
 
 ### Patch Changes

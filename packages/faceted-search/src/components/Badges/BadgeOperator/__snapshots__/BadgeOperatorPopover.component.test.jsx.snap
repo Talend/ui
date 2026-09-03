@@ -1,0 +1,56 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BadgeOperatorPopover > should render the html output 1`] = `
+<div
+  class="_tc-badge-operator-popover_8469bc"
+>
+  <button
+    aria-busy="false"
+    class="_clickable_5222c6 _button_9243c0 _tertiary_58aebf"
+    id="my-id-operator-row-button-operatorIconEqual"
+    type="button"
+  >
+    <span
+      class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270"
+    >
+      <span
+        class="_button__icon_9243c0"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-my-icon-equal"
+          focusable="false"
+          name="talend-my-icon-equal"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </span>
+      My icon operator equal
+    </span>
+  </button>
+  <button
+    aria-busy="false"
+    class="_clickable_5222c6 _button_9243c0 _tertiary_58aebf"
+    id="my-id-operator-row-button-operatorIconNotEqual"
+    type="button"
+  >
+    <span
+      class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270"
+    >
+      <span
+        class="_button__icon_9243c0"
+      >
+        <svg
+          aria-hidden="true"
+          class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-my-icon-not-equal"
+          focusable="false"
+          name="talend-my-icon-not-equal"
+          pointer-events="none"
+          shape-rendering="geometricPrecision"
+        />
+      </span>
+      My icon operator not equal
+    </span>
+  </button>
+</div>
+`;

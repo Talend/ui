@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Action Icon Toggle > should render 1`] = `
+<button
+  aria-describedby="00000000-0000-4000-8000-000000000000"
+  aria-label="My awesome label"
+  aria-pressed="true"
+  class="my-awesome-classname tc-icon-toggle _tc-icon-toggle_b1a220 _active_b1a220 active btn btn-link"
+  id="my-awesome-action-id"
+  type="button"
+>
+  <svg
+    aria-hidden="true"
+    class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-awesome-icon"
+    focusable="false"
+    name="talend-awesome-icon"
+    pointer-events="none"
+    shape-rendering="geometricPrecision"
+  />
+</button>
+`;

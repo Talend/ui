@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
@@ -31,6 +31,8 @@ jobs:
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
+        with:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: has changeset file
         id: changesetfiles
@@ -46,7 +48,9 @@ jobs:
 
       - name: Install and Build
         if: steps.changesetfiles.outputs.count == 1
-        run: yarn --frozen-lockfile
+        run: |
+          yarn --frozen-lockfile
+          yarn build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -58,7 +62,7 @@ jobs:
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@6a0a831ff30acef54f2c6aa1cbbc1096b066edaf #v1.7.0
+        uses: changesets/action@198f833dd7d863100ea6e28967bc9a9fdefadb0a #v2.1.0
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
           publish: yarn release

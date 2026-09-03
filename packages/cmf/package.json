@@ -19,12 +19,11 @@
   },
   "scripts": {
     "build:lib": "talend-scripts build && talend-scripts build --esm",
-    "start": "echo nothing to start",
-    "test": "vitest run",
-    "test:update": "vitest run --update",
+    "vitest:run": "vitest run",
+    "vitest:update": "vitest run --update",
     "test:watch": "vitest --watch",
-    "test:cov": "vitest run --coverage",
-    "lint": "eslint -o eslint-report.json --format json ."
+    "vitest:cov": "vitest run --coverage",
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "keywords": [
     "react",
@@ -46,38 +45,28 @@
     "@talend/utils": "^3.7.1",
     "commander": "^6.2.1",
     "hoist-non-react-statics": "^3.3.2",
-    "immutable": "^3.8.2",
+    "immutable": "^3.8.3",
     "invariant": "^2.2.4",
-    "lodash": "^4.17.23",
+    "lodash": "^4.18.1",
     "nested-combine-reducers": "^1.2.2",
-    "path-to-regexp": "^8.3.0",
+    "path-to-regexp": "^8.4.2",
     "prop-types": "^15.8.1",
     "react-immutable-proptypes": "^2.2.0",
     "react-redux": "^7.2.9",
     "redux": "^4.2.1",
     "redux-batched-actions": "^0.5.0",
     "redux-batched-subscribe": "^0.1.6",
-    "redux-saga": "^1.4.2",
+    "redux-saga": "^1.5.1",
     "redux-thunk": "^2.4.2"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^5.1.4",
-    "@vitest/coverage-v8": "^4.0.18",
-    "@redux-saga/testing-utils": "^1.2.1",
-    "@talend/eslint-config": "^14.1.2",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@talend/scripts-config-typescript": "^12.1.1",
-    "@talend/scripts-core": "^20.0.0",
-    "@talend/scripts-config-babel": "^13.10.1",
-    "@talend/scripts-config-react-webpack": "^17.1.1",
+    "@redux-saga/testing-utils": "^1.2.3",
     "@testing-library/react": "^14.3.1",
-    "eslint": "^10.0.3",
     "node-fetch": "^2.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "redux-mock-store": "^1.5.5",
-    "redux-saga-tester": "^1.0.874",
-    "vitest": "^4.0.18"
+    "redux-saga-tester": "^1.0.874"
   },
   "peerDependencies": {
     "react": "^18.3.1",
@@ -86,5 +75,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "12.1.1"
+  "version": "12.2.1"
 }

@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Container(ActionSplitDropdown) > should render 1`] = `
+<div
+  class="dropdown btn-group"
+>
+  <button
+    aria-label="extra"
+    class="_tc-split-dropdown_732e94 btn btn-default"
+    type="button"
+  >
+    <span>
+      <span>
+        extra
+      </span>
+    </span>
+  </button>
+  <button
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-label="Open extra menu"
+    class="dropdown-toggle btn btn-default"
+    id="00000000-0000-4000-8000-000000000000"
+    role="button"
+    type="button"
+  >
+     
+    <span
+      class="caret"
+    />
+  </button>
+  <ul
+    aria-labelledby="00000000-0000-4000-8000-000000000000"
+    class="dropdown-menu"
+    role="menu"
+  >
+    <li
+      class="disabled"
+      role="presentation"
+    >
+      <a
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+      />
+    </li>
+  </ul>
+</div>
+`;

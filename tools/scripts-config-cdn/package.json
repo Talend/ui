@@ -8,24 +8,19 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json .",
-    "test": "echo \"Nothing to test\""
+    "eslint": "eslint -o eslint-report.json --format json ."
   },
   "author": "Talend Frontend <frontend@talend.com> (http://www.talend.com)",
   "license": "Apache-2.0",
   "dependencies": {
-    "@talend/dynamic-cdn-webpack-plugin": "^14.5.1",
-    "@talend/module-to-cdn": "^9.18.1",
+    "@talend/dynamic-cdn-webpack-plugin": "^14.5.2",
+    "@talend/module-to-cdn": "^9.18.2",
     "@yarnpkg/lockfile": "^1.1.0",
-    "js-yaml": "^4.1.1",
+    "js-yaml": "^4.3.1",
     "js-yaml-js-types": "^1.0.1",
     "read-pkg-up": "^7.0.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.3",
-    "eslint": "^10.0.3",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
     "globals": "^15.15.0"
   },
   "publishConfig": {

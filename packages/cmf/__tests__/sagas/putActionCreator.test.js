@@ -6,7 +6,7 @@ describe('saga', () => {
 	it('should putActionCreator call put of a registred actionCreator without context', () => {
 		// given
 		const testAction = { type: 'TEST' };
-		const actionCreator = jest.fn(() => testAction);
+		const actionCreator = vi.fn(() => testAction);
 		const reg = registry.getRegistry();
 		reg['actionCreator:myActionCreator'] = actionCreator;
 		const data = { foo: 'bar' };
@@ -31,7 +31,7 @@ describe('saga', () => {
 	it('should putActionCreator call put of a registred actionCreator or using context', () => {
 		// given
 		const testAction = { type: 'TEST' };
-		const actionCreator = jest.fn(() => testAction);
+		const actionCreator = vi.fn(() => testAction);
 		const context = {
 			registry: {
 				'actionCreator:myActionCreator': actionCreator,

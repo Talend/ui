@@ -34,11 +34,8 @@
     "build:webfont": "node scripts/build-webfont.mjs",
     "build:types": "tsc --emitDeclarationOnly",
     "type-check": "tsc --noEmit",
-    "test": "echo no test",
-    "test:cov": "echo no test",
     "start": "storybook dev -p 6010",
     "build-storybook": "storybook build",
-    "lint": "echo nothing to lint",
     "svgo": "svgo -rf src/svg --config svgo-icons.config.mjs && svgo -rf src/filters --config svgo-filters.config.mjs"
   },
   "files": [
@@ -60,22 +57,18 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
-    "@talend/design-tokens": "^4.0.0",
-    "@talend/eslint-config": "^14.0.0",
-    "@talend/eslint-plugin": "^1.7.0",
-    "@talend/scripts-config-typescript": "^12.0.0",
-    "@types/node": "^20.19.30",
+    "@talend/design-tokens": "^4.1.2",
+    "@types/node": "^20.19.43",
     "fantasticon": "^4.1.0",
     "mkdirp": "^1.0.4",
-    "prettier": "^3.8.1",
+    "prettier": "^3.9.6",
     "react": "^18.3.1",
-    "storybook": "^10.2.10",
-    "svgo": "^3.3.3",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1"
+    "storybook": "^10.5.5",
+    "svgo": "^3.3.4",
+    "vite": "^7.3.6"
   },
   "publishConfig": {
     "access": "public"
   },
-  "version": "8.0.0"
+  "version": "8.0.1"
 }

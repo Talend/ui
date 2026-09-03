@@ -23,13 +23,15 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
+        with:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: yarn-deduplicate
         id: deduplicate
@@ -42,7 +44,7 @@ jobs:
 
       - name: Commit dedupe
         if: steps.deduplicate.outputs.diff
-        uses: actions-js/push@5a7cbd780d82c0c937b5977586e641b2fd94acc5 #1.5
+        uses: actions-js/push@968f4695ca558093eadb24ad83cc5891f47e0cdc #1.6
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           message: "chore: yarn-deduplicate"

@@ -28,7 +28,7 @@
   "scripts": {
     "build:lib": "tsc",
     "build:watch": "tsc --watch",
-    "lint": "eslint -o eslint-report.json --format json .",
+    "eslint": "eslint -o eslint-report.json --format json .",
     "update:msw": "npx msw init public/msw --save"
   },
   "files": [
@@ -36,40 +36,35 @@
     "public"
   ],
   "dependencies": {
-    "@storybook/addon-a11y": "^10.2.1",
-    "@storybook/addon-links": "^10.2.1",
-    "@storybook/react": "^10.2.1",
-    "@storybook/react-vite": "^10.2.1",
-    "@talend/bootstrap-theme": "^10.1.1",
-    "@talend/design-system": "^12.1.1",
-    "@talend/react-cmf": "^12.1.1",
-    "@talend/icons": "^8.0.0",
-    "@vitejs/plugin-react": "^5.1.2",
+    "@storybook/addon-a11y": "^10.5.5",
+    "@storybook/addon-links": "^10.5.5",
+    "@storybook/react": "^10.5.5",
+    "@storybook/react-vite": "^10.5.5",
+    "@talend/bootstrap-theme": "^10.1.2",
+    "@talend/design-system": "^12.1.2",
+    "@talend/react-cmf": "^12.2.1",
+    "@talend/icons": "^8.0.1",
+    "@vitejs/plugin-react": "^5.2.0",
     "assert": "^2.1.0",
-    "esbuild-plugin-react-virtualized": "^1.0.5",
+    "esbuild-plugin-react-virtualized": "^1.0.6",
     "i18next": "^23.16.8",
     "i18next-http-backend": "^1.4.5",
-    "vite": "^7.3.1",
-    "lodash": "^4.17.23",
-    "msw": "2.12.7",
-    "msw-storybook-addon": "^2.0.6",
+    "vite": "^7.3.6",
+    "lodash": "^4.18.1",
+    "msw": "2.13.0",
+    "msw-storybook-addon": "^2.0.7",
     "querystring-es3": "^0.2.1",
     "react-i18next": "^13.5.0",
-    "storybook": "^10.2.10",
+    "storybook": "^10.5.5",
     "util": "^0.12.5"
   },
   "peerDependencies": {
     "react": "^18.0.0"
   },
   "devDependencies": {
-    "@talend/scripts-cmf": "^1.8.1",
-    "@talend/eslint-config": "^14.1.1",
-    "@talend/eslint-plugin": "^1.8.1",
-    "@types/lodash": "^4.17.23",
-    "@types/node": "^25.0.10",
-    "@types/react": "^18.3.27",
-    "eslint": "^10.0.3",
-    "typescript": "^5.9.3"
+    "@types/lodash": "^4.17.24",
+    "@types/node": "^25.9.5",
+    "@types/react": "^18.3.31"
   },
   "publishConfig": {
     "access": "public"

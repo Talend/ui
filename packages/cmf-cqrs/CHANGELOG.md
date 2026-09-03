@@ -1,5 +1,13 @@
 # @talend/react-cmf-cqrs
 
+## 12.1.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- Updated dependencies [4408b98]
+  - @talend/react-cmf@12.2.1
+
 ## 12.1.1
 
 ### Patch Changes

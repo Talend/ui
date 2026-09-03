@@ -11,8 +11,8 @@ describe('mergeModule', () => {
 		// eslint-disable-next-line no-console
 		global.console = {
 			...originalLog,
-			warn: jest.fn(),
-			log: jest.fn(),
+			warn: vi.fn(),
+			log: vi.fn(),
 		};
 	});
 	afterEach(() => {
@@ -65,8 +65,8 @@ describe('mergeModule', () => {
 				ttt: function* foo() {},
 			},
 			preReducer: [],
-			enhancer: jest.fn(),
-			saga: jest.fn(),
+			enhancer: vi.fn(),
+			saga: vi.fn(),
 		};
 		const b = {
 			appId: undefined,
@@ -135,8 +135,8 @@ describe('mergeModule', () => {
 	});
 
 	it('should merge enhancer functions', () => {
-		const fn1 = jest.fn();
-		const fn2 = jest.fn();
+		const fn1 = vi.fn();
+		const fn2 = vi.fn();
 		const config = mergeModules({ enhancer: fn1 }, { enhancer: fn2 });
 		expect(typeof config.enhancer).toBe('function');
 		config.enhancer('foo');
@@ -145,8 +145,8 @@ describe('mergeModule', () => {
 	});
 
 	it('should merge saga', () => {
-		const fn1 = jest.fn();
-		const fn2 = jest.fn();
+		const fn1 = vi.fn();
+		const fn2 = vi.fn();
 		const config = mergeModules({ saga: fn1 }, { saga: fn2 });
 		expect(typeof config.saga).toBe('function');
 		expect(config.saga).not.toBe(fn1);
@@ -154,8 +154,8 @@ describe('mergeModule', () => {
 	});
 
 	it('should merge middlewares', () => {
-		const mid1 = [jest.fn()];
-		const mid2 = [jest.fn()];
+		const mid1 = [vi.fn()];
+		const mid2 = [vi.fn()];
 		const config = mergeModules({ middlewares: mid1 }, { middlewares: mid2 });
 		expect(config.middlewares.length).toBe(2);
 		expect(config.middlewares[0]).toBe(mid1[0]);
@@ -163,8 +163,8 @@ describe('mergeModule', () => {
 	});
 
 	it('should merge storeCallback fns', () => {
-		const storeCallback1 = jest.fn();
-		const storeCallback2 = jest.fn();
+		const storeCallback1 = vi.fn();
+		const storeCallback2 = vi.fn();
 		const config = mergeModules(
 			{ storeCallback: storeCallback1 },
 			{ storeCallback: storeCallback2 },
@@ -176,8 +176,8 @@ describe('mergeModule', () => {
 	});
 
 	it('should merge reducer', () => {
-		const ob1 = { foo: jest.fn(), composed: { composed1: jest.fn() } };
-		const ob2 = { bar: jest.fn(), composed: { composed2: jest.fn() } };
+		const ob1 = { foo: vi.fn(), composed: { composed1: vi.fn() } };
+		const ob2 = { bar: vi.fn(), composed: { composed2: vi.fn() } };
 
 		const config = mergeModules({ reducer: ob1 }, { reducer: ob2 });
 		expect(typeof config.reducer).toBe('object');
@@ -190,10 +190,10 @@ describe('mergeModule', () => {
 	});
 
 	it('should merge preReducer', () => {
-		const fn1 = jest.fn();
-		const fn2 = jest.fn();
-		const array1 = [jest.fn()];
-		const array2 = [jest.fn()];
+		const fn1 = vi.fn();
+		const fn2 = vi.fn();
+		const array1 = [vi.fn()];
+		const array2 = [vi.fn()];
 
 		let config = mergeModules({ preReducer: fn1 }, { preReducer: fn2 });
 		expect(Array.isArray(config.preReducer)).toBe(true);
@@ -221,8 +221,8 @@ describe('mergeModule', () => {
 	});
 
 	it('should merge httpInterceptors', () => {
-		const fn1 = jest.fn();
-		const fn2 = jest.fn();
+		const fn1 = vi.fn();
+		const fn2 = vi.fn();
 		const config = mergeModules({ httpInterceptors: [fn1] }, { httpInterceptors: [fn2] });
 		expect(Array.isArray(config.httpInterceptors)).toBeTruthy();
 		expect(config.httpInterceptors.length).toBe(2);

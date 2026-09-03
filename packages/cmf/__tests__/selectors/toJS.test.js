@@ -4,7 +4,7 @@ import toJS from '../../src/selectors/toJS';
 describe('toJS', () => {
 	let selector;
 	beforeEach(() => {
-		selector = jest.fn(state => state.foo);
+		selector = vi.fn(state => state.foo);
 	});
 	it('should return a function', () => {
 		expect(typeof toJS(selector)).toBe('function');

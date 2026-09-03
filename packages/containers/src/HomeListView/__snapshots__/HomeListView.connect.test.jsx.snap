@@ -1,0 +1,113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Connected HomeListView > should render 1`] = `
+<div
+  class="tc-layout _layout_96ba00"
+>
+  <div
+    class="_skip-links_96ba00"
+  >
+    <nav
+      aria-label="Skip links"
+      class="_tc-skip-links_6db515"
+    >
+      <ul>
+        <li>
+          <a
+            href="#tc-layout-side-menu"
+          >
+            <span
+              class="_icon_6db515"
+            >
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-arrow-left _rotate-270_bf5f45"
+                focusable="false"
+                name="talend-arrow-left"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
+            </span>
+            <span
+              class="_text_6db515"
+            >
+              Skip to navigation
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#tc-layout-main"
+          >
+            <span
+              class="_icon_6db515"
+            >
+              <svg
+                aria-hidden="true"
+                class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-arrow-left _rotate-270_bf5f45"
+                focusable="false"
+                name="talend-arrow-left"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+              />
+            </span>
+            <span
+              class="_text_6db515"
+            >
+              Skip to main content
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <header
+    class="tc-layout-header _header_96ba00"
+    role="banner"
+  >
+    <div
+      data-testid="HeaderBar"
+    >
+      HeaderBar
+    </div>
+  </header>
+  <div
+    class="tc-layout-two-columns _container_2fb19b"
+  >
+    <div
+      class="tc-layout-two-columns-left _sidemenu_2fb19b"
+      id="tc-layout-side-menu"
+      tabindex="-1"
+    >
+      <div
+        data-testid="SidePanel"
+      >
+        SidePanel
+      </div>
+    </div>
+    <div
+      class="tc-layout-two-columns-main _main_2fb19b"
+      id="tc-layout-main"
+      role="main"
+      tabindex="-1"
+    >
+      <div
+        class="_tc-with-drawer_0478ca"
+      >
+        <div
+          style="overflow: auto; height: 100%; display: flex; flex-direction: column;"
+        >
+          <div
+            data-testid="List"
+          >
+            List
+          </div>
+        </div>
+        <div
+          class="_tc-with-drawer-container_0478ca"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

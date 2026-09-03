@@ -1,6 +1,6 @@
 {
   "name": "@talend/dynamic-cdn-webpack-plugin",
-  "version": "14.5.1",
+  "version": "14.5.2",
   "description": "Dynamically get your dependencies from a cdn rather than bundling them in your app",
   "license": "MIT",
   "repository": "Talend/dynamic-cdn-webpack-plugin",
@@ -16,9 +16,9 @@
     "access": "public"
   },
   "scripts": {
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
-    "test:update": "vitest run --update"
+    "vitest:run": "vitest run",
+    "vitest:cov": "vitest run --coverage",
+    "vitest:update": "vitest run --update"
   },
   "files": [
     "index.js",
@@ -36,26 +36,19 @@
     "externals"
   ],
   "dependencies": {
-    "@talend/module-to-cdn": "^9.18.1",
+    "@talend/module-to-cdn": "^9.18.2",
     "read-pkg-up": "^7.0.1",
-    "semver": "^7.7.3",
-    "webpack-sources": "^3.3.3"
+    "semver": "^7.8.5",
+    "webpack-sources": "^3.5.1"
   },
   "peerDependencies": {
-    "webpack": "^5.104.1"
+    "webpack": "^5.109.2"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.3",
-    "eslint": "^10.0.3",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
     "globals": "^15.15.0",
-    "html-webpack-plugin": "^5.6.6",
-    "@vitest/coverage-v8": "^4.0.18",
+    "html-webpack-plugin": "^5.6.8",
     "mz": "^2.7.0",
-    "rimraf": "^6.1.2",
-    "vitest": "^4.0.18",
-    "webpack": "^5.104.1",
+    "webpack": "^5.109.2",
     "webpack-cli": "^6.0.1",
     "webpack-manifest-plugin": "^5.0.1"
   }

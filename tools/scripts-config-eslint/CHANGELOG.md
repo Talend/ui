@@ -1,5 +1,13 @@
 # @talend/scripts-config-eslint
 
+## 14.1.3
+
+### Patch Changes
+
+- 0a659cc: fix: remove deprecated plugins:
+  eslint-plugin-jest-dom
+  eslint-plugin-angular
+
 ## 14.1.2
 
 ### Patch Changes

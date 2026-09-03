@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Typeahead container > should render 1`] = `
+<button
+  aria-describedby="00000000-0000-4000-8000-000000000000"
+  aria-label="my title"
+  class="_only-icon-cls_1e11d6 tc-typeahead-toggle btn-icon-only btn btn-default"
+  type="button"
+/>
+`;

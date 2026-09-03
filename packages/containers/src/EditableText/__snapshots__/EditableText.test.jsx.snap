@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EditableText container > should render 1`] = `
+<div
+  class="_tc-editable-text_f61e41 tc-editable-text"
+>
+  <div
+    class="_tc-editable-text-title_24ed71"
+  >
+    <span
+      aria-describedby="00000000-0000-4000-8000-000000000000"
+      class="_tc-editable-text-wording_24ed71 tc-editable-text-wording"
+    >
+      test
+    </span>
+    <button
+      aria-describedby="00000000-0000-4000-8000-000000000000"
+      aria-label="Rename"
+      class="_tc-editable-text-pencil_24ed71 tc-editable-text-pencil btn-icon-only btn btn-link"
+      name="action-edit"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-pencil"
+        focusable="false"
+        name="talend-pencil"
+        pointer-events="none"
+        shape-rendering="geometricPrecision"
+      />
+    </button>
+  </div>
+</div>
+`;

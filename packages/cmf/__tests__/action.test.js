@@ -116,7 +116,7 @@ describe('CMF action', () => {
 			actionCreator: 'myActionCreator',
 		};
 		context.registry = {};
-		context.registry['actionCreator:myActionCreator'] = jest.fn(() => ({ type: 'MY_ACTION_TYPE' }));
+		context.registry['actionCreator:myActionCreator'] = vi.fn(() => ({ type: 'MY_ACTION_TYPE' }));
 		const action = actionAPI.getActionObject(context, obj);
 		expect(context.registry['actionCreator:myActionCreator']).toHaveBeenCalled();
 		expect(action.type).toBe('MY_ACTION_TYPE');

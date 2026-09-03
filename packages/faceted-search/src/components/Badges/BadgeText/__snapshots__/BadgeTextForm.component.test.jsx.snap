@@ -1,0 +1,48 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BadgeTextForm > should mount a default badge 1`] = `
+<form
+  class="_form_ac678e"
+  id="myId-text-area"
+>
+  <div
+    class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+  >
+    <label
+      class="_label_048b2f"
+      for="myId-text"
+    />
+    <div
+      class="_inputShell_bca7b9"
+    >
+      <input
+        class="_input_876932"
+        id="myId-text"
+        placeholder="Apply"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="_buttons_42d65d"
+  >
+    <div
+      class="_stack_dbc270 _justify-space-between_dbc270 _align-start_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-M_dbc270 _gap-y-M_dbc270 _padding-top-M_dbc270 _padding-right-undefined_dbc270 _padding-bottom-0_dbc270 _padding-left-undefined_dbc270"
+    >
+      <button
+        aria-busy="false"
+        class="_clickable_5222c6 _button_9243c0 _primary_4e7d63"
+        data-feature="filter.name.add"
+        type="submit"
+      >
+        <span
+          class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270"
+        >
+          Apply
+        </span>
+      </button>
+    </div>
+  </div>
+</form>
+`;

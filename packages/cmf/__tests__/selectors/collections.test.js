@@ -2,7 +2,7 @@ import { Map, List } from 'immutable';
 import selectors from '../../src/selectors';
 
 describe('selectors.collections', () => {
-	describe('toJS', () => {
+	it('toJS', () => {
 		const state = {
 			cmf: {
 				collections: new Map({

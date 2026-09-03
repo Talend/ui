@@ -4,31 +4,23 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint -o eslint-report.json --format json ./src",
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
-    "test:update": "vitest run --update"
+    "eslint": "eslint -o eslint-report.json --format json ./src",
+    "vitest:run": "vitest run",
+    "vitest:cov": "vitest run --coverage",
+    "vitest:update": "vitest run --update"
   },
   "dependencies": {
     "read-pkg-up": "^7.0.1",
-    "@talend/module-to-cdn": "^9.18.1"
+    "@talend/module-to-cdn": "^9.18.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.6",
-    "@babel/preset-env": "^7.28.6",
-    "@vitest/coverage-v8": "^4.0.18",
     "babel-plugin-tester": "^10.1.0",
-    "@eslint/js": "^9.39.3",
-    "eslint": "^10.0.3",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
     "globals": "^15.15.0",
-    "react": "^18.3.1",
-    "vitest": "^4.0.18"
+    "react": "^18.3.1"
   },
   "babel": {
     "presets": [

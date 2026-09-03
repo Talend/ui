@@ -22,21 +22,27 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
+        with:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install
         run: yarn install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Build
+        run: yarn build
+
       - name: Test
-        run: yarn test:cov
+        run: |
+          yarn vitest:cov --concurrency=1
 
       - name: Jest Coverage Comment
-        uses: MishaKav/jest-coverage-comment@2a8fe3083255756f3692599238ca251e858e15b2 #1.0.30
+        uses: MishaKav/jest-coverage-comment@642ef024cc554a34b7082cea12c7bf63575ae151 #1.0.36
         with:
           multiple-files: |
             assets-api, ./packages/assets-api/coverage/coverage-summary.json
