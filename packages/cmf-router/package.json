@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-cmf-router",
-  "version": "9.2.1",
+  "version": "9.2.2",
   "description": "",
   "main": "lib/index.js",
   "module": "./lib-esm/index.js",
@@ -26,7 +26,7 @@
     "vitest:update": "vitest run --update"
   },
   "dependencies": {
-    "@talend/react-cmf": "^12.2.1",
+    "@talend/react-cmf": "^12.2.2",
     "connected-react-router": "^6.9.3",
     "history": "^5.3.0",
     "lodash": "^4.18.1",

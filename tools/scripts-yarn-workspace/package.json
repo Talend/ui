@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-yarn-workspace",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "yarn workspace commands but more friendly",
   "type": "module",
   "bin": {

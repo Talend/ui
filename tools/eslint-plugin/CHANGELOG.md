@@ -1,5 +1,13 @@
 # @talend/eslint-plugin
 
+## 1.8.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/scripts-config-cdn@10.17.2
+
 ## 1.8.1
 
 ### Patch Changes

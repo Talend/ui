@@ -40,8 +40,8 @@
   },
   "homepage": "https://github.com/Talend/ui/cmf-cqrs#readme",
   "dependencies": {
-    "@talend/react-cmf": "^12.2.1",
-    "@talend/utils": "^3.7.1",
+    "@talend/react-cmf": "^12.2.2",
+    "@talend/utils": "^3.7.2",
     "immutable": "^3.8.3",
     "redux-saga": "^1.5.1"
   },
@@ -62,5 +62,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "12.1.1"
+  "version": "12.1.2"
 }

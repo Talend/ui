@@ -1,5 +1,17 @@
 # @talend/scripts-core
 
+## 20.0.1
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/scripts-config-typescript@12.1.2
+  - @talend/eslint-config@14.1.4
+  - @talend/scripts-config-babel@13.10.2
+  - @talend/eslint-plugin@1.8.2
+  - @talend/scripts-utils@2.8.2
+
 ## 20.0.0
 
 ### Major Changes
