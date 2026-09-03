@@ -5,7 +5,6 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { fromJS, List as ImmutableList, Map } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 
-// eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 
 import Connected, { mapStateToProps } from './List.connect';

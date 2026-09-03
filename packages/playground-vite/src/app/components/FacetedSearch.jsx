@@ -1,4 +1,3 @@
-// eslint-disable-next-line @talend/import-depth
 import Layout from '@talend/react-components/lib/Layout';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';
 import SidePanel from '@talend/react-containers/lib/SidePanel';

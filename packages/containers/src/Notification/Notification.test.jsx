@@ -4,7 +4,6 @@
 import { render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
 import Immutable, { fromJS } from 'immutable';
-// eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 import Container from './Notification.container';
 import Connected, { mergeProps, deleteNotification } from './Notification.connect';

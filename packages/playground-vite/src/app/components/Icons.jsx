@@ -1,4 +1,3 @@
-// eslint-disable-next-line @talend/import-depth
 import logo from '@talend/icons/src/svg/products/logo.svg';
 import Layout from '@talend/react-components/lib/Layout';
 import HeaderBar from '@talend/react-containers/lib/HeaderBar';

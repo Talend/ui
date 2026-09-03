@@ -1,4 +1,3 @@
-// eslint-disable-next-line @talend/import-depth
 import { Token, Tokens } from '@talend/design-tokens/lib/types';
 
 const tShirtSizes = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'];

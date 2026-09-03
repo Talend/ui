@@ -1,4 +1,3 @@
-/* eslint-disable @talend/import-depth */
 import ColorContrastChecker from 'color-contrast-checker';
 import { Tag } from '@talend/design-system';
 
