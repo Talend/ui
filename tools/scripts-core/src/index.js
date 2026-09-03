@@ -10,7 +10,6 @@ const options = process.argv.slice(3);
 
 if (command === '--help' || command === '-h' || command === 'help') {
 	console.log(`Please use one of the following commands:
-* start
 * build
 `);
 	process.exit(0);
@@ -73,7 +72,6 @@ async function runScript() {
 
 switch (command) {
 	case 'build':
-	case 'start':
 		runScript(command, options);
 		break;
 	default:
