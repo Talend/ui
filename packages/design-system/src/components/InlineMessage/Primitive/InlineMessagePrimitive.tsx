@@ -3,7 +3,6 @@ import { forwardRef, HTMLAttributes, Ref } from 'react';
 import classnames from 'classnames';
 import { DataAttributes } from 'src/types';
 
-// eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import { SizedIcon } from '../../Icon';

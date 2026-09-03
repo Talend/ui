@@ -69,7 +69,6 @@ const baseConfig = {
 		...jsxA11yPlugin.flatConfigs.recommended.rules,
 		...testingLibraryPlugin.configs['flat/react'].rules,
 		...prettierConfig.rules,
-		'@talend/import-depth': 'error',
 		'@talend/use-bootstrap-class': 'warn',
 		'arrow-parens': ['error', 'as-needed'],
 		'comma-dangle': ['error', 'only-multiline'],

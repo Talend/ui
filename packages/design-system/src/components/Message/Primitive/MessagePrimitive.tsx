@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
 
 import tokens from '@talend/design-tokens';
-// eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import { ButtonTertiary } from '../../Button';

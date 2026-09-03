@@ -1,7 +1,6 @@
 import { Map, List } from 'immutable';
 import { render, screen } from '@testing-library/react';
 
-// eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 import Container, { DEFAULT_STATE } from './HeaderBar.container';
 import Connected, { mapStateToProps } from './HeaderBar.connect';

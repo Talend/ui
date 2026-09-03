@@ -1,7 +1,6 @@
 // rewrite tests using react-testing-library
 import { screen, render } from '@testing-library/react';
 import { fromJS } from 'immutable';
-// eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 
 import Component from './HomeListView.component';

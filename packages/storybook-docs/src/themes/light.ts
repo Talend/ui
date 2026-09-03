@@ -1,5 +1,4 @@
 import { tokenValue } from './helper';
-// eslint-disable-next-line @talend/import-depth
 import dictionaryLight from '@talend/design-tokens/lib/light/dictionary';
 
 export default {
