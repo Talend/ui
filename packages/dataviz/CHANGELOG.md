@@ -1,5 +1,15 @@
 # Changelog
 
+## 8.1.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/design-tokens@4.1.3
+  - @talend/assets-api@2.1.3
+  - @talend/react-components@18.1.3
+
 ## 8.1.2
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @talend/local-libs-webpack-plugin
 
+## 1.0.0
+
+### Major Changes
+
+- 1b28ef5: move lib to src folder
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
 ## 0.6.2
 
 ### Patch Changes

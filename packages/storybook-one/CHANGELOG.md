@@ -1,5 +1,21 @@
 # @talend/ui-storybook-one
 
+## 3.1.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/scripts-config-storybook-lib@6.1.2
+  - @talend/react-faceted-search@22.1.3
+  - @talend/storybook-docs@3.1.2
+  - @talend/design-system@12.1.3
+  - @talend/design-tokens@4.1.3
+  - @talend/react-components@18.1.3
+  - @talend/react-dataviz@8.1.3
+  - @talend/react-forms@16.1.4
+  - @talend/icons@8.0.2
+
 ## 3.1.1
 
 ### Patch Changes

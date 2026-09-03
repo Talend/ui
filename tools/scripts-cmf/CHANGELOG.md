@@ -1,5 +1,11 @@
 # @talend/scripts-cmf
 
+## 1.8.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
 ## 1.8.1
 
 ### Patch Changes

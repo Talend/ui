@@ -1,5 +1,13 @@
 # @talend/react-a11y
 
+## 4.3.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/utils@3.7.2
+
 ## 4.3.2
 
 ### Patch Changes
