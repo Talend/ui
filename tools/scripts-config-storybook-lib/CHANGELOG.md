@@ -1,5 +1,16 @@
 # @talend/scripts-config-storybook-lib
 
+## 6.1.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/design-system@12.1.3
+  - @talend/icons@8.0.2
+  - @talend/bootstrap-theme@10.1.3
+  - @talend/react-cmf@12.2.2
+
 ## 6.1.1
 
 ### Patch Changes

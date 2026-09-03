@@ -57,7 +57,6 @@ Important rules:
 
 - **No `console.log`** — only `console.warn` and `console.error` allowed
 - JSX only in `.jsx` / `.tsx` files (`react/jsx-filename-extension`)
-- `@talend/import-depth` (error) — controls import depth into packages
 - `import/prefer-default-export`: off — named exports are fine
 - `react/jsx-props-no-spreading`: off — spread is allowed
 - `react/require-default-props`: off

@@ -4,6 +4,16 @@
 
 ### Patch Changes
 
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/design-system@12.1.3
+  - @talend/design-tokens@4.1.3
+  - @talend/react-components@18.1.3
+
+## 13.1.2
+
+### Patch Changes
+
 - 4408b98: chore: upgrade dependencies
 - Updated dependencies [4408b98]
 - Updated dependencies [0a659cc]

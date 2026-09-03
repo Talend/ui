@@ -3,7 +3,6 @@ import type { MouseEvent, ReactElement, ButtonHTMLAttributes, Ref } from 'react'
 
 import classnames from 'classnames';
 
-// eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import { mergeRefs } from '../../../mergeRef';
@@ -46,9 +45,7 @@ export type DefaultTypes<S extends AvailableSizes> = CommonTypes<S> & {
 };
 
 export type ButtonIconProps<S extends AvailableSizes> =
-	| ToggleTypes<S>
-	| FloatingTypes<S>
-	| DefaultTypes<S>;
+	ToggleTypes<S> | FloatingTypes<S> | DefaultTypes<S>;
 
 function Primitive<S extends AvailableSizes>(
 	props: ButtonIconProps<S>,

@@ -1,4 +1,3 @@
-// eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize, icons } from '@talend/icons/dist/typeUtils';
 import tokens from '@talend/design-tokens';
 

@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.18.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
 ## 9.18.2
 
 ### Patch Changes

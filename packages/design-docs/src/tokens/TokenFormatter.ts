@@ -1,4 +1,3 @@
-// eslint-disable-next-line @talend/import-depth
 import { Token, Tokens } from '@talend/design-tokens/lib/types';
 
 const tShirtSizes = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl'];
@@ -11,10 +10,13 @@ export const groupBy = <T extends Record<K, PropertyKey>, K extends keyof T>(
 	collection: T[],
 	property: K,
 ) => {
-	return collection.reduce((acc, cur) => {
-		(acc[cur[property]] = acc[cur[property]] || []).push(cur);
-		return acc;
-	}, {} as GroupedArray<T, K>);
+	return collection.reduce(
+		(acc, cur) => {
+			(acc[cur[property]] = acc[cur[property]] || []).push(cur);
+			return acc;
+		},
+		{} as GroupedArray<T, K>,
+	);
 };
 
 export const groupByType = (collection: Tokens) => groupBy(collection, 'type');

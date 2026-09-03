@@ -1,6 +1,6 @@
 {
   "name": "@talend/local-libs-webpack-plugin",
-  "version": "0.6.2",
+  "version": "1.0.0",
   "description": "Easier development on local libraries",
   "main": "src/index.js",
   "license": "Apache-2.0",

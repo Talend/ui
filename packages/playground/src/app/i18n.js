@@ -1,5 +1,3 @@
-/* eslint-disable @talend/import-depth */
-
 /* eslint-disable import/no-extraneous-dependencies */
 import { initReactI18next } from 'react-i18next';
 
