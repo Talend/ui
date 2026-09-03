@@ -31,6 +31,8 @@ jobs:
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
+        with:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: has changeset file
         id: changesetfiles

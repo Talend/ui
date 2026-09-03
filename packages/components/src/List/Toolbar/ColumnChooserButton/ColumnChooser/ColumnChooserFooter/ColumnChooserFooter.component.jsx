@@ -23,7 +23,7 @@ const SubmitButton = () => {
 const ColumnChooserFooter = ({ children = <SubmitButton />, className }) => (
 	<RichLayout.Footer
 		id="column-chooser-footer"
-		className={(className, theme('tc-column-chooser-footer'))}
+		className={theme(className, 'tc-column-chooser-footer')}
 	>
 		{children}
 	</RichLayout.Footer>
