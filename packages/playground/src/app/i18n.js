@@ -1,4 +1,3 @@
-
 /* eslint-disable import/no-extraneous-dependencies */
 import { initReactI18next } from 'react-i18next';
 
@@ -6,9 +5,9 @@ import i18next from 'i18next';
 import HttpApi from 'i18next-http-backend';
 
 import assetsApi from '@talend/assets-api';
-import { namespaces as tuiComponentsNamespaces } from '@talend/locales-tui-components/namespaces';
-import { namespaces as tuiContainersNamespaces } from '@talend/locales-tui-containers/namespaces';
-import { namespaces as tuiFormsNamespaces } from '@talend/locales-tui-forms/namespaces';
+import { namespaces as tuiComponentsNamespaces } from '@talend/locales-tui-components/namespaces.js';
+import { namespaces as tuiContainersNamespaces } from '@talend/locales-tui-containers/namespaces.js';
+import { namespaces as tuiFormsNamespaces } from '@talend/locales-tui-forms/namespaces.js';
 
 const LOCALES_MAP = {
 	'tui-components': assetsApi.getURL(

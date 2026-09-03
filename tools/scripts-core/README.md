@@ -2,7 +2,10 @@
 
 ## Description
 
-This project, inspired by `react-scripts` and `kcd-scripts`, aims to abstract all tools and configuration from your project.
+THIS PROJECT IS DEPRECATED ! Please plan to move away from talend-scripts tool.
+
+This project was inspired by `react-scripts` and `kcd-scripts`, aims to abstract all tools and configuration from your project.
+Nowdays tools like vite / vitest comes with great zero config approach if the code is standard.
 
 It will expose basic scripts:
 

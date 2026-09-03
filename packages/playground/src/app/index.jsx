@@ -8,17 +8,17 @@
 import '@talend/bootstrap-theme/dist/bootstrap.css';
 import cmf from '@talend/react-cmf';
 import getRouter from '@talend/react-cmf-router';
-import { AppLoader, IconsProvider } from '@talend/react-components';
+import { AppLoader } from '@talend/react-components';
 import containersModule from '@talend/react-containers';
 import ComponentForm from '@talend/react-containers/lib/ComponentForm';
 
-import { initI18n } from './i18n';
-import actions from './actions';
-import ComponentFormSandbox from './components/ComponentFormSandbox';
-import { Dataviz } from './components/Dataviz';
-import { FacetedSearchPlayground } from './components/FacetedSearch';
-import { Icons } from './components/Icons';
-import { LeaguesList } from './components/List';
+import actions from './actions/index.js';
+import ComponentFormSandbox from './components/ComponentFormSandbox.jsx';
+import { Dataviz } from './components/Dataviz.jsx';
+import { FacetedSearchPlayground } from './components/FacetedSearch.jsx';
+import { Icons } from './components/Icons.jsx';
+import { LeaguesList } from './components/List.jsx';
+import { initI18n } from './i18n.js';
 
 // thanks ui-scripts
 let basename = window.basename;
@@ -36,7 +36,6 @@ const app = {
 		ComponentFormSandbox,
 		FacetedSearch: FacetedSearchPlayground,
 		LeaguesList,
-		IconsProvider,
 		Dataviz,
 		Icons,
 	},
@@ -59,4 +58,5 @@ console.log('app bootstrap should happens only once');
  * - Fetch the settings
  * - render react-dom in the dom 'app' element
  */
+debugger;
 cmf.bootstrap(app);

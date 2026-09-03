@@ -45,9 +45,7 @@ export type DefaultTypes<S extends AvailableSizes> = CommonTypes<S> & {
 };
 
 export type ButtonIconProps<S extends AvailableSizes> =
-	| ToggleTypes<S>
-	| FloatingTypes<S>
-	| DefaultTypes<S>;
+	ToggleTypes<S> | FloatingTypes<S> | DefaultTypes<S>;
 
 function Primitive<S extends AvailableSizes>(
 	props: ButtonIconProps<S>,

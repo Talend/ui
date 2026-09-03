@@ -42,7 +42,7 @@
   - @talend/icons@8.0.1
   - @talend/bootstrap-theme@10.1.2
 
-## 3.1.1
+## 0.6.1
 
 ### Patch Changes
 
@@ -60,7 +60,7 @@
   - @talend/bootstrap-theme@10.1.1
   - @talend/react-cmf@12.1.1
 
-## 3.1.0
+## 0.6.0
 
 ### Minor Changes
 
@@ -84,12 +84,7 @@
   - @talend/bootstrap-theme@10.1.0
   - @talend/react-cmf@12.1.0
 
-## 3.0.0
-
-### Major Changes
-
-- 18e73d1: chore: move from sass to css
-- 16703c7: chore: drop UMD format
+## 0.5.0
 
 ### Minor Changes
 
@@ -97,6 +92,7 @@
 
 ### Patch Changes
 
+- 53e97a0: chore: upgrade dependencies
 - Updated dependencies [ecbfee8]
 - Updated dependencies [ecbfee8]
 - Updated dependencies [ecbfee8]
@@ -122,7 +118,7 @@
   - @talend/bootstrap-theme@10.0.0
   - @talend/react-cmf@12.0.0
 
-## 2.8.0
+## 0.4.0
 
 ### Minor Changes
 
@@ -144,7 +140,7 @@
   - @talend/bootstrap-theme@9.6.0
   - @talend/react-cmf@11.1.0
 
-## 2.7.0
+## 0.3.0
 
 ### Minor Changes
 
@@ -162,7 +158,7 @@
   - @talend/icons@7.13.0
   - @talend/bootstrap-theme@9.5.0
 
-## 2.6.0
+## 0.2.0
 
 ### Minor Changes
 
@@ -180,31 +176,25 @@
   - @talend/icons@7.12.0
   - @talend/bootstrap-theme@9.4.0
 
-## 2.5.5
+## 0.1.6
 
 ### Patch Changes
 
-- de6ae38: Bump dependencies
-- Updated dependencies [de6ae38]
-  - @talend/react-faceted-search@21.0.2
-  - @talend/design-system@11.5.3
-  - @talend/design-tokens@3.4.5
-  - @talend/assets-api@1.5.3
-  - @talend/react-cmf-router@8.0.2
-  - @talend/react-components@17.3.9
-  - @talend/react-containers@11.3.4
-  - @talend/react-dataviz@7.0.4
-  - @talend/react-forms@15.2.4
-  - @talend/icons@7.11.3
-  - @talend/react-cmf@11.0.2
+- ae979f0: Bump dependencies
+- Updated dependencies [ae979f0]
+- Updated dependencies [d91656d]
+  - @talend/react-components@17.3.8
+  - @talend/react-dataviz@7.0.3
+  - @talend/icons@7.11.2
+  - @talend/bootstrap-theme@9.3.2
 
-## 2.5.4
+## 0.1.5
 
 ### Patch Changes
 
 - 2a30ccc: Bump express@^5.1.0
 
-## 2.5.3
+## 0.1.4
 
 ### Patch Changes
 
@@ -223,7 +213,7 @@
   - @talend/icons@7.11.1
   - @talend/bootstrap-theme@9.3.1
 
-## 2.5.2
+## 0.1.3
 
 ### Patch Changes
 
@@ -232,14 +222,27 @@
   - @talend/react-cmf@11.0.0
   - @talend/react-containers@11.3.2
 
-## 2.5.1
+## 0.1.2
+
+### Patch Changes
+
+- ea14b87: Fix Dependabot alerts
+- Updated dependencies [5168318]
+- Updated dependencies [ea14b87]
+  - @talend/design-system@11.4.0
+  - @talend/react-components@17.3.1
+  - @talend/react-cmf-router@7.1.0
+  - @talend/react-containers@11.3.0
+  - @talend/react-cmf@10.1.0
+
+## 0.1.1
 
 ### Patch Changes
 
 - Updated dependencies [78b4dbf]
   - @talend/react-faceted-search@21.0.0
 
-## 2.5.0
+## 0.1.0
 
 ### Minor Changes
 
@@ -262,15 +265,6 @@
   - @talend/assets-api@1.5.0
   - @talend/icons@7.10.0
   - @talend/bootstrap-theme@9.2.0
-
-## 2.4.5
-
-### Patch Changes
-
-- Updated dependencies [e48ae5f]
-  - @talend/react-cmf@9.0.0
-  - @talend/react-cmf-router@6.1.3
-  - @talend/react-containers@10.7.4
 
 ## 2.4.4
 
