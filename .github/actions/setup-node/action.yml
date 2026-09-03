@@ -25,8 +25,8 @@ runs:
       shell: bash
       run: |
         echo "//npm.pkg.github.com/:always-auth=true" >> ~/.npmrc
-        if [ -n "${{ inputs.NODE_AUTH_TOKEN }}" ]; then
-          echo "//npm.pkg.github.com/:_authToken=${{ inputs.NODE_AUTH_TOKEN }}" >> ~/.npmrc
+        if [ -n "${{ inputs.NPM_TOKEN }}" ]; then
+          echo "//npm.pkg.github.com/:_authToken=${{ inputs.NPM_TOKEN }}" >> ~/.npmrc
         fi
 
     - name: Install yarn

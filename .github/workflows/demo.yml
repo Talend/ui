@@ -28,6 +28,8 @@ jobs:
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
+        with:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install
         working-directory: ./
@@ -70,7 +72,7 @@ jobs:
           cd demo && git add .
 
       - name: Commit demo for gh-pages
-        uses: actions-js/push@5a7cbd780d82c0c937b5977586e641b2fd94acc5 #v1.5
+        uses: actions-js/push@968f4695ca558093eadb24ad83cc5891f47e0cdc #v1.6
         with:
           directory: "./demo"
           github_token: ${{ secrets.GITHUB_TOKEN }}
