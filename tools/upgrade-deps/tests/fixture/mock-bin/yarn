@@ -1,0 +1,66 @@
+#!/usr/bin/env node
+/* eslint-disable */
+// Fake yarn used by tests/cli.test.cjs so no real registry call happens.
+// Only implements the subset of `yarn` sub-commands talend-upgrade-deps relies on.
+const fs = require('fs');
+const path = require('path');
+const yarnpkg = require('@yarnpkg/lockfile');
+
+const CWD = process.cwd();
+const args = process.argv.slice(2);
+
+function stripRange(range) {
+	return range.replace(/^[\^~]/, '');
+}
+
+function workspacesInfo() {
+	const pkg = JSON.parse(fs.readFileSync(path.join(CWD, 'package.json'), 'utf8'));
+	const info = {};
+	const packagesDir = path.join(CWD, 'packages');
+	if (pkg.workspaces && fs.existsSync(packagesDir)) {
+		fs.readdirSync(packagesDir).forEach(dir => {
+			const subPkgPath = path.join(packagesDir, dir, 'package.json');
+			if (fs.existsSync(subPkgPath)) {
+				const subPkg = JSON.parse(fs.readFileSync(subPkgPath, 'utf8'));
+				info[subPkg.name] = {
+					location: `packages/${dir}`,
+					workspaceDependencies: [],
+					mismatchedWorkspaceDependencies: [],
+				};
+			}
+		});
+	}
+	process.stdout.write(JSON.stringify(info));
+}
+
+function syncYarnLock() {
+	const pkgPath = path.join(CWD, 'package.json');
+	const lockPath = path.join(CWD, 'yarn.lock');
+	if (!fs.existsSync(pkgPath) || !fs.existsSync(lockPath)) return;
+	const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+	const allDeps = { ...pkg.dependencies, ...pkg.devDependencies };
+	const parsed = yarnpkg.parse(fs.readFileSync(lockPath, 'utf8'));
+	const obj = parsed.object;
+	Object.entries(allDeps).forEach(([name, range]) => {
+		const version = stripRange(range);
+		Object.keys(obj).forEach(key => {
+			const isMatch = key.split(',').some(part => part.trim().startsWith(`${name}@`));
+			if (isMatch) {
+				obj[key].version = version;
+			}
+		});
+	});
+	fs.writeFileSync(lockPath, yarnpkg.stringify(obj));
+}
+
+if (args.includes('workspaces') && args.includes('info')) {
+	workspacesInfo();
+	process.exit(0);
+}
+
+if (args[0] === 'install' || args[0] === 'upgrade') {
+	syncYarnLock();
+	process.exit(0);
+}
+
+process.exit(0);

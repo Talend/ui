@@ -1,0 +1,98 @@
+#!/usr/bin/env node
+/* eslint-disable */
+// Fake npm used by tests/cli.test.cjs so no real registry call happens.
+// Only implements the subset of `npm` sub-commands talend-upgrade-deps relies on.
+const fs = require('fs');
+const path = require('path');
+const semver = require('semver');
+
+const CWD = process.cwd();
+const args = process.argv.slice(2);
+
+// `npm view <pkg> version latest` ignores the requested range, so it can't be derived
+// generically - fake it as a major bump for the packages the tests actually check.
+const LATEST = { react: '18.3.1', 'react-dom': '18.3.1', chokidar: '3.6.0' };
+
+function splitNameRange(spec) {
+	const idx = spec.startsWith('@') ? spec.indexOf('@', 1) : spec.indexOf('@');
+	if (idx === -1) return { name: spec, range: null };
+	return { name: spec.slice(0, idx), range: spec.slice(idx + 1) };
+}
+
+// Simulates `npm view <pkg>@"<range>" version --json`: an exact pin can only echo itself
+// back (that's what querying the registry for that exact version does), while a real
+// range (^, ~) resolves to the highest currently-published version still satisfying it.
+function resolveSafeUpdate(range) {
+	if (!range) return null;
+	if (/^\d/.test(range)) return range;
+	const base = semver.minVersion(range);
+	if (!base) return null;
+	return semver.inc(base.version, 'minor');
+}
+
+function stripRange(range) {
+	return range.replace(/^[\^~]/, '');
+}
+
+function syncPackageLock() {
+	const pkgPath = path.join(CWD, 'package.json');
+	const lockPath = path.join(CWD, 'package-lock.json');
+	if (!fs.existsSync(pkgPath) || !fs.existsSync(lockPath)) return;
+	const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+	const lock = JSON.parse(fs.readFileSync(lockPath, 'utf8'));
+	const allDeps = { ...pkg.dependencies, ...pkg.devDependencies };
+	Object.entries(allDeps).forEach(([name, range]) => {
+		const version = stripRange(range);
+		if (lock.packages && lock.packages[`node_modules/${name}`]) {
+			lock.packages[`node_modules/${name}`].version = version;
+		}
+		if (lock.dependencies && lock.dependencies[name]) {
+			lock.dependencies[name].version = version;
+		}
+	});
+	fs.writeFileSync(lockPath, JSON.stringify(lock, null, 2));
+}
+
+function npmLsJson() {
+	const pkg = JSON.parse(fs.readFileSync(path.join(CWD, 'package.json'), 'utf8'));
+	const dependencies = {};
+	const packagesDir = path.join(CWD, 'packages');
+	if (pkg.workspaces && fs.existsSync(packagesDir)) {
+		fs.readdirSync(packagesDir).forEach(dir => {
+			const subPkgPath = path.join(packagesDir, dir, 'package.json');
+			if (fs.existsSync(subPkgPath)) {
+				const subPkg = JSON.parse(fs.readFileSync(subPkgPath, 'utf8'));
+				dependencies[subPkg.name] = { resolved: `file:packages/${dir}`, version: '1.0.0' };
+			}
+		});
+	}
+	process.stdout.write(JSON.stringify({ dependencies }));
+}
+
+if (args[0] === 'view') {
+	const { name, range } = splitNameRange(args[1]);
+	if (args[args.length - 1] === 'latest') {
+		process.stdout.write(`${LATEST[name] || '1.0.0'}\n`);
+	} else {
+		process.stdout.write(`${JSON.stringify(resolveSafeUpdate(range))}\n`);
+	}
+	process.exit(0);
+}
+
+if (args[0] === 'dist-tag') {
+	const name = args[args.length - 1];
+	process.stdout.write(`next: ${LATEST[name] || '1.0.0'}\n`);
+	process.exit(0);
+}
+
+if (args[0] === 'ls') {
+	npmLsJson();
+	process.exit(0);
+}
+
+if (args[0] === 'install' || args[0] === 'i' || args[0] === 'update') {
+	syncPackageLock();
+	process.exit(0);
+}
+
+process.exit(0);
