@@ -13,6 +13,7 @@ permissions:
   deployments: read
   pull-requests: write # needed to write comment
   statuses: write
+  packages: read
 
 jobs:
   build:
@@ -27,12 +28,12 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
         with:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ github.token }}
 
       - name: Install
         run: yarn install --frozen-lockfile
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ github.token }}
 
       - name: Build
         run: yarn build

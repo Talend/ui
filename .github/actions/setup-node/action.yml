@@ -3,7 +3,7 @@ description: 'Setup nodejs'
 author: 'Talend'
 inputs:
   NPM_TOKEN:
-    description: 'Token used for GitHub Packages auth (defaults to GITHUB_TOKEN)'
+    description: 'Token used for GitHub Packages auth (GITHUB_TOKEN, since @talend/locales-* packages are public)'
     required: true
 
 runs:

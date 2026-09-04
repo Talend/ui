@@ -8,6 +8,7 @@ permissions:
   contents: write
   deployments: read
   pull-requests: write
+  packages: read
 
 jobs:
   download:
@@ -27,7 +28,7 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
         with:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ github.token }}
 
       - name: Download icons
         run: npx @talend/figma-icons-downloader

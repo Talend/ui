@@ -10,6 +10,7 @@ permissions:
   deployments: read
   pull-requests: write
   statuses: write
+  packages: write
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
@@ -32,7 +33,7 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
         with:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ github.token }}
 
       - name: has changeset file
         id: changesetfiles
@@ -52,13 +53,13 @@ jobs:
           yarn --frozen-lockfile
           yarn build
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ github.token }}
 
       - name: Install but do not build
         if: steps.changesetfiles.outputs.count > 1
         run: yarn --ignore-scripts --frozen-lockfile
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ github.token }}
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
@@ -70,8 +71,8 @@ jobs:
           title: "chore: prepare release"
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESET_GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ github.token }}
+          NODE_AUTH_TOKEN: ${{ github.token }}
 
   update-cdn-content:
     needs: release

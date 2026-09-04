@@ -10,6 +10,7 @@ permissions:
   statuses: write
   checks: write
   pages: write
+  packages: read
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
@@ -29,12 +30,12 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
         with:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ github.token }}
 
       - name: Install
         working-directory: ./
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ github.token }}
         run: yarn install --frozen-lockfile
 
       - name: Build

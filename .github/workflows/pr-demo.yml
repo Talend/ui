@@ -8,6 +8,7 @@ permissions:
   statuses: write
   checks: write
   pages: write
+  packages: read
 
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
@@ -26,12 +27,12 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
         with:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ github.token }}
 
       - name: Install
         working-directory: ./
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ github.token }}
         run: yarn install --frozen-lockfile
 
       - name: Build
