@@ -14,6 +14,9 @@ const execProm = util.promisify(exec);
 const cpxProm = util.promisify(cpx.copy);
 const removeProm = target => rimraf(target);
 
+const mockBinPath = path.join(__dirname, 'fixture', 'mock-bin');
+const mockEnv = { ...process.env, PATH: `${mockBinPath}${path.delimiter}${process.env.PATH}` };
+
 async function getTmpDirectory(prefix, fixturePath, lock = 'yarn.lock') {
 	const uniqueSuffix = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 	const tmp = path.join(__dirname, `tmp-${prefix}-${lock}-${uniqueSuffix}`);
@@ -27,7 +30,7 @@ async function getTmpDirectory(prefix, fixturePath, lock = 'yarn.lock') {
 			path.join(tmp, 'package-lock.json'),
 		);
 		await removeProm(path.join(tmp, 'yarn-template.lock'));
-		await execProm('npm i', { cwd: tmp });
+		await execProm('npm i', { cwd: tmp, env: mockEnv });
 	}
 	return tmp;
 }
@@ -101,6 +104,7 @@ function isMajorLockGT(pkg, locka, lockb) {
 }
 
 module.exports = {
+	mockEnv,
 	getLockContent,
 	getTmpDirectory,
 	getVersionFromRequirement,

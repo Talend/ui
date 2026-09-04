@@ -4,6 +4,7 @@ const { spawnSync } = require('child_process');
 const { readFileSync } = require('fs');
 const { rimrafSync } = require('rimraf');
 const {
+	mockEnv,
 	getLockContent,
 	getTmpDirectory,
 	isMinorGt,
@@ -33,7 +34,7 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 
 	it('should by default only do safe upgrade', async () => {
 		const tmp = await getTmpDirectory('basic-default', fixturePath, lock);
-		const output = spawnSync('node', [bin, '-v', '--ignore-scripts'], { cwd: tmp });
+		const output = spawnSync('node', [bin, '-v', '--ignore-scripts'], { cwd: tmp, env: mockEnv });
 		const tmpLock = getLockContent(tmp, lock);
 		expect(output.error).toBeUndefined();
 		const err = output.stderr.toString();
@@ -57,7 +58,7 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 
 	it('should support a --dry option where files are not updated', async () => {
 		const tmp = await getTmpDirectory('basic-dry', fixturePath, lock);
-		const output = spawnSync('node', [bin, '--dry'], { cwd: tmp });
+		const output = spawnSync('node', [bin, '--dry'], { cwd: tmp, env: mockEnv });
 		const tmpLock = getLockContent(tmp, lock);
 		// the logs should show the need to update chokidar
 		const logs = output.stdout.toString();
@@ -75,7 +76,7 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 
 	it('should support a --latest option', async () => {
 		const tmp = await getTmpDirectory('basic-latest', fixturePath, lock);
-		const output = spawnSync('node', [bin, '--latest'], { cwd: tmp });
+		const output = spawnSync('node', [bin, '--latest'], { cwd: tmp, env: mockEnv });
 		const err = output.stderr.toString();
 		if (err) {
 			console.error(err);
@@ -100,7 +101,7 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 
 	it('should support a --scope option', async () => {
 		const tmp = await getTmpDirectory('basic-scope', fixturePath, lock);
-		const output = spawnSync('node', [bin, '--scope=@talend'], { cwd: tmp });
+		const output = spawnSync('node', [bin, '--scope=@talend'], { cwd: tmp, env: mockEnv });
 		const err = output.stderr.toString();
 		if (err) {
 			console.error(err);
@@ -123,7 +124,7 @@ describe.each(['package-lock.json', 'yarn.lock'])('talend-upgrade-deps %s', lock
 
 	it('should support a --starts-with option', async () => {
 		const tmp = await getTmpDirectory('basic-startsWith', fixturePath, lock);
-		const output = spawnSync('node', [bin, '--starts-with=@talend/scripts'], { cwd: tmp });
+		const output = spawnSync('node', [bin, '--starts-with=@talend/scripts'], { cwd: tmp, env: mockEnv });
 		const err = output.stderr.toString();
 		if (err) {
 			console.error(err);
