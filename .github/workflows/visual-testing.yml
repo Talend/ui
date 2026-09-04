@@ -40,8 +40,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn --frozen-lock
-          yarn build
+          pnpm install --frozen-lockfile
+          pnpm build
 
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'

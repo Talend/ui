@@ -28,10 +28,10 @@ jobs:
           NPM_TOKEN: ${{ github.token }}
 
       - name: Install
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Pre-release talend/ui
         id: version
@@ -39,15 +39,15 @@ jobs:
           # FIXME: trigger changeset change without commit
           # generate a random small version
           POST_VERSION_RANDOM=$(node -e "console.log(Math.floor(Math.random() * 10000))")
-          yarn changeset pre enter next-${POST_VERSION_RANDOM}
-          yarn changeset version
+          pnpm changeset pre enter next-${POST_VERSION_RANDOM}
+          pnpm changeset version
           # echo diff to see version changes and save it to reuse it after
           {
             echo "VERSION_DIFF<<EOF"
             git diff | grep -E 'next|name'
             echo "EOF"
           } >> $GITHUB_OUTPUT
-          yarn changeset publish --no-git-checks
+          pnpm changeset publish --no-git-checks
 
       - name: Comment on the PR with the package version
         uses: actions-ecosystem/action-create-comment@v1

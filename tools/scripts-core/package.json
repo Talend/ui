@@ -29,6 +29,8 @@
     "@talend/eslint-plugin": "^1.8.2",
     "@talend/scripts-utils": "^2.8.2",
     "@talend/scripts-config-babel": "^13.10.2",
+    "@talend/scripts-config-prettier": "^12.7.2",
+    "@talend/scripts-config-stylelint": "^5.0.1",
     "@talend/scripts-config-typescript": "^12.1.2",
     "babel-loader": "^9.2.1",
     "cpx2": "^8.0.2",

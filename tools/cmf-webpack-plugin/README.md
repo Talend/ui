@@ -30,7 +30,7 @@ This package provides Webpack plugin to deal with several React CMF settings fil
 Install dependency:
 
 ```bash
-$> yarn add @talend/react-cmf-webpack-plugin
+$> pnpm add @talend/react-cmf-webpack-plugin
 ```
 
 ## Basic Usage

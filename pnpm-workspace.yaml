@@ -1,0 +1,60 @@
+packages:
+  - 'packages/*'
+  - 'tools/*'
+  - 'fork/*'
+linkWorkspacePackages: true
+overrides:
+  ace-builds: 1.10.1
+  '@types/react': ^18.2.7
+  '@types/react-dom': ^18.2.7
+  vinyl-fs>glob-parent: ^5.1.2
+  fast-glob>glob-parent: ^5.1.2
+  trim: ^1.0.1
+  x-default-browser: ^0.5.2
+  reactour>prop-types: ^15.7.2
+  qs: '>=6.14.1'
+  tar: '>=7.5.4'
+  minimist: ^1.2.5
+allowBuilds:
+  '@parcel/watcher': false
+  '@sentry/cli': false
+  core-js: false
+  core-js-bundle: false
+  es5-ext: false
+  esbuild: true
+  msw: true
+  ttf2woff2: false
+minimumReleaseAgeExclude:
+  - '@talend/assets-api@2.1.3'
+  - '@talend/babel-plugin-assets-api@1.9.2'
+  - '@talend/babel-plugin-import-from-index@1.13.2'
+  - '@talend/bootstrap-sass@5.6.3'
+  - '@talend/bootstrap-theme@10.1.3'
+  - '@talend/design-system@12.1.3'
+  - '@talend/design-tokens@4.1.3'
+  - '@talend/dynamic-cdn-webpack-plugin@14.5.3'
+  - '@talend/eslint-config@14.1.4'
+  - '@talend/eslint-plugin@1.8.2'
+  - '@talend/icons@8.0.2'
+  - '@talend/json-schema-form-core@2.1.3'
+  - '@talend/module-to-cdn@9.18.3'
+  - '@talend/react-a11y@4.3.3'
+  - '@talend/react-bootstrap@5.0.1'
+  - '@talend/react-cmf-router@9.2.2'
+  - '@talend/react-cmf@12.2.2'
+  - '@talend/react-components@18.1.3'
+  - '@talend/react-containers@12.1.3'
+  - '@talend/react-dataviz@8.1.3'
+  - '@talend/react-faceted-search@22.1.3'
+  - '@talend/react-forms@16.1.4'
+  - '@talend/react-storybook-cmf@12.1.2'
+  - '@talend/scripts-cmf@1.8.2'
+  - '@talend/scripts-config-babel@13.10.2'
+  - '@talend/scripts-config-cdn@10.17.2'
+  - '@talend/scripts-config-prettier@12.7.2'
+  - '@talend/scripts-config-storybook-lib@6.1.2'
+  - '@talend/scripts-config-stylelint@5.0.1'
+  - '@talend/scripts-config-typescript@12.1.2'
+  - '@talend/scripts-utils@2.8.2'
+  - '@talend/storybook-docs@3.1.2'
+  - '@talend/utils@3.7.2'

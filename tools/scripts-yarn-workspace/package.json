@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-yarn-workspace",
   "version": "2.4.2",
-  "description": "yarn workspace commands but more friendly",
+  "description": "pnpm workspace commands but more friendly",
   "type": "module",
   "bin": {
     "talend-yarn-workspace": "./src/index.js"

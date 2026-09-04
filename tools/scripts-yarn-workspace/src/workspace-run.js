@@ -1,48 +1,21 @@
-import fs from 'fs';
-import path from 'path';
+/* eslint-disable no-console */
 import { run } from './run.js';
-import { consume } from './consume.js';
 
-export function workspaceRun(scriptArgs) {
-	run({ name: 'yarn', args: ['workspaces', '--silent', 'info'] })
-		.then(info => JSON.parse(info))
-		.then(workspaceInfo => {
-			function add(acc, pkg) {
-				if (acc.indexOf(pkg) !== -1) {
-					return acc;
-				}
-				const wd = workspaceInfo[pkg].workspaceDependencies;
+export async function workspaceRun(scriptArgs) {
+	const [script, ...extraArgs] = scriptArgs;
+	const args = ['-r', 'run', script, '--if-present', ...extraArgs];
 
-				wd.reduce((kcc, dep) => {
-					add(kcc, dep);
-					return kcc;
-				}, acc);
-				acc.push(pkg);
-				return acc;
-			}
+	if (!process.env.EXECUTE_PARALLEL) {
+		args.push('--workspace-concurrency=1');
+	}
+	if (process.env.WORKSPACE_RUN_FAIL === 'no-bail') {
+		args.push('--no-bail');
+	}
 
-			const packages = Object.keys(workspaceInfo).reduce(add, []);
-			const commands = packages
-				.map(packageName => {
-					const packageInfo = workspaceInfo[packageName];
-					const { location } = packageInfo;
-
-					const packageJson = JSON.parse(
-						fs.readFileSync(path.resolve(path.join('.', location, 'package.json'))),
-					);
-					if (packageJson.scripts && packageJson.scripts[scriptArgs[0]]) {
-						return {
-							name: 'yarn',
-							args: ['workspace', packageName, 'run'].concat(scriptArgs),
-						};
-					}
-
-					return undefined;
-				})
-				.filter(Boolean);
-			consume(commands);
-		})
-		.catch(e => {
-			console.error(e);
-		});
+	try {
+		await run({ name: 'pnpm', args }, { verbose: Boolean(process.env.VERBOSE) });
+	} catch (error) {
+		console.error(error);
+		process.exit(1);
+	}
 }

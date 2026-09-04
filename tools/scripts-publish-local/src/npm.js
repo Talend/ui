@@ -9,7 +9,7 @@ const cmd = require('./cmd');
 const NPMRC = `${os.homedir()}/.npmrc`;
 const AUTH_TOKEN_LINE = '//registry.npmjs.org/:_authToken=';
 const VERDACCIO_AUTH_TOKEN_LINE = '//localhost:4873/:_authToken=';
-const YARN_CACHE_DIR = path.join(process.cwd(), 'TMP_YARN_CACHE');
+const PNPM_STORE_DIR = path.join(process.cwd(), 'TMP_PNPM_STORE');
 
 const cache = {
 	// to be sure the user creation is working every time
@@ -27,17 +27,11 @@ const CWD = process.cwd();
 
 function beforeSetup() {
 	const npmrc = path.join(CWD, '.npmrc');
-	const yarnrc = path.join(CWD, '.yarnrc');
 	if (fs.existsSync(npmrc)) {
 		console.log(`rm -rf ${npmrc}`);
 		rimrafSync(npmrc);
 	}
 	fs.writeFileSync(npmrc, 'registry=http://localhost:4873/');
-	if (fs.existsSync(yarnrc)) {
-		console.log(`rm -rf ${yarnrc}`);
-		rimrafSync(yarnrc);
-	}
-	fs.writeFileSync(yarnrc, 'registry "http://localhost:4873/"');
 }
 
 function getNPMToken() {
@@ -87,34 +81,28 @@ async function setup(repositories) {
 		fs.writeFileSync(NPMRC, updatedContent);
 	}
 	await cmd.run('npm set registry http://localhost:4873/');
-	await cmd.run('yarn config set registry http://localhost:4873/');
+	await cmd.run('pnpm config set registry http://localhost:4873/');
 	try {
-		const yarncachedir = await cmd.run('yarn cache dir');
-		cache.yarncachedir = yarncachedir.trim();
-		await cmd.run(`yarn config set cache-folder ${YARN_CACHE_DIR}`);
+		const pnpmstoredir = await cmd.run('pnpm store path');
+		cache.pnpmstoredir = pnpmstoredir.trim();
+		await cmd.run(`pnpm config set store-dir ${PNPM_STORE_DIR}`);
 	} catch (error) {
 		console.error(error);
 	}
 
-	// ensure there is no npmrc/yarnrc in each repositories
+	// ensure there is no npmrc/pnpm-lock.yaml in each repositories
 	repositories.forEach(repository => {
 		const cwd = repository.path;
 		const npmrc = path.join(cwd, '.npmrc');
-		const yarnrc = path.join(cwd, '.yarnrc');
-		const yarnlock = path.join(cwd, 'yarn.lock');
+		const pnpmLock = path.join(cwd, 'pnpm-lock.yaml');
 		if (fs.existsSync(npmrc)) {
 			console.log(`rm -rf ${npmrc}`);
 			rimrafSync(npmrc);
-			fs.writeFileSync(npmrc, 'registry "http://localhost:4873/"');
+			fs.writeFileSync(npmrc, 'registry=http://localhost:4873/');
 		}
-		if (fs.existsSync(yarnrc)) {
-			console.log(`rm -rf ${yarnrc}`);
-			rimrafSync(yarnrc);
-			fs.writeFileSync(yarnrc, 'registry "http://localhost:4873/"');
-		}
-		if (fs.existsSync(yarnlock)) {
-			console.log(`rm -rf ${yarnlock}`);
-			rimrafSync(yarnlock);
+		if (fs.existsSync(pnpmLock)) {
+			console.log(`rm -rf ${pnpmLock}`);
+			rimrafSync(pnpmLock);
 		}
 	});
 	return addUser();
@@ -124,24 +112,19 @@ function tearDown() {
 	console.log('npm.tearDown()');
 	try {
 		const npmrc = path.join(CWD, '.npmrc');
-		const yarnrc = path.join(CWD, '.yarnrc');
 		if (fs.existsSync(npmrc)) {
 			console.log(`rm -rf ${npmrc}`);
 			rimrafSync(npmrc);
 		}
-		if (fs.existsSync(yarnrc)) {
-			console.log(`rm -rf ${yarnrc}`);
-			rimrafSync(yarnrc);
-		}
-		rimraf(YARN_CACHE_DIR).then(error => {
+		rimraf(PNPM_STORE_DIR).then(error => {
 			console.error(error);
 		});
-		cmd.runSync('yarn config delete cache-folder');
+		cmd.runSync('pnpm config delete store-dir');
 	} catch (error) {
 		console.error(error);
 	}
 	cmd.runSync('npm set registry https://registry.npmjs.org');
-	cmd.runSync('yarn config set registry https://registry.yarnpkg.com');
+	cmd.runSync('pnpm config set registry https://registry.npmjs.org');
 }
 
 module.exports = {

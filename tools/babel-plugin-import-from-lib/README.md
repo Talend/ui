@@ -8,9 +8,10 @@ How to use:
 
     npm i --save-dev @talend/babel-plugin-import-from-lib
     // or
-    yarn add -D @talend/babel-plugin-import-from-lib
+    pnpm add -D @talend/babel-plugin-import-from-lib
 
 Then update your `.babelrc` file:
+
 ```diff
 "plugins": [
 +    "@talend/babel-plugin-import-from-lib",
