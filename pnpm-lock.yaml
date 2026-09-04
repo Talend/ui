@@ -100,9 +100,6 @@ importers:
       '@talend/scripts-core':
         specifier: '*'
         version: link:tools/scripts-core
-      '@talend/scripts-yarn-workspace':
-        specifier: '*'
-        version: link:tools/scripts-yarn-workspace
       '@testing-library/react':
         specifier: ^14.3.1
         version: 14.3.1(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2202,8 +2199,6 @@ importers:
       which:
         specifier: ^2.0.2
         version: 2.0.2
-
-  tools/scripts-yarn-workspace: {}
 
   tools/upgrade-deps:
     dependencies:
