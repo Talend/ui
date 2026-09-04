@@ -1,5 +1,17 @@
 # @talend/scripts-core
 
+## 21.0.0
+
+### Major Changes
+
+- 0363133: feat: drop build of app which was using webpack
+
+### Patch Changes
+
+- Updated dependencies [661d925]
+  - @talend/eslint-plugin@2.0.0
+  - @talend/eslint-config@14.2.0
+
 ## 20.0.1
 
 ### Patch Changes
