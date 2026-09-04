@@ -348,8 +348,8 @@ importers:
         specifier: ^3.3.2
         version: 3.3.2
       immutable:
-        specifier: ^3.8.3
-        version: 3.8.3
+        specifier: ^3.8.4
+        version: 3.8.4
       invariant:
         specifier: ^2.2.4
         version: 2.2.4
@@ -367,7 +367,7 @@ importers:
         version: 15.8.1
       react-immutable-proptypes:
         specifier: ^2.2.0
-        version: 2.2.0(immutable@3.8.3)
+        version: 2.2.0(immutable@3.8.4)
       react-redux:
         specifier: ^7.2.9
         version: 7.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -418,8 +418,8 @@ importers:
         specifier: ^3.7.2
         version: link:../utils
       immutable:
-        specifier: ^3.8.3
-        version: 3.8.3
+        specifier: ^3.8.4
+        version: 3.8.4
       redux-saga:
         specifier: ^1.5.1
         version: 1.5.1
@@ -531,8 +531,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       immutable:
-        specifier: ^3.8.3
-        version: 3.8.3
+        specifier: ^3.8.4
+        version: 3.8.4
       invariant:
         specifier: ^2.2.4
         version: 2.2.4
@@ -559,7 +559,7 @@ importers:
         version: 1.5.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-immutable-proptypes:
         specifier: ^2.2.0
-        version: 2.2.0(immutable@3.8.3)
+        version: 2.2.0(immutable@3.8.4)
       react-is:
         specifier: ^18.3.1
         version: 18.3.1
@@ -688,8 +688,8 @@ importers:
         specifier: ^2.5.1
         version: 2.5.1
       immutable:
-        specifier: ^3.8.3
-        version: 3.8.3
+        specifier: ^3.8.4
+        version: 3.8.4
       invariant:
         specifier: ^2.2.4
         version: 2.2.4
@@ -701,7 +701,7 @@ importers:
         version: 6.0.0
       react-immutable-proptypes:
         specifier: ^2.2.0
-        version: 2.2.0(immutable@3.8.3)
+        version: 2.2.0(immutable@3.8.4)
       redux-saga:
         specifier: ^1.5.1
         version: 1.5.1
@@ -1174,7 +1174,7 @@ importers:
         version: 15.8.1
       react-immutable-proptypes:
         specifier: ^2.2.0
-        version: 2.2.0(immutable@3.8.3)
+        version: 2.2.0(immutable@3.8.4)
     devDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.10.0
@@ -1216,8 +1216,8 @@ importers:
         specifier: ^23.16.8
         version: 23.16.8
       immutable:
-        specifier: ^3.8.3
-        version: 3.8.3
+        specifier: ^3.8.4
+        version: 3.8.4
       lodash:
         specifier: ^4.18.1
         version: 4.18.1
@@ -1532,8 +1532,8 @@ importers:
         specifier: ^12.2.2
         version: link:../cmf
       immutable:
-        specifier: ^3.8.3
-        version: 3.8.3
+        specifier: ^3.8.4
+        version: 3.8.4
       redux-saga:
         specifier: ^1.5.1
         version: 1.5.1
@@ -1582,8 +1582,8 @@ importers:
         specifier: ^23.16.8
         version: 23.16.8
       immutable:
-        specifier: ^3.8.3
-        version: 3.8.3
+        specifier: ^3.8.4
+        version: 3.8.4
       jsdom:
         specifier: ^26.1.0
         version: 26.1.0(supports-color@10.2.2)
@@ -7577,6 +7577,10 @@ packages:
 
   immutable@3.8.3:
     resolution: {integrity: sha512-AUY/VyX0E5XlibOmWt10uabJzam1zlYjwiEgQSDc5+UIkFNaF9WM0JxXKaNMGf+F/ffUF+7kRKXM9A7C0xXqMg==}
+    engines: {node: '>=0.10.0'}
+
+  immutable@3.8.4:
+    resolution: {integrity: sha512-ZQv17KolYrYmsDoDB8N67zhIKsNi9mGYlk96y/yuxyAqJB2hLzSGSM7k/sB0/ZvO4kx27U9+fBeD/XlLGh/uXQ==}
     engines: {node: '>=0.10.0'}
 
   immutable@5.1.9:
@@ -17985,7 +17989,10 @@ snapshots:
 
   ignore@7.0.6: {}
 
-  immutable@3.8.3: {}
+  immutable@3.8.3:
+    optional: true
+
+  immutable@3.8.4: {}
 
   immutable@5.1.9: {}
 
@@ -20365,9 +20372,9 @@ snapshots:
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
 
-  react-immutable-proptypes@2.2.0(immutable@3.8.3):
+  react-immutable-proptypes@2.2.0(immutable@3.8.4):
     dependencies:
-      immutable: 3.8.3
+      immutable: 3.8.4
       invariant: 2.2.4
 
   react-is@16.13.1: {}
