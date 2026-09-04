@@ -1,5 +1,13 @@
 # @talend/react-cmf-cqrs
 
+## 12.1.3
+
+### Patch Changes
+
+- 685d45a: fix: cwe-407 update immutable
+- Updated dependencies [685d45a]
+  - @talend/react-cmf@12.2.3
+
 ## 12.1.2
 
 ### Patch Changes

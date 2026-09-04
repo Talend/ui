@@ -1,5 +1,14 @@
 # @talend/react-containers
 
+## 12.1.4
+
+### Patch Changes
+
+- 685d45a: fix: cwe-407 update immutable
+- Updated dependencies [685d45a]
+  - @talend/react-components@18.1.4
+  - @talend/react-cmf@12.2.3
+
 ## 12.1.3
 
 ### Patch Changes
