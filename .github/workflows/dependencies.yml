@@ -10,6 +10,7 @@ permissions:
   deployments: read
   pull-requests: write
   statuses: write
+  packages: read
 
 jobs:
   upgrade:
@@ -25,7 +26,7 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
         with:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ github.token }}
 
       - name: Upgrade dependencies
         run: |
@@ -35,7 +36,7 @@ jobs:
           yarn talend-upgrade-deps --latest --dry > dependencies-latest.txt
           git add dependencies-latest.txt
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ github.token }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 #v8.1.1
