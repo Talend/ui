@@ -3,7 +3,7 @@ description: 'Setup nodejs'
 author: 'Talend'
 inputs:
   NPM_TOKEN:
-    description: 'Token used for GitHub Packages auth (GITHUB_TOKEN, since @talend/locales-* packages are public)'
+    description: 'PAT used for GitHub Packages auth (GITHUB_TOKEN cannot read private cross-repo packages like @talend/daikon-tql-client)'
     required: true
 
 runs:
