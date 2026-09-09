@@ -7535,10 +7535,6 @@ packages:
     resolution: {integrity: sha512-BAg6QkE8W+TuQLrrw0Ugr7HegXduRuuj8/ti2kSOc+jz1dmx8/WNcjr6XGnq5YpDWxFwwaavqD0+jIUOKelTsw==}
     engines: {node: '>= 4'}
 
-  immutable@3.8.3:
-    resolution: {integrity: sha512-AUY/VyX0E5XlibOmWt10uabJzam1zlYjwiEgQSDc5+UIkFNaF9WM0JxXKaNMGf+F/ffUF+7kRKXM9A7C0xXqMg==}
-    engines: {node: '>=0.10.0'}
-
   immutable@3.8.4:
     resolution: {integrity: sha512-ZQv17KolYrYmsDoDB8N67zhIKsNi9mGYlk96y/yuxyAqJB2hLzSGSM7k/sB0/ZvO4kx27U9+fBeD/XlLGh/uXQ==}
     engines: {node: '>=0.10.0'}
@@ -9470,9 +9466,6 @@ packages:
     peerDependencies:
       react: '>=0.14.0'
 
-  prop-types@15.7.2:
-    resolution: {integrity: sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==}
-
   prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
 
@@ -10590,11 +10583,6 @@ packages:
   svgicons2svgfont@15.0.1:
     resolution: {integrity: sha512-rE3BoIipD6DxBejPswalKRZZYA+7sy4miHqiHgXB0zI1xJD3gSCVrXh2R6Sdh9E4XDTxYp7gDxGW2W8DIBif/g==}
     engines: {node: '>=20.11.1'}
-    hasBin: true
-
-  svgo@3.3.4:
-    resolution: {integrity: sha512-GsNRis4e8jxn2Y9ENz/8lbJ93CstG8svtMnuRaHbiF2LTJ5tK0/q3t/URPq9Zc7zVWBJnNnJMIp6bevK7bSmNg==}
-    engines: {node: '>=14.0.0'}
     hasBin: true
 
   svgo@3.3.5:
@@ -14322,7 +14310,7 @@ snapshots:
       '@svgr/core': 8.1.0(supports-color@10.2.2)(typescript@5.9.3)
       cosmiconfig: 8.3.6(typescript@5.9.3)
       deepmerge: 4.3.1
-      svgo: 3.3.4
+      svgo: 3.3.5
     transitivePeerDependencies:
       - typescript
 
@@ -15968,7 +15956,7 @@ snapshots:
       react-router: 5.3.4(react@18.3.1)
       redux: 4.2.1
     optionalDependencies:
-      immutable: 3.8.3
+      immutable: 3.8.4
       seamless-immutable: 7.1.4
 
   connected-react-router@6.9.3(history@5.3.0)(react-redux@7.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-router@6.3.0(react@18.3.1))(react@18.3.1)(redux@4.2.1):
@@ -15981,7 +15969,7 @@ snapshots:
       react-router: 6.3.0(react@18.3.1)
       redux: 4.2.1
     optionalDependencies:
-      immutable: 3.8.3
+      immutable: 3.8.4
       seamless-immutable: 7.1.4
 
   content-disposition@0.5.4:
@@ -17928,9 +17916,6 @@ snapshots:
   ignore@6.0.2: {}
 
   ignore@7.0.6: {}
-
-  immutable@3.8.3:
-    optional: true
 
   immutable@3.8.4: {}
 
@@ -20115,12 +20100,6 @@ snapshots:
       react-is: 16.13.1
       warning: 4.0.3
 
-  prop-types@15.7.2:
-    dependencies:
-      loose-envify: 1.4.0
-      object-assign: 4.1.1
-      react-is: 16.13.1
-
   prop-types@15.8.1:
     dependencies:
       loose-envify: 1.4.0
@@ -20493,7 +20472,7 @@ snapshots:
       classnames: 2.3.1
       focus-outline-manager: 1.0.2
       lodash.debounce: 4.0.8
-      prop-types: 15.7.2
+      prop-types: 15.8.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-focus-lock: 2.13.7(@types/react@18.3.31)(react@18.3.1)
@@ -21558,16 +21537,6 @@ snapshots:
       yerror: 8.0.0
     transitivePeerDependencies:
       - supports-color
-
-  svgo@3.3.4:
-    dependencies:
-      commander: 7.2.0
-      css-select: 5.2.2
-      css-tree: 2.3.1
-      css-what: 6.2.2
-      csso: 5.0.5
-      picocolors: 1.1.1
-      sax: 1.6.1
 
   svgo@3.3.5:
     dependencies:
