@@ -1,5 +1,11 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import { builtinModules } from 'module';
+
+const nodeBuiltins = new Set([
+	...builtinModules,
+	...builtinModules.map(module => `node:${module}`),
+]);
 
 export default defineConfig({
 	build: {
@@ -23,8 +29,10 @@ export default defineConfig({
 		minify: false,
 		target: 'ES2020',
 		rollupOptions: {
-			// Don't include React in the bundle
-			external: ['react'],
+			// `src/extract.ts` is a Node-only helper used by the package entry.
+			// Keep Node builtins external so Vite/Rollup doesn't rewrite them to
+			// browser shims during the library build.
+			external: id => id === 'react' || nodeBuiltins.has(id),
 			output: {
 				// Ensure proper CommonJS exports
 				exports: 'named',
