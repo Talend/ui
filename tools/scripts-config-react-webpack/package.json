@@ -24,7 +24,6 @@
     "@sentry/webpack-plugin": "^1.21.0",
     "@talend/react-cmf-webpack-plugin": "^6.44.2",
     "@talend/scripts-config-babel": "^13.10.2",
-    "@talend/scripts-config-cdn": "^10.17.2",
     "@talend/scripts-utils": "^2.8.2",
     "@welldone-software/why-did-you-render": "^7.0.1",
     "@yarnpkg/lockfile": "^1.1.0",

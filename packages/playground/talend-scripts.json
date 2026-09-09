@@ -7,6 +7,5 @@
       "development": "./webpack.config.dev.cjs",
       "production": "./webpack.config.dev.cjs"
     }
-  },
-  "dynamic-cdn-webpack-plugin": false
+  }
 }

@@ -53,9 +53,6 @@ Your folder hierarchy should follow
 			"production": "./webpack.config.prod.js"
 		}
 	},
-	"dynamic-cdn-webpack-plugin": {
-		"exclude": ["react-router-dom"]
-	},
 	"sentry": {
 		"org": "talend",
 		"project": "tmc",
@@ -370,15 +367,9 @@ token=[yourToken]
 
 For more information, see [Sentry CLI configuration values](https://docs.sentry.io/product/cli/configuration/#configuration-values)
 
-## dynamic-cdn-webpack-plugin
+## CDN integration removal
 
-This entry let you pass options to the plugin `@talend/dynamic-cdn-webpack-plugin`.
+`@talend/scripts-config-react-webpack` no longer supports the `dynamic-cdn-webpack-plugin` configuration entry.
+The `@talend/dynamic-cdn-webpack-plugin` / `@talend/scripts-config-cdn` integration was removed from this package.
 
-If you want you can also pass `false` to desactivate the plugin.
-
-```json
-{
-	"preset": "@talend/scritps-preset-react",
-	"dynamic-cdn-webpack-plugin": false
-}
-```
+If your application still needs CDN-based externals, move that logic to your custom webpack configuration through the `webpack.config.*` hooks documented above.

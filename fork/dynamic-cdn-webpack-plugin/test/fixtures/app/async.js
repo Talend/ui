@@ -1,3 +1,0 @@
-import('react').then(react => {
-
-});
