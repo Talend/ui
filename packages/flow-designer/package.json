@@ -1,7 +1,7 @@
 {
   "name": "@talend/react-flow-designer",
   "description": "Flow designer for react and redux",
-  "version": "8.1.3",
+  "version": "8.1.4",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",

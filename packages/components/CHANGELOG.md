@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 18.1.4
+
+### Patch Changes
+
+- 685d45a: fix: cwe-407 update immutable
+- Updated dependencies [1de4792]
+  - @talend/icons@8.0.3
+
 ## 18.1.3
 
 ### Patch Changes
