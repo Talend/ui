@@ -1,5 +1,26 @@
 # @talend/ui-playground
 
+## 3.1.4
+
+### Patch Changes
+
+- 6ce7336: Drop `@talend/dynamic-cdn-webpack-plugin` and `@talend/scripts-config-cdn`
+
+  Both packages only served the webpack-based CDN externalization feature, which
+  is unused now that the app build was migrated off webpack. Removed:
+
+  - the `fork/dynamic-cdn-webpack-plugin` package
+  - the `tools/scripts-config-cdn` package (its only consumer)
+  - the now-dead `dynamic-cdn-webpack-plugin` config keys in
+    `talend-scripts.json` files
+
+- Updated dependencies [1de4792]
+- Updated dependencies [685d45a]
+  - @talend/icons@8.0.3
+  - @talend/react-components@18.1.4
+  - @talend/react-containers@12.1.4
+  - @talend/react-cmf@12.2.3
+
 ## 3.1.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Changelog
 
+## 8.1.4
+
+### Patch Changes
+
+- 685d45a: fix: cwe-407 update immutable
+
 ## 8.1.3
 
 ### Patch Changes
