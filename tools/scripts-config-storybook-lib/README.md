@@ -5,7 +5,7 @@ Storybook configuration utilities for Talend UI. This package provides TypeScrip
 ## Installation
 
 ```bash
-yarn add -D @talend/storybook-config
+pnpm add -D @talend/storybook-config
 ```
 
 ## Features

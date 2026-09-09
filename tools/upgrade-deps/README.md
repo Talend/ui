@@ -6,7 +6,7 @@ The binary installed in this package is `talend-upgrade-deps`.
 
 ## How to use
 
-    yarn add -D @talend/upgrade-deps
+    pnpm add -D @talend/upgrade-deps
     npm i --save-dev @talend/upgrade-deps
     talend-ugprade-deps
 

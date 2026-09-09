@@ -1,5 +1,5 @@
 import readPackageUp from 'read-pkg-up';
-import { vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import assetsApi, { Asset } from '.';
 
 const currentInfo = readPackageUp.sync({ cwd: __dirname });

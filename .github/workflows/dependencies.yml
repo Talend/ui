@@ -26,17 +26,17 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
         with:
-          NPM_TOKEN: ${{ github.token }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Upgrade dependencies
         run: |
-          yarn --frozen-lockfile --ignore-scripts
-          yarn talend-upgrade-deps --ignore-scripts
-          yarn talend-upgrade-deps --scope=@talend --latest --ignore-scripts
-          yarn talend-upgrade-deps --latest --dry > dependencies-latest.txt
+          pnpm install --frozen-lockfile --ignore-scripts
+          pnpm talend-upgrade-deps --ignore-scripts
+          pnpm talend-upgrade-deps --scope=@talend --latest --ignore-scripts
+          pnpm talend-upgrade-deps --latest --dry > dependencies-latest.txt
           git add dependencies-latest.txt
         env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 #v8.1.1

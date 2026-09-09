@@ -26,7 +26,7 @@ npm i --dev @talend/babel-plugin-import-d3
 ```
 
 ```bash
-yarn add -D @talend/babel-plugin-import-d3
+pnpm add -D @talend/babel-plugin-import-d3
 ```
 
 Configuration

@@ -1,6 +1,6 @@
 {
   "extract": {
-    "method": "yarn",
+    "method": "pnpm",
     "script": "extract-i18n",
     "target": "./i18n",
     "transform": "flatten"

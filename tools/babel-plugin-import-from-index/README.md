@@ -27,7 +27,7 @@ npm i --dev @talend/babel-plugin-import-from-index
 ```
 
 ```bash
-yarn add -D @talend/babel-plugin-import-from-index
+pnpm add -D @talend/babel-plugin-import-from-index
 ```
 
 Configuration

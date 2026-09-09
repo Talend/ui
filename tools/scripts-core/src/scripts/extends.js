@@ -7,14 +7,6 @@ import { fileURLToPath } from 'url';
 import { getUserConfigFile } from '../utils/env.js';
 
 const { template } = _;
-const jestExtendsTemplate = template(`const defaults = require('<%= presetConfigRelativePath %>');
-
-module.exports = {
-	...defaults,
-
-	// add/change default config here
-};
-`);
 
 const eslintExtendsTemplate = template(`{
   "extends": "./<%= presetConfigRelativePath %>"
@@ -73,19 +65,6 @@ function generateConfigFile({ configFileNames, defaultConfigFilePath, generateCo
 export default async function extend() {
 	const rootPath = process.cwd();
 	const nodeModulesPath = path.join(rootPath, 'node_modules');
-	generateConfigFile({
-		configFileNames: ['jest.config.js'],
-		defaultConfigFilePath: path.join(rootPath, 'jest.config.js'),
-		generateContent() {
-			const configPath = path.dirname(
-				fileURLToPath(import.meta.resolve('@talend/scripts-config-jest')),
-			);
-			const presetConfigPath = path.join(configPath, 'jest.config.js');
-			const presetConfigRelativePath = path.relative(nodeModulesPath, presetConfigPath);
-			return jestExtendsTemplate({ presetConfigRelativePath });
-		},
-	});
-
 	generateConfigFile({
 		configFileNames: ['.prettierrc.js'],
 		defaultConfigFilePath: path.join(rootPath, '.prettierrc.js'),
