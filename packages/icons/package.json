@@ -20,6 +20,7 @@
     "./dist/talend-icons-webfont.css": {
       "style": "./dist/talend-icons-webfont.css"
     },
+    "./dist/svg-bundle/*": "./dist/svg-bundle/*",
     "./src/*": {
       "import": "./src/*",
       "require": "./src/*"

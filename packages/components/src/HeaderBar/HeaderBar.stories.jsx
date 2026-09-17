@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import Immutable from 'immutable';
-import assetsApi from '@talend/assets-api';
 import tokens from '@talend/design-tokens';
+import tmcIcon from '@talend/icons/src/svg/products/tmc-negative.svg';
 import AppSwitcher from '../AppSwitcher';
 import Icon from '../Icon';
 import HeaderBar from './HeaderBar.component';
@@ -149,7 +149,7 @@ export const WithBrandIconUrl = {
 			...props,
 			brand: {
 				...props.brand,
-				iconUrl: assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons'),
+				iconUrl: tmcIcon,
 			},
 		}).toJS();
 		return <HeaderBar {...headerProps} />;

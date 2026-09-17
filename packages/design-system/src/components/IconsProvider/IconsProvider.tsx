@@ -2,17 +2,15 @@ import { ReactElement, RefObject, useEffect, useRef, useState } from 'react';
 
 import classNames from 'classnames';
 
-import assetsAPI from '@talend/assets-api';
+import allBundle from '@talend/icons/dist/svg-bundle/all.svg?url';
+import extraSmallBundle from '@talend/icons/dist/svg-bundle/XS.svg?url';
+import smallBundle from '@talend/icons/dist/svg-bundle/S.svg?url';
+import mediumBundle from '@talend/icons/dist/svg-bundle/M.svg?url';
+import largeBundle from '@talend/icons/dist/svg-bundle/L.svg?url';
 
 import style from './IconsProvider.module.css';
 
-const DEFAULT_BUNDLES = [
-	assetsAPI.getURL('/dist/svg-bundle/all.svg', '@talend/icons'),
-	assetsAPI.getURL('/dist/svg-bundle/XS.svg', '@talend/icons'),
-	assetsAPI.getURL('/dist/svg-bundle/S.svg', '@talend/icons'),
-	assetsAPI.getURL('/dist/svg-bundle/M.svg', '@talend/icons'),
-	assetsAPI.getURL('/dist/svg-bundle/L.svg', '@talend/icons'),
-];
+const DEFAULT_BUNDLES = [allBundle, extraSmallBundle, smallBundle, mediumBundle, largeBundle];
 
 const FETCHING_BUNDLES: { [url: string]: Promise<Response> } = {};
 
