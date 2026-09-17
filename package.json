@@ -69,7 +69,8 @@
     "stylelint": "^17.14.1",
     "turbo": "^2.10.7",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.11"
+    "vitest": "^4.1.11",
+    "yarn-deduplicate": "^6.0.2"
   },
   "repository": {
     "type": "git",
