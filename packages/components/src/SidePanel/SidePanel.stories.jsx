@@ -3,8 +3,8 @@ import { Component } from 'react';
 
 import { action } from 'storybook/actions';
 
-import assetsApi from '@talend/assets-api';
 import tokens from '@talend/design-tokens';
+import tmcIcon from '@talend/icons/src/svg/products/tmc-negative.svg';
 
 import Layout from '../Layout';
 import SidePanel from './SidePanel.component';
@@ -137,17 +137,15 @@ export const WithBackgroundIcon = (_, context) => (
 				onSelect={action('onItemSelect')}
 				onToggleDock={action('onToggleDock')}
 				tooltipPlacement="top"
-				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
+				backgroundIcon={tmcIcon}
 			/>
 		}
 	>
 		<article style={{ padding: 10 }}>
 			The props <strong>backgroundIcon</strong> let you support product icons. It is used as{' '}
 			<pre>mask-image: url(backgroundIcon)</pre> so you have to provide URL. For this example we
-			have used assetsApi this way:
-			<pre>
-				backgroundIcon={assetsApi.getURL('/src/svg/products/tmc-negative.svg', '@talend/icons')}
-			</pre>
+			have imported the SVG directly:
+			<pre>import tmcIcon from '@talend/icons/src/svg/products/tmc-negative.svg';</pre>
 		</article>
 	</Layout>
 );

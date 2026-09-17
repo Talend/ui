@@ -1,20 +1,3 @@
-/* eslint-disable import/no-unresolved */
-vi.mock('@talend/assets-api', async () => {
-	const fs = await import('fs');
-	const path = await import('path');
-	const mock = {
-		getJSON: async assetUrl => {
-			const filePath = path.resolve(process.cwd(), assetUrl.replace('/dist/', ''));
-			return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-		},
-		getURL: vi.fn(() => '/url'),
-	};
-	return {
-		default: mock,
-		...mock,
-	};
-});
-
 import { render } from '@testing-library/react';
 
 import GeoChart from './GeoChart.component';
@@ -53,7 +36,7 @@ describe('GeoChart component', () => {
 				{...defaultProps}
 				chartConfig={chartConfig}
 				data={[{ key: 'Occi tanié', value: 10 }]}
-			/>
+			/>,
 		);
 		expect(document.querySelectorAll('[data-key="Occi tanié"][data-value="10"]')).toHaveLength(1);
 	});
@@ -68,7 +51,7 @@ describe('GeoChart component', () => {
 					{ key: 'TX', value: 10 },
 					{ key: 'New York', value: 10 },
 				]}
-			/>
+			/>,
 		);
 
 		expect(document.querySelectorAll('[data-key="TX"]')).toHaveLength(1);

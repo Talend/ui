@@ -125,16 +125,3 @@ vi.mock('react-i18next', async () => {
 // @floating-ui/react async tasks cleanup
 // https://github.com/floating-ui/floating-ui/issues/1908
 afterAll(() => new Promise<void>(resolve => setTimeout(resolve, 0)));
-
-// Mock @talend/assets-api to avoid "Version not found" errors
-// (the babel-plugin-assets-api normally injects versions at build time)
-vi.mock('@talend/assets-api', () => {
-	const getURL = (path: string, name?: string) => `https://cdn.talend.com/${name || ''}${path}`;
-	return {
-		default: {
-			getURL,
-			addScript: vi.fn(),
-			addStyle: vi.fn(),
-		},
-	};
-});
