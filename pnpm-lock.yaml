@@ -154,6 +154,9 @@ importers:
       vitest:
         specifier: ^4.1.11
         version: 4.1.11(@types/node@25.9.5)(@vitest/coverage-v8@4.1.10)(jsdom@28.1.0(@noble/hashes@1.8.0)(supports-color@10.2.2))(msw@2.13.0(@types/node@25.9.5)(typescript@5.9.3))(vite@7.3.6(@types/node@25.9.5)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(yaml@2.9.0))
+      yarn-deduplicate:
+        specifier: ^6.0.2
+        version: 6.0.2
 
   fork/bootstrap-sass: {}
 
@@ -2025,21 +2028,6 @@ importers:
       which:
         specifier: ^2.0.2
         version: 2.0.2
-
-  tools/upgrade-deps:
-    dependencies:
-      '@yarnpkg/lockfile':
-        specifier: ^1.1.0
-        version: 1.1.0
-      semver:
-        specifier: ^7.8.5
-        version: 7.8.5
-      strip-ansi:
-        specifier: ^7.2.0
-        version: 7.2.0
-      yarn-deduplicate:
-        specifier: ^6.0.2
-        version: 6.0.2
 
 packages:
 
