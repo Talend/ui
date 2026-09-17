@@ -12,8 +12,6 @@ module.exports = {
 		[require.resolve('@babel/preset-typescript'), { allExtensions: true, isTSX: true }],
 	],
 	plugins: [
-		require.resolve('@talend/babel-plugin-import-from-index'),
-		require.resolve('@talend/babel-plugin-assets-api'),
 		require.resolve('@babel/plugin-proposal-class-properties'),
 		require.resolve('@babel/plugin-proposal-optional-chaining'),
 		require.resolve('@babel/plugin-proposal-nullish-coalescing-operator'),

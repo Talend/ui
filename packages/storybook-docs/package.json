@@ -6,7 +6,7 @@
   "module": "./lib-esm/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build:styles": "webpack --config webpack.custom.js --mode=production",
+    "build:styles": "rm -rf dist && mkdir -p dist && cp src/globalStyles.css dist/globalStyles.min.css && cp src/managerStyles.css dist/managerStyles.min.css",
     "build:lib": "talend-scripts build && npm run build:styles",
     "build:lib:esm": "talend-scripts build --esm",
     "start": "npm run storybook",
@@ -44,14 +44,8 @@
     "@types/node": "^6.14.13",
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
-    "css-loader": "^7.1.4",
-    "mini-css-extract-plugin": "^2.10.2",
-    "postcss-loader": "^8.2.1",
-    "resolve-url-loader": "^5.0.0",
     "storybook": "^10.5.5",
     "sass": "^1.102.0",
-    "sass-loader": "^14.2.1",
-    "webpack": "^5.109.2",
-    "webpack-cli": "^6.0.1"
+    "sass-loader": "^14.2.1"
   }
 }
