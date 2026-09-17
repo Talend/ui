@@ -1,11 +1,5 @@
 {
   "css": {
     "modules": false
-  },
-  "webpack": {
-    "config": {
-      "development": "./webpack.config.js",
-      "production": "./webpack.config.js"
-    }
   }
 }

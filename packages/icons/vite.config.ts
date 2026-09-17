@@ -3,6 +3,7 @@ import { resolve } from 'path';
 
 export default defineConfig({
 	build: {
+		ssr: true,
 		lib: {
 			// Multiple entry points for different exports
 			entry: {
