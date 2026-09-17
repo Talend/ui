@@ -61,7 +61,6 @@
     "@storybook/addon-a11y": "^10.5.5",
     "@storybook/addon-links": "^10.5.5",
     "@storybook/react": "^10.5.5",
-    "@svgr/webpack": "^8.1.0",
     "@testing-library/jest-dom": "^6.10.0",
     "@types/classnames": "^2.3.4",
     "@types/jest-axe": "^3.5.9",

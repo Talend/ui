@@ -53,8 +53,7 @@
   },
   "devDependencies": {
     "sass": "^1.102.0",
-    "typeface-source-sans-pro": "^1.1.13",
-    "webpack": "^5.109.2"
+    "typeface-source-sans-pro": "^1.1.13"
   },
   "dependencies": {}
 }

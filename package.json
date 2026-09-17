@@ -48,7 +48,6 @@
     "@talend/scripts-cmf": "*",
     "@talend/scripts-config-babel": "*",
     "@talend/scripts-config-prettier": "*",
-    "@talend/scripts-config-react-webpack": "*",
     "@talend/scripts-config-storybook-lib": "*",
     "@talend/scripts-config-stylelint": "*",
     "@talend/scripts-config-typescript": "*",

@@ -1,7 +1,1 @@
-{
-  "webpack": {
-    "config": {
-      "production": "./webpack.config.js"
-    }
-  }
-}
+{}
