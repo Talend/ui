@@ -1,5 +1,21 @@
 # @talend/react-components
 
+## 18.1.4
+
+### Patch Changes
+
+- 685d45a: fix: cwe-407 update immutable
+- 9b87959: chore: drop custom babel plugins
+- Updated dependencies [1de4792]
+- Updated dependencies [e52b3e1]
+- Updated dependencies [00ac57c]
+- Updated dependencies [7dbc2cd]
+- Updated dependencies [00ac57c]
+- Updated dependencies [9b87959]
+  - @talend/icons@8.0.3
+  - @talend/design-tokens@4.1.4
+  - @talend/react-a11y@4.3.4
+
 ## 18.1.3
 
 ### Patch Changes

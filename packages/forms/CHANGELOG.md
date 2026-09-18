@@ -1,5 +1,22 @@
 # @talend/react-forms
 
+## 16.1.5
+
+### Patch Changes
+
+- 9b87959: chore: drop custom babel plugins
+- Updated dependencies [1de4792]
+- Updated dependencies [e52b3e1]
+- Updated dependencies [685d45a]
+- Updated dependencies [7dbc2cd]
+- Updated dependencies [00ac57c]
+- Updated dependencies [9b87959]
+  - @talend/icons@8.0.3
+  - @talend/design-system@12.1.4
+  - @talend/design-tokens@4.1.4
+  - @talend/json-schema-form-core@2.1.4
+  - @talend/react-components@18.1.4
+
 ## 16.1.4
 
 ### Patch Changes

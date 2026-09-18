@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 2.1.4
+
+### Patch Changes
+
+- e52b3e1: chore: drop most of the webpack based plugins and old script config files.
+
 ## 2.1.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @talend/storybook-docs
 
+## 3.1.3
+
+### Patch Changes
+
+- 00ac57c: fix: add missing dev deps (`@storybook/addon-docs`, `react-use`) used by these packages
+- Updated dependencies [e52b3e1]
+  - @talend/design-tokens@4.1.4
+
 ## 3.1.2
 
 ### Patch Changes
