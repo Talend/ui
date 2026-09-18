@@ -34,7 +34,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/utils": "^3.7.2"
+    "@talend/utils": "workspace:^"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.10.0",

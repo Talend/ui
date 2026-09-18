@@ -4,10 +4,10 @@
 
 ```bash
 # remove the old @talend/scripts package
-yarn remove @talend/scripts
+pnpm remove @talend/scripts
 
 # install the new @talend/scripts-core package
-yarn add --dev @talend/scripts-core
+pnpm add --dev @talend/scripts-core
 ```
 
 # Configuration file

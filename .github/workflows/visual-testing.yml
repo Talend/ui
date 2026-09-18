@@ -36,12 +36,12 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
         with:
-          NPM_TOKEN: ${{ github.token }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install dependencies
         run: |
-          yarn --frozen-lock
-          yarn build
+          pnpm install --frozen-lockfile
+          pnpm build
 
       - name: Publish PR to DS Chromatic
         if: github.ref != 'refs/heads/master'

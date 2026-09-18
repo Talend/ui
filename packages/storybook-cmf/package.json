@@ -34,7 +34,7 @@
     }
   },
   "devDependencies": {
-    "@talend/react-cmf": "^12.2.2",
+    "@talend/react-cmf": "workspace:^",
     "@testing-library/react": "^14.3.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -46,7 +46,7 @@
     "prop-types": "^15.8.1"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^12.2.1",
+    "@talend/react-cmf": "workspace:^",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",

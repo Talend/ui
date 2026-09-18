@@ -31,7 +31,7 @@ module.exports = require('@talend/eslint-config');
 ```bash
 npm run lint
 # or
-yarn lint
+pnpm lint
 ```
 
 ### Customizing Rules

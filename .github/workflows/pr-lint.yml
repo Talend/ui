@@ -32,22 +32,22 @@ jobs:
       - name: Use Node.js
         uses: ./.github/actions/setup-node
         with:
-          NPM_TOKEN: ${{ github.token }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install
-        run: yarn install --frozen-lockfile --ignore-scripts
+        run: pnpm install --frozen-lockfile --ignore-scripts
         env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: eslint + stylelint
         continue-on-error: true
         id: eslint
         run: |
-          yarn eslint:run --concurrency=1
-          yarn stylelint:run --concurrency=1
+          pnpm eslint:run --concurrency=1
+          pnpm stylelint:run --concurrency=1
 
       - name: Merge lint
         uses: ./.github/actions/lint-merge-report
@@ -58,5 +58,5 @@ jobs:
       - name: Annotate Code Linting Results
         uses: ataylorme/eslint-annotate-action@5a8d8ab89a57679e90c32750e0f382e9d8570750 #v4.0.0
         with:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
           report-json: ./eslint-report.json
