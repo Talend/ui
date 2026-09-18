@@ -14,7 +14,7 @@
     "eslint": "eslint -o eslint-report.json --format json ."
   },
   "dependencies": {
-    "@talend/scripts-utils": "^2.8.2",
+    "@talend/scripts-utils": "workspace:^",
     "cross-spawn": "^7.0.6"
   },
   "keywords": [

@@ -44,11 +44,11 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/design-system": "^12.1.3",
-    "@talend/react-cmf": "^12.2.2",
-    "@talend/react-components": "^18.1.3",
-    "@talend/react-forms": "^16.1.4",
-    "@talend/utils": "^3.7.2",
+    "@talend/design-system": "workspace:^",
+    "@talend/react-cmf": "workspace:^",
+    "@talend/react-components": "workspace:^",
+    "@talend/react-forms": "workspace:^",
+    "@talend/utils": "workspace:^",
     "classnames": "^2.5.1",
     "immutable": "^3.8.4",
     "invariant": "^2.2.4",
@@ -59,8 +59,8 @@
     "reselect": "^2.5.4"
   },
   "devDependencies": {
-    "@talend/icons": "^8.0.2",
-    "@talend/react-storybook-cmf": "^12.1.2",
+    "@talend/icons": "workspace:^",
+    "@talend/react-storybook-cmf": "workspace:^",
     "@testing-library/jest-dom": "^6.10.0",
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.6.1",
