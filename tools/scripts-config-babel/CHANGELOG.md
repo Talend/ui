@@ -1,5 +1,11 @@
 # @talend/scripts-config-babel
 
+## 14.0.0
+
+### Major Changes
+
+- 9b87959: drop assets-api and import-lib babel plugins
+
 ## 13.10.2
 
 ### Patch Changes

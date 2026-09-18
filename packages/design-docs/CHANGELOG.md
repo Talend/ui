@@ -1,5 +1,20 @@
 # @talend/design-docs
 
+## 5.1.4
+
+### Patch Changes
+
+- e52b3e1: chore: drop most of the webpack based plugins and old script config files.
+- Updated dependencies [1de4792]
+- Updated dependencies [e52b3e1]
+- Updated dependencies [7dbc2cd]
+- Updated dependencies [00ac57c]
+- Updated dependencies [9b87959]
+  - @talend/icons@8.0.3
+  - @talend/design-system@12.1.4
+  - @talend/design-tokens@4.1.4
+  - @talend/storybook-docs@3.1.3
+
 ## 5.1.3
 
 ### Patch Changes

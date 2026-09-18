@@ -1,5 +1,13 @@
 # Changelog
 
+## 8.1.4
+
+### Patch Changes
+
+- 685d45a: fix: cwe-407 update immutable
+- Updated dependencies [e52b3e1]
+  - @talend/design-tokens@4.1.4
+
 ## 8.1.3
 
 ### Patch Changes
