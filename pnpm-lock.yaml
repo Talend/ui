@@ -104,8 +104,8 @@ importers:
         specifier: ^5.2.0
         version: 5.2.0(supports-color@10.2.2)(vite@7.3.6(@types/node@25.9.5)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(yaml@2.9.0))
       '@vitest/coverage-v8':
-        specifier: ^4.1.10
-        version: 4.1.10(vitest@4.1.11)
+        specifier: ^4.1.11
+        version: 4.1.11(vitest@4.1.11)
       baseline-browser-mapping:
         specifier: ^2.11.7
         version: 2.11.7
@@ -133,6 +133,9 @@ importers:
       i18next-scanner:
         specifier: ^4.6.0
         version: 4.6.0
+      jsdom:
+        specifier: 26.1.0
+        version: 26.1.0(supports-color@10.2.2)
       lint-staged:
         specifier: ^15.5.2
         version: 15.5.2(supports-color@10.2.2)
@@ -153,7 +156,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^4.1.11
-        version: 4.1.11(@types/node@25.9.5)(@vitest/coverage-v8@4.1.10)(jsdom@28.1.0(@noble/hashes@1.8.0)(supports-color@10.2.2))(msw@2.13.0(@types/node@25.9.5)(typescript@5.9.3))(vite@7.3.6(@types/node@25.9.5)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(yaml@2.9.0))
+        version: 4.1.11(@types/node@25.9.5)(@vitest/coverage-v8@4.1.11)(jsdom@26.1.0(supports-color@10.2.2))(msw@2.13.0(@types/node@25.9.5)(typescript@5.9.3))(vite@7.3.6(@types/node@25.9.5)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(yaml@2.9.0))
       yarn-deduplicate:
         specifier: ^6.0.2
         version: 6.0.2
@@ -1066,6 +1069,9 @@ importers:
       '@talend/icons':
         specifier: ^8.0.2
         version: link:../icons
+      '@testing-library/jest-dom':
+        specifier: ^6.10.0
+        version: 6.10.0(@testing-library/dom@10.4.1)
       '@testing-library/react':
         specifier: ^14.3.1
         version: 14.3.1(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4920,11 +4926,11 @@ packages:
     peerDependencies:
       vite: ^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
 
-  '@vitest/coverage-v8@4.1.10':
-    resolution: {integrity: sha512-IM49HmthevbgAO4anp1hwtoT9wYe59w0LR00gr+eagHE+ZJ5lK4sLPeO0ubgoJcwLk6dehU3R24N+FbEEKDc8g==}
+  '@vitest/coverage-v8@4.1.11':
+    resolution: {integrity: sha512-8MVGEFnJIcdGjcbfKmeq8z0pZHH0JlVtoVZH9Q/qwUp6wyFnEJUBMrw9DCaj+ra3vShGmhavjalMIhPNxZAUcw==}
     peerDependencies:
-      '@vitest/browser': 4.1.10
-      vitest: 4.1.10
+      '@vitest/browser': 4.1.11
+      vitest: 4.1.11
     peerDependenciesMeta:
       '@vitest/browser':
         optional: true
@@ -4949,9 +4955,6 @@ packages:
   '@vitest/pretty-format@3.2.4':
     resolution: {integrity: sha512-IVNZik8IVRJRTr9fxlitMKeJeXFFFN0JaB9PHPGQ8NKQbGpfjlTx9zO4RefN8gp7eqjNy8nyK3NZmBzOPeIxtA==}
 
-  '@vitest/pretty-format@4.1.10':
-    resolution: {integrity: sha512-W1HsjSH4MXQ9YfmmhLAoIYf1HRfekQCGngeIgcei6MP5QQGWUe0gkopdZQaVCFO+JDJMrAJGwa5pRpNpvy4P8Q==}
-
   '@vitest/pretty-format@4.1.11':
     resolution: {integrity: sha512-yiZzPbGTS9Sr/JpFl8zHrcIkAofNbFV6k21vIgQN/cY/oxZeXhJv5sc/MBJ5jFKWmWs+oJHw0UXLZjmf931+Vw==}
 
@@ -4969,9 +4972,6 @@ packages:
 
   '@vitest/utils@3.2.4':
     resolution: {integrity: sha512-fB2V0JFrQSMsCo9HiSq3Ezpdv4iYaXRG1Sx8edX3MwxfyNn83mKiGzOcH+Fkxt4MHxr3y42fQi1oeAInqgX2QA==}
-
-  '@vitest/utils@4.1.10':
-    resolution: {integrity: sha512-fy9am/HWxbaGt/Sawrp90vt6Y6jQwf1RX77cz3uwoJwJVMli/e1IEwRPnMNJ7vKfPTwo0diXifkpPvwH9v7nGA==}
 
   '@vitest/utils@4.1.11':
     resolution: {integrity: sha512-zTCVGpyFsGWBhllOyKlTw/vnr6D9qxsfSDyfbyZmTyjHw5N/VuvzHpHoQjm2ZJzn4RJgx5w4r7V0er69CmLgPQ==}
@@ -14616,10 +14616,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@4.1.10(vitest@4.1.11)':
+  '@vitest/coverage-v8@4.1.11(vitest@4.1.11)':
     dependencies:
       '@bcoe/v8-coverage': 1.0.2
-      '@vitest/utils': 4.1.10
+      '@vitest/utils': 4.1.11
       ast-v8-to-istanbul: 1.0.5
       istanbul-lib-coverage: 3.2.2
       istanbul-lib-report: 3.0.1
@@ -14628,7 +14628,7 @@ snapshots:
       obug: 2.1.4
       std-env: 4.2.0
       tinyrainbow: 3.1.1
-      vitest: 4.1.11(@types/node@25.9.5)(@vitest/coverage-v8@4.1.10)(jsdom@28.1.0(@noble/hashes@1.8.0)(supports-color@10.2.2))(msw@2.13.0(@types/node@25.9.5)(typescript@5.9.3))(vite@7.3.6(@types/node@25.9.5)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(yaml@2.9.0))
+      vitest: 4.1.11(@types/node@25.9.5)(@vitest/coverage-v8@4.1.11)(jsdom@26.1.0(supports-color@10.2.2))(msw@2.13.0(@types/node@25.9.5)(typescript@5.9.3))(vite@7.3.6(@types/node@25.9.5)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(yaml@2.9.0))
 
   '@vitest/expect@3.2.4':
     dependencies:
@@ -14660,10 +14660,6 @@ snapshots:
     dependencies:
       tinyrainbow: 2.0.0
 
-  '@vitest/pretty-format@4.1.10':
-    dependencies:
-      tinyrainbow: 3.1.1
-
   '@vitest/pretty-format@4.1.11':
     dependencies:
       tinyrainbow: 3.1.1
@@ -14691,12 +14687,6 @@ snapshots:
       '@vitest/pretty-format': 3.2.4
       loupe: 3.2.1
       tinyrainbow: 2.0.0
-
-  '@vitest/utils@4.1.10':
-    dependencies:
-      '@vitest/pretty-format': 4.1.10
-      convert-source-map: 2.0.0
-      tinyrainbow: 3.1.1
 
   '@vitest/utils@4.1.11':
     dependencies:
@@ -21810,7 +21800,7 @@ snapshots:
       terser: 5.49.0
       yaml: 2.9.0
 
-  vitest@4.1.11(@types/node@25.9.5)(@vitest/coverage-v8@4.1.10)(jsdom@28.1.0(@noble/hashes@1.8.0)(supports-color@10.2.2))(msw@2.13.0(@types/node@25.9.5)(typescript@5.9.3))(vite@7.3.6(@types/node@25.9.5)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(yaml@2.9.0)):
+  vitest@4.1.11(@types/node@25.9.5)(@vitest/coverage-v8@4.1.11)(jsdom@26.1.0(supports-color@10.2.2))(msw@2.13.0(@types/node@25.9.5)(typescript@5.9.3))(vite@7.3.6(@types/node@25.9.5)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(yaml@2.9.0)):
     dependencies:
       '@vitest/expect': 4.1.11
       '@vitest/mocker': 4.1.11(msw@2.13.0(@types/node@25.9.5)(typescript@5.9.3))(vite@7.3.6(@types/node@25.9.5)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(yaml@2.9.0))
@@ -21834,8 +21824,8 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 25.9.5
-      '@vitest/coverage-v8': 4.1.10(vitest@4.1.11)
-      jsdom: 28.1.0(@noble/hashes@1.8.0)(supports-color@10.2.2)
+      '@vitest/coverage-v8': 4.1.11(vitest@4.1.11)
+      jsdom: 26.1.0(supports-color@10.2.2)
     transitivePeerDependencies:
       - msw
 

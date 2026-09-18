@@ -55,6 +55,7 @@
     "@storybook/react": "^10.5.5",
     "@storybook/react-vite": "^10.5.5",
     "@storybook/addon-a11y": "^10.5.5",
+    "@testing-library/jest-dom": "^6.10.0",
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.6.1",
     "@talend/design-system": "^12.1.3",
