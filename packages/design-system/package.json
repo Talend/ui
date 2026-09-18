@@ -58,6 +58,7 @@
     "@talend/icons": "^8.0.2",
     "@talend/storybook-docs": "^3.1.2",
     "@storybook/addon-a11y": "^10.5.5",
+    "@storybook/addon-docs": "^10.5.5",
     "@storybook/addon-links": "^10.5.5",
     "@storybook/react": "^10.5.5",
     "@testing-library/jest-dom": "^6.10.0",
