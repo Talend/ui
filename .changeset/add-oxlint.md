@@ -22,7 +22,6 @@
 "@talend/react-stepper": patch
 "@talend/react-storybook-cmf": patch
 "@talend/storybook-docs": patch
-"@talend/ui-storybook-one": patch
 "@talend/bootstrap-theme": patch
 "@talend/utils": patch
 "@talend/eslint-plugin": patch
