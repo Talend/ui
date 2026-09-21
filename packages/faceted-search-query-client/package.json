@@ -21,7 +21,7 @@
     "vitest:run": "vitest run",
     "test:watch": "vitest --watch",
     "vitest:cov": "vitest run --coverage",
-    "eslint": "eslint -o eslint-report.json --format json .",
+    "oxlint:run": "oxlint --format=json > oxlint-report.json",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "vitest:update": "vitest run --update"
   },

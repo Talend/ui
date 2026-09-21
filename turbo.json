@@ -37,9 +37,9 @@
       "dependsOn": ["^build:lib:esm"],
       "outputs": ["lib-esm/**"]
     },
-    "eslint:run": {
-      "dependsOn": ["^eslint:run"],
-      "outputs": ["eslint-report.json"]
+    "oxlint:run": {
+      "dependsOn": ["^oxlint:run"],
+      "outputs": ["oxlint-report.json"]
     },
     "stylelint:run": {
       "dependsOn": ["^stylelint:run"],

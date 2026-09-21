@@ -8,7 +8,7 @@
     "storybook:build": "storybook build",
     "build-storybook": "storybook build",
     "start-storybook": "storybook dev",
-    "eslint": "eslint -o eslint-report.json --format json .",
+    "oxlint:run": "oxlint --format=json > oxlint-report.json",
     "start": "storybook dev"
   },
   "repository": {

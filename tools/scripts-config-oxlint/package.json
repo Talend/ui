@@ -1,0 +1,26 @@
+{
+  "name": "@talend/scripts-config-oxlint",
+  "description": "Oxlint configuration for @talend/scripts-core",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "main": "index.mjs",
+  "author": "Talend Frontend <frontend@talend.com>",
+  "homepage": "https://github.com/Talend/ui/tree/master/packages/ui-scripts#readme",
+  "bugs": {
+    "url": "https://github.com/Talend/ui/issues"
+  },
+  "scripts": {
+    "oxlint:run": "oxlint --format=json > oxlint-report.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Talend/ui.git"
+  },
+  "dependencies": {
+    "@talend/eslint-plugin": "workspace:^"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  }
+}

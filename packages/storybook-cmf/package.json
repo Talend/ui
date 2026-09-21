@@ -20,9 +20,9 @@
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
     "vitest:run": "vitest run",
-    "eslint": "eslint -o eslint-report.json --format json .",
     "vitest:update": "vitest run --update",
-    "vitest:cov": "vitest run --coverage"
+    "vitest:cov": "vitest run --coverage",
+    "oxlint:run": "oxlint --format=json > oxlint-report.json"
   },
   "main": "lib/index.js",
   "mainSrc": "src/index.js",

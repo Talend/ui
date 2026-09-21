@@ -11,7 +11,7 @@ if (!baseBranch || !headBranch) {
 	process.exit(1);
 }
 
-const reports = ['eslint-report.json', 'stylelint-report.json'];
+const reports = ['stylelint-report.json', 'oxlint-report.json'];
 
 function getPackageDirs() {
 	const configPath = path.join(process.cwd(), 'talend-scripts.json');
@@ -51,6 +51,29 @@ function transform(item) {
 		item.errorCount = 0;
 	}
 	return item;
+}
+
+// oxlint's `--format=json` output is `{ diagnostics: [...] }` with paths relative to the package dir,
+// unlike eslint/stylelint's array-of-per-file-items format with absolute paths.
+function oxlintToEslintFormat(parsed, pkgLocation) {
+	const byFile = new Map();
+	for (const diagnostic of parsed.diagnostics ?? []) {
+		const filePath = path.resolve(pkgLocation, diagnostic.filename);
+		if (!byFile.has(filePath)) {
+			byFile.set(filePath, { filePath, messages: [], errorCount: 0, warningCount: 0 });
+		}
+		const item = byFile.get(filePath);
+		const span = diagnostic.labels?.[0]?.span;
+		item.messages.push({
+			ruleId: diagnostic.code,
+			severity: 1,
+			message: diagnostic.message,
+			line: span?.line,
+			column: span?.column,
+		});
+		item.warningCount += 1;
+	}
+	return Array.from(byFile.values());
 }
 
 function runGitDiff(base, head) {
@@ -96,8 +119,12 @@ for (const pkg of packages) {
 		const fpath = `${pkg.location}/${report}`;
 		if (fs.existsSync(fpath)) {
 			try {
-				const items = JSON.parse(fs.readFileSync(fpath, 'utf-8'));
-				buff.push(...items.map(transform).filter(onlyIfInDiff));
+				const parsed = JSON.parse(fs.readFileSync(fpath, 'utf-8'));
+				const items =
+					report === 'oxlint-report.json'
+						? oxlintToEslintFormat(parsed, pkg.location)
+						: parsed.map(transform);
+				buff.push(...items.filter(onlyIfInDiff));
 			} catch (e) {
 				console.error(`Failed to read ${fpath}:`, e.message);
 			}

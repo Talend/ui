@@ -12,7 +12,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "eslint": "eslint -o eslint-report.json --format json ."
+    "oxlint:run": "oxlint --format=json > oxlint-report.json"
   },
   "license": "Apache-2.0",
   "publishConfig": {

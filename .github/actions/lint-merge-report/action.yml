@@ -1,5 +1,5 @@
 name: 'Lint merge report'
-description: 'Merge eslint and stylelint reports filtered by git diff'
+description: 'Merge stylelint and oxlint reports filtered by git diff'
 author: 'Talend'
 inputs:
   base-branch:

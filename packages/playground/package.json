@@ -9,8 +9,7 @@
     "start": "vite dev",
     "build": "vite build && cmf-settings",
     "build:settings": "cmf-settings",
-    "start-dist": "node serve-dist.mjs",
-    "lint": "eslint -o eslint-report.json --format json ."
+    "start-dist": "node serve-dist.mjs"
   },
   "repository": {
     "type": "git",
@@ -23,15 +22,12 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@talend/eslint-config": "workspace:^",
-    "@talend/eslint-plugin": "workspace:^",
     "@talend/scripts-config-babel": "workspace:^",
     "@talend/scripts-config-stylelint": "workspace:^",
     "@talend/scripts-core": "workspace:^",
     "@vitejs/plugin-react": "^4.7.0",
     "cross-env": "^10.1.0",
     "esbuild-plugin-react-virtualized": "^1.0.6",
-    "eslint": "^10.0.3",
     "i18next-http-backend": "^1.4.5",
     "mockjs": "^1.1.0",
     "sass": "^1.102.0",
