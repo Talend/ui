@@ -130,6 +130,9 @@ importers:
       eslint-plugin-prettier:
         specifier: ^5.5.6
         version: 5.5.6(eslint-config-prettier@10.1.8(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2)))(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(prettier@3.9.6)
+      globals:
+        specifier: ^17.2.0
+        version: 17.12.0
       husky:
         specifier: ^8.0.3
         version: 8.0.3
@@ -198,8 +201,8 @@ importers:
         version: 7.8.5
     devDependencies:
       globals:
-        specifier: ^15.15.0
-        version: 15.15.0
+        specifier: ^17.2.0
+        version: 17.12.0
 
   fork/react-bootstrap:
     dependencies:
@@ -1775,6 +1778,9 @@ importers:
 
   tools/eslint-plugin:
     dependencies:
+      globals:
+        specifier: ^17.12.0
+        version: 17.12.0
       requireindex:
         specifier: ^1.2.0
         version: 1.2.0
@@ -1840,8 +1846,8 @@ importers:
         version: 0.10.0
     devDependencies:
       globals:
-        specifier: ^15.15.0
-        version: 15.15.0
+        specifier: ^17.2.0
+        version: 17.12.0
 
   tools/scripts-config-eslint:
     dependencies:
@@ -1888,8 +1894,8 @@ importers:
         specifier: ^7.16.2
         version: 7.16.2(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@5.9.3)
       globals:
-        specifier: ^15.15.0
-        version: 15.15.0
+        specifier: ^17.2.0
+        version: 17.12.0
       typescript-eslint:
         specifier: ^8.65.0
         version: 8.65.0(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@5.9.3)
@@ -7126,8 +7132,8 @@ packages:
     resolution: {integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==}
     engines: {node: '>=4'}
 
-  globals@15.15.0:
-    resolution: {integrity: sha512-7ACyT3wmyp3I61S4fG682L0VA2RGD9otkqGJIwNUMF1SWUombIIk+af1unuDYgMm082aHYwD+mzJvv9Iu8dsgg==}
+  globals@17.12.0:
+    resolution: {integrity: sha512-cezEd/DTyyht9cvSSURyygXPfy04GtWO/5e6ZPvH7fCtjKz9PYOmuawphw1Ctd1f6C+5JypXfGD7ahNMXvevBA==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -17218,7 +17224,7 @@ snapshots:
 
   globals@11.12.0: {}
 
-  globals@15.15.0: {}
+  globals@17.12.0: {}
 
   globalthis@1.0.4:
     dependencies:
