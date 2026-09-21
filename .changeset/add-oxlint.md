@@ -10,7 +10,6 @@
 "@talend/react-components": patch
 "@talend/react-containers": patch
 "@talend/react-dataviz": patch
-"@talend/design-docs": patch
 "@talend/design-system": patch
 "@talend/design-tokens": patch
 "@talend/react-faceted-search-query-client": patch
