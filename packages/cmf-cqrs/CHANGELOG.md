@@ -1,5 +1,15 @@
 # @talend/react-cmf-cqrs
 
+## 12.1.3
+
+### Patch Changes
+
+- 685d45a: fix: cwe-407 update immutable
+- 00ac57c: fix: add missing `@testing-library/jest-dom` devDependency used by tests
+- Updated dependencies [685d45a]
+- Updated dependencies [00ac57c]
+  - @talend/react-cmf@12.2.3
+
 ## 12.1.2
 
 ### Patch Changes

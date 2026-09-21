@@ -1,5 +1,11 @@
 # @talend/http
 
+## 4.2.2
+
+### Patch Changes
+
+- ce6a03c: Remove the orphaned `jest` config block from `package.json` (dead config left over after tests moved off this in-package jest setup).
+
 ## 4.2.1
 
 ### Patch Changes

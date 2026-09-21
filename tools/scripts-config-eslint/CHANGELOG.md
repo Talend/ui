@@ -1,5 +1,20 @@
 # @talend/scripts-config-eslint
 
+## 14.2.0
+
+### Minor Changes
+
+- 661d925: Remove the `@talend/import-depth` rule
+
+  The rule was tied to the UMD/CDN build constraints which are no longer relevant.
+  It is removed from the plugin and from the shared eslint config, along with the
+  now useless `eslint-disable` directives across the repository.
+
+### Patch Changes
+
+- Updated dependencies [661d925]
+  - @talend/eslint-plugin@2.0.0
+
 ## 14.1.4
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @talend/react-stepper
 
+## 13.1.3
+
+### Patch Changes
+
+- 685d45a: fix: cwe-407 update immutable
+- Updated dependencies [e52b3e1]
+- Updated dependencies [685d45a]
+- Updated dependencies [ce6a03c]
+- Updated dependencies [00ac57c]
+- Updated dependencies [9b87959]
+  - @talend/design-system@12.1.4
+  - @talend/design-tokens@4.1.4
+  - @talend/react-components@18.1.4
+
 ## 13.1.2
 
 ### Patch Changes

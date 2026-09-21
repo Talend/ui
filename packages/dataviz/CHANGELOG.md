@@ -1,5 +1,17 @@
 # Changelog
 
+## 8.1.4
+
+### Patch Changes
+
+- 9b87959: chore: drop custom babel plugins
+- Updated dependencies [e52b3e1]
+- Updated dependencies [685d45a]
+- Updated dependencies [ce6a03c]
+- Updated dependencies [9b87959]
+  - @talend/design-tokens@4.1.4
+  - @talend/react-components@18.1.4
+
 ## 8.1.3
 
 ### Patch Changes
