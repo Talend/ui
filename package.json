@@ -33,7 +33,7 @@
     "@babel/preset-env": "^7.29.7",
     "@babel/preset-react": "^7.29.7",
     "@babel/preset-typescript": "^7.29.7",
-    "@changesets/cli": "^2.31.1",
+    "@changesets/cli": "^3.0.3",
     "@eslint/js": "^9.39.5",
     "@talend/eslint-config": "workspace:^",
     "@talend/eslint-plugin": "workspace:^",

@@ -11,10 +11,11 @@ permissions:
   pull-requests: write
   statuses: write
   packages: write
+  id-token: write
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
-  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  group: '${{ github.workflow }} @ master'
   cancel-in-progress: true
 
 jobs:
@@ -66,9 +67,10 @@ jobs:
         uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 #v2.1.2
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: pnpm release
-          commit: "chore: prepare release"
-          title: "chore: prepare release"
+          publish-script: pnpm release
+          commit-message: "chore: prepare release"
+          pr-title: "chore: prepare release"
+          github-token: ${{ secrets.CHANGESET_GITHUB_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESET_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
