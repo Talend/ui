@@ -17,8 +17,11 @@
     "type": "git",
     "url": "https://github.com/Talend/ui.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@talend/eslint-plugin": "workspace:^"
+  },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   }
 }

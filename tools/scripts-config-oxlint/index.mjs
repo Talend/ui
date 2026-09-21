@@ -1,5 +1,6 @@
 export default {
 	plugins: ['eslint', 'typescript', 'unicorn', 'oxc', 'react', 'jsx-a11y', 'import', 'vitest'],
+	jsPlugins: [{ name: 'talend', specifier: '@talend/eslint-plugin' }],
 	env: {
 		browser: true,
 		node: true,
@@ -18,6 +19,9 @@ export default {
 		'storybook-static/**',
 		'**/*.d.ts',
 	],
+	rules: {
+		'talend/use-bootstrap-class': 'warn',
+	},
 	overrides: [
 		{
 			files: ['*.test.ts', '*.test.tsx', '*.spec.ts', '*.spec.tsx'],
