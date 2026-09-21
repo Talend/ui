@@ -1,5 +1,4 @@
 ---
-"@talend/design-docs": patch
 "@talend/design-system": patch
 "@talend/design-tokens": patch
 "@talend/icons": patch
