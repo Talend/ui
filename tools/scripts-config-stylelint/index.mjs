@@ -12,6 +12,10 @@ export default {
 		'declaration-no-important': true,
 		'function-calc-no-unspaced-operator': true,
 		'max-nesting-depth': 5,
+		'selector-pseudo-class-no-unknown': [
+			true,
+			{ "ignorePseudoClasses": ["global"] }
+		],
 		'selector-class-pattern': ['^(?!_).*$', { resolveNestedSelectors: true }],
 		'selector-id-pattern': '^(?!_).*$',
 		'selector-max-compound-selectors': null,
