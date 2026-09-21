@@ -17,7 +17,6 @@
     "build:lib:esm": "talend-scripts build --esm",
     "build-storybook": "storybook build",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "eslint:run": "eslint -o eslint-report.json --format json .",
     "oxlint:run": "oxlint --format=json > oxlint-report.json",
     "stylelint:run": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
     "start": "storybook dev -p 6006",

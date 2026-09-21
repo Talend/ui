@@ -23,7 +23,6 @@
     "vitest:update": "vitest run --update",
     "test:watch": "vitest --watch",
     "vitest:cov": "vitest run --coverage",
-    "eslint:run": "eslint -o eslint-report.json --format json .",
     "oxlint:run": "oxlint --format=json > oxlint-report.json"
   },
   "keywords": [

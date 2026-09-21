@@ -11,7 +11,7 @@ if (!baseBranch || !headBranch) {
 	process.exit(1);
 }
 
-const reports = ['eslint-report.json', 'stylelint-report.json', 'oxlint-report.json'];
+const reports = ['stylelint-report.json', 'oxlint-report.json'];
 
 function getPackageDirs() {
 	const configPath = path.join(process.cwd(), 'talend-scripts.json');

@@ -13,7 +13,6 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "eslint:run": "eslint -o eslint-report.json --format json .",
     "oxlint:run": "oxlint --format=json > oxlint-report.json",
     "vitest:cov": "vitest run --coverage",
     "vitest:run": "vitest run",

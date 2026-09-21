@@ -7,7 +7,6 @@
   "scripts": {
     "build-storybook": "storybook build --docs",
     "start-storybook": "storybook dev -p 6006 --docs",
-    "eslint:run": "eslint -o eslint-report.json --format json .",
     "oxlint:run": "oxlint --format=json > oxlint-report.json",
     "stylelint:run": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
     "start": "storybook dev -p 6006 --docs",

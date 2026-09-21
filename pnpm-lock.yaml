@@ -46,15 +46,6 @@ importers:
       '@changesets/cli':
         specifier: ^3.0.3
         version: 3.0.3
-      '@eslint/js':
-        specifier: ^9.39.5
-        version: 9.39.5
-      '@talend/eslint-config':
-        specifier: workspace:^
-        version: link:tools/scripts-config-eslint
-      '@talend/eslint-plugin':
-        specifier: workspace:^
-        version: link:tools/eslint-plugin
       '@talend/locales-design-system':
         specifier: ^7.15.1
         version: 7.15.1
@@ -121,18 +112,6 @@ importers:
       cross-spawn:
         specifier: ^7.0.6
         version: 7.0.6
-      eslint:
-        specifier: ^10.8.0
-        version: 10.9.1(jiti@2.7.0)(supports-color@10.2.2)
-      eslint-config-prettier:
-        specifier: ^10.1.8
-        version: 10.1.8(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))
-      eslint-plugin-prettier:
-        specifier: ^5.5.6
-        version: 5.5.6(eslint-config-prettier@10.1.8(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2)))(eslint@10.9.1(jiti@2.7.0)(supports-color@10.2.2))(prettier@3.9.6)
-      globals:
-        specifier: ^17.2.0
-        version: 17.12.0
       husky:
         specifier: ^8.0.3
         version: 8.0.3
@@ -199,10 +178,6 @@ importers:
       semver:
         specifier: ^7.8.5
         version: 7.8.5
-    devDependencies:
-      globals:
-        specifier: ^17.2.0
-        version: 17.12.0
 
   fork/react-bootstrap:
     dependencies:
@@ -1426,12 +1401,6 @@ importers:
         specifier: ^3.0.6
         version: 3.0.6
     devDependencies:
-      '@talend/eslint-config':
-        specifier: workspace:^
-        version: link:../../tools/scripts-config-eslint
-      '@talend/eslint-plugin':
-        specifier: workspace:^
-        version: link:../../tools/eslint-plugin
       '@talend/scripts-config-babel':
         specifier: workspace:^
         version: link:../../tools/scripts-config-babel
@@ -1450,9 +1419,6 @@ importers:
       esbuild-plugin-react-virtualized:
         specifier: ^1.0.6
         version: 1.0.6(esbuild@0.28.1)
-      eslint:
-        specifier: ^10.0.3
-        version: 10.9.1(jiti@2.7.0)(supports-color@10.2.2)
       i18next-http-backend:
         specifier: ^1.4.5
         version: 1.4.5(encoding@0.1.13)
@@ -1778,9 +1744,6 @@ importers:
 
   tools/eslint-plugin:
     dependencies:
-      globals:
-        specifier: ^17.12.0
-        version: 17.12.0
       requireindex:
         specifier: ^1.2.0
         version: 1.2.0
@@ -1844,10 +1807,6 @@ importers:
       babel-plugin-angularjs-annotate:
         specifier: ^0.10.0
         version: 0.10.0
-    devDependencies:
-      globals:
-        specifier: ^17.2.0
-        version: 17.12.0
 
   tools/scripts-config-eslint:
     dependencies:

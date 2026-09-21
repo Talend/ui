@@ -42,10 +42,6 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: eslint
-        continue-on-error: true
-        run: |
-          pnpm eslint:run --concurrency=1
       - name: stylelint
         continue-on-error: true
         run: |

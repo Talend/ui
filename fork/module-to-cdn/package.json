@@ -22,7 +22,6 @@
     "vitest:cov": "vitest run --coverage index.test.js",
     "vitest:update": "vitest run --update index.test.js",
     "test:cron": "vitest run modules.test.js",
-    "eslint:run": "eslint -o eslint-report.json --format json .",
     "oxlint:run": "oxlint --format=json > oxlint-report.json"
   },
   "files": [
@@ -38,9 +37,6 @@
   "dependencies": {
     "mkdirp": "^1.0.4",
     "semver": "^7.8.5"
-  },
-  "devDependencies": {
-    "globals": "^17.2.0"
   },
   "publishConfig": {
     "access": "public"

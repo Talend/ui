@@ -10,7 +10,6 @@
     "cmf-settings": "./cmf-settings.js"
   },
   "scripts": {
-    "eslint:run": "eslint -o eslint-report.json --format json .",
     "oxlint:run": "oxlint --format=json > oxlint-report.json"
   },
   "dependencies": {

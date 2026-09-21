@@ -31,7 +31,6 @@
     "build:lib": "talend-scripts build && npm run build:css",
     "build:lib:esm": "talend-scripts build --esm",
     "build:css": "sass src/index.scss dist/TalendDesignTokens.css --no-source-map --style=compressed",
-    "eslint:run": "eslint -o eslint-report.json --format json .",
     "oxlint:run": "oxlint --format=json > oxlint-report.json"
   },
   "keywords": [

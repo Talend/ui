@@ -7,7 +7,6 @@
   "scripts": {
     "build:lib": "webpack",
     "start": "webpack serve --mode=development",
-    "eslint:run": "eslint -o eslint-report.json --format json .",
     "oxlint:run": "oxlint --format=json > oxlint-report.json",
     "stylelint:run": "stylelint --config .stylelintrc.js --formatter json -o stylelint-report.json 'src/**/*.{css,scss}'"
   },
