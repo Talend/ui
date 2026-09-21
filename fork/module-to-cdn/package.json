@@ -22,7 +22,7 @@
     "vitest:cov": "vitest run --coverage index.test.js",
     "vitest:update": "vitest run --update index.test.js",
     "test:cron": "vitest run modules.test.js",
-    "eslint": "eslint -o eslint-report.json --format json .",
+    "eslint:run": "eslint -o eslint-report.json --format json .",
     "oxlint:run": "oxlint --format=json > oxlint-report.json"
   },
   "files": [
