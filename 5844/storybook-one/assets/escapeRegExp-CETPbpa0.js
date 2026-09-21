@@ -1,1 +1,0 @@
-import{aD as x,Y as c}from"./iframe-DOVc7DCP.js";var r,p;function s(){if(p)return r;p=1;var E=x(),a=/[\\^$.*+?()[\]{}|]/g,o=RegExp(a.source);function t(e){return e=E(e),e&&o.test(e)?e.replace(a,"\\$&"):e}return r=t,r}var u=s();const g=c(u);export{g as e};
