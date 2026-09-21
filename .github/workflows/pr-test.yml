@@ -31,16 +31,16 @@ jobs:
           NPM_TOKEN: ${{ github.token }}
 
       - name: Install
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Test
         run: |
-          yarn vitest:cov --concurrency=1
+          pnpm vitest:cov --concurrency=1
 
       - name: Jest Coverage Comment
         uses: MishaKav/jest-coverage-comment@642ef024cc554a34b7082cea12c7bf63575ae151 #1.0.36

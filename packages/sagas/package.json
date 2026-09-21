@@ -40,7 +40,7 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-cmf": "^12.2.2",
+    "@talend/react-cmf": "workspace:^",
     "immutable": "^3.8.4",
     "redux-saga": "^1.5.1"
   },

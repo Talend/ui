@@ -1,0 +1,27 @@
+packages:
+  - 'packages/*'
+  - 'tools/*'
+  - 'fork/*'
+linkWorkspacePackages: true
+overrides:
+  ace-builds: 1.10.1
+  '@types/react': ^18.2.7
+  '@types/react-dom': ^18.2.7
+  vinyl-fs>glob-parent: ^5.1.2
+  fast-glob>glob-parent: ^5.1.2
+  trim: ^1.0.1
+  x-default-browser: ^0.5.2
+  reactour>prop-types: ^15.7.2
+  qs: '>=6.14.1'
+  tar: '>=7.5.4'
+  minimist: ^1.2.5
+allowBuilds:
+  '@parcel/watcher': false
+  '@sentry/cli': false
+  core-js: false
+  core-js-bundle: false
+  es5-ext: false
+  esbuild: true
+  msw: true
+  ttf2woff2: false
+minimumReleaseAgeExcludePrune: true

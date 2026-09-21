@@ -33,13 +33,13 @@ jobs:
         working-directory: ./
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Build Demo
-        run: yarn storybook:build
+        run: pnpm storybook:build
 
       - name: Checkout demo branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
@@ -78,7 +78,7 @@ jobs:
           branch: gh-pages
 
       - name: Find Comment
-        uses: peter-evans/find-comment@v4
+        uses: peter-evans/find-comment@b30e6a3c0ed37e7c023ccd3f1db5c6c0b0c23aad #v4.0.0
         id: fc
         with:
           issue-number: ${{ github.event.number }}
