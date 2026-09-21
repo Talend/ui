@@ -16,9 +16,9 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "build:lib:esm": "talend-scripts build --esm",
+    "build:lib:esm": "tsdown --unbundle --format es -d lib-esm",
     "build-storybook": "storybook build",
-    "build:lib": "talend-scripts build",
+    "build:lib": "tsdown --unbundle --format cjs -d lib",
     "vitest:run": "cross-env TZ=UTC vitest run",
     "test:watch": "cross-env TZ=UTC vitest",
     "vitest:cov": "cross-env TZ=UTC vitest run --coverage",

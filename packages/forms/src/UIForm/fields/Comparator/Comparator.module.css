@@ -1,17 +1,21 @@
 .comparator {
 	position: relative;
 }
-.comparator :global .dropdown {
+
+.comparator :global(.dropdown) {
 	position: absolute;
 	top: calc(1.05rem + var(--coral-spacing-xxs, 0.25rem));
 }
-.comparator :global .dropdown-menu {
+
+.comparator :global(.dropdown-menu) {
 	min-width: auto;
 }
-.comparator :global .dropdown .tc-svg-icon {
+
+.comparator :global(.dropdown) :global(.tc-svg-icon) {
 	flex-shrink: 0;
 }
-.comparator :global .dropdown .btn {
+
+.comparator :global(.dropdown) :global(.btn) {
 	height: 1.875rem;
 	width: 3.125rem;
 	color: var(--coral-color-neutral-text, hsl(0, 0%, 13%));
@@ -22,13 +26,15 @@
 	padding-left: var(--coral-spacing-xxs, 0.25rem);
 	padding-right: var(--coral-spacing-xxs, 0.25rem);
 }
-.comparator :global input {
+
+.comparator input {
 	padding-left: calc(3.125rem + var(--coral-spacing-xs, 0.5rem));
 }
 
 .operator.selected {
 	font-weight: bold;
 }
+
 .operator .symbol + .name {
 	padding-left: 0.625rem;
 }
