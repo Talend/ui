@@ -1,1 +1,0 @@
-import{bx as b,bc as o,by as u}from"./iframe-MrVOqZw3.js";var i,e;function f(){if(e)return i;e=1;var t=b(),s=o(),n=u(),a="[object String]";function g(r){return typeof r=="string"||!s(r)&&n(r)&&t(r)==a}return i=g,i}export{f as r};
