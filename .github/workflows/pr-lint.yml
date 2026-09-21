@@ -42,12 +42,18 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: eslint + stylelint + oxlint
+      - name: eslint
         continue-on-error: true
-        id: eslint
         run: |
           pnpm eslint:run --concurrency=1
+      - name: stylelint
+        continue-on-error: true
+        run: |
           pnpm stylelint:run --concurrency=1
+
+      - name: oxlint
+        continue-on-error: true
+        run: |
           pnpm oxlint:run --concurrency=1
 
       - name: Merge lint
