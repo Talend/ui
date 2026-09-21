@@ -1,5 +1,14 @@
 # @talend/react-sagas
 
+## 10.1.4
+
+### Patch Changes
+
+- 685d45a: fix: cwe-407 update immutable
+- Updated dependencies [685d45a]
+- Updated dependencies [00ac57c]
+  - @talend/react-cmf@12.2.3
+
 ## 10.1.3
 
 ### Patch Changes

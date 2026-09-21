@@ -1,5 +1,13 @@
 # Changelog
 
+## 22.1.4
+
+### Patch Changes
+
+- 00ac57c: fix: add missing `@testing-library/jest-dom` devDependency used by tests
+- Updated dependencies [e52b3e1]
+  - @talend/design-tokens@4.1.4
+
 ## 22.1.3
 
 ### Patch Changes

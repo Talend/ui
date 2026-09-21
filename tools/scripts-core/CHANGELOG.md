@@ -1,5 +1,23 @@
 # @talend/scripts-core
 
+## 21.0.0
+
+### Major Changes
+
+- 0363133: feat: drop build of app which was using webpack
+
+### Minor Changes
+
+- ce6a03c: Declare `@talend/scripts-config-prettier` and `@talend/scripts-config-stylelint` as real dependencies instead of phantom deps that only resolved because yarn's flat hoist happened to expose them (pnpm's isolated linker doesn't hoist, so they'd otherwise be missing). Also drop the `extends` command's jest-config-file generation, which relied on `@talend/scripts-config-jest` and is no longer relevant now that jest is being phased out.
+
+### Patch Changes
+
+- Updated dependencies [661d925]
+- Updated dependencies [9b87959]
+  - @talend/eslint-plugin@2.0.0
+  - @talend/eslint-config@14.2.0
+  - @talend/scripts-config-babel@14.0.0
+
 ## 20.0.1
 
 ### Patch Changes
