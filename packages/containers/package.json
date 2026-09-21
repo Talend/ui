@@ -24,6 +24,7 @@
     "vitest:cov": "vitest run --coverage",
     "storybook:build": "storybook build",
     "eslint:run": "eslint -o eslint-report.json --format json .",
+    "oxlint:run": "oxlint --format=json > oxlint-report.json",
     "stylelint:run": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
     "vitest:update": "vitest run --update"

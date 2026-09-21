@@ -41,6 +41,10 @@
       "dependsOn": ["^eslint:run"],
       "outputs": ["eslint-report.json"]
     },
+    "oxlint:run": {
+      "dependsOn": ["^oxlint:run"],
+      "outputs": ["oxlint-report.json"]
+    },
     "stylelint:run": {
       "dependsOn": ["^stylelint:run"],
       "outputs": ["stylelint-report.json"]

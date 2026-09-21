@@ -42,12 +42,13 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: eslint + stylelint
+      - name: eslint + stylelint + oxlint
         continue-on-error: true
         id: eslint
         run: |
           pnpm eslint:run --concurrency=1
           pnpm stylelint:run --concurrency=1
+          pnpm oxlint:run --concurrency=1
 
       - name: Merge lint
         uses: ./.github/actions/lint-merge-report

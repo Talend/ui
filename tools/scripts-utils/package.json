@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "eslint": "eslint -o eslint-report.json --format json .",
+    "oxlint:run": "oxlint --format=json > oxlint-report.json",
     "vitest:run": "vitest run",
     "vitest:cov": "vitest run --coverage",
     "vitest:update": "vitest run --update"

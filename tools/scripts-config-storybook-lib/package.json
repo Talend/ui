@@ -29,6 +29,7 @@
     "build:lib": "tsc",
     "build:watch": "tsc --watch",
     "eslint": "eslint -o eslint-report.json --format json .",
+    "oxlint:run": "oxlint --format=json > oxlint-report.json",
     "update:msw": "npx msw init public/msw --save"
   },
   "files": [

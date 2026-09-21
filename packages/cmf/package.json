@@ -23,7 +23,8 @@
     "vitest:update": "vitest run --update",
     "test:watch": "vitest --watch",
     "vitest:cov": "vitest run --coverage",
-    "eslint": "eslint -o eslint-report.json --format json ."
+    "eslint": "eslint -o eslint-report.json --format json .",
+    "oxlint:run": "oxlint --format=json > oxlint-report.json"
   },
   "keywords": [
     "react",

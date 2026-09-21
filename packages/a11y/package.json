@@ -17,6 +17,7 @@
     "build:lib:esm": "talend-scripts build --esm",
     "vitest:run": "vitest run",
     "eslint": "eslint -o eslint-report.json --format json .",
+    "oxlint:run": "oxlint --format=json > oxlint-report.json",
     "vitest:update": "vitest run --update",
     "vitest:cov": "vitest run --coverage"
   },

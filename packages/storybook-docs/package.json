@@ -11,6 +11,7 @@
     "build:lib:esm": "talend-scripts build --esm",
     "start": "npm run storybook",
     "eslint:run": "eslint -o eslint-report.json --format json .",
+    "oxlint:run": "oxlint --format=json > oxlint-report.json",
     "stylelint:run": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
     "storybook": "storybook dev -p 6106",
     "build-storybook": "storybook build --docs"
