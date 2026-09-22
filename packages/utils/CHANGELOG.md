@@ -1,5 +1,11 @@
 # @talend/utils
 
+## 3.7.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
 ## 3.7.2
 
 ### Patch Changes

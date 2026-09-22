@@ -1,5 +1,11 @@
 # @talend/scripts-config-prettier
 
+## 12.7.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
 ## 12.7.2
 
 ### Patch Changes

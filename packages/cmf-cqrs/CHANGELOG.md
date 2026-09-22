@@ -1,5 +1,14 @@
 # @talend/react-cmf-cqrs
 
+## 12.1.4
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/react-cmf@12.2.4
+  - @talend/utils@3.7.3
+
 ## 12.1.3
 
 ### Patch Changes

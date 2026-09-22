@@ -1,5 +1,13 @@
 # @talend/scripts-config-eslint
 
+## 14.2.1
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/eslint-plugin@2.0.1
+
 ## 14.2.0
 
 ### Minor Changes

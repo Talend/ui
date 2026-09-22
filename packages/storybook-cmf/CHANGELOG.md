@@ -1,5 +1,11 @@
 # @talend/react-storybook-cmf
 
+## 12.1.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
 ## 12.1.2
 
 ### Patch Changes

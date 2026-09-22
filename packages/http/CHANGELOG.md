@@ -1,5 +1,11 @@
 # @talend/http
 
+## 4.2.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
 ## 4.2.2
 
 ### Patch Changes

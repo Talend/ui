@@ -1,5 +1,13 @@
 # Changelog
 
+## 9.2.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/react-cmf@12.2.4
+
 ## 9.2.2
 
 ### Patch Changes

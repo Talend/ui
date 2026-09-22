@@ -1,5 +1,11 @@
 # @talend/react-faceted-search-query-client
 
+## 3.1.4
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
 ## 3.1.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 4.1.5
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
 ## 4.1.4
 
 ### Patch Changes

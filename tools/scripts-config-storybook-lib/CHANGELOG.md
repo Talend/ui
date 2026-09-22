@@ -1,5 +1,16 @@
 # @talend/scripts-config-storybook-lib
 
+## 6.1.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- f37b22b: fix: msw setup
+- Updated dependencies [38153a0]
+  - @talend/react-cmf@12.2.4
+  - @talend/design-system@12.1.5
+  - @talend/bootstrap-theme@10.1.4
+
 ## 6.1.2
 
 ### Patch Changes

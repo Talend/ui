@@ -1,5 +1,11 @@
 # @talend/eslint-plugin
 
+## 2.0.1
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
 ## 2.0.0
 
 ### Major Changes

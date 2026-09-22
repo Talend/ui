@@ -1,5 +1,15 @@
 # @talend/react-stepper
 
+## 13.1.4
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/react-components@18.1.5
+  - @talend/design-system@12.1.5
+  - @talend/design-tokens@4.1.5
+
 ## 13.1.3
 
 ### Patch Changes

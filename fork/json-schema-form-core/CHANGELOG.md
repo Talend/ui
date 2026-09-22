@@ -1,5 +1,11 @@
 # @talend/json-schema-form-core
 
+## 2.1.5
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
 ## 2.1.4
 
 ### Patch Changes

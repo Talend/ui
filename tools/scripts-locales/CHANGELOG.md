@@ -1,5 +1,13 @@
 # @talend/scripts-locales
 
+## 1.6.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/scripts-utils@2.8.3
+
 ## 1.6.2
 
 ### Patch Changes
