@@ -1,5 +1,4 @@
 ---
-"@talend/scripts-config-oxlint": minor
 "@talend/json-schema-form-core": patch
 "@talend/module-to-cdn": patch
 "@talend/react-bootstrap": patch
@@ -37,12 +36,4 @@
 "@talend/scripts-utils": patch
 ---
 
-Add `oxlint` alongside `eslint` in every package that has eslint configured, for comparison purposes.
-
-- New `@talend/scripts-config-oxlint` shared oxlint configuration package.
-- Each package gains an `oxlint.config.mts` and an `oxlint:run` script (`oxlint --format=json > oxlint-report.json`).
-- New `oxlint:run` turbo task, orchestrated via the root `oxlint:run` script.
-- The lint report merge script now also merges `oxlint-report.json` alongside `eslint-report.json` and `stylelint-report.json`.
-- CI now runs oxlint alongside eslint and stylelint on pull requests.
-
-`eslint` and `stylelint` remain unchanged and continue to be the source of truth; this only adds oxlint output for comparison.
+chore: Use `oxlint` instead of `eslint`
