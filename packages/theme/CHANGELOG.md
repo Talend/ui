@@ -1,5 +1,13 @@
 # @talend/bootstrap-theme
 
+## 10.1.4
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/design-tokens@4.1.5
+
 ## 10.1.3
 
 ### Patch Changes

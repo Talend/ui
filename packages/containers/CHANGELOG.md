@@ -1,5 +1,18 @@
 # @talend/react-containers
 
+## 12.1.5
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+- Updated dependencies [47c6a81]
+  - @talend/react-cmf@12.2.4
+  - @talend/react-components@18.1.5
+  - @talend/design-system@12.1.5
+  - @talend/react-forms@16.1.6
+  - @talend/utils@3.7.3
+
 ## 12.1.4
 
 ### Patch Changes

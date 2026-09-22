@@ -1,5 +1,11 @@
 # @talend/scripts-cmf
 
+## 1.8.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
 ## 1.8.2
 
 ### Patch Changes

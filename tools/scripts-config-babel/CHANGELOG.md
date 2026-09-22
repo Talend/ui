@@ -1,5 +1,11 @@
 # @talend/scripts-config-babel
 
+## 14.0.1
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
 ## 14.0.0
 
 ### Major Changes

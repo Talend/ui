@@ -1,5 +1,13 @@
 # @talend/react-a11y
 
+## 4.3.5
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/utils@3.7.3
+
 ## 4.3.4
 
 ### Patch Changes

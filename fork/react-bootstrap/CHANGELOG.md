@@ -1,5 +1,11 @@
 ## [v0.32.5]
 
+## 5.0.2
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
 ## 5.0.1
 
 ### Patch Changes

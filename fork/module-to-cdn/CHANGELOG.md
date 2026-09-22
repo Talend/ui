@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.18.4
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
 ## 9.18.3
 
 ### Patch Changes

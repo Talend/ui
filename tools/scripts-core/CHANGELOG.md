@@ -1,5 +1,20 @@
 # @talend/scripts-core
 
+## 21.0.1
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+- Updated dependencies [47c6a81]
+  - @talend/eslint-plugin@2.0.1
+  - @talend/scripts-config-babel@14.0.1
+  - @talend/eslint-config@14.2.1
+  - @talend/scripts-config-prettier@12.7.3
+  - @talend/scripts-config-stylelint@5.0.2
+  - @talend/scripts-config-typescript@12.1.3
+  - @talend/scripts-utils@2.8.3
+
 ## 21.0.0
 
 ### Major Changes
