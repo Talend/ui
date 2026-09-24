@@ -1,5 +1,11 @@
 # Changelog
 
+## 9.2.4
+
+### Patch Changes
+
+- 4376f0c: fix: drop window.Talend access as we have moved away from talend-scripts
+
 ## 9.2.3
 
 ### Patch Changes

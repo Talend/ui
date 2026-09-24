@@ -1,5 +1,11 @@
 # @talend/icons
 
+## 8.0.4
+
+### Patch Changes
+
+- 94f3c92: chore: update svgo
+
 ## 8.0.3
 
 ### Patch Changes
