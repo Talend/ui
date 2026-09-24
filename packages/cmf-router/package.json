@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-cmf-router",
-  "version": "9.2.3",
+  "version": "9.2.4",
   "description": "",
   "main": "lib/index.js",
   "module": "./lib-esm/index.js",
