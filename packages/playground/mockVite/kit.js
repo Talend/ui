@@ -1,6 +1,3 @@
-import http from 'https';
-import url from 'url';
-
 function getTriggerInfo(req) {
 	return {
 		...req.query,
@@ -36,8 +33,10 @@ function basicAuth(args) {
 
 function urlValidation({ arg0 }) {
 	if (arg0) {
-		const parsed = url.parse(arg0);
-		if (!parsed.protocol) {
+		let parsed;
+		try {
+			parsed = new URL(arg0);
+		} catch {
 			return { comment: `no protocol: ${arg0}`, status: 'KO' };
 		}
 		if (!parsed.hostname) {
@@ -74,34 +73,17 @@ function suggestionForDemo() {
 
 const cache = {};
 
-function suggestionBig() {
+async function suggestionBig() {
 	if (cache.photos) {
 		return cache.photos;
 	}
-	return res => {
-		let body = '';
-		function onData(chunk) {
-			console.log('onData', chunk);
-			body += chunk;
-		}
-		function onEnd() {
-			console.log('onEnd', body);
-			cache.photos = {
-				cacheable: true,
-				items: JSON.parse(body).map(item => ({ id: item.id.toString(), label: item.title })),
-			};
-			res.json(cache.photos);
-		}
-		function onResponse(resp) {
-			console.log(`Got response: ${resp.statusCode}`);
-			resp.on('data', onData);
-			resp.on('end', onEnd);
-		}
-		function onError(e) {
-			console.error(e.message);
-		}
-		http.get('https://jsonplaceholder.typicode.com/photos', onResponse).on('error', onError);
+	const response = await fetch('https://jsonplaceholder.typicode.com/photos');
+	const photos = await response.json();
+	cache.photos = {
+		cacheable: true,
+		items: photos.map(item => ({ id: item.id.toString(), label: item.title })),
 	};
+	return cache.photos;
 }
 
 function updateProperties({ type }) {
@@ -119,15 +101,16 @@ function updateProperties({ type }) {
 }
 
 function giveMeFive() {
-	return res => {
-		res.status(500).json({
+	return {
+		httpStatus: 500,
+		body: {
 			timestamp: 1548781374412,
 			status: 500,
 			error: 'Internal Server Error',
 			exception: 'javax.ws.rs.ClientErrorException',
 			message: 'An internal server error occurs',
 			path: '/proxy/v1/action/execute/dataset',
-		});
+		},
 	};
 }
 
@@ -156,7 +139,7 @@ const TRIGGERS = {
 	},
 };
 
-export function trigger(req) {
+export async function trigger(req) {
 	const info = getTriggerInfo(req);
 	return TRIGGERS[info.type][info.action](info.args);
 }

@@ -47,6 +47,19 @@ const app = {
 	AppLoader,
 };
 
+async function enableMocking() {
+	if (!import.meta.env.DEV) {
+		return;
+	}
+	const { worker } = await import('../../mockVite/browser.js');
+	await worker.start({
+		onUnhandledRequest: 'bypass',
+		serviceWorker: {
+			url: `${import.meta.env.BASE_URL}mockServiceWorker.js`,
+		},
+	});
+}
+
 // eslint-disable-next-line no-console
 console.log('app bootstrap should happens only once');
 /**
@@ -58,4 +71,4 @@ console.log('app bootstrap should happens only once');
  * - Fetch the settings
  * - render react-dom in the dom 'app' element
  */
-cmf.bootstrap(app);
+enableMocking().then(() => cmf.bootstrap(app));
