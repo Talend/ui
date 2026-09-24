@@ -100,10 +100,6 @@ export function getRouter(history, basename) {
 
 		if (props.routes.path && props.routes.component) {
 			const routeProps = getRouteProps(props.routes, props.routes.path);
-			window.Talend.printRouterCfg = () => printRouterConfig(routeProps);
-			if (process.env.NODE_ENV === 'development') {
-				window.Talend.printRouterCfg(routeProps);
-			}
 
 			return (
 				<Router basename={basename} location={location} navigationType={action} navigator={history}>

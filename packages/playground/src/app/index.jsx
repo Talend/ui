@@ -58,5 +58,4 @@ console.log('app bootstrap should happens only once');
  * - Fetch the settings
  * - render react-dom in the dom 'app' element
  */
-debugger;
 cmf.bootstrap(app);

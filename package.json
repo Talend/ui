@@ -40,6 +40,7 @@
     "@talend/locales-tui-dataviz": "^3.0.1",
     "@talend/locales-tui-faceted-search": "^11.3.0",
     "@talend/locales-tui-forms": "^15.2.0",
+    "@talend/bootstrap-sass": "workspace:^",
     "@talend/scripts-cmf": "workspace:^",
     "@talend/scripts-config-babel": "workspace:^",
     "@talend/scripts-config-oxlint": "workspace:^",

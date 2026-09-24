@@ -46,6 +46,9 @@ importers:
       '@changesets/cli':
         specifier: ^3.0.3
         version: 3.0.3
+      '@talend/bootstrap-sass':
+        specifier: workspace:^
+        version: link:fork/bootstrap-sass
       '@talend/locales-design-system':
         specifier: ^7.15.1
         version: 7.15.1
