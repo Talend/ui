@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Action > should render from name props keeping extra props 1`] = `
+<div
+  class="mock-provider"
+>
+  <button
+    aria-label="menuarticle"
+    class="btn btn-default"
+    type="button"
+  >
+    <span>
+      menuarticle
+    </span>
+  </button>
+</div>
+`;

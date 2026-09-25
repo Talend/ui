@@ -81,13 +81,17 @@ const setInitialStateAsLiveState = prevState => ({
 	liveState: prevState.initialState,
 });
 
-export default class UIForm extends Component {
+/** @type {any} */
+const UIForm = class UIForm extends Component {
 	static displayName = 'Container(UIForm)';
 
+	/** @type {any} */
 	static FormTemplate = FormTemplate;
 
+	/** @type {any} */
 	static TextModeTemplate = TextModeTemplate;
 
+	/** @type {any} */
 	static FieldTemplate = FieldTemplate;
 
 	static Message = Message;
@@ -231,7 +235,9 @@ export default class UIForm extends Component {
 			</UIFormTranslatedComponent>
 		);
 	}
-}
+};
+
+export default UIForm;
 
 if (process.env.NODE_ENV !== 'production') {
 	UIForm.propTypes = {

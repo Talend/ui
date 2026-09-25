@@ -1,5 +1,57 @@
 # Changelog
 
+## 8.1.5
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/react-components@18.1.5
+  - @talend/design-tokens@4.1.5
+
+## 8.1.4
+
+### Patch Changes
+
+- 9b87959: chore: drop custom babel plugins
+- Updated dependencies [e52b3e1]
+- Updated dependencies [685d45a]
+- Updated dependencies [ce6a03c]
+- Updated dependencies [9b87959]
+  - @talend/design-tokens@4.1.4
+  - @talend/react-components@18.1.4
+
+## 8.1.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/design-tokens@4.1.3
+  - @talend/assets-api@2.1.3
+  - @talend/react-components@18.1.3
+
+## 8.1.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- Updated dependencies [4408b98]
+- Updated dependencies [0a659cc]
+  - @talend/assets-api@2.1.2
+  - @talend/react-components@18.1.2
+  - @talend/design-tokens@4.1.2
+
+## 8.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/design-tokens@4.1.1
+  - @talend/assets-api@2.1.1
+  - @talend/react-components@18.1.1
+
 ## 8.1.0
 
 ### Minor Changes

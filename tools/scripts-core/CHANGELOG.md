@@ -1,5 +1,82 @@
 # @talend/scripts-core
 
+## 21.0.1
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+- Updated dependencies [47c6a81]
+  - @talend/eslint-plugin@2.0.1
+  - @talend/scripts-config-babel@14.0.1
+  - @talend/eslint-config@14.2.1
+  - @talend/scripts-config-prettier@12.7.3
+  - @talend/scripts-config-stylelint@5.0.2
+  - @talend/scripts-config-typescript@12.1.3
+  - @talend/scripts-utils@2.8.3
+
+## 21.0.0
+
+### Major Changes
+
+- 0363133: feat: drop build of app which was using webpack
+
+### Minor Changes
+
+- ce6a03c: Declare `@talend/scripts-config-prettier` and `@talend/scripts-config-stylelint` as real dependencies instead of phantom deps that only resolved because yarn's flat hoist happened to expose them (pnpm's isolated linker doesn't hoist, so they'd otherwise be missing). Also drop the `extends` command's jest-config-file generation, which relied on `@talend/scripts-config-jest` and is no longer relevant now that jest is being phased out.
+
+### Patch Changes
+
+- Updated dependencies [661d925]
+- Updated dependencies [9b87959]
+  - @talend/eslint-plugin@2.0.0
+  - @talend/eslint-config@14.2.0
+  - @talend/scripts-config-babel@14.0.0
+
+## 20.0.1
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/scripts-config-typescript@12.1.2
+  - @talend/eslint-config@14.1.4
+  - @talend/scripts-config-babel@13.10.2
+  - @talend/eslint-plugin@1.8.2
+  - @talend/scripts-utils@2.8.2
+
+## 20.0.0
+
+### Major Changes
+
+- 64e2fd5: feat: drop lint command from talend-scripts
+
+### Minor Changes
+
+- 8c98cb7: feat: update stylelint to 17
+
+### Patch Changes
+
+- Updated dependencies [64e2fd5]
+  - @talend/eslint-config@14.1.2
+
+## 19.0.0
+
+### Major Changes
+
+- 1677e09: Drop test command (jest). You should migrate to vitest
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/scripts-config-typescript@12.1.1
+  - @talend/scripts-config-stylelint@4.5.1
+  - @talend/eslint-config@14.1.1
+  - @talend/scripts-config-babel@13.10.1
+  - @talend/eslint-plugin@1.8.1
+  - @talend/scripts-utils@2.8.1
+
 ## 18.0.0
 
 ### Major Changes

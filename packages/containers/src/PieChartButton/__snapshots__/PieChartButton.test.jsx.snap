@@ -1,0 +1,57 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PieChartButton container > should render 1`] = `
+<button
+  class="tc-pie-chart-button _tc-pie-chart-button_517e9f btn-icon-only btn btn-link"
+  role="button"
+  type="button"
+>
+  <span />
+  <span
+    class="tc-pie-chart-icon _tc-pie-chart-icon_517e9f"
+  >
+    <svg
+      class="tc-pie-chart-icon-graph _tc-pie-chart-icon-graph_517e9f"
+      height="20"
+      style="width: 20px; height: 20px;"
+      width="20"
+    >
+      <path
+        class="tc-pie-chart-color-rio-grande _tc-pie-chart-color-rio-grande_517e9f"
+        d="M1.08,-8.935A9,9,0,0,1,4.378,-7.863L2.595,-5.41A6,6,0,0,0,1.08,-5.902Z"
+        transform="translate(10,10)"
+      />
+      <path
+        class="tc-pie-chart-color-chestnut-rose _tc-pie-chart-color-chestnut-rose_517e9f"
+        d="M6.125,-6.594A9,9,0,0,1,8.935,-1.08L5.902,-1.08A6,6,0,0,0,4.343,-4.14Z"
+        transform="translate(10,10)"
+      />
+      <path
+        class="tc-pie-chart-color-lightning-yellow _tc-pie-chart-color-lightning-yellow_517e9f"
+        d="M8.935,1.08A9,9,0,0,1,8.831,1.734L5.926,0.939Z"
+        transform="translate(10,10)"
+      />
+      <path
+        class="tc-pie-chart-color-dove-gray _tc-pie-chart-color-dove-gray_517e9f"
+        d="M8.164,3.788A9,9,0,0,1,1.08,8.935L1.08,5.902A6,6,0,0,0,5.279,2.851Z"
+        transform="translate(10,10)"
+      />
+      <path
+        class="tc-pie-chart-color-silver-chalice _tc-pie-chart-color-silver-chalice_517e9f"
+        d="M-1.08,8.935A9,9,0,0,1,-6.594,6.125L-4.14,4.343A6,6,0,0,0,-1.08,5.902Z"
+        transform="translate(10,10)"
+      />
+      <path
+        class="tc-pie-chart-color-alto _tc-pie-chart-color-alto_517e9f"
+        d="M-7.863,4.378A9,9,0,0,1,-1.08,-8.935L-1.08,-5.902A6,6,0,0,0,-5.41,2.595Z"
+        transform="translate(10,10)"
+      />
+    </svg>
+    <div
+      class="tc-pie-chart-color-rio-grande _tc-pie-chart-color-rio-grande_517e9f"
+    >
+      10%
+    </div>
+  </span>
+</button>
+`;

@@ -51,6 +51,8 @@ describe('getTimezones', () => {
 
 	it('should return the list of timezones ready to be used by the DataList', () => {
 		// when
+		const date = new Date(2025, 10, 10);
+		vi.setSystemTime(date);
 		const timezones = getTimezones('fr', cldrTimezones);
 
 		// then
@@ -78,6 +80,8 @@ describe('getTimezones', () => {
 
 	it('should fallback to English language if specified language has no translation provided', () => {
 		// when
+		const date = new Date(2025, 10, 10);
+		vi.setSystemTime(date);
 		const timezones = getTimezones('es', cldrTimezones);
 
 		// then

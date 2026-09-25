@@ -1,5 +1,33 @@
 ## [v0.32.5]
 
+## 5.0.2
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
+## 5.0.1
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
+## 5.0.0
+
+### Major Changes
+
+- 0a659cc: Move sources with react code from js to jsx.
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
+## 4.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 4.1.0
 
 ### Minor Changes

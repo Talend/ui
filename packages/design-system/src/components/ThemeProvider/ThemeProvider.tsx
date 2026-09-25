@@ -4,7 +4,6 @@ import 'modern-css-reset/dist/reset.min.css';
 import 'typeface-inconsolata/index.css';
 import 'typeface-source-sans-pro/index.css';
 
-// eslint-disable-next-line @talend/import-depth
 import '@talend/design-tokens/dist/TalendDesignTokens.css';
 
 import ThemeContext from './ThemeContext';

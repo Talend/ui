@@ -98,9 +98,13 @@ module.exports = (env, argv) => {
 					},
 				],
 			}),
-			new HtmlWebpackPlugin({
-				template: path.resolve(__dirname, './example/index.html'),
-			}),
+			...(isDev
+				? [
+						new HtmlWebpackPlugin({
+							template: path.resolve(__dirname, './example/index.html'),
+						}),
+					]
+				: []),
 			isDev
 				? new webpack.HotModuleReplacementPlugin()
 				: new MiniCssExtractPlugin({

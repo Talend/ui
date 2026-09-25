@@ -1,5 +1,41 @@
 # @talend/bootstrap-theme
 
+## 10.1.4
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/design-tokens@4.1.5
+
+## 10.1.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/design-tokens@4.1.3
+  - @talend/bootstrap-sass@5.6.3
+
+## 10.1.2
+
+### Patch Changes
+
+- 0a659cc: fix: update webpack config used to build it
+- Updated dependencies [4408b98]
+- Updated dependencies [0a659cc]
+  - @talend/design-tokens@4.1.2
+  - @talend/bootstrap-sass@5.6.2
+
+## 10.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/design-tokens@4.1.1
+  - @talend/bootstrap-sass@5.6.1
+
 ## 10.1.0
 
 ### Minor Changes

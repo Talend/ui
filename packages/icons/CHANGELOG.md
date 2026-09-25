@@ -1,5 +1,33 @@
 # @talend/icons
 
+## 8.0.4
+
+### Patch Changes
+
+- 94f3c92: chore: update svgo
+
+## 8.0.3
+
+### Patch Changes
+
+- 1de4792: chore(deps-dev): bump svgo from 3.3.4 to 3.3.5
+- e52b3e1: chore: drop most of the webpack based plugins and old script config files.
+- 7dbc2cd: Keep Node.js builtins external in the Rollup/Vite library build so `src/extract.ts`, a Node-only helper used by the package entry, isn't rewritten to browser shims.
+- 00ac57c: fix: add missing dev deps (`@storybook/addon-docs`, `react-use`) used by these packages
+- 9b87959: chore: drop custom babel plugins
+
+## 8.0.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
+## 8.0.1
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
 ## 8.0.0
 
 ### Major Changes

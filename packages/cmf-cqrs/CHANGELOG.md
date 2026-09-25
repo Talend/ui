@@ -1,5 +1,50 @@
 # @talend/react-cmf-cqrs
 
+## 12.1.4
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/react-cmf@12.2.4
+  - @talend/utils@3.7.3
+
+## 12.1.3
+
+### Patch Changes
+
+- 685d45a: fix: cwe-407 update immutable
+- 00ac57c: fix: add missing `@testing-library/jest-dom` devDependency used by tests
+- Updated dependencies [685d45a]
+- Updated dependencies [00ac57c]
+  - @talend/react-cmf@12.2.3
+
+## 12.1.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/utils@3.7.2
+  - @talend/react-cmf@12.2.2
+
+## 12.1.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- Updated dependencies [4408b98]
+  - @talend/react-cmf@12.2.1
+
+## 12.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/utils@3.7.1
+  - @talend/react-cmf@12.1.1
+
 ## 12.1.0
 
 ### Minor Changes

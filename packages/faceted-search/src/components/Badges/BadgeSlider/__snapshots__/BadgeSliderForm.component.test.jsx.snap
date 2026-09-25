@@ -1,0 +1,93 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BadgeSliderForm > should mount a default badge 1`] = `
+<form
+  class="_form_ac678e"
+  id="customId-slider"
+>
+  <div
+    class="_tc-badge-slider-form-body_a505ff"
+  >
+    <div
+      class="_tc-badge-slider-form-body-row_a505ff"
+    >
+      <div
+        class="_tc-badge-slider-form-body-row-value_a505ff"
+      >
+        <button
+          aria-label="Edit directly"
+          class="_tc-badge-value-unit_a505ff"
+          title="Edit directly"
+        >
+          0
+        </button>
+      </div>
+    </div>
+    <div>
+      <div
+        class="_tc-slider_5330c6 tc-slider"
+      >
+        <div
+          class="rc-slider _tc-slider-rc-slider_5330c6 tc-slider-rc-slider rc-slider-horizontal"
+        >
+          <div
+            class="rc-slider-rail"
+          />
+          <div
+            class="rc-slider-track"
+            style="left: 0%; width: 0%;"
+          />
+          <div
+            class="rc-slider-step"
+          />
+          <div
+            aria-disabled="false"
+            aria-orientation="horizontal"
+            aria-valuemax="100"
+            aria-valuemin="0"
+            aria-valuenow="0"
+            class="rc-slider-handle"
+            role="slider"
+            style="left: 0%; transform: translateX(-50%);"
+            tabindex="0"
+          />
+        </div>
+      </div>
+      <div
+        class="_tc-slider-captions_5330c6 tc-slider-captions"
+      >
+        <div
+          class="_tc-slider-captions-element_5330c6 tc-slider-captions-element"
+        >
+          0
+        </div>
+        <div
+          class="_tc-slider-captions-element_5330c6 tc-slider-captions-element"
+        >
+          100
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="_buttons_42d65d"
+  >
+    <div
+      class="_stack_dbc270 _justify-space-between_dbc270 _align-start_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-M_dbc270 _gap-y-M_dbc270 _padding-top-M_dbc270 _padding-right-undefined_dbc270 _padding-bottom-0_dbc270 _padding-left-undefined_dbc270"
+    >
+      <button
+        aria-busy="false"
+        class="_clickable_5222c6 _button_9243c0 _primary_4e7d63"
+        data-feature="filter.quality.add"
+        type="submit"
+      >
+        <span
+          class="_stack_dbc270 _justify-start_dbc270 _align-center_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-XS_dbc270 _gap-y-XS_dbc270"
+        >
+          Apply
+        </span>
+      </button>
+    </div>
+  </div>
+</form>
+`;

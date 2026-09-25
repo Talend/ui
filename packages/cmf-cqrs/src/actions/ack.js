@@ -1,8 +1,4 @@
-import {
-	ACK_ADD_CONTEXT,
-	ACK_RECEIVE_MESSAGE,
-	ACK_DELETE,
-} from '../constants';
+import { ACK_ADD_CONTEXT, ACK_RECEIVE_MESSAGE, ACK_DELETE } from '../constants';
 
 export function addContext(event, data) {
 	return {

@@ -57,7 +57,6 @@ Important rules:
 
 - **No `console.log`** — only `console.warn` and `console.error` allowed
 - JSX only in `.jsx` / `.tsx` files (`react/jsx-filename-extension`)
-- `@talend/import-depth` (error) — controls import depth into packages
 - `import/prefer-default-export`: off — named exports are fine
 - `react/jsx-props-no-spreading`: off — spread is allowed
 - `react/require-default-props`: off
@@ -184,11 +183,9 @@ ComponentName/
 
 ### Framework & Setup
 
-- **Jest** as test runner (config via `@talend/scripts-config-jest`)
+- **Vitest** as test runner
 - **@testing-library/react** for component rendering and queries
 - **jest-axe** for automated accessibility checks
-- **jest-serializer-html** for snapshot serialization
-- **jsdom** test environment (`jest-environment-jsdom-global`)
 - Timezone forced to `UTC` (`TZ=UTC`)
 
 ### Test File Conventions

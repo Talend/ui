@@ -1,5 +1,37 @@
 # @talend/storybook-docs
 
+## 3.1.4
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/design-tokens@4.1.5
+
+## 3.1.3
+
+### Patch Changes
+
+- 00ac57c: fix: add missing dev deps (`@storybook/addon-docs`, `react-use`) used by these packages
+- Updated dependencies [e52b3e1]
+  - @talend/design-tokens@4.1.4
+
+## 3.1.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/design-tokens@4.1.3
+
+## 3.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/design-tokens@4.1.1
+
 ## 3.1.0
 
 ### Minor Changes

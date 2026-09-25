@@ -1,5 +1,4 @@
 import { cloneElement, ReactElement } from 'react';
-// eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import { DataAttributes } from '../../types';
 import { Icon } from './Icon';

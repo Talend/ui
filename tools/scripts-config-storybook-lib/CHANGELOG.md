@@ -1,5 +1,37 @@
 # @talend/scripts-config-storybook-lib
 
+## 6.1.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- f37b22b: fix: msw setup
+- Updated dependencies [38153a0]
+  - @talend/react-cmf@12.2.4
+  - @talend/design-system@12.1.5
+  - @talend/bootstrap-theme@10.1.4
+
+## 6.1.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/design-system@12.1.3
+  - @talend/icons@8.0.2
+  - @talend/bootstrap-theme@10.1.3
+  - @talend/react-cmf@12.2.2
+
+## 6.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/design-system@12.1.1
+  - @talend/bootstrap-theme@10.1.1
+  - @talend/react-cmf@12.1.1
+
 ## 6.1.0
 
 ### Minor Changes

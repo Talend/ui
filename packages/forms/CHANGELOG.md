@@ -1,5 +1,83 @@
 # @talend/react-forms
 
+## 16.1.6
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- 47c6a81: fix a stylelint error
+- Updated dependencies [38153a0]
+  - @talend/json-schema-form-core@2.1.5
+  - @talend/react-components@18.1.5
+  - @talend/design-system@12.1.5
+  - @talend/design-tokens@4.1.5
+  - @talend/utils@3.7.3
+
+## 16.1.5
+
+### Patch Changes
+
+- 9b87959: chore: drop custom babel plugins
+- Updated dependencies [1de4792]
+- Updated dependencies [e52b3e1]
+- Updated dependencies [685d45a]
+- Updated dependencies [ce6a03c]
+- Updated dependencies [7dbc2cd]
+- Updated dependencies [00ac57c]
+- Updated dependencies [9b87959]
+  - @talend/icons@8.0.3
+  - @talend/design-system@12.1.4
+  - @talend/design-tokens@4.1.4
+  - @talend/json-schema-form-core@2.1.4
+  - @talend/react-components@18.1.4
+
+## 16.1.4
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/json-schema-form-core@2.1.3
+  - @talend/design-system@12.1.3
+  - @talend/design-tokens@4.1.3
+  - @talend/assets-api@2.1.3
+  - @talend/react-components@18.1.3
+  - @talend/icons@8.0.2
+  - @talend/utils@3.7.2
+
+## 16.1.3
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- Updated dependencies [4408b98]
+- Updated dependencies [0a659cc]
+  - @talend/assets-api@2.1.2
+  - @talend/react-components@18.1.2
+  - @talend/design-system@12.1.2
+  - @talend/design-tokens@4.1.2
+  - @talend/icons@8.0.1
+  - @talend/json-schema-form-core@2.1.2
+
+## 16.1.2
+
+### Patch Changes
+
+- 5d7e74e: Mock some dates in test that does not handle daylight saving change
+
+## 16.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/json-schema-form-core@2.1.1
+  - @talend/design-system@12.1.1
+  - @talend/design-tokens@4.1.1
+  - @talend/assets-api@2.1.1
+  - @talend/react-components@18.1.1
+  - @talend/utils@3.7.1
+
 ## 16.1.0
 
 ### Minor Changes

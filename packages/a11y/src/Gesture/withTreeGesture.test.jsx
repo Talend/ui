@@ -2,7 +2,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import cases from 'jest-in-case';
 
 import Tree from '../__mocks__/tree';
 import { withTreeGesture } from './withTreeGesture';
@@ -165,7 +164,7 @@ describe('TreeGesture HOC', () => {
 		expect(screen.getByText(expectedActivePosition)).toHaveFocus();
 	}
 
-	cases('focus', testFocus, [
+	it.each([
 		{
 			name: 'should focus its parent on left keydown',
 			elementPosition: 'Eleven',
@@ -202,5 +201,5 @@ describe('TreeGesture HOC', () => {
 			expectedActivePosition: 'Three',
 			key: 'End',
 		},
-	]);
+	])('$name', testFocus);
 });

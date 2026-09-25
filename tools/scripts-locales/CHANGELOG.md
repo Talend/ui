@@ -1,5 +1,29 @@
 # @talend/scripts-locales
 
+## 1.6.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/scripts-utils@2.8.3
+
+## 1.6.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/scripts-utils@2.8.2
+
+## 1.6.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/scripts-utils@2.8.1
+
 ## 1.6.0
 
 ### Minor Changes

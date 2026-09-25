@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`HTTPError should create a new instance 1`] = `
+exports[`HTTPError > should create a new instance 1`] = `
 {
   "message": "Internal Server Error",
   "name": "HTTP 500",
@@ -17,7 +17,7 @@ exports[`HTTPError should create a new instance 1`] = `
 }
 `;
 
-exports[`json function should reject if no json function on response 1`] = `
+exports[`json function > should reject if no json function on response 1`] = `
 {
   "name": "HTTP 502",
   "stack": {
@@ -29,7 +29,7 @@ exports[`json function should reject if no json function on response 1`] = `
 }
 `;
 
-exports[`json function should resolve if attr json is on response 1`] = `
+exports[`json function > should resolve if attr json is on response 1`] = `
 {
   "data": {
     "foo": "bar",
@@ -40,9 +40,9 @@ exports[`json function should resolve if attr json is on response 1`] = `
 }
 `;
 
-exports[`json function should resolve status HTTP_STATUS.NO_CONTENT but without json function 1`] = `{}`;
+exports[`json function > should resolve status HTTP_STATUS.NO_CONTENT but without json function 1`] = `{}`;
 
-exports[`status function should reject if status >= 300 1`] = `
+exports[`status function > should reject if status >= 300 1`] = `
 {
   "name": "HTTP 500",
   "stack": {

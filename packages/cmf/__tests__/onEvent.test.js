@@ -14,7 +14,7 @@ describe('onEvent', () => {
 				},
 			};
 			config = {};
-			currentHandler = jest.fn();
+			currentHandler = vi.fn();
 		});
 		it('should return a function', () => {
 			const handler = onEvent.getOnEventSetStateHandler(instance, {}, config, currentHandler);

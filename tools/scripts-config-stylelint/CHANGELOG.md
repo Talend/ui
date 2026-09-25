@@ -1,5 +1,30 @@
 # @talend/scripts-config-stylelint
 
+## 5.0.2
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- 47c6a81: fix: support for global selector in css modules
+
+## 5.0.1
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
+## 5.0.0
+
+### Major Changes
+
+- 8c98cb7: feat: bump config for stylelint 17
+
+## 4.5.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 4.5.0
 
 ### Minor Changes

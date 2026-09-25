@@ -1,0 +1,48 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Container(Form) > should render a Form 1`] = `
+<form
+  class="_form_ac678e"
+  novalidate=""
+>
+  <div
+    class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+  >
+    <label
+      class="_label_048b2f"
+      for="name"
+    >
+      Name
+    </label>
+    <div
+      class="_inputShell_bca7b9"
+    >
+      <input
+        aria-describedby="name-description name-error"
+        aria-invalid="false"
+        class="_input_876932"
+        id="name"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Container(Form) > should use props.onChange 1`] = `
+[
+  {
+    "foo": "bar",
+  },
+]
+`;
+
+exports[`Container(Form) > should use props.onChange 2`] = `
+[
+  {
+    "data": undefined,
+    "dirty": true,
+  },
+]
+`;

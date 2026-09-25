@@ -1,5 +1,39 @@
 # @talend/http
 
+## 4.2.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
+## 4.2.2
+
+### Patch Changes
+
+- ce6a03c: Remove the orphaned `jest` config block from `package.json` (dead config left over after tests moved off this in-package jest setup).
+
+## 4.2.1
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
+## 4.2.0
+
+### Minor Changes
+
+- 671e2a3: Add `httpDeleteWithPayload` function to allow sending HTTP DELETE with request body
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
+## 4.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 4.1.0
 
 ### Minor Changes

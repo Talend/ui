@@ -99,4 +99,6 @@ TextMode.defaultProps = {
 	t: getDefaultT(),
 };
 
-export default withTranslation(I18N_DOMAIN_FORMS)(TextMode);
+const I18NTextMode = /** @type {typeof TextMode} */ (withTranslation(I18N_DOMAIN_FORMS)(TextMode));
+
+export default I18NTextMode;

@@ -1,0 +1,65 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SubHeaderBar container > should render 1`] = `
+<header
+  class="_tc-subheader_d6d1a0 tc-subheader"
+>
+  <div
+    class="_tc-actionbar-container_36170f tc-actionbar-container nav _tc-subheader-navbar_d6d1a0 tc-subheader-navbar"
+  >
+    <div
+      class="tc-subheader-left _tc-subheader-navbar-left_d6d1a0"
+    >
+      <div
+        class="_navbar-left_36170f navbar-left"
+      >
+        <div
+          class="_tc-subheader-back-button_d6d1a0 tc-subheader-back-button"
+        >
+          <button
+            aria-describedby="id-00000000-0000-4000-8000-000000000000"
+            aria-label="Go back"
+            class="_clickable_5222c6 _buttonIcon_5aa719"
+            data-testid="tc-subheader-backArrow"
+            id="backArrow"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="_buttonIcon__icon_5aa719"
+            >
+              <svg
+                aria-hidden="true"
+                pointer-events="none"
+                shape-rendering="geometricPrecision"
+                style="width: 1rem; height: 1rem;"
+              >
+                <use
+                  xlink:href="#arrow-left:M"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          class="tc-subheader-details _tc-subheader-details_ad6cd9"
+        >
+          <div
+            class="tc-subheader-details-text _tc-subheader-details-text_ad6cd9"
+          >
+            <div
+              class="tc-subheader-details-text-title _tc-subheader-details-text-title_ad6cd9"
+            >
+              <h1
+                aria-describedby="00000000-0000-4000-8000-000000000000"
+                class="tc-subheader-details-text-title-wording _tc-subheader-details-text-title-wording_ad6cd9"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+`;

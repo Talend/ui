@@ -1,5 +1,23 @@
 # @talend/scripts-cmf
 
+## 1.8.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
+## 1.8.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
+## 1.8.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 1.8.0
 
 ### Minor Changes

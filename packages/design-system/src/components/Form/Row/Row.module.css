@@ -4,6 +4,7 @@
 	gap: var(--coral-spacing-l, 1.75rem);
 	align-self: start;
 }
+
 .row_stretched {
 	align-self: stretch;
 }

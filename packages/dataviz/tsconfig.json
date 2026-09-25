@@ -5,6 +5,8 @@
     "baseUrl": ".",
     "declaration": true,
     "module": "CommonJs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
 
     "rootDirs": ["src"],
     "target": "es5",

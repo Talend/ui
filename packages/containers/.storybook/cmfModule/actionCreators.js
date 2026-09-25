@@ -1,4 +1,5 @@
 import { action } from 'storybook/actions';
+import { actions } from '@talend/react-cmf';
 
 export default {
 	'http:get:photos1': () =>

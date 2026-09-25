@@ -47,7 +47,6 @@ ruleTester.run('talend-import-d3', rule, {
 			errors: [
 				{
 					message: "'d3-shape' import detected. You should use d3 main package to be cdn compliant",
-					type: 'ImportDeclaration',
 				},
 			],
 		},

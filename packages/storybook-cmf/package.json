@@ -1,7 +1,7 @@
 {
   "name": "@talend/react-storybook-cmf",
   "description": "react-storybook-cmf library.",
-  "version": "12.1.0",
+  "version": "12.1.3",
   "license": "Apache-2.0",
   "author": "Talend Frontend <frontend@talend.com>",
   "repository": {
@@ -19,10 +19,10 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "test": "vitest run",
-    "lint": "eslint .",
-    "test:update": "vitest run --update",
-    "test:cov": "vitest run --coverage"
+    "vitest:run": "vitest run",
+    "vitest:update": "vitest run --update",
+    "vitest:cov": "vitest run --coverage",
+    "oxlint:run": "oxlint --format=json > oxlint-report.json"
   },
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -34,31 +34,23 @@
     }
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^5.1.4",
-    "@vitest/coverage-v8": "^4.0.18",
-    "@talend/eslint-config": "^14.1.0",
-    "@talend/eslint-plugin": "^1.8.0",
-    "@talend/react-cmf": "^12.1.0",
-    "@talend/scripts-core": "^18.0.0",
-    "@talend/scripts-config-babel": "^13.10.0",
+    "@talend/react-cmf": "workspace:^",
     "@testing-library/react": "^14.3.1",
-    "eslint": "^9.39.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
-    "redux-saga": "^1.4.2",
-    "storybook": "^10.2.10",
-    "vitest": "^4.0.18"
+    "redux-saga": "^1.5.1",
+    "storybook": "^10.5.5"
   },
   "dependencies": {
     "prop-types": "^15.8.1"
   },
   "peerDependencies": {
-    "@talend/react-cmf": "^12.0.0",
+    "@talend/react-cmf": "workspace:^",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",
-    "storybook": "^10.2.10",
-    "redux-saga": "^1.4.2"
+    "storybook": "^10.5.5",
+    "redux-saga": "^1.5.1"
   }
 }

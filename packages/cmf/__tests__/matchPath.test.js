@@ -68,6 +68,33 @@ describe('matchPath', () => {
 			expect(match.params).toEqual({ path: 'tasks/123' });
 			expect(match.isExact).toBe(true);
 		});
+
+		it('returns correct match and params for nested route "/tasks/ope/123"', () => {
+			const path = '/tasks/:toto/{*path}';
+			const pathname = '/tasks/ope/123';
+			const match = matchPath(pathname, path);
+			expect(match.url).toBe('/tasks/ope/123');
+			expect(match.params).toEqual({ toto: 'ope', path: '123' });
+			expect(match.isExact).toBe(true);
+		});
+
+		it('returns correct match and params for nested route "/tasks/ope/123" with wildcard', () => {
+			const path = '/tasks/{*path}/:toto';
+			const pathname = '/tasks/ope/123';
+			const match = matchPath(pathname, path);
+			expect(match.url).toBe('/tasks/ope/123');
+			expect(match.params).toEqual({ path: 'ope', toto: '123' });
+			expect(match.isExact).toBe(true);
+		});
+
+		it('returns correct match and params for nested route "/tasks/ope/123" with wildcard', () => {
+			const path = '/tasks/{*path}/:toto';
+			const pathname = '/tasks/ope/rat/123';
+			const match = matchPath(pathname, path);
+			expect(match.url).toBe('/tasks/ope/rat/123');
+			expect(match.params).toEqual({ path: 'ope/rat', toto: '123' });
+			expect(match.isExact).toBe(true);
+		});
 	});
 	describe('with optinal parameter path="/matchingroute/:resource{/:optional}"', () => {
 		it('returns correct match and params for child route "/tasks"', () => {

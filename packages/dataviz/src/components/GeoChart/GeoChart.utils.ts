@@ -1,8 +1,23 @@
 import { GeoChartConfig } from './GeoChart.component';
-import assetsAPI from '@talend/assets-api';
+import caTopology from '../../../assets/maps/CA.topo.json';
+import continentsTopology from '../../../assets/maps/continents.topo.json';
+import frTopology from '../../../assets/maps/FR.topo.json';
+import mxTopology from '../../../assets/maps/MX.topo.json';
+import usCaTopology from '../../../assets/maps/US_CA.topo.json';
+import usTopology from '../../../assets/maps/US.topo.json';
+import worldTopology from '../../../assets/maps/world.topo.json';
 
 const DEFAULT_LABEL_PROPERTY = 'name';
 const STATE_CODE_VALUE_PROPERTIES = ['iso_3166_2'];
+const TOPOLOGIES = {
+	CA: caTopology,
+	FR: frTopology,
+	MX: mxTopology,
+	US: usTopology,
+	US_CA: usCaTopology,
+	continents: continentsTopology,
+	world: worldTopology,
+} as unknown as Record<string, GeoChartConfig['topology']>;
 
 // Define file name only, will be used in a dynamic import()
 type SupportedGeoChart = Omit<GeoChartConfig, 'topology'> & { file: string };
@@ -84,14 +99,7 @@ export function getGeoChartSupportedDomains(): string[] {
 export async function getGeoChartConfig(domain: string): Promise<GeoChartConfig | undefined> {
 	const { file, ...chartConfig } = SUPPORTED_CHARTS[domain];
 	try {
-		const topology: GeoChartConfig['topology'] | undefined = await assetsAPI.getJSON(
-			`/dist/assets/maps/${file}.topo.json`,
-			'@talend/react-dataviz',
-			'7.3.0',
-		);
-		if (!topology) {
-			throw new Error('GeoChart topology undefined');
-		}
+		const topology: GeoChartConfig['topology'] = TOPOLOGIES[file];
 		return {
 			...chartConfig,
 			labelProperty: chartConfig.labelProperty || DEFAULT_LABEL_PROPERTY,

@@ -10,10 +10,12 @@ permissions:
   deployments: read
   pull-requests: write
   statuses: write
+  packages: write
+  id-token: write
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
-  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  group: '${{ github.workflow }} @ master'
   cancel-in-progress: true
 
 jobs:
@@ -23,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
@@ -31,6 +33,8 @@ jobs:
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
+        with:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: has changeset file
         id: changesetfiles
@@ -46,24 +50,27 @@ jobs:
 
       - name: Install and Build
         if: steps.changesetfiles.outputs.count == 1
-        run: yarn --frozen-lockfile
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install but do not build
         if: steps.changesetfiles.outputs.count > 1
-        run: yarn --ignore-scripts --frozen-lockfile
+        run: pnpm install --ignore-scripts --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@6a0a831ff30acef54f2c6aa1cbbc1096b066edaf #v1.7.0
+        uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 #v2.1.2
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: yarn release
-          commit: "chore: prepare release"
-          title: "chore: prepare release"
+          publish-script: pnpm release
+          commit-message: "chore: prepare release"
+          pr-title: "chore: prepare release"
+          github-token: ${{ secrets.CHANGESET_GITHUB_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESET_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

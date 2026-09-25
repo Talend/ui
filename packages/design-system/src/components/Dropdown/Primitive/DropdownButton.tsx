@@ -1,6 +1,5 @@
 import { forwardRef, Ref } from 'react';
 
-// eslint-disable-next-line @talend/import-depth
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import { DeprecatedIconNames } from '../../../types';

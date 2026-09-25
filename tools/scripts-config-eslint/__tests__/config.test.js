@@ -1,7 +1,5 @@
-vi.mock('eslint-plugin-storybook', () => ({
-	configs: { 'flat/recommended': [] },
-	rules: {},
-}));
+import { vi, describe, it, expect } from 'vitest';
+import config from '../index';
 
 vi.mock('eslint-plugin-mdx', () => ({
 	configs: { flat: {} },
@@ -9,9 +7,7 @@ vi.mock('eslint-plugin-mdx', () => ({
 }));
 
 describe('eslint config', () => {
-	it('should require', () => {
-		// eslint-disable-next-line global-require
-		const config = require('../index');
+	it('should exists', () => {
 		expect(config).toBeDefined();
 	});
 });

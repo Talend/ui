@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-sagas",
-  "version": "10.1.0",
+  "version": "10.1.5",
   "description": "App wide redux sagas",
   "main": "lib/index.js",
   "mainSrc": "src/index.js",
@@ -18,11 +18,11 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "test": "vitest run",
+    "vitest:run": "vitest run",
     "test:watch": "vitest",
-    "test:cov": "vitest run --coverage",
-    "lint": "eslint .",
-    "test:update": "vitest run --update"
+    "vitest:cov": "vitest run --coverage",
+    "oxlint:run": "oxlint --format=json > oxlint-report.json",
+    "vitest:update": "vitest run --update"
   },
   "keywords": [
     "react",
@@ -40,9 +40,9 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/react-cmf": "^12.1.0",
+    "@talend/react-cmf": "workspace:^",
     "immutable": "^5.1.5",
-    "redux-saga": "^1.4.2"
+    "redux-saga": "^1.5.1"
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",
@@ -50,17 +50,9 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^14.1.0",
-    "@talend/eslint-plugin": "^1.8.0",
-    "@talend/scripts-core": "^18.0.0",
-    "@talend/scripts-config-babel": "^13.10.0",
-    "@talend/scripts-config-react-webpack": "^17.1.0",
-    "@vitest/coverage-v8": "^4.0.18",
-    "eslint": "^9.39.3",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "vitest": "^4.0.18"
+    "react-dom": "^18.3.1"
   },
   "publishConfig": {
     "access": "public"

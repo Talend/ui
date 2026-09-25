@@ -5,7 +5,7 @@
 1. Add @talend/scripts-core as dev dependency.
 
 ```bash
-yarn add --dev @talend/scripts-core
+pnpm add --dev @talend/scripts-core
 ```
 
 This is the only packages you need. You can remove all the devDependencies related to the 3 goals (build/test/lint).
@@ -13,11 +13,8 @@ This is the only packages you need. You can remove all the devDependencies relat
 2. Add the configuration you need. We offer some optional configuration
 
 ```bash
-# react webapp
-yarn add --dev @talend/scripts-config-react-webpack
-
 # react lib
-yarn add --dev @talend/scripts-config-storybook-lib
+pnpm add --dev @talend/scripts-config-storybook-lib
 ```
 
 4. Discover talend-scripts CLI

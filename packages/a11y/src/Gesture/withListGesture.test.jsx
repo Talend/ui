@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import cases from 'jest-in-case';
 
 import List from '../__mocks__/list';
 import { withListGesture } from './withListGesture';
@@ -40,7 +39,7 @@ describe('List Gesture HOC', () => {
 	 *   - item-2
 	 *   - item-3
 	 */
-	cases('focus', testFocus, [
+	it.each([
 		{
 			name: 'should focus next item on down keydown',
 			elementPosition: 0,
@@ -67,5 +66,5 @@ describe('List Gesture HOC', () => {
 			key: 'ArrowUp',
 			loop: true,
 		},
-	]);
+	])('$name', testFocus);
 });

@@ -9,6 +9,7 @@ permissions:
   pull-requests: write # needed to annotate code
   statuses: write
   checks: write
+  packages: read
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
@@ -23,29 +24,42 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
       - name: Use Node.js
         uses: ./.github/actions/setup-node
+        with:
+          NPM_TOKEN: ${{ github.token }}
 
       - name: Install
-        run: yarn install --frozen-lockfile --ignore-scripts
+        run: pnpm install --frozen-lockfile --ignore-scripts
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ github.token }}
 
-      - name: eslint + stylelint
+      - name: Build
+        run: pnpm build
+
+      - name: stylelint
         continue-on-error: true
-        id: eslint
-        run: yarn lint
+        run: |
+          pnpm stylelint:run --concurrency=1
+
+      - name: oxlint
+        continue-on-error: true
+        run: |
+          pnpm oxlint:run --concurrency=1
 
       - name: Merge lint
-        run: yarn lint-merge-report master ${GITHUB_HEAD_REF}
+        uses: ./.github/actions/lint-merge-report
+        with:
+          base-branch: master
+          head-branch: ${{ github.head_ref }}
 
       - name: Annotate Code Linting Results
-        uses: ataylorme/eslint-annotate-action@d57a1193d4c59cbfbf3f86c271f42612f9dbd9e9 #v3.0.0
+        uses: ataylorme/eslint-annotate-action@5a8d8ab89a57679e90c32750e0f382e9d8570750 #v4.0.0
         with:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
           report-json: ./eslint-report.json

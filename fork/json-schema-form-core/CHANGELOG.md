@@ -1,5 +1,35 @@
 # @talend/json-schema-form-core
 
+## 2.1.5
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
+## 2.1.4
+
+### Patch Changes
+
+- e52b3e1: chore: drop most of the webpack based plugins and old script config files.
+
+## 2.1.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
+## 2.1.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
+## 2.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 2.1.0
 
 ### Minor Changes

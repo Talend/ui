@@ -1,7 +1,0 @@
-/node_modules
-/lib
-test/fixtures/output
-yarn.lock
-.nyc_output
-coverage
-!test/fixtures/app/node_modules

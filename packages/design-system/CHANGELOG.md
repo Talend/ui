@@ -1,5 +1,54 @@
 # @talend/design-system
 
+## 12.1.5
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/design-tokens@4.1.5
+  - @talend/utils@3.7.3
+
+## 12.1.4
+
+### Patch Changes
+
+- e52b3e1: chore: drop most of the webpack based plugins and old script config files.
+- 00ac57c: fix: add missing dev deps (`@storybook/addon-docs`, `react-use`) used by these packages
+- 9b87959: chore: drop custom babel plugins
+- Updated dependencies [e52b3e1]
+  - @talend/design-tokens@4.1.4
+
+## 12.1.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/design-tokens@4.1.3
+  - @talend/assets-api@2.1.3
+  - @talend/utils@3.7.2
+
+## 12.1.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- Updated dependencies [4408b98]
+- Updated dependencies [0a659cc]
+  - @talend/assets-api@2.1.2
+  - @talend/design-tokens@4.1.2
+
+## 12.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/design-tokens@4.1.1
+  - @talend/assets-api@2.1.1
+  - @talend/utils@3.7.1
+
 ## 12.1.0
 
 ### Minor Changes

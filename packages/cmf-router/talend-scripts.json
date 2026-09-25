@@ -1,5 +1,1 @@
-{
-  "dynamic-cdn-webpack-plugin": {
-    "exclude": []
-  }
-}
+{}

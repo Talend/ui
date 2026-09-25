@@ -1,5 +1,23 @@
 # @talend/scripts-config-prettier
 
+## 12.7.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
+## 12.7.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+
+## 12.7.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+
 ## 12.7.0
 
 ### Minor Changes

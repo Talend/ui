@@ -1,4 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
+import { describe, it, expect, vi } from 'vitest';
 
 import { useStepperForm } from './useStepperForm.hook';
 import { StepperState } from './useStepperForm.types';

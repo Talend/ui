@@ -1,5 +1,3 @@
-import cases from 'jest-in-case';
-
 import { decorateRowClick, decorateRowDoubleClick } from './rowclick';
 
 describe('rowclick', () => {
@@ -13,26 +11,22 @@ describe('rowclick', () => {
 			target: { tagName: 'SPAN', parentElement: { tagName: 'BUTTON' } },
 		};
 
-		cases(
-			'should not trigger double click callbacks on action double click',
-			({ event }) => {
-				// given
-				const onRowDoubleClick = jest.fn();
-				const decoratedRowDoubleClick = decorateRowDoubleClick(onRowDoubleClick);
+		it.each([
+			{ name: 'checkbox', event: checkboxEvent },
+			{ name: 'input', event: inputEvent },
+			{ name: 'textarea', event: textareaEvent },
+			{ name: 'button', event: buttonEvent },
+			{ name: 'select', event: selectEvent },
+			{ name: 'inner', event: innerActionEvent },
+		])('should not trigger double click callbacks on action double click - $name', ({ event }) => {
+			// given
+			const onRowDoubleClick = jest.fn();
+			const decoratedRowDoubleClick = decorateRowDoubleClick(onRowDoubleClick);
 
-				// when / then
-				decoratedRowDoubleClick({ event });
-				expect(onRowDoubleClick).not.toHaveBeenCalled();
-			},
-			[
-				{ name: 'checkbox', event: checkboxEvent },
-				{ name: 'input', event: inputEvent },
-				{ name: 'textarea', event: textareaEvent },
-				{ name: 'button', event: buttonEvent },
-				{ name: 'select', event: selectEvent },
-				{ name: 'inner', event: innerActionEvent },
-			],
-		);
+			// when / then
+			decoratedRowDoubleClick({ event });
+			expect(onRowDoubleClick).not.toHaveBeenCalled();
+		});
 
 		it('should trigger double click callbacks on non-action double click', () => {
 			// when

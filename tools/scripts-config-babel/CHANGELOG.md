@@ -1,5 +1,35 @@
 # @talend/scripts-config-babel
 
+## 14.0.1
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
+## 14.0.0
+
+### Major Changes
+
+- 9b87959: drop assets-api and import-lib babel plugins
+
+## 13.10.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/babel-plugin-import-from-index@1.13.2
+  - @talend/babel-plugin-assets-api@1.9.2
+
+## 13.10.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/babel-plugin-import-from-index@1.13.1
+  - @talend/babel-plugin-assets-api@1.9.1
+
 ## 13.10.0
 
 ### Minor Changes

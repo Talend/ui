@@ -19,13 +19,14 @@
     "build:lib:esm": "talend-scripts build --esm",
     "build-storybook": "storybook build",
     "build:lib": "talend-scripts build",
-    "test": "cross-env TZ=UTC vitest run",
+    "vitest:run": "cross-env TZ=UTC vitest run",
     "test:watch": "cross-env TZ=UTC vitest",
-    "test:cov": "cross-env TZ=UTC vitest run --coverage",
-    "lint": "eslint .",
+    "vitest:cov": "cross-env TZ=UTC vitest run --coverage",
+    "oxlint:run": "oxlint --format=json > oxlint-report.json",
+    "stylelint:run": "stylelint --formatter json -o stylelint-report.json \"**/*.css\"",
     "start": "talend-scripts start-storybook -p 6008",
     "extract-i18n": "i18next-scanner --config i18next-scanner.config.js",
-    "test:update": "cross-env TZ=UTC vitest run --update"
+    "vitest:update": "cross-env TZ=UTC vitest run --update"
   },
   "keywords": [
     "react",
@@ -44,44 +45,32 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/assets-api": "^2.1.0",
-    "@talend/icons": "^8.0.0",
-    "@talend/json-schema-form-core": "^2.1.0",
-    "@talend/react-components": "^18.1.0",
-    "@talend/design-system": "^12.1.0",
-    "@talend/design-tokens": "^4.1.0",
-    "@talend/utils": "^3.7.0",
+    "@talend/icons": "workspace:^",
+    "@talend/json-schema-form-core": "workspace:^",
+    "@talend/react-components": "workspace:^",
+    "@talend/design-system": "workspace:^",
+    "@talend/design-tokens": "workspace:^",
+    "@talend/utils": "workspace:^",
     "ace-builds": "1.10.1",
-    "ajv": "^6.14.0",
+    "ajv": "^6.15.0",
     "classnames": "^2.5.1",
     "json-logic-js": "^2.0.5",
-    "lodash": "^4.17.23",
+    "lodash": "^4.18.1",
     "memoize-one": "^6.0.0",
     "react-autowhatever": "10.2.0",
     "react-ace": "10.1.0",
-    "react-hook-form": "^7.71.1",
+    "react-hook-form": "^7.83.0",
     "react-jsonschema-form": "0.51.0",
     "tv4": "^1.3.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^5.1.0",
-    "@vitest/coverage-v8": "^4.0.18",
-    "@talend/locales-tui-forms": "^15.2.0",
-    "@talend/react-components": "^18.1.0",
-    "@talend/eslint-config": "^14.1.0",
-    "@talend/eslint-plugin": "^1.8.0",
-    "@talend/scripts-core": "^18.0.0",
-    "@talend/scripts-config-babel": "^13.10.0",
-    "@talend/scripts-config-react-webpack": "^17.1.0",
-    "@talend/scripts-config-storybook-lib": "^6.1.0",
-    "@talend/scripts-config-typescript": "^12.1.0",
-    "@testing-library/jest-dom": "^6.9.1",
+    "@talend/design-system": "workspace:^",
+    "@talend/react-components": "workspace:^",
+    "@testing-library/jest-dom": "^6.10.0",
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.6.1",
-    "eslint": "^9.39.3",
     "i18next": "^23.16.8",
     "i18next-scanner-typescript": "^1.2.1",
-    "jest-in-case": "^1.0.2",
     "json-loader": "^0.5.7",
     "mutationobserver-shim": "^0.3.7",
     "prop-types": "^15.8.1",
@@ -89,8 +78,7 @@
     "react-dom": "^18.3.1",
     "react-virtualized": "^9.22.6",
     "react-i18next": "^13.5.0",
-    "react-test-renderer": "^18.3.1",
-    "vitest": "^4.0.18"
+    "react-test-renderer": "^18.3.1"
   },
   "peerDependencies": {
     "i18next": "^23.16.8",
@@ -102,5 +90,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "16.1.0"
+  "version": "16.1.6"
 }

@@ -54,7 +54,7 @@ function ACKDispatcher(props) {
 }
 
 ACKDispatcher.propTypes = {
-	acks: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+	acks: PropTypes.object,
 	...cmfConnect.propTypes,
 };
 

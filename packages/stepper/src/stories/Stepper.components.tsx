@@ -70,7 +70,7 @@ export const FormComponentStep1 = () => {
 						id="randomInput"
 						label="Random input"
 						name={field.name}
-						onChange={e => {
+						onChange={(e: any) => {
 							field.onChange(e);
 						}}
 						value={field.value}

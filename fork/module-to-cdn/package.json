@@ -1,6 +1,6 @@
 {
   "name": "@talend/module-to-cdn",
-  "version": "9.18.0",
+  "version": "9.18.4",
   "description": "Get cdn config from npm module name",
   "license": "MIT",
   "repository": "https://github.com/Talend/ui",
@@ -18,11 +18,11 @@
     "node": ">=14"
   },
   "scripts": {
-    "test": "vitest run index.test.js",
-    "test:cov": "vitest run --coverage index.test.js",
-    "test:update": "vitest run --update index.test.js",
+    "vitest:run": "vitest run index.test.js",
+    "vitest:cov": "vitest run --coverage index.test.js",
+    "vitest:update": "vitest run --update index.test.js",
     "test:cron": "vitest run modules.test.js",
-    "lint": "eslint ."
+    "oxlint:run": "oxlint --format=json > oxlint-report.json"
   },
   "files": [
     "index.js",
@@ -36,17 +36,7 @@
   ],
   "dependencies": {
     "mkdirp": "^1.0.4",
-    "semver": "^7.7.3"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.39.3",
-    "eslint": "^9.39.3",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-prettier": "^5.5.5",
-    "globals": "^15.15.0",
-    "@vitest/coverage-v8": "^4.0.18",
-    "vitest": "^4.0.18"
+    "semver": "^7.8.5"
   },
   "publishConfig": {
     "access": "public"

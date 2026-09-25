@@ -1,5 +1,54 @@
 # Changelog
 
+## 9.2.4
+
+### Patch Changes
+
+- 4376f0c: fix: drop window.Talend access as we have moved away from talend-scripts
+
+## 9.2.3
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/react-cmf@12.2.4
+
+## 9.2.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/react-cmf@12.2.2
+
+## 9.2.1
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- Updated dependencies [4408b98]
+  - @talend/react-cmf@12.2.1
+
+## 9.2.0
+
+### Minor Changes
+
+- 03e7a07: Removed path-to-regexp package
+
+### Patch Changes
+
+- Updated dependencies [5d7e74e]
+  - @talend/react-cmf@12.2.0
+
+## 9.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/react-cmf@12.1.1
+
 ## 9.1.0
 
 ### Minor Changes

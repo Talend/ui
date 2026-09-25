@@ -1,4 +1,3 @@
-/* eslint-disable @talend/import-depth */
 import { KeyboardEvent, useState } from 'react';
 
 import { ButtonTertiary, SizedIcon, StackHorizontal, StackVertical } from '@talend/design-system';

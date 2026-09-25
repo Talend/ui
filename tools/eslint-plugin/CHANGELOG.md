@@ -1,5 +1,37 @@
 # @talend/eslint-plugin
 
+## 2.0.1
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+
+## 2.0.0
+
+### Major Changes
+
+- 661d925: Remove the `@talend/import-depth` rule
+
+  The rule was tied to the UMD/CDN build constraints which are no longer relevant.
+  It is removed from the plugin and from the shared eslint config, along with the
+  now useless `eslint-disable` directives across the repository.
+
+## 1.8.2
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/scripts-config-cdn@10.17.2
+
+## 1.8.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/scripts-config-cdn@10.17.1
+
 ## 1.8.0
 
 ### Minor Changes

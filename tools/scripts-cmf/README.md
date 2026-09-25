@@ -9,7 +9,7 @@ npx @talend/scripts-cmf
 You can also launch the command below to build your webapp. you can add it into `prepublish` npm script.
 
 ```
-yarn cmf-settings
+pnpm cmf-settings
 ```
 
 This script merge a set of settings `sources` into a `destination` file.
@@ -144,22 +144,22 @@ If you need to use multiple settings in one project you can do so with an enviro
 		"sources": [
 			"src/settings",
 			"node_modules/@talend/dataset/lib/settings",
-			"node_modules/@talend/myOtherDep/lib/file.json"
+			"node_modules/@talend/myOtherDep/lib/file.json",
 		],
 		"sources-dev": [
 			"src/settings",
 			"../../dataset/webapp/src/settings",
-			"../../myOtherDep/lib/file.json"
+			"../../myOtherDep/lib/file.json",
 		],
-		"destination": "src/assets/cmf-settings.json"
+		"destination": "src/assets/cmf-settings.json",
 	},
 	"withoutMyOtherDep": {
 		// will be used
 		"settings": {
 			"sources": ["src/settings", "node_modules/@talend/dataset/lib/settings"],
 			"sources-dev": ["src/settings", "../../dataset/webapp/src/settings"],
-			"destination": "src/assets/cmf-settings.json"
-		}
-	}
+			"destination": "src/assets/cmf-settings.json",
+		},
+	},
 }
 ```

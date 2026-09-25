@@ -15,10 +15,10 @@
   "scripts": {
     "build:lib": "talend-scripts build",
     "build:lib:esm": "talend-scripts build --esm",
-    "test": "vitest run",
-    "lint": "eslint .",
-    "test:update": "vitest run --update",
-    "test:cov": "vitest run --coverage"
+    "vitest:run": "vitest run",
+    "oxlint:run": "oxlint --format=json > oxlint-report.json",
+    "vitest:update": "vitest run --update",
+    "vitest:cov": "vitest run --coverage"
   },
   "keywords": [
     "react",
@@ -34,25 +34,16 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "dependencies": {
-    "@talend/utils": "^3.7.0"
+    "@talend/utils": "workspace:^"
   },
   "devDependencies": {
-    "@talend/eslint-config": "^14.1.0",
-    "@talend/eslint-plugin": "^1.8.0",
-    "@talend/scripts-core": "^18.0.0",
-    "@talend/scripts-config-typescript": "^12.1.0",
-    "@testing-library/react": "^14.3.1",
-    "@testing-library/user-event": "^14.6.1",
+    "@testing-library/jest-dom": "^6.10.0",
     "@types/date-fns": "^2.6.3",
-    "@types/react": "^18.3.27",
+    "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
-    "@vitest/coverage-v8": "^4.0.18",
     "date-fns": "^3.6.0",
-    "eslint": "^9.39.3",
-    "jest-in-case": "^1.0.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "vitest": "^4.0.18"
+    "react-dom": "^18.3.1"
   },
   "peerDependencies": {
     "react": "^18.3.1",
@@ -61,5 +52,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.3.0"
+  "version": "4.3.5"
 }

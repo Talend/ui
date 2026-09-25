@@ -1,9 +1,0 @@
-{
-  "name": "postcss",
-  "vulnerableVersions": [
-    {
-      "range": ["3.0.0", "7.0.21"],
-      "fixVersion": "7.0.36"
-    }
-  ]
-}

@@ -1,6 +1,6 @@
 {
   "name": "@talend/scripts-locales",
-  "version": "1.6.0",
+  "version": "1.6.3",
   "description": "manage locales in the project",
   "type": "module",
   "bin": {
@@ -11,17 +11,11 @@
     "url": "https://github.com/Talend/ui.git"
   },
   "scripts": {
-    "lint": "eslint ."
+    "oxlint:run": "oxlint --format=json > oxlint-report.json"
   },
   "dependencies": {
-    "@talend/scripts-utils": "^2.8.0",
+    "@talend/scripts-utils": "workspace:^",
     "cross-spawn": "^7.0.6"
-  },
-  "devDependencies": {
-    "@talend/eslint-config": "^14.1.0",
-    "@talend/eslint-plugin": "^1.8.0",
-    "@talend/scripts-core": "^18.0.0",
-    "eslint": "^9.39.3"
   },
   "keywords": [
     "i18next",

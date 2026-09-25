@@ -1,6 +1,6 @@
 import { forwardRef, HTMLAttributes, Ref } from 'react';
 import classnames from 'classnames';
-import { IconNameWithSize } from '@talend/icons';
+import type { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 
 import { DeprecatedIconNames } from '../../../../types';
 import { StackHorizontal } from '../../../Stack';

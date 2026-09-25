@@ -1,5 +1,50 @@
 # Changelog
 
+## 22.1.5
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/design-tokens@4.1.5
+  - @talend/utils@3.7.3
+
+## 22.1.4
+
+### Patch Changes
+
+- 00ac57c: fix: add missing `@testing-library/jest-dom` devDependency used by tests
+- Updated dependencies [e52b3e1]
+  - @talend/design-tokens@4.1.4
+
+## 22.1.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/design-tokens@4.1.3
+  - @talend/utils@3.7.2
+
+## 22.1.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+- 0a659cc: test: update to use jsx file extension
+- Updated dependencies [4408b98]
+- Updated dependencies [0a659cc]
+  - @talend/design-tokens@4.1.2
+
+## 22.1.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/design-tokens@4.1.1
+  - @talend/utils@3.7.1
+
 ## 22.1.0
 
 ### Minor Changes

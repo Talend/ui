@@ -1,4 +1,4 @@
-import { forwardRef, Fragment, Ref } from 'react';
+import { forwardRef, Fragment } from 'react';
 
 import classnames from 'classnames';
 
@@ -15,7 +15,7 @@ export type BadgeValueProps = BadgePrimitiveProps & {
 	value: string[];
 };
 
-const BadgeValue = forwardRef((props: BadgeValueProps, ref: Ref<HTMLSpanElement>) => {
+const BadgeValue = forwardRef<HTMLSpanElement, BadgeValueProps>((props, ref) => {
 	const { value } = props;
 
 	return (

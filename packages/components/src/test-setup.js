@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom/vitest';
-import serializer from 'jest-serializer-html';
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
@@ -71,5 +70,3 @@ vi.spyOn(console, 'error').mockImplementation((...args) => {
 	}
 	originalConsoleError(...args);
 });
-
-expect.addSnapshotSerializer(serializer);

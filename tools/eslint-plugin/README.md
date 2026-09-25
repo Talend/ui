@@ -21,12 +21,11 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
 	"rules": {
-		"@talend/import-depth": 2
+		"@talend/import-d3": 2
 	}
 }
 ```
 
 ## Supported Rules
 
-- [talend/import-depth](./docs/rules/talend-import-depth.md)
 - [talend/import-d3](./docs/rules/talend-import-d3.md)

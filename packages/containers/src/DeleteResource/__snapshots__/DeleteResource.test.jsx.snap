@@ -1,0 +1,82 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Container DeleteResource > should render with proper resourceInfo params 1`] = `
+<div
+  role="dialog"
+>
+  <div
+    class="fade modal-backdrop in"
+  />
+  <div
+    aria-labelledby="tc-dialog-header"
+    aria-modal="true"
+    class="fade in modal"
+    role="dialog"
+    style="display: block; padding-right: 0px;"
+    tabindex="-1"
+  >
+    <div
+      class="modal-dialog"
+    >
+      <div
+        class="modal-content"
+        role="document"
+      >
+        <div
+          class="modal-header"
+        >
+          <h1
+            class="modal-title"
+            id="tc-dialog-header"
+          >
+            My header title
+          </h1>
+        </div>
+        <div
+          class="modal-body"
+        >
+          Are you sure you want to remove the resourceLabel 
+          <strong>
+            myLabel
+          </strong>
+          ?
+        </div>
+        <div
+          class="modal-footer"
+        >
+          <div
+            class="_tc-actionbar-container_36170f tc-actionbar-container nav"
+          >
+            <div
+              class="_navbar-left_36170f navbar-left"
+            >
+              <button
+                aria-label="CANCEL"
+                class="btn-inverse btn btn-default"
+                type="button"
+              >
+                <span>
+                  CANCEL
+                </span>
+              </button>
+            </div>
+            <div
+              class="_navbar-right_36170f navbar-right"
+            >
+              <button
+                aria-label="REMOVE"
+                class="btn btn-danger"
+                type="button"
+              >
+                <span>
+                  REMOVE
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

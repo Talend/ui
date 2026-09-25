@@ -1,5 +1,41 @@
 # @talend/react-a11y
 
+## 4.3.5
+
+### Patch Changes
+
+- 38153a0: chore: Use `oxlint` instead of `eslint`
+- Updated dependencies [38153a0]
+  - @talend/utils@3.7.3
+
+## 4.3.4
+
+### Patch Changes
+
+- 00ac57c: fix: update typescript config and add missing types so `build:lib`/`build:lib:esm` no longer fail on missing `jest`/`@testing-library/jest-dom` type definitions
+
+## 4.3.3
+
+### Patch Changes
+
+- 1b28ef5: chore: move devDeps at the repository level, review build, test lint.\
+- Updated dependencies [1b28ef5]
+  - @talend/utils@3.7.2
+
+## 4.3.2
+
+### Patch Changes
+
+- 4408b98: chore: upgrade dependencies
+
+## 4.3.1
+
+### Patch Changes
+
+- 6181519: chore: update eslint 10
+- Updated dependencies [6181519]
+  - @talend/utils@3.7.1
+
 ## 4.3.0
 
 ### Minor Changes

@@ -1,0 +1,148 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ComponentForm > #render > should render a UIForm 1`] = `
+<form
+  class="_form_ac678e"
+  novalidate=""
+>
+  <fieldset
+    class="_fieldset_51db4a"
+  >
+    <legend
+      class="_legend_51db4a"
+    >
+      Metadata
+    </legend>
+    <div
+      class="_fieldset-content_51db4a"
+    >
+      <div
+        class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+      >
+        <label
+          class="_label_048b2f"
+          for="_datasetMetadata_name"
+        >
+          Name
+        </label>
+        <div
+          class="_inputShell_bca7b9"
+        >
+          <input
+            aria-describedby="_datasetMetadata_name-description _datasetMetadata_name-error"
+            aria-invalid="false"
+            class="_input_876932"
+            id="_datasetMetadata_name"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        aria-busy="false"
+      >
+        <div
+          class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _height-100_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+        >
+          <label
+            class="_label_048b2f"
+            for="_datasetMetadata_type"
+          >
+            Types
+          </label>
+          <div
+            class="_tc-datalist-item_1c0f3c"
+            tabindex="-1"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="react-autowhatever-_datasetMetadata_type"
+              class="_tc-typeahead-container_1e11d6 tc-typeahead-container _container_1c0f3c tc-datalist-container tc-datalist"
+              role="combobox"
+            >
+              <div
+                class="tc-typeahead-typeahead-input-icon _typeahead-input-container_1e11d6 _typeahead-input-caret_1e11d6"
+              >
+                <div
+                  class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+                >
+                  <span
+                    class="_hidden_91f55b"
+                  >
+                    <label
+                      class="_label_048b2f"
+                      for="_datasetMetadata_type"
+                    />
+                  </span>
+                  <div
+                    class="_inputShell_bca7b9"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="react-autowhatever-_datasetMetadata_type"
+                      aria-describedby="_datasetMetadata_type-description _datasetMetadata_type-error"
+                      aria-invalid="false"
+                      autocomplete="off"
+                      class="_input_876932 _typeahead-input_1e11d6 tc-typeahead-typeahead-input"
+                      id="_datasetMetadata_type"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  class="icon-cls _icon-cls_1e11d6 icon-caret _icon-caret_1e11d6"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="tc-svg-icon tc-icon _svg_bf5f45 tc-icon-name-talend-caret-down"
+                    focusable="false"
+                    name="talend-caret-down"
+                    pointer-events="none"
+                    shape-rendering="geometricPrecision"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="_stack_dbc270 _justify-start_dbc270 _align-stretch_dbc270 _nowrap_dbc270 _column_dbc270 _block_dbc270 _noShrink_dbc270 _gap-x-XXS_dbc270 _gap-y-XXS_dbc270"
+      >
+        <label
+          class="_label_048b2f"
+          for="_datasetMetadata_description"
+        >
+          Description
+        </label>
+        <textarea
+          aria-invalid="false"
+          class="_textarea_578735"
+          id="_datasetMetadata_description"
+          rows="5"
+        />
+      </div>
+    </div>
+  </fieldset>
+  <div
+    class="_buttons_42d65d"
+  >
+    <div
+      class="_stack_dbc270 _justify-space-between_dbc270 _align-start_dbc270 _nowrap_dbc270 _row_dbc270 _block_dbc270 _gap-x-M_dbc270 _gap-y-M_dbc270 _padding-top-M_dbc270 _padding-right-0_dbc270 _padding-bottom-M_dbc270 _padding-left-0_dbc270"
+    >
+      <button
+        aria-label="Submit"
+        class="btn btn btn-primary"
+        id="undefined-actions-0"
+        type="submit"
+      >
+        <span>
+          Submit
+        </span>
+      </button>
+    </div>
+  </div>
+</form>
+`;
