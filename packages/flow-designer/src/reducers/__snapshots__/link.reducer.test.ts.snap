@@ -1538,7 +1538,9 @@ Immutable.Map {
       "targetId": "id2",
       "data": Immutable.Map {
         "attr": "attr",
-        "type": "test",
+        "properties": Immutable.Map {
+          "type": "test",
+        },
       },
       "graphicalAttributes": Immutable.Map {
         "properties": Immutable.Map {
@@ -1792,8 +1794,8 @@ Immutable.Map {
       "graphicalAttributes": Immutable.Map {
         "properties": Immutable.Map {
           "attr": "attr",
+          "selected": false,
         },
-        "selected": false,
       },
       "getLinkType": [Function],
     },

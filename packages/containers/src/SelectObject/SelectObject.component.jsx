@@ -1,4 +1,4 @@
-import ImmutablePropTypes from 'react-immutable-proptypes';
+import { immutableListPropType } from '@talend/react-cmf';
 
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -80,12 +80,12 @@ SelectObject.propTypes = {
 	list: PropTypes.object,
 	filter: PropTypes.object,
 	schema: PropTypes.object,
-	filteredData: ImmutablePropTypes.List,
+	filteredData: immutableListPropType,
 	results: PropTypes.shape({
 		selectedId: PropTypes.string,
 		onClick: PropTypes.func,
 	}),
-	sourceData: ImmutablePropTypes.List,
+	sourceData: immutableListPropType,
 	selected: PropTypes.object,
 };
 

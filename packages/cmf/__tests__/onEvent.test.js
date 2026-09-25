@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import { Map } from 'immutable';
 import onEvent from '../src/onEvent';
 
 describe('onEvent', () => {
@@ -9,8 +9,8 @@ describe('onEvent', () => {
 		beforeEach(() => {
 			instance = {
 				props: {
-					setState: vi.fn(),
-					state: new Immutable.Map({ docked: false }),
+					setState: jest.fn(),
+					state: new Map({ docked: false }),
 				},
 			};
 			config = {};

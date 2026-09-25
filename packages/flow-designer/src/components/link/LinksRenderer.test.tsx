@@ -1,6 +1,6 @@
 /* eslint-disable new-cap */
 import renderer from 'react-test-renderer';
-import { Map, OrderedMap } from 'immutable';
+import { Map } from 'immutable';
 
 import LinksRenderer from './LinksRenderer.component';
 import { LinkRecord, PortRecord, PositionRecord } from '../../constants/flowdesigner.model';
@@ -25,7 +25,7 @@ describe('<LinksRenderer />', () => {
 				}),
 			}),
 		);
-		const ports = OrderedMap<Id, PortRecordType>()
+		const ports = Map<Id, PortRecordType>()
 			.set(
 				'port1',
 				new PortRecord({

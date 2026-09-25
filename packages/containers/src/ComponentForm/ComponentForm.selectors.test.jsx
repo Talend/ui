@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import { fromJS } from 'immutable';
 import { isComponentFormDirty } from './ComponentForm.selectors';
 import { TCompForm } from './ComponentForm.component';
 
@@ -9,7 +9,7 @@ describe('ComponentForm selectors', () => {
 			// given
 			const state = {
 				cmf: {
-					components: Immutable.fromJS({
+					components: fromJS({
 						[TCompForm.displayName]: {
 							[componentName]: {},
 						},
@@ -26,7 +26,7 @@ describe('ComponentForm selectors', () => {
 			// given
 			const state = {
 				cmf: {
-					components: Immutable.fromJS({
+					components: fromJS({
 						[TCompForm.displayName]: {
 							[componentName]: { dirty: false },
 						},
@@ -43,7 +43,7 @@ describe('ComponentForm selectors', () => {
 			// given
 			const state = {
 				cmf: {
-					components: Immutable.fromJS({
+					components: fromJS({
 						[TCompForm.displayName]: {
 							[componentName]: { dirty: true },
 						},

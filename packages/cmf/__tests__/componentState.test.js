@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Immutable, { Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 
 import state, {
 	getStateAccessors,
@@ -67,7 +67,7 @@ describe('state', () => {
 	it('should getStateProps return state', () => {
 		const storeState = {
 			cmf: {
-				components: Immutable.fromJS({
+				components: fromJS({
 					foo: {
 						bar: {
 							open: true,

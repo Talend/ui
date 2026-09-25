@@ -83,17 +83,22 @@ const nodeRecordDefinition = {
 	}),
 };
 
+// Note: methods below use `this: any` to work around an Immutable.js v5 breaking change.
+// In v5, TypeScript infers `this` inside a Record({...}) shape as the plain object literal
+// (not the instantiated Record), so methods like getIn/get/set/setIn are not recognized.
+// `this: any` is a TypeScript-only fake parameter that suppresses the type check on `this`.
+// All affected methods are marked "TO BE REMOVED" — this is a transitional workaround only.
 export class NodeRecord extends Record({
 	...nodeRecordDefinition,
-	getPosition(): Position {
+	getPosition(this: any): Position {
 		return this.getIn(['graphicalAttributes', 'position']);
 	},
 
-	getSize(): Size {
+	getSize(this: any): Size {
 		return this.getIn(['graphicalAttributes', 'nodeSize']);
 	},
 
-	getNodeType(): string {
+	getNodeType(this: any): string {
 		return this.getIn(['graphicalAttributes', 'nodeType']);
 	},
 }) {}
@@ -101,21 +106,21 @@ export class NodeRecord extends Record({
 export class NestedNodeRecord extends Record({
 	...nodeRecordDefinition,
 	components: List(),
-	getComponents(): Map<string, NestedNodeRecord> {
+	getComponents(this: any): Map<string, NestedNodeRecord> {
 		return this.get('components');
 	},
-	setComponents(components: Map<string, NestedNodeRecord>) {
+	setComponents(this: any, components: Map<string, NestedNodeRecord>) {
 		return this.set('components', components);
 	},
-	getPosition(): Position {
+	getPosition(this: any): Position {
 		return this.getIn(['graphicalAttributes', 'position']);
 	},
 
-	getSize(): Size {
+	getSize(this: any): Size {
 		return this.getIn(['graphicalAttributes', 'nodeSize']);
 	},
 
-	getNodeType(): string {
+	getNodeType(this: any): string {
 		return this.getIn(['graphicalAttributes', 'nodeType']);
 	},
 }) {}
@@ -133,7 +138,7 @@ export const LinkRecord = Record({
 	}),
 
 	/** methods TO BE REMOVED */
-	getLinkType(): string {
+	getLinkType(this: any): string {
 		return this.getIn(['graphicalAttributes', 'linkType']);
 	},
 });
@@ -152,25 +157,25 @@ export const PortRecord = Record({
 	}),
 
 	/** methods TO BE REMOVED */
-	getPosition(): Position {
+	getPosition(this: any): Position {
 		return this.getIn(['graphicalAttributes', 'position']);
 	},
-	setPosition(position: Position): PortRecordType {
+	setPosition(this: any, position: Position): PortRecordType {
 		return this.setIn(['graphicalAttributes', 'position'], position);
 	},
-	getPortType(): string {
+	getPortType(this: any): string {
 		return this.getIn(['graphicalAttributes', 'portType']);
 	},
-	getPortDirection(): PortDirection {
+	getPortDirection(this: any): PortDirection {
 		return this.getIn(['graphicalAttributes', 'properties', 'type']);
 	},
-	getPortFlowType(): string {
+	getPortFlowType(this: any): string {
 		return this.getIn(['data', 'flowType']);
 	},
-	getIndex(): number {
+	getIndex(this: any): number {
 		return this.getIn(['graphicalAttributes', 'properties', 'index']);
 	},
-	setIndex(index: number): PortRecordType {
+	setIndex(this: any, index: number): PortRecordType {
 		return this.setIn(['graphicalAttributes', 'properties', 'index'], index);
 	},
 });

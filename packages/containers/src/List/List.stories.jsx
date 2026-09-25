@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import api from '@talend/react-cmf';
-import Immutable from 'immutable';
+import { Map, fromJS } from 'immutable';
 import cloneDeep from 'lodash/cloneDeep';
 
 import List from '.';
@@ -115,16 +115,16 @@ const customHeight = {
 	table: 100,
 };
 
-const defaultListState = new Immutable.Map({
+const defaultListState = new Map({
 	displayMode: 'large',
 });
 
-const defaultSortedListState = new Immutable.Map({
+const defaultSortedListState = new Map({
 	sortOn: 'modified',
 	sortAsc: false,
 });
 
-const items = Immutable.fromJS([
+const items = fromJS([
 	{
 		id: 'id1',
 		label: 'Title with actions',
@@ -189,7 +189,7 @@ const minusThreeMin = referenceDatetime - 60 * 3 * 1000;
 
 const oneDay = 24 * 3600 * 1000;
 
-const itemsWithTimestamp = Immutable.fromJS([
+const itemsWithTimestamp = fromJS([
 	{
 		id: 'id0',
 		label: 'Title with actions but first',
@@ -259,7 +259,7 @@ export const WithSeparatorActions = () => (
 export const Pagination = () => {
 	const propsPg = cloneDeep(props);
 	const itemsPg = items.concat(
-		Immutable.fromJS([
+		fromJS([
 			{
 				id: 'id4',
 				label: 'Title with actions',

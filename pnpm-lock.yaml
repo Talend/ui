@@ -295,8 +295,8 @@ importers:
         specifier: ^3.3.2
         version: 3.3.2
       immutable:
-        specifier: ^3.8.4
-        version: 3.8.4
+        specifier: ^5.1.5
+        version: 5.1.9
       invariant:
         specifier: ^2.2.4
         version: 2.2.4
@@ -312,9 +312,6 @@ importers:
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
-      react-immutable-proptypes:
-        specifier: ^2.2.0
-        version: 2.2.0(immutable@3.8.4)
       react-redux:
         specifier: ^7.2.9
         version: 7.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -368,8 +365,8 @@ importers:
         specifier: workspace:^
         version: link:../utils
       immutable:
-        specifier: ^3.8.4
-        version: 3.8.4
+        specifier: ^5.1.5
+        version: 5.1.9
       redux-saga:
         specifier: ^1.5.1
         version: 1.5.1
@@ -481,8 +478,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       immutable:
-        specifier: ^3.8.4
-        version: 3.8.4
+        specifier: ^5.1.5
+        version: 5.1.9
       invariant:
         specifier: ^2.2.4
         version: 2.2.4
@@ -502,14 +499,11 @@ importers:
         specifier: ^3.3.0
         version: 3.3.0(react@18.3.1)
       react-draggable:
-        specifier: ^4.7.1
+        specifier: ^4.5.0
         version: 4.7.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-grid-layout:
-        specifier: ^1.5.4
+        specifier: ^1.5.3
         version: 1.5.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-immutable-proptypes:
-        specifier: ^2.2.0
-        version: 2.2.0(immutable@3.8.4)
       react-is:
         specifier: ^18.3.1
         version: 18.3.1
@@ -638,8 +632,8 @@ importers:
         specifier: ^2.5.1
         version: 2.5.1
       immutable:
-        specifier: ^3.8.4
-        version: 3.8.4
+        specifier: ^5.1.5
+        version: 5.1.9
       invariant:
         specifier: ^2.2.4
         version: 2.2.4
@@ -649,11 +643,8 @@ importers:
       memoize-one:
         specifier: ^6.0.0
         version: 6.0.0
-      react-immutable-proptypes:
-        specifier: ^2.2.0
-        version: 2.2.0(immutable@3.8.4)
       redux-saga:
-        specifier: ^1.5.1
+        specifier: ^1.4.2
         version: 1.5.1
       reselect:
         specifier: ^2.5.4
@@ -1119,9 +1110,6 @@ importers:
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
-      react-immutable-proptypes:
-        specifier: ^2.2.0
-        version: 2.2.0(immutable@3.8.4)
     devDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.10.0
@@ -1163,10 +1151,10 @@ importers:
         specifier: ^23.16.8
         version: 23.16.8
       immutable:
-        specifier: ^3.8.4
-        version: 3.8.4
+        specifier: ^5.1.5
+        version: 5.1.9
       lodash:
-        specifier: ^4.18.1
+        specifier: ^4.17.23
         version: 4.18.1
       react:
         specifier: ^18.3.1
@@ -1462,8 +1450,8 @@ importers:
         specifier: workspace:^
         version: link:../cmf
       immutable:
-        specifier: ^3.8.4
-        version: 3.8.4
+        specifier: ^5.1.5
+        version: 5.1.9
       redux-saga:
         specifier: ^1.5.1
         version: 1.5.1
@@ -1511,9 +1499,6 @@ importers:
       i18next:
         specifier: ^23.16.8
         version: 23.16.8
-      immutable:
-        specifier: ^3.8.4
-        version: 3.8.4
       jsdom:
         specifier: ^26.1.0
         version: 26.1.0(supports-color@10.2.2)
@@ -9402,11 +9387,6 @@ packages:
         optional: true
       react-native:
         optional: true
-
-  react-immutable-proptypes@2.2.0:
-    resolution: {integrity: sha512-Vf4gBsePlwdGvSZoLSBfd4HAP93HDauMY4fDjXhreg/vg6F3Fj/MXDNyTbltPC/xZKmZc+cjLu3598DdYK6sgQ==}
-    peerDependencies:
-      immutable: '>=3.6.2'
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -17471,7 +17451,8 @@ snapshots:
 
   ignore@7.0.6: {}
 
-  immutable@3.8.4: {}
+  immutable@3.8.4:
+    optional: true
 
   immutable@5.1.9: {}
 
@@ -19809,11 +19790,6 @@ snapshots:
       react: 18.3.1
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
-
-  react-immutable-proptypes@2.2.0(immutable@3.8.4):
-    dependencies:
-      immutable: 3.8.4
-      invariant: 2.2.4
 
   react-is@16.13.1: {}
 

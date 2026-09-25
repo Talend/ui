@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { Map, List as ImmutableList } from 'immutable';
 import Component from '@talend/react-components/lib/List';
 import VirtualizedList from '@talend/react-components/lib/VirtualizedList';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import pick from 'lodash/pick';
-import cmf, { cmfConnect, useCMFContext } from '@talend/react-cmf';
+import cmf, { cmfConnect, useCMFContext, immutableListPropType } from '@talend/react-cmf';
 
 import { getActionsProps } from '../actionAPI';
 import Constants from './List.constant';
@@ -353,7 +352,7 @@ List.propTypes = {
 	}),
 	cellDictionary: PropTypes.object,
 	displayMode: PropTypes.string,
-	items: ImmutablePropTypes.list.isRequired,
+	items: immutableListPropType.isRequired,
 	state: cmfConnect.propTypes.state,
 	...cmfConnect.propTypes,
 };

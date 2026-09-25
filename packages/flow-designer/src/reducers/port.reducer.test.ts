@@ -1,4 +1,4 @@
-import { Map, OrderedMap } from 'immutable';
+import { Map } from 'immutable';
 
 import { defaultState } from './flow.reducer';
 import portReducer from './port.reducer';
@@ -10,7 +10,7 @@ describe('Check port reducer', () => {
 		.set(
 			'ports',
 			// eslint-disable-next-line new-cap
-			OrderedMap()
+			Map()
 				.set(
 					'id1',
 					new PortRecord({

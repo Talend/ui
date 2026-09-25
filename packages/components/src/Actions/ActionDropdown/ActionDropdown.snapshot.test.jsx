@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import { fromJS } from 'immutable';
 import { render, screen, within } from '@testing-library/react';
 import ActionDropdown from './ActionDropdown.component';
 
@@ -13,7 +13,7 @@ const items = [
 		onClick: jest.fn(),
 	},
 ];
-const immutableItems = Immutable.fromJS(items);
+const immutableItems = fromJS(items);
 
 describe('ActionDropdown', () => {
 	it('should render a button dropdown with its menu', () => {

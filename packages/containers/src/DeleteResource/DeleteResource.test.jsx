@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import cmf, { mock } from '@talend/react-cmf';
-import Immutable from 'immutable';
+import { List, Map } from 'immutable';
 
 import { DeleteResource } from './DeleteResource.container';
 import Connected, { mapStateToProps } from './DeleteResource.connect';
@@ -10,8 +10,8 @@ const settings = {};
 state.cmf = {
 	settings,
 };
-state.cmf.collections = new Immutable.Map({
-	foo: new Immutable.List([new Immutable.Map({ id: '123' })]),
+state.cmf.collections = new Map({
+	foo: new List([new Map({ id: '123' })]),
 });
 
 describe('Container DeleteResource', () => {
@@ -27,7 +27,7 @@ describe('Container DeleteResource', () => {
 		const props = {
 			uri: '/myEndpoint',
 			resourceType: 'myResourceType',
-			resource: new Immutable.Map({ label: 'myLabel' }),
+			resource: new Map({ label: 'myLabel' }),
 			header: 'My header title',
 			params: { id: 'myResourceID' },
 			resourceTypeLabel: 'resourceLabel',

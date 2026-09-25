@@ -1,9 +1,8 @@
 import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
-import { cmfConnect } from '@talend/react-cmf';
+import { cmfConnect, immutableListPropType } from '@talend/react-cmf';
 import Component from '@talend/react-components/lib/TreeView';
-import ImmutablePropTypes from 'react-immutable-proptypes';
-import Immutable from 'immutable';
+import { List, Map } from 'immutable';
 import omit from 'lodash/omit';
 
 const OPENED_ATTR = 'opened';
@@ -14,8 +13,8 @@ export const DEFAULT_PROPS = {
 	nameAttr: 'name',
 	childrenAttr: 'children',
 };
-export const DEFAULT_STATE = new Immutable.Map({
-	[OPENED_ATTR]: new Immutable.List(),
+export const DEFAULT_STATE = new Map({
+	[OPENED_ATTR]: new List(),
 	[SELECTED_ATTR]: undefined,
 });
 
@@ -103,7 +102,7 @@ class TreeView extends RComponent {
 
 	static propTypes = {
 		childrenAttr: PropTypes.string,
-		data: ImmutablePropTypes.list,
+		data: immutableListPropType,
 		idAttr: PropTypes.string,
 		nameAttr: PropTypes.string,
 		onClick: PropTypes.func,
