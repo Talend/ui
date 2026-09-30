@@ -1,16 +1,21 @@
-# Talend/UI — AI Coding Instructions
+# Talend/UI — Agent Instructions
+
+Instructions for AI coding agents (Claude Code, Copilot, Cursor, Codex…). Task-specific skills live in `.agents/skills/`; the maintenance directive for this file lives in `.agents/context/`.
 
 ## Repository Overview
 
-This is **Talend/UI**, a Yarn workspaces monorepo containing shared front-end libraries for Talend products.
+This is **Talend/UI**, a pnpm workspaces monorepo containing shared front-end libraries for Talend products.
 
-- **Workspaces**: `packages/*`, `tools/*`, `fork/*`
+- **Workspaces**: `packages/*`, `tools/*`, `fork/*` (`pnpm-workspace.yaml`)
 - **Stack**: React 18, TypeScript 5, Babel 7
-- **Build tooling**: shared `@talend/scripts-*` packages (see `tools/`)
+- **Build tooling**: shared `@talend/scripts-*` packages (see `tools/`), orchestrated by [Turborepo](https://turbo.build) (`turbo.json`)
+- **Tests**: Vitest · **Lint**: oxlint + Stylelint · **Format**: Prettier
 - **Versioning**: [Changesets](https://github.com/changesets/changesets) (`@changesets/cli`)
-- **Package manager**: Yarn 1 (classic)
+- **Package manager**: pnpm (version pinned in `packageManager` / `.tool-versions`)
 
-Run `yarn install` at the root. The `postinstall` script builds all libraries (`build:lib` + `build:lib:esm`).
+Run `pnpm install` at the root, then `pnpm build` (`build:lib` + `build:lib:esm` through turbo).
+
+Common root commands: `pnpm vitest:run`, `pnpm oxlint:run`, `pnpm stylelint:run`, `pnpm storybook:start-design-system`. Per package: `pnpm --filter <name> run <script>`.
 
 ---
 
@@ -20,18 +25,18 @@ Run `yarn install` at the root. The `postinstall` script builds all libraries (`
 
 Config: `@talend/scripts-config-prettier` (see `tools/scripts-config-prettier/.prettierrc.js`).
 
-| Setting          | Value              |
-| ---------------- | ------------------ |
-| Print width      | 100                |
-| Quotes           | Single (`'`)       |
-| Trailing commas  | All                |
-| Semicolons       | Yes                |
-| Indentation      | **Tabs**           |
-| Arrow parens     | Avoid (`x => x`)   |
-| JSON / rc files  | 2-space indent     |
-| SCSS files       | 1000 print width   |
+| Setting         | Value            |
+| --------------- | ---------------- |
+| Print width     | 100              |
+| Quotes          | Single (`'`)     |
+| Trailing commas | All              |
+| Semicolons      | Yes              |
+| Indentation     | **Tabs**         |
+| Arrow parens    | Avoid (`x => x`) |
+| JSON / rc files | 2-space indent   |
+| SCSS files      | 1000 print width |
 
-Prettier runs automatically on commit via `lint-staged` on `*.{json,md,mdx,html,js,jsx,ts,tsx}`.
+Prettier runs automatically on commit via `lint-staged` (Husky) on `*.{json,md,mdx,html,js,jsx,ts,tsx}`.
 
 ### EditorConfig
 
@@ -40,30 +45,18 @@ Prettier runs automatically on commit via `lint-staged` on `*.{json,md,mdx,html,
 - Tabs for `.js`, `.jsx`, `.css`, `.scss`
 - 2-space indent for `.json`
 
-### ESLint
+### Linting (oxlint)
 
-Each package has an `.eslintrc.json` extending `@talend` (resolved from `@talend/eslint-config` → `tools/scripts-config-eslint`).
+Config: `@talend/scripts-config-oxlint` (`tools/scripts-config-oxlint/index.mjs`), consumed by each package's `oxlint.config.mts` (and the root one).
 
-Key rules and extends:
-
-- `eslint:recommended`, `airbnb-base`, `plugin:prettier/recommended`
-- `plugin:react/recommended`, `plugin:react/jsx-runtime`
-- `plugin:react-hooks/recommended` — `rules-of-hooks` is error, `exhaustive-deps` is warning
-- `plugin:jsx-a11y/recommended`
-- `plugin:testing-library/react`, `plugin:jest-dom/recommended`
-- `plugin:storybook/recommended`
-
-Important rules:
-
+- Run: `pnpm oxlint:run` (all) or `oxlint` inside a package
 - **No `console.log`** — only `console.warn` and `console.error` allowed
-- JSX only in `.jsx` / `.tsx` files (`react/jsx-filename-extension`)
-- `import/prefer-default-export`: off — named exports are fine
-- `react/jsx-props-no-spreading`: off — spread is allowed
-- `react/require-default-props`: off
-- `@typescript-eslint/no-explicit-any`: warning (not error) in `.ts`/`.tsx` files
-- `import/no-extraneous-dependencies`: off in test and story files
+- JSX only in `.jsx` / `.tsx` files
+- Prefer named exports
+- Avoid `any` in `.ts`/`.tsx` (warning)
+- Follow `react-hooks` rules (`rules-of-hooks` error, `exhaustive-deps` warning) and `jsx-a11y`
 
-For TypeScript projects, the config auto-detects `tsconfig.json` and adds `@typescript-eslint` with `airbnb-typescript`.
+`tools/scripts-config-eslint` and `tools/eslint-plugin` still exist in the repo, but oxlint is the linter used by the workspace scripts.
 
 ### Stylelint
 
@@ -82,29 +75,29 @@ Config: `stylelint-config-sass-guidelines` (see `tools/scripts-config-stylelint/
 
 Base config: `@talend/scripts-config-typescript/tsconfig.json` (see `tools/scripts-config-typescript/`).
 
-| Setting                      | Value      |
-| ---------------------------- | ---------- |
-| `strict`                     | `true`     |
-| `target`                     | `ES2015`   |
-| `module`                     | `esnext`   |
-| `moduleResolution`           | `bundler`  |
-| `jsx`                        | `react-jsx`|
-| `declaration`                | `true`     |
-| `sourceMap`                  | `true`     |
-| `isolatedModules`            | `true`     |
-| `esModuleInterop`            | `true`     |
-| `forceConsistentCasingInFileNames` | `true` |
-| `skipLibCheck`               | `true`     |
+| Setting                            | Value       |
+| ---------------------------------- | ----------- |
+| `strict`                           | `true`      |
+| `target`                           | `ES2015`    |
+| `module`                           | `esnext`    |
+| `moduleResolution`                 | `bundler`   |
+| `jsx`                              | `react-jsx` |
+| `declaration`                      | `true`      |
+| `sourceMap`                        | `true`      |
+| `isolatedModules`                  | `true`      |
+| `esModuleInterop`                  | `true`      |
+| `forceConsistentCasingInFileNames` | `true`      |
+| `skipLibCheck`                     | `true`      |
 
 Each package has a local `tsconfig.json` that extends this base:
 
 ```jsonc
 {
-  "extends": "@talend/scripts-config-typescript/tsconfig.json",
-  "include": ["src/**/*"],
-  "compilerOptions": {
-    "rootDirs": ["src"]
-  }
+	"extends": "@talend/scripts-config-typescript/tsconfig.json",
+	"include": ["src/**/*"],
+	"compilerOptions": {
+		"rootDirs": ["src"],
+	},
 }
 ```
 
@@ -141,14 +134,15 @@ All interactive elements must have `data-testid` attributes following this patte
 [data-testid="<block_name>.<element_type>[?<element_index>].<?element_identifier>"]
 ```
 
-| Segment              | Required | Example                     |
-| -------------------- | -------- | --------------------------- |
-| `block_name`         | Yes      | `modal`, `inlineediting`    |
+| Segment              | Required | Example                       |
+| -------------------- | -------- | ----------------------------- |
+| `block_name`         | Yes      | `modal`, `inlineediting`      |
 | `element_type`       | Yes      | `button`, `input`, `textarea` |
-| `element_index`      | No       | `[1]`, `[2]`                |
-| `element_identifier` | No       | `close`, `reveal`, `edit`   |
+| `element_index`      | No       | `[1]`, `[2]`                  |
+| `element_identifier` | No       | `close`, `reveal`, `edit`     |
 
 Examples:
+
 - `modal.button.close`
 - `password.button.reveal`
 - `inlineediting.textarea`
@@ -183,23 +177,18 @@ ComponentName/
 
 ### Framework & Setup
 
-- **Vitest** as test runner
+- **Vitest** as test runner (`vitest.config.ts` per package, globals enabled: `describe`, `it`, `expect`, `vi`)
 - **@testing-library/react** for component rendering and queries
-- **jest-axe** for automated accessibility checks
+- **jest-axe** for automated accessibility checks (`toHaveNoViolations`)
 - Timezone forced to `UTC` (`TZ=UTC`)
 
 ### Test File Conventions
 
 - Name test files `*.test.tsx` or `*.test.ts`, co-located next to the source file.
-- Test file regex: `(/__tests__/.*|src/).*\.test.(js|jsx|ts|tsx)$`
 
 ### Writing Tests
 
-Import test globals explicitly:
-
-```tsx
-import { describe, it, expect } from '@jest/globals';
-```
+Vitest globals are available — do not import `describe`/`it`/`expect`/`vi`.
 
 Use `@testing-library/react` for rendering:
 
@@ -214,14 +203,14 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 
 it('should render a11y html', async () => {
-  const { container } = render(
-    <main>
-      <MyComponent />
-    </main>,
-  );
-  expect(container.firstChild).toMatchSnapshot();
-  const results = await axe(document.body);
-  expect(results).toHaveNoViolations();
+	const { container } = render(
+		<main>
+			<MyComponent />
+		</main>,
+	);
+	expect(container.firstChild).toMatchSnapshot();
+	const results = await axe(document.body);
+	expect(results).toHaveNoViolations();
 });
 ```
 
@@ -229,27 +218,29 @@ it('should render a11y html', async () => {
 
 ```tsx
 it('should handle click', async () => {
-  const user = userEvent.setup();
-  render(<MyComponent onClick={jest.fn()} />);
-  await user.click(screen.getByRole('button'));
+	const user = userEvent.setup();
+	render(<MyComponent onClick={vi.fn()} />);
+	await user.click(screen.getByRole('button'));
 });
 ```
 
 **Querying elements:**
+
 - Prefer `screen.getByRole()`, `screen.getByText()`, `screen.getByLabelText()`
 - Use `screen.getByTestId()` for `data-testid` attributes
 - Use `screen.queryBy*` for asserting absence
 
 **Mocking:**
-- Use `jest.fn()` for callback mocks
+
+- Use `vi.fn()` for callback mocks
 - Mock `@talend/utils` when components generate IDs:
 
 ```tsx
-jest.mock('@talend/utils', () => {
-  let i = 0;
-  return {
-    randomUUID: () => `mocked-uuid-${i++}`,
-  };
+vi.mock('@talend/utils', () => {
+	let i = 0;
+	return {
+		randomUUID: () => `mocked-uuid-${i++}`,
+	};
 });
 ```
 
@@ -265,10 +256,10 @@ Uses `react-i18next` backed by `i18next`.
 
 Each package has its own i18n namespace:
 
-| Package      | Namespace        |
-| ------------ | ---------------- |
-| components   | `tui-components` |
-| forms        | `tui-forms`      |
+| Package    | Namespace        |
+| ---------- | ---------------- |
+| components | `tui-components` |
+| forms      | `tui-forms`      |
 
 ### Translation Keys
 
@@ -287,12 +278,12 @@ For markup in translations, use the `Trans` component:
 import { Trans } from 'react-i18next';
 
 <Trans i18nKey="DELETE_RESOURCE_MESSAGE" parent="div">
-  Are you sure you want to remove the {{ resourceLabel }}
-  <strong>{{ resourceName }}</strong>?
-</Trans>
+	Are you sure you want to remove the {{ resourceLabel }}
+	<strong>{{ resourceName }}</strong>?
+</Trans>;
 ```
 
-Extract translation catalogs with `yarn extract-i18n` in the relevant package.
+Extract translation catalogs with `pnpm run extract-i18n` in the relevant package.
 
 ---
 
@@ -328,10 +319,10 @@ Examples: `react`, `react-dom`, `i18next`, `react-i18next`, `@talend/icons`
 
 Libraries produce dual output:
 
-| Format   | Directory | Module    |
-| -------- | --------- | --------- |
-| CommonJS | `lib/`    | `main`    |
-| ESM      | `lib-esm/`| `module`  |
+| Format   | Directory  | Module   |
+| -------- | ---------- | -------- |
+| CommonJS | `lib/`     | `main`   |
+| ESM      | `lib-esm/` | `module` |
 
 Build commands:
 
@@ -344,18 +335,19 @@ Package `exports` field should map both:
 
 ```json
 {
-  "main": "lib/index.js",
-  "module": "lib-esm/index.js",
-  "exports": {
-    ".": {
-      "import": "./lib-esm/index.js",
-      "require": "./lib/index.js"
-    }
-  }
+	"main": "lib/index.js",
+	"module": "lib-esm/index.js",
+	"exports": {
+		".": {
+			"import": "./lib-esm/index.js",
+			"require": "./lib/index.js"
+		}
+	}
 }
 ```
 
 Babel config (`@talend/scripts-config-babel`):
+
 - `@babel/preset-env` (targets: last 1 year of browsers, no IE/Samsung/Opera mini)
 - `@babel/preset-react` with `runtime: 'automatic'` (no need to import React)
 - `@babel/preset-typescript` with `allExtensions: true, isTSX: true`
@@ -379,13 +371,11 @@ import { action } from 'storybook/actions';
 import { MyComponent } from '../../';
 
 export default {
-  component: MyComponent,
-  title: 'Category/MyComponent',
+	component: MyComponent,
+	title: 'Category/MyComponent',
 } as StoryObj<typeof MyComponent>;
 
-export const Default: StoryFn<typeof MyComponent> = args => (
-  <MyComponent {...args} />
-);
+export const Default: StoryFn<typeof MyComponent> = args => <MyComponent {...args} />;
 ```
 
 ---
@@ -393,10 +383,10 @@ export const Default: StoryFn<typeof MyComponent> = args => (
 ## Versioning & Releases
 
 - Uses **Changesets** for version management.
-- Run `yarn changeset` to create a changeset file describing your change before opening a PR.
+- Run `pnpm changeset` to create a changeset file describing your change before opening a PR.
 - Base branch: `master`
 - Internal dependency updates use `patch` bumps.
-- Release: `yarn release` (runs `pre-release` then `changeset publish`).
+- Release: `pnpm release` (`changeset publish`).
 
 ---
 
@@ -404,7 +394,7 @@ export const Default: StoryFn<typeof MyComponent> = args => (
 
 Before opening a pull request:
 
-- [ ] Run `yarn changeset` if a release is needed
+- [ ] Run `pnpm changeset` if a release is needed
 - [ ] Tests added for bug fixes and features
 - [ ] Documentation updated if applicable
 - [ ] Related design links or discussions included in the PR description
@@ -424,10 +414,12 @@ Before opening a pull request:
 
 These documents in `docs/` define architectural choices. Read them before making structural changes:
 
-| ADR | Summary |
-| --- | ------- |
-| `adr-css-modules.md` | CSS Modules replace Styled Components for all new styling |
-| `adr-composition-vs-api.md` | Design system uses closed APIs over composition |
-| `adr-data-test.md` | `data-testid` naming convention for QA automation |
-| `adr-dependencies.md` | Guidelines for `dependencies` vs `peerDependencies` vs `devDependencies` |
-| `adr-2024-04-add-support-to-esm.md` | ESM support strategy and dual CJS/ESM output |
+| ADR                                 | Summary                                                                  |
+| ----------------------------------- | ------------------------------------------------------------------------ |
+| `adr-css-modules.md`                | CSS Modules replace Styled Components for all new styling                |
+| `adr-composition-vs-api.md`         | Design system uses closed APIs over composition                          |
+| `adr-data-test.md`                  | `data-testid` naming convention for QA automation                        |
+| `adr-dependencies.md`               | Guidelines for `dependencies` vs `peerDependencies` vs `devDependencies` |
+| `adr-2024-04-add-support-to-esm.md` | ESM support strategy and dual CJS/ESM output                             |
+| `adr-2026-04-use-turbo.md`          | Turborepo for task orchestration                                         |
+| `adr-rework-talend-scripts.md`      | Rework of the `@talend/scripts-*` tooling                                |
