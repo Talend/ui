@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { Router } from 'react-router';
 import { Route, Routes, Outlet } from 'react-router-dom';
-import { onLocationChanged } from 'connected-react-router';
+import { onLocationChanged } from '@talend/connected-react-router';
 import { connect } from 'react-redux';
 import { Inject } from '@talend/react-cmf';
 

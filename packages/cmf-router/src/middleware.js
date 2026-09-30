@@ -1,4 +1,4 @@
-import { push, replace } from 'connected-react-router';
+import { push, replace } from '@talend/connected-react-router';
 
 const cmfMiddleware = store => next => action => {
 	const config = action.cmf;

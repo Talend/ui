@@ -1,10 +1,19 @@
 import { combineReducers } from 'redux';
-import { combineReducers as combineReducersImmutable } from 'redux-immutable';
 import { combineReducers as combineReducersSeamlessImmutable } from 'redux-seamless-immutable';
 import Immutable from 'immutable';
 import { LOCATION_CHANGE, connectRouter } from '../src';
 import { connectRouter as connectRouterImmutable } from '../src/immutable';
 import { connectRouter as connectRouterSeamlessImmutable } from '../src/seamless-immutable';
+
+// minimal replacement of redux-immutable combineReducers (which depends on immutable v3)
+const combineReducersImmutable =
+	reducers =>
+	(inputState = Immutable.Map(), action) =>
+		inputState.withMutations(temporaryState => {
+			Object.keys(reducers).forEach(key => {
+				temporaryState.set(key, reducers[key](temporaryState.get(key), action));
+			});
+		});
 
 describe('connectRouter', () => {
 	let mockHistory;
