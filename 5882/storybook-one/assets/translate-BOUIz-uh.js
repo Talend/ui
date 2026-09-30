@@ -1,0 +1,1 @@
+import{aa as t,ab as n,ac as a}from"./iframe-VHcrZt8_.js";t()||(console.warn("@talend/react-components used without i18n host."),a(n.createInstance({},()=>{})));function s(){return t()?n:n.createInstance({},()=>{})}function u(){const e=t();return e?e.t.bind(t()):global.I18NEXT_T}function c(){return n.language?n.language:"en"}export{u as a,c as b,s as g};
