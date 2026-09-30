@@ -1,7 +1,7 @@
 {
   "name": "@talend/scripts-cmf",
   "description": "@talend/react-cmf scripts to manage CMF settings",
-  "version": "1.8.3",
+  "version": "1.8.4",
   "main": "cmf-settings.js",
   "publishConfig": {
     "access": "public"
@@ -15,7 +15,7 @@
   "dependencies": {
     "commander": "^6.2.1",
     "deepmerge": "^1.5.2",
-    "i18next": "^23.16.8",
+    "i18next": "^26.4.2",
     "lodash": "^4.18.1",
     "mkdirp": "^1.0.4"
   },

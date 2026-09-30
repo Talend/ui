@@ -1,6 +1,6 @@
 {
   "name": "@talend/react-faceted-search",
-  "version": "22.1.5",
+  "version": "23.0.0",
   "description": "Faceted search",
   "main": "lib/index.js",
   "module": "./lib-esm/index.js",
@@ -60,21 +60,21 @@
     "@testing-library/user-event": "^14.6.1",
     "@talend/design-system": "workspace:^",
     "@talend/icons": "workspace:^",
-    "i18next": "^23.16.8",
+    "i18next": "^26.4.2",
     "storybook": "^10.5.5",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-i18next": "^13.5.0"
+    "react-i18next": "^17.0.15"
   },
   "peerDependencies": {
     "@talend/design-system": "workspace:^",
     "@talend/react-components": "workspace:^",
-    "i18next": "^23.16.8",
+    "i18next": "^26.4.2",
     "prop-types": "^15.5.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-i18next": "^13.5.0"
+    "react-i18next": "^17.0.15"
   },
   "publishConfig": {
     "access": "public"

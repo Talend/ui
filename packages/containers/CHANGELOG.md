@@ -1,5 +1,20 @@
 # @talend/react-containers
 
+## 13.0.0
+
+### Major Changes
+
+- 7fe814a: feat: upgrade i18next to ^26.4.2 and react-i18next to ^17.0.15
+
+  Peer dependencies are updated accordingly: consumers must now provide `i18next` `^26.4.2` and `react-i18next` `^17.0.15`.
+
+### Patch Changes
+
+- Updated dependencies [7fe814a]
+  - @talend/design-system@13.0.0
+  - @talend/react-components@19.0.0
+  - @talend/react-forms@17.0.0
+
 ## 12.1.5
 
 ### Patch Changes

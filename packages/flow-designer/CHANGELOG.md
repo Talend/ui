@@ -1,5 +1,11 @@
 # Changelog
 
+## 8.1.6
+
+### Patch Changes
+
+- 7fe814a: chore: upgrade i18next to ^26.4.2, react-i18next to ^17.0.15 and i18next-http-backend to ^4.0.2
+
 ## 8.1.5
 
 ### Patch Changes

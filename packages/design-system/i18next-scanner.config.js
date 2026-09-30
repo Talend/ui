@@ -2,7 +2,7 @@
 const typescriptTransform = require('i18next-scanner-typescript');
 
 module.exports = {
-	input: ['src/**/*.{ts,tsx}', '!src/**/*stories.{ts,tsx}'],
+	input: ['src/**/*.{ts,tsx}', '!src/**/*stories.{ts,tsx}', '!src/**/*.test.{ts,tsx}'],
 	options: {
 		compatibilityJSON: 'v4',
 		debug: true,
