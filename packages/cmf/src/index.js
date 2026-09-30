@@ -19,6 +19,7 @@ import ConnectedDispatcher from './Dispatcher';
 import expression from './expression';
 import expressions from './expressions';
 import Inject from './Inject.component';
+import { immutableListPropType, immutableMapPropType } from './propTypes/immutable';
 import localStorage from './localStorage';
 import matchPath from './matchPath';
 import middlewares from './middlewares';
@@ -63,6 +64,8 @@ export {
 	CmfRegisteredSaga,
 	store,
 	useCMFContext,
+	immutableMapPropType,
+	immutableListPropType,
 };
 
 /**

@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 
 import { addWebsocketToRegistry, removeWebSocketFromRegistry } from './registry';
 import { useWebSocket } from './useWebSocket.hook';

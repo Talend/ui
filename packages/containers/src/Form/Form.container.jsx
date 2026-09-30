@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
+import { Map } from 'immutable';
 import { cmfConnect } from '@talend/react-cmf';
 import BaseForm from '@talend/react-forms';
 import classnames from 'classnames';
@@ -10,7 +10,7 @@ if (process.env.FORM_MOZ) {
 	DefaultArrayFieldTemplate = BaseForm.deprecated.templates.ArrayFieldTemplate;
 }
 
-export const DEFAULT_STATE = new Immutable.Map({});
+export const DEFAULT_STATE = new Map({});
 
 /**
  * Because we don't want to loose form input
@@ -42,7 +42,7 @@ class Form extends Component {
 	 * @return {[type]}        [description]
 	 */
 	static getFormData(state, formId) {
-		return state.cmf.components.getIn(['Container(Form)', formId, 'data'], new Immutable.Map());
+		return state.cmf.components.getIn(['Container(Form)', formId, 'data'], new Map());
 	}
 
 	static getDerivedStateFromProps(nextProps, prevState) {

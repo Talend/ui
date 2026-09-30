@@ -2,12 +2,12 @@ import { Component as RComponent } from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/omit';
 import { cmfConnect } from '@talend/react-cmf';
-import Immutable, { List } from 'immutable';
+import { List, Map } from 'immutable';
 
 import Component from './SelectObject.component';
 
 export const DISPLAY_NAME = 'Container(SelectObject)';
-export const DEFAULT_STATE = new Immutable.Map({});
+export const DEFAULT_STATE = new Map({});
 
 function noop() {}
 
@@ -142,7 +142,7 @@ class SelectObject extends RComponent {
 	};
 
 	static defaultProps = {
-		sourceData: new Immutable.List(),
+		sourceData: new List(),
 		idAttr: 'id',
 		nameAttr: 'name',
 		breadCrumbsRootLabel: 'root',

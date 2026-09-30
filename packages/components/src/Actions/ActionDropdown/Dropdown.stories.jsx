@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import Immutable from 'immutable';
+import { fromJS } from 'immutable';
 
 import FilterBar from '../../FilterBar';
 import Action from '../Action';
@@ -62,7 +62,7 @@ const contentAndLoadingAdditionalContent = {
 const withImmutable = {
 	id: 'context-dropdown-related-items',
 	label: 'related immutable items',
-	items: Immutable.fromJS([
+	items: fromJS([
 		{
 			id: 'context-dropdown-item-document-1',
 			icon: 'talend-file-json-o',

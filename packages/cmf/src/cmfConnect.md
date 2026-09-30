@@ -35,7 +35,7 @@ This is required.
 
 ```javascript
 // example adapted from https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class
-const DEFAULT_STATE = new Immutable.Map({ date: new Date() });
+const DEFAULT_STATE = new Map({ date: new Date() });
 
 class Clock extends React.Component {
 	static displayName = 'Clock'; // required
@@ -78,7 +78,7 @@ export default cmfConnect({
 // This will create the state in redux at state.cmf.components.getIn(['Clock', 'default'])
 ```
 
-First you should use immutable data structure, the `setState` of CMF uses `Immutable.fromJS` to convert its content.
+First you should use immutable data structure, the `setState` of CMF uses `fromJS` to convert its content.
 
 The main idea behind is to remove the need to write reducer.
 

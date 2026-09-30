@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
-import Immutable from 'immutable';
+import { List, Map } from 'immutable';
 
 import Component from './SelectObject.component';
 
 describe('Component SelectObject', () => {
 	it('should render', () => {
 		const context = mock.store.context();
-		const item = new Immutable.Map({ id: '1', name: 'foo' });
+		const item = new Map({ id: '1', name: 'foo' });
 		const props = {
 			id: 'my-tree',
 			schema: {
@@ -21,7 +21,7 @@ describe('Component SelectObject', () => {
 					},
 				},
 			},
-			sourceData: new Immutable.List([item]),
+			sourceData: new List([item]),
 			filter: {
 				className: 'my-custom-filter',
 			},

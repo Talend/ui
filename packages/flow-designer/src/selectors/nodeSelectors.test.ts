@@ -1,4 +1,4 @@
-import { List, Map, OrderedMap } from 'immutable';
+import { List, Map } from 'immutable';
 import * as Selectors from './nodeSelectors';
 import {
 	NodeRecord,
@@ -189,7 +189,7 @@ describe('Testing node selectors', () => {
 			.set('id7', node7)
 			.set('id8', node8),
 		// eslint-disable-next-line new-cap
-		ports: OrderedMap<Id, PortRecordType>()
+		ports: Map<Id, PortRecordType>()
 			.set('id1', port1)
 			.set('id2', port2)
 			.set('id3', port3)
@@ -277,7 +277,7 @@ describe('Testing node selectors on nested nodes', () => {
 	const givenState: State = Map({
 		nodes: Map<Id, NestedNodeRecordType>().set('nodeIdA', nodeA).set('nodeIdB', nodeB),
 		// eslint-disable-next-line new-cap
-		ports: OrderedMap<Id, PortRecordType>(),
+		ports: Map<Id, PortRecordType>(),
 		links: Map<Id, LinkRecordType>(),
 		parents: Map<Id, Map<Id, Id>>(),
 		childrens: Map<Id, Map<Id, Id>>(),

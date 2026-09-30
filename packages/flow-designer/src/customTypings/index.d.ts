@@ -1,4 +1,4 @@
-import { Record, Map } from 'immutable';
+import { RecordOf, Map } from 'immutable';
 import { PORT_SINK, PORT_SOURCE } from '../constants/flowdesigner.constants';
 
 /** $BASIC */
@@ -78,42 +78,42 @@ export interface LinkData {
 
 export interface Link {
 	id: Id;
-	source: Id;
-	target: Id;
+	sourceId: Id;
+	targetId: Id;
 	data: LinkData;
 	graphicalAttributes: LinkGraphicalAttributes;
 }
 
 /** $RECORDS */
-export type PositionRecord = Record<Position> & Position;
+export type PositionRecord = RecordOf<Position>;
 
-export type SizeRecord = Record<Size> & Size;
+export type SizeRecord = RecordOf<Size>;
 
-export type PortRecord = Record<Port> & {
+export type PortRecord = RecordOf<Port> & {
 	getPosition: () => Position;
 	getPortType: () => string;
 	getPortDirection: () => PortDirection;
 	getPortFlowType: () => string;
 	getIndex: () => number;
 	setIndex: (index: number) => PortRecord;
-} & Port;
+};
 
 // TODO add record
-export type NodeRecord = Record<Node> & {
+export type NodeRecord = RecordOf<Node> & {
 	getPosition: () => Position;
 	getSize: () => Size;
 	getNodeType: () => string;
-} & Node;
+};
 
-export type NestedNodeRecord = Record<Node> & {
+export type NestedNodeRecord = RecordOf<Node> & {
 	getPosition: () => Position;
 	getSize: () => Size;
 	getNodeType: () => string;
-} & Node;
+};
 
-export type LinkRecord = Record<Link> & {
+export type LinkRecord = RecordOf<Link> & {
 	getLinkType: () => string;
-} & Link;
+};
 
 /** $STATE */
 
@@ -138,7 +138,7 @@ export type State = {
 	children: Map<string, Map<Id, Id>>;
 	nodeTypes: Map<string, Map<Id, any>>;
 	links: Map<string, Map<Id, LinkRecord>>;
-} & Map & { getIn: getStateNodes | getStatePorts | getStateLinks | getStateIn | getStateOut };
+} & Map & { getIn: GetStateNodes | GetStatePorts | GetStateLinks | GetStateIn | GetStateOut };
 
 /** $ACTIONS */
 export interface PortActionAdd {

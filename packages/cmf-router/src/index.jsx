@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { routerMiddleware, connectRouter } from 'connected-react-router';
+import { routerMiddleware, connectRouter } from '@talend/connected-react-router';
 import cmf from '@talend/react-cmf';
 import { fork, takeLatest } from 'redux-saga/effects';
 import { create as createBrowserHistory } from './history';

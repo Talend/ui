@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
+import { List, Map } from 'immutable';
 
 export function addPathsToCollection(index, collection, paths, jsonpath) {
 	return collection.set(index, paths.push(jsonpath));
@@ -16,9 +16,9 @@ export function removePathsFromCollection(index, collection, paths, jsonpath) {
 /**
  * Collections expandedNodes / collapsedNodes are switched depending of the expand all value.
  * @param {number} index
- * @param {Immutable.Map} collection
+ * @param {Map} collection
  * @param {boolean} expandAll
- * @param {Immutable.List} paths
+ * @param {List} paths
  */
 export function updateCollection(index, collection, expandAll, paths, { opened, jsonpath }) {
 	if (opened) {
@@ -51,8 +51,8 @@ export default class TreeManager extends Component {
 
 		this.state = {
 			isAllExpanded: props.isAllExpanded || false,
-			collapsedNodes: props.collapsedNodes || Immutable.Map(),
-			expandedNodes: props.expandedNodes || Immutable.Map().set(0, Immutable.List(['$'])),
+			collapsedNodes: props.collapsedNodes || Map(),
+			expandedNodes: props.expandedNodes || Map().set(0, List(['$'])),
 		};
 	}
 
@@ -88,7 +88,7 @@ export default class TreeManager extends Component {
 					index,
 					collection,
 					isAllExpanded,
-					collection.get(index, Immutable.List()),
+					collection.get(index, List()),
 					options,
 				),
 			});
@@ -98,7 +98,7 @@ export default class TreeManager extends Component {
 					index,
 					collection,
 					isAllExpanded,
-					collection.get(index, Immutable.List()),
+					collection.get(index, List()),
 					options,
 				),
 			});

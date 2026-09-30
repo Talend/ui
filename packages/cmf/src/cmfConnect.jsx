@@ -24,8 +24,8 @@ export default cmfConnect({
 import PropTypes from 'prop-types';
 import { useState, useContext, useEffect, forwardRef } from 'react';
 import hoistStatics from 'hoist-non-react-statics';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 import { connect, useStore } from 'react-redux';
+import { immutableMapPropType } from './propTypes/immutable';
 import { randomUUID } from '@talend/utils';
 import actions from './actions';
 import actionCreator from './actionCreator';
@@ -392,8 +392,8 @@ cmfConnect.omit = omit;
 cmfConnect.omitAllProps = props => cmfConnect.omit(props, cmfConnect.ALL_INJECTED_PROPS);
 
 cmfConnect.propTypes = {
-	state: ImmutablePropTypes.map,
-	initialState: PropTypes.oneOfType([ImmutablePropTypes.map, PropTypes.object]),
+	state: immutableMapPropType,
+	initialState: PropTypes.oneOfType([immutableMapPropType, PropTypes.object]),
 	getComponent: PropTypes.func,
 	setState: PropTypes.func,
 	initState: PropTypes.func,

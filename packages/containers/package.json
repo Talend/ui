@@ -50,12 +50,11 @@
     "@talend/react-forms": "workspace:^",
     "@talend/utils": "workspace:^",
     "classnames": "^2.5.1",
-    "immutable": "^3.8.4",
+    "immutable": "^5.1.5",
     "invariant": "^2.2.4",
     "lodash": "^4.18.1",
     "memoize-one": "^6.0.0",
-    "react-immutable-proptypes": "^2.2.0",
-    "redux-saga": "^1.5.1",
+    "redux-saga": "^1.4.2",
     "reselect": "^2.5.4"
   },
   "devDependencies": {

@@ -11,7 +11,7 @@ export {
 	Switch,
 	useParams,
 	useRouteMatch,
-	// bridge to connected-react-router or cmf-router
+	// bridge to @talend/connected-react-router or cmf-router
 	push,
 	replace,
 };

@@ -1,8 +1,8 @@
 import { cmfConnect } from '@talend/react-cmf';
 import TabBar from '@talend/react-components/lib/TabBar';
-import Immutable from 'immutable';
+import { Map } from 'immutable';
 
-export const DEFAULT_STATE = new Immutable.Map({});
+export const DEFAULT_STATE = new Map({});
 
 export default cmfConnect({
 	componentId: ownProps => ownProps.componentId || ownProps.id,

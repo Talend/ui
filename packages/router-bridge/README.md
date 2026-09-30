@@ -1,14 +1,16 @@
 # @talend/router-bridge
 
 This router-bridge aims to have a layer on top of router and redux connecter router actions. So libraries can support both cmf-router and future react-router v5 stack for
+
 - route definitions
 - redux action for redirection
 
 # Router components
 
-React-router v5 support nested route definitions, but not v3 used by cmf-router v3.  
+React-router v5 support nested route definitions, but not v3 used by cmf-router v3.
 
 The library need to duplicate the route mapping
+
 - cmf-router: based on settings
 - react-router v5: Route component
 
@@ -24,21 +26,21 @@ The library need to duplicate the route mapping
 import { Switch, Route } from '@talend/router-bridge';
 
 export function Home() {
-    return (
-        <>
+	return (
+		<>
 			<Route path="/datasets" component={DatasetList} />
 			<Switch>
 				<Route path="/datasets/add" component={AddDatasetForm} />
 				<Route path="/dataset/:id" component={DatasetDetails} />
 			</Switch>
 		</>
-    )
+	);
 }
 ```
 
 # Redux redirection action
 
-`@talend/router-bridge` tries to stick to `connected-react-router` push/replace api. But with `cmf-router`, we need to pass a type, so we introduced a third argument, not available in `connected-react-router` functions.
+`@talend/router-bridge` tries to stick to `@talend/connected-react-router` push/replace api. But with `cmf-router`, we need to pass a type, so we introduced a third argument, not available in `@talend/connected-react-router` functions.
 
 | Argument          | Type   | Description                                                                                                                            |
 | ----------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -46,16 +48,17 @@ export function Home() {
 | historyState?     | object | This state will be pushed to history state.                                                                                            |
 | customBaseAction? | object | cmf-router doesn't put an action type. This can be used to set one. In cmf-router mode, this will be spread into the resulting action. |
 
-![@talend/router-bridge redirect to cmf or connected-react-router action depending of the loaded library](./img/action-creator.png)
+![@talend/router-bridge redirect to cmf or @talend/connected-react-router action depending of the loaded library](./img/action-creator.png)
 
-The push/replace bridge will either 
-- call `connected-react-router` push/replace if it is loaded
+The push/replace bridge will either
+
+- call `@talend/connected-react-router` push/replace if it is loaded
 - create an action for `cmf-router` otherwise
 
 ```javascript
 import { push, replace } from '@talend/router-bridge';
 
 function redirectActionCreator() {
-    return push('/home', null, { type: 'REDIRECT_TO_HOME' });
+	return push('/home', null, { type: 'REDIRECT_TO_HOME' });
 }
 ```

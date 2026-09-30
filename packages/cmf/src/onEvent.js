@@ -1,5 +1,5 @@
 import get from 'lodash/get';
-import Immutable from 'immutable';
+import { Map } from 'immutable';
 import CONSTANT from './constant';
 
 function serializeEvent(event) {
@@ -84,7 +84,7 @@ const ACTION_CREATOR = 'ACTION_CREATOR';
 const DISPATCH = 'DISPATCH';
 const SETSTATE = 'SETSTATE';
 
-const INITIAL_STATE = new Immutable.Map();
+const INITIAL_STATE = new Map();
 
 function addOnEventSupport(handlerType, instance, props, key) {
 	if (CONSTANT[`IS_HANDLER_${handlerType}_REGEX`].test(key)) {
