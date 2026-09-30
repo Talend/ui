@@ -9,7 +9,7 @@ describe('onEvent', () => {
 		beforeEach(() => {
 			instance = {
 				props: {
-					setState: jest.fn(),
+					setState: vi.fn(),
 					state: new Map({ docked: false }),
 				},
 			};
