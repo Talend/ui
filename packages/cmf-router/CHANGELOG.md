@@ -1,5 +1,21 @@
 # Changelog
 
+## 10.0.0
+
+### Major Changes
+
+- 1065a4a: Bump major: depends on @talend/react-cmf which upgrades Immutable.js to v5 (breaking change).
+
+  See the [migration guide](../docs/breaking-change-immutable-v5.md) for full details and upgrade instructions.
+
+### Patch Changes
+
+- 1065a4a: Use the `@talend/connected-react-router` fork (supports immutable v5) instead of upstream `connected-react-router`, which pulled immutable v3.
+- Updated dependencies [1065a4a]
+- Updated dependencies [1065a4a]
+  - @talend/react-cmf@13.0.0
+  - @talend/connected-react-router@6.9.4
+
 ## 9.2.4
 
 ### Patch Changes
