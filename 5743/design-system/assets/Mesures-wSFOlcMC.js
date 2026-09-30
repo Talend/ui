@@ -1,0 +1,7 @@
+import{j as e}from"./index-NEViE0EO.js";import{u as a,M as c}from"./blocks-BF0QJ_PD.js";import{t as o}from"./TalendDesignTokens-JgHEBmOa.js";import"./iframe-DbDLIZx5.js";import{D as l}from"./Dialog-DoMQQF7S.js";import"./index-DPUI1J65.js";import"./useCopyToClipboard-Dzip30h3.js";import{T as i}from"./TokenValue-D1PkPAJd.js";import"./index-DwKu092F.js";import"./preload-helper-PPVm8Dsz.js";import"./dictionary-CKKJDmnH.js";function s(r){const t={h1:"h1",h2:"h2",...a(),...r.components};return e.jsxs(e.Fragment,{children:[e.jsx(c,{title:"Design Tokens/Measures"}),`
+`,e.jsx(t.h1,{id:"measures",children:"Measures"}),`
+`,e.jsx(l,{}),`
+`,e.jsx(t.h2,{id:"spacing",children:"Spacing"}),`
+`,e.jsx(i,{style:n=>({padding:n.value,backgroundColor:o.coralColorAccentBackground,minHeight:"100%"}),type:"measure",category:"spacing",children:n=>e.jsx("div",{style:{border:`${o.coralBorderSDashed} ${o.coralColorAccentBorder}`,borderRadius:o.coralRadiusM,backgroundColor:o.coralColorNeutralBackground,display:"flex",justifyContent:"center",alignItems:"center",width:"100%",minHeight:"100%"},children:n.value})}),`
+`,e.jsx(t.h2,{id:"sizing",children:"Sizing"}),`
+`,e.jsx(i,{style:n=>({minHeight:"100%"}),type:"measure",category:"sizing",children:n=>e.jsx("div",{style:{display:"flex",justifyContent:"center",alignItems:"center",height:n.value},children:n.value})})]})}function M(r={}){const{wrapper:t}={...a(),...r.components};return t?e.jsx(t,{...r,children:e.jsx(s,{...r})}):s(r)}export{M as default};
