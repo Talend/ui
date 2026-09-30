@@ -53,24 +53,24 @@
   "devDependencies": {
     "@talend/icons": "workspace:^",
     "@testing-library/react-hooks": "^8.0.1",
-    "i18next": "^23.16.8",
+    "i18next": "^26.4.2",
     "immutable": "^3.8.4",
     "jsdom": "^26.1.0",
     "prettier": "^3.9.6",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-i18next": "^13.5.0",
+    "react-i18next": "^17.0.15",
     "react-redux": "^7.2.9",
     "react-transition-group": "^2.9.0"
   },
   "peerDependencies": {
-    "i18next": "^23.16.8",
+    "i18next": "^26.4.2",
     "prop-types": "^15.5.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": ">=7",
-    "react-i18next": "^13.5.0",
+    "react-i18next": "^17.0.15",
     "react-transition-group": "^2.3.1"
   },
   "publishConfig": {

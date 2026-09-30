@@ -70,7 +70,6 @@ export function initI18n(options: I18nextOptions = {}) {
 			escapeValue: false,
 		},
 		ns: namespaces,
-		wait: true,
 	};
 
 	if (locales) {

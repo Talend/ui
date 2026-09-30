@@ -71,7 +71,7 @@
     "@types/react-virtualized": "^9.22.3",
     "concurrently": "^8.2.2",
     "focus-outline-manager": "^1.0.2",
-    "i18next": "^23.16.8",
+    "i18next": "^26.4.2",
     "i18next-scanner": "^4.6.0",
     "i18next-scanner-typescript": "^1.2.1",
     "jest-axe": "^8.0.0",
@@ -81,7 +81,7 @@
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.83.0",
-    "react-i18next": "^13.5.0",
+    "react-i18next": "^17.0.15",
     "react-router-dom": "~6.3.0",
     "storybook": "^10.5.5"
   },
@@ -90,9 +90,9 @@
     "@talend/locales-design-system": "^7.15.1",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
-    "i18next": "^23.16.8",
+    "i18next": "^26.4.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-i18next": "^13.5.0"
+    "react-i18next": "^17.0.15"
   }
 }

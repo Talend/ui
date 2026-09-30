@@ -94,13 +94,13 @@
     "@types/prop-types": "^15.7.15",
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
-    "i18next": "^23.16.8",
+    "i18next": "^26.4.2",
     "jsdom": "^26.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-a11y": "^0.3.4",
     "react-dom": "^18.3.1",
-    "react-i18next": "^13.5.0",
+    "react-i18next": "^17.0.15",
     "react-router-dom": "~6.3.0",
     "react-test-renderer": "^18.3.1",
     "esbuild-plugin-react-virtualized": "^1.0.6",
@@ -108,11 +108,11 @@
   },
   "peerDependencies": {
     "@talend/design-system": "workspace:^",
-    "i18next": "^23.16.8",
+    "i18next": "^26.4.2",
     "prop-types": "^15.5.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-i18next": "^13.5.0"
+    "react-i18next": "^17.0.15"
   },
   "publishConfig": {
     "access": "public"
