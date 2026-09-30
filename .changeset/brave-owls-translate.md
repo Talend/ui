@@ -4,6 +4,7 @@
 "@talend/react-containers": major
 "@talend/react-dataviz": major
 "@talend/react-faceted-search": major
+"@talend/react-faceted-search-query-client": major
 "@talend/react-forms": major
 "@talend/react-stepper": major
 ---
