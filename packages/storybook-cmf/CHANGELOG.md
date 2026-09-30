@@ -1,5 +1,18 @@
 # @talend/react-storybook-cmf
 
+## 13.0.0
+
+### Major Changes
+
+- 1065a4a: Bump major: depends on @talend/react-cmf (peer dependency) which upgrades Immutable.js to v5 (breaking change).
+
+  See the [migration guide](../docs/breaking-change-immutable-v5.md) for full details and upgrade instructions.
+
+### Patch Changes
+
+- Updated dependencies [1065a4a]
+  - @talend/react-cmf@13.0.0
+
 ## 12.1.3
 
 ### Patch Changes
