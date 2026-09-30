@@ -1,0 +1,4 @@
+import{j as t}from"./index-NEViE0EO.js";import{u as e,M as i}from"./blocks-BF0QJ_PD.js";import"./iframe-DbDLIZx5.js";import{D as a}from"./Dialog-DoMQQF7S.js";import"./index-DPUI1J65.js";import"./useCopyToClipboard-Dzip30h3.js";import"./TalendDesignTokens-JgHEBmOa.js";import{T as c}from"./TokenValue-D1PkPAJd.js";import"./index-DwKu092F.js";import"./preload-helper-PPVm8Dsz.js";import"./dictionary-CKKJDmnH.js";function r(o){const n={h1:"h1",...e(),...o.components};return t.jsxs(t.Fragment,{children:[t.jsx(i,{title:"Design Tokens/Colors"}),`
+`,t.jsx(n.h1,{id:"colors",children:"Colors"}),`
+`,t.jsx(a,{}),`
+`,t.jsx(c,{style:s=>({backgroundColor:s.value}),type:"color",category:"neutral",categories:["neutral","accent","info","success","warning","beta","charts","illustration","assistive","branding"]})]})}function D(o={}){const{wrapper:n}={...e(),...o.components};return n?t.jsx(n,{...o,children:t.jsx(r,{...o})}):r(o)}export{D as default};
