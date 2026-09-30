@@ -1,4 +1,28 @@
-import { matchPath } from 'react-router';
+import { matchPath as matchPathV7 } from 'react-router';
+
+/**
+ * Keep the react-router v5 `matchPath(pathname, options)` contract
+ * (`{ path, url, isExact, params }`) on top of the react-router v7 one
+ * (`matchPath({ path, end, caseSensitive }, pathname)`).
+ * `options` is a path or `{ path, exact, sensitive }`. `strict` and path arrays are not supported anymore.
+ */
+const matchPath = (pathname, options) => {
+	const {
+		path,
+		exact = false,
+		sensitive = false,
+	} = typeof options === 'string' ? { path: options } : options;
+	const match = matchPathV7({ path, end: exact, caseSensitive: sensitive }, pathname);
+	if (!match) {
+		return null;
+	}
+	return {
+		path,
+		url: match.pathname,
+		isExact: pathname === match.pathname,
+		params: match.params,
+	};
+};
 
 const createSelectors = structure => {
 	const { getIn, toJS } = structure;

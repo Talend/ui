@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
+import { BrowserRouter, Link as RouterLink } from 'react-router';
 // eslint-disable-line import/no-extraneous-dependencies
 import { SortIndicator } from 'react-virtualized';
 

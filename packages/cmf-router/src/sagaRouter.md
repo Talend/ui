@@ -16,7 +16,7 @@ We can now declare for each route, where the `ESCAPE` action type should direct 
 
 ```javascript
 import { sagaRouter } from '@talend/react-cmf';
-import { browserHistory as history } from 'react-router';
+// history is the one returned by getRouter(): const { history } = getRouter(config);
 
 const CANCEL_ACTION = 'CANCEL_ACTION';
 // route configuration, a url fragment match with a generator
@@ -119,7 +119,7 @@ Optionally, if you want to run a saga only on exact match, you can pass a config
 then saga will be started when its route exactly match current location, and will be stopped when change to any other route.
 
 ```javascript
-import { browserHistory as history } from 'react-router';
+// history is the one returned by getRouter(): const { history } = getRouter(config);
 
 import { sagaRouter } from '@talend/react-cmf';
 

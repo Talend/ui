@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
+import { BrowserRouter, Link as RouterLink } from 'react-router';
 
 import { Link, IconsProvider } from '../../';
 import { LinkProps } from '../../components/Link';

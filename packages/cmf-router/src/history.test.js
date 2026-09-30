@@ -65,12 +65,10 @@ describe('history.create', () => {
 			expect(history.action).toBe('REPLACE');
 		});
 
-		// known limitation: push/replace wrappers forward only the location,
-		// so the history v5 second `state` argument is dropped. Pinned before router upgrade.
-		it('push should drop the second state argument', () => {
+		it('push should forward the second state argument', () => {
 			const history = create({ basename: '/app' });
 			history.push('/foo', { x: 1 });
-			expect(history.location.state).toBeNull();
+			expect(history.location.state).toEqual({ x: 1 });
 		});
 
 		it('should notify listeners with the prefixed location', () => {

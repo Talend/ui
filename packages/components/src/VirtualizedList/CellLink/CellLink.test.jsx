@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import CellLink from './CellLink.component';
-import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
+import { BrowserRouter, Link as RouterLink } from 'react-router';
 
 describe('CellLink', () => {
 	it('should default render a link', () => {

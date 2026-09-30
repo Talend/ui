@@ -1,8 +1,8 @@
 import { act, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { createBrowserHistory } from 'history';
 import { onLocationChanged } from '@talend/connected-react-router';
 import { getRouter } from './UIRouter';
+import { create as createBrowserHistory } from './history';
 
 const injectSpy = vi.hoisted(() => vi.fn());
 
@@ -23,7 +23,7 @@ vi.mock('@talend/react-cmf', async () => {
 
 function createHistory() {
 	window.history.replaceState({}, '', '/');
-	return createBrowserHistory();
+	return createBrowserHistory({});
 }
 
 /** minimal store: router state is driven by the test as the fork reducer would do */

@@ -46,7 +46,7 @@
     "mdx-embed": "^1.1.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "~6.3.0",
+    "react-router": "^7.18.4",
     "storybook": "^10.5.5"
   },
   "private": true
