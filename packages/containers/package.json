@@ -64,7 +64,7 @@
     "@testing-library/jest-dom": "^6.10.0",
     "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.6.1",
-    "i18next": "^23.16.8",
+    "i18next": "^26.4.2",
     "msw": "2.13.0",
     "@storybook/addon-a11y": "^10.5.5",
     "@storybook/addon-links": "^10.5.5",
@@ -72,16 +72,16 @@
     "storybook": "^10.5.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-i18next": "^13.5.0",
+    "react-i18next": "^17.0.15",
     "react-test-renderer": "^18.3.1",
     "redux-saga-tester": "^1.0.874"
   },
   "peerDependencies": {
-    "i18next": "^23.16.8",
+    "i18next": "^26.4.2",
     "prop-types": "^15.5.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-i18next": "^13.5.0"
+    "react-i18next": "^17.0.15"
   },
   "publishConfig": {
     "access": "public"

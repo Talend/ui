@@ -587,8 +587,8 @@ importers:
         specifier: ^1.0.6
         version: 1.0.6(esbuild@0.28.1)
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.4.2
+        version: 26.4.2(typescript@5.9.3)
       jsdom:
         specifier: ^26.1.0
         version: 26.1.0(supports-color@10.2.2)
@@ -605,8 +605,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       react-i18next:
-        specifier: ^13.5.0
-        version: 13.5.0(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^17.0.15
+        version: 17.0.15(i18next@26.4.2(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       react-router-dom:
         specifier: ~6.3.0
         version: 6.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -681,8 +681,8 @@ importers:
         specifier: ^14.6.1
         version: 14.6.1(@testing-library/dom@10.4.1)
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.4.2
+        version: 26.4.2(typescript@5.9.3)
       msw:
         specifier: 2.13.0
         version: 2.13.0(@types/node@25.9.5)(typescript@5.9.3)
@@ -696,8 +696,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       react-i18next:
-        specifier: ^13.5.0
-        version: 13.5.0(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^17.0.15
+        version: 17.0.15(i18next@26.4.2(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       react-test-renderer:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
@@ -787,8 +787,8 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.4.2
+        version: 26.4.2(typescript@5.9.3)
       jsdom:
         specifier: ^28.1.0
         version: 28.1.0(@noble/hashes@1.8.0)(supports-color@10.2.2)
@@ -799,8 +799,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       react-i18next:
-        specifier: ^13.5.0
-        version: 13.5.0(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^17.0.15
+        version: 17.0.15(i18next@26.4.2(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       storybook:
         specifier: ^10.5.5
         version: 10.5.5(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1)
@@ -866,8 +866,8 @@ importers:
         specifier: ^18.2.7
         version: 18.3.31
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.4.2
+        version: 26.4.2(typescript@5.9.3)
       mdx-embed:
         specifier: ^1.1.2
         version: 1.1.2(@mdx-js/mdx@1.6.22(supports-color@10.2.2))(@mdx-js/react@1.6.22(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -972,8 +972,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.4.2
+        version: 26.4.2(typescript@5.9.3)
       i18next-scanner:
         specifier: ^4.6.0
         version: 4.6.0
@@ -1002,8 +1002,8 @@ importers:
         specifier: ^7.83.0
         version: 7.83.0(react@18.3.1)
       react-i18next:
-        specifier: ^13.5.0
-        version: 13.5.0(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^17.0.15
+        version: 17.0.15(i18next@26.4.2(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       react-router-dom:
         specifier: ~6.3.0
         version: 6.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1072,8 +1072,8 @@ importers:
         specifier: ^14.6.1
         version: 14.6.1(@testing-library/dom@10.4.1)
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.4.2
+        version: 26.4.2(typescript@5.9.3)
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
@@ -1084,8 +1084,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       react-i18next:
-        specifier: ^13.5.0
-        version: 13.5.0(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^17.0.15
+        version: 17.0.15(i18next@26.4.2(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       storybook:
         specifier: ^10.5.5
         version: 10.5.5(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1)
@@ -1160,8 +1160,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0(redux@4.2.1)
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.4.2
+        version: 26.4.2(typescript@5.9.3)
       immutable:
         specifier: ^3.8.4
         version: 3.8.4
@@ -1175,8 +1175,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       react-i18next:
-        specifier: ^13.5.0
-        version: 13.5.0(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^17.0.15
+        version: 17.0.15(i18next@26.4.2(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       react-redux:
         specifier: ^7.2.9
         version: 7.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1260,8 +1260,8 @@ importers:
         specifier: ^14.6.1
         version: 14.6.1(@testing-library/dom@10.4.1)
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.4.2
+        version: 26.4.2(typescript@5.9.3)
       i18next-scanner-typescript:
         specifier: ^1.2.1
         version: 1.2.1(typescript@5.9.3)
@@ -1281,8 +1281,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       react-i18next:
-        specifier: ^13.5.0
-        version: 13.5.0(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^17.0.15
+        version: 17.0.15(i18next@26.4.2(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       react-test-renderer:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
@@ -1389,8 +1389,8 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.4.2
+        version: 26.4.2(typescript@5.9.3)
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
@@ -1401,8 +1401,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       react-i18next:
-        specifier: ^13.5.0
-        version: 13.5.0(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^17.0.15
+        version: 17.0.15(i18next@26.4.2(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       redux-logger:
         specifier: ^3.0.6
         version: 3.0.6
@@ -1426,8 +1426,8 @@ importers:
         specifier: ^1.0.6
         version: 1.0.6(esbuild@0.28.1)
       i18next-http-backend:
-        specifier: ^1.4.5
-        version: 1.4.5(encoding@0.1.13)
+        specifier: ^4.0.2
+        version: 4.0.2
       msw:
         specifier: 2.13.0
         version: 2.13.0(@types/node@25.9.5)(typescript@5.9.3)
@@ -1509,8 +1509,8 @@ importers:
         specifier: ^8.0.1
         version: 8.0.1(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react-test-renderer@18.3.1(react@18.3.1))(react@18.3.1)
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.4.2
+        version: 26.4.2(typescript@5.9.3)
       immutable:
         specifier: ^3.8.4
         version: 3.8.4
@@ -1530,8 +1530,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       react-i18next:
-        specifier: ^13.5.0
-        version: 13.5.0(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^17.0.15
+        version: 17.0.15(i18next@26.4.2(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       react-redux:
         specifier: ^7.2.9
         version: 7.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1668,8 +1668,8 @@ importers:
         specifier: ^18.2.7
         version: 18.3.31
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.4.2
+        version: 26.4.2(typescript@5.9.3)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1763,8 +1763,8 @@ importers:
         specifier: ^1.5.2
         version: 1.5.2
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.4.2
+        version: 26.4.2(typescript@5.9.3)
       lodash:
         specifier: ^4.18.1
         version: 4.18.1
@@ -1913,11 +1913,11 @@ importers:
         specifier: ^1.0.6
         version: 1.0.6(esbuild@0.28.1)
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.4.2
+        version: 26.4.2(typescript@5.9.3)
       i18next-http-backend:
-        specifier: ^1.4.5
-        version: 1.4.5(encoding@0.1.13)
+        specifier: ^4.0.2
+        version: 4.0.2
       lodash:
         specifier: ^4.18.1
         version: 4.18.1
@@ -1934,8 +1934,8 @@ importers:
         specifier: ^18.0.0
         version: 18.3.1
       react-i18next:
-        specifier: ^13.5.0
-        version: 13.5.0(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^17.0.15
+        version: 17.0.15(i18next@26.4.2(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       storybook:
         specifier: ^10.5.5
         version: 10.5.5(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1)
@@ -5931,9 +5931,6 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  cross-fetch@3.1.5:
-    resolution: {integrity: sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==}
-
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
@@ -7234,8 +7231,8 @@ packages:
     engines: {node: '>=12'}
     hasBin: true
 
-  html-parse-stringify@3.1.0:
-    resolution: {integrity: sha512-E0oAXcELOtsXe+BmpJ2EZyedbldPpriV5vICzEuo6xjC/D1lDukOI7KrpfQGF2Qc4wWEy0nk3bFORS2K5ZAhFQ==}
+  html-parse-stringify@4.0.1:
+    resolution: {integrity: sha512-0zHsZJrK7S3K2aucXWL6ycoYJ/iNtIcFHC/nYQgFklPtrv5LpJctIiSCroWZWeuoXvuyFdzp6KzjJQ+OT5MfFw==}
 
   html-tags@5.1.0:
     resolution: {integrity: sha512-n6l5uca7/y5joxZ3LUePhzmBFUJ+U2YWzhMa8XUTecSeSlQiZdF5XAd/Q3/WUl0VsXgUwWi8I7CNIwdI5WN1SQ==}
@@ -7317,8 +7314,9 @@ packages:
   hyphenate-style-name@1.1.0:
     resolution: {integrity: sha512-WDC/ui2VVRrz3jOVi+XtjqkDjiVjTtFaAGiW37k6b+ohyQ5wYDOGkvCZa8+H0nx3gyvv0+BST9xuOgIyGQ00gw==}
 
-  i18next-http-backend@1.4.5:
-    resolution: {integrity: sha512-tLuHWuLWl6CmS07o+UB6EcQCaUjrZ1yhdseIN7sfq0u7phsMePJ8pqlGhIAdRDPF/q7ooyo5MID5DRFBCH+x5w==}
+  i18next-http-backend@4.0.2:
+    resolution: {integrity: sha512-oay62dIB2kL7+WHzoUXBjWfL3+mwijD3pQkQkIEaRLhy6kjXxUhrRenV0gInwlCASAaJaDy94+XvYizK+cAGdA==}
+    engines: {node: '>=18'}
 
   i18next-scanner-typescript@1.2.1:
     resolution: {integrity: sha512-CAvjGBTpudGEc8o31ayFEHkz+7qyjPpJa+iA+7Yu7hSTdJqS4LRKafA79wgIncSd0Th85knG/rdZZybLSPoWDQ==}
@@ -7332,6 +7330,14 @@ packages:
 
   i18next@23.16.8:
     resolution: {integrity: sha512-06r/TitrM88Mg5FdUXAKL96dJMzgqLE5dv3ryBAra4KCwD9mJ4ndOTS95ZuymIGoE+2hzfdaMak2X11/es7ZWg==}
+
+  i18next@26.4.2:
+    resolution: {integrity: sha512-RX+R0VLg13IbvRuJSxnqykUFS9vQZTl8wYpWPCIUDWVrSGjsQywB5Y+pjzrkboxGAuYfJZVH1InFTdgBdxq6ug==}
+    peerDependencies:
+      typescript: ^5 || ^6 || ^7
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
@@ -8439,15 +8445,6 @@ packages:
     resolution: {integrity: sha512-kXs9Go0cah0qHVV2v389IXQLdLCeE1xfFtjOAF+iobu0OIoG1pje8At2vMHyaPMiPMnG/LWP50twML21eMcAag==}
     engines: {node: '>= 0.4'}
 
-  node-fetch@2.6.7:
-    resolution: {integrity: sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==}
-    engines: {node: 4.x || >=6.0.0}
-    peerDependencies:
-      encoding: ^0.1.0
-    peerDependenciesMeta:
-      encoding:
-        optional: true
-
   node-fetch@2.7.0:
     resolution: {integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==}
     engines: {node: 4.x || >=6.0.0}
@@ -9390,17 +9387,20 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
 
-  react-i18next@13.5.0:
-    resolution: {integrity: sha512-CFJ5NDGJ2MUyBohEHxljOq/39NQ972rh1ajnadG9BjTk+UXbHLq4z5DKEbEQBDoIhUmmbuS/fIMJKo6VOax1HA==}
+  react-i18next@17.0.15:
+    resolution: {integrity: sha512-7uYpx/oBkesLto7cOzOmfITlUBaXHCAcFahmgETMfWr8nbbWRRnVGvz8wsH/xpbNcyoH+NpCcnOQEqWPMO6/hw==}
     peerDependencies:
-      i18next: '>= 23.2.3'
+      i18next: '>= 26.2.0'
       react: '>= 16.8.0'
       react-dom: '*'
       react-native: '*'
+      typescript: ^5 || ^6 || ^7
     peerDependenciesMeta:
       react-dom:
         optional: true
       react-native:
+        optional: true
+      typescript:
         optional: true
 
   react-immutable-proptypes@2.2.0:
@@ -10963,10 +10963,6 @@ packages:
         optional: true
       jsdom:
         optional: true
-
-  void-elements@3.1.0:
-    resolution: {integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==}
-    engines: {node: '>=0.10.0'}
 
   w3c-xmlserializer@5.0.0:
     resolution: {integrity: sha512-o8qghlI8NZHU1lLPrpi2+Uq7abh4GGPpYANlalzWxyWteJOCsr/P+oPBA49TOLu5FTZO4d3F9MnWJfiMo4BkmA==}
@@ -15655,12 +15651,6 @@ snapshots:
       '@epic-web/invariant': 1.0.0
       cross-spawn: 7.0.6
 
-  cross-fetch@3.1.5(encoding@0.1.13):
-    dependencies:
-      node-fetch: 2.6.7(encoding@0.1.13)
-    transitivePeerDependencies:
-      - encoding
-
   cross-spawn@7.0.6:
     dependencies:
       path-key: 3.1.1
@@ -17313,9 +17303,7 @@ snapshots:
       relateurl: 0.2.7
       terser: 5.49.0
 
-  html-parse-stringify@3.1.0:
-    dependencies:
-      void-elements: 3.1.0
+  html-parse-stringify@4.0.1: {}
 
   html-tags@5.1.0: {}
 
@@ -17411,11 +17399,7 @@ snapshots:
 
   hyphenate-style-name@1.1.0: {}
 
-  i18next-http-backend@1.4.5(encoding@0.1.13):
-    dependencies:
-      cross-fetch: 3.1.5(encoding@0.1.13)
-    transitivePeerDependencies:
-      - encoding
+  i18next-http-backend@4.0.2: {}
 
   i18next-scanner-typescript@1.2.1(typescript@5.9.3):
     dependencies:
@@ -17449,6 +17433,10 @@ snapshots:
   i18next@23.16.8:
     dependencies:
       '@babel/runtime': 7.29.7
+
+  i18next@26.4.2(typescript@5.9.3):
+    optionalDependencies:
+      typescript: 5.9.3
 
   iconv-lite@0.4.24:
     dependencies:
@@ -18755,12 +18743,6 @@ snapshots:
       object.entries: 1.1.9
       semver: 6.3.1
 
-  node-fetch@2.6.7(encoding@0.1.13):
-    dependencies:
-      whatwg-url: 5.0.0
-    optionalDependencies:
-      encoding: 0.1.13
-
   node-fetch@2.7.0(encoding@0.1.13):
     dependencies:
       whatwg-url: 5.0.0
@@ -19801,14 +19783,16 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  react-i18next@13.5.0(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-i18next@17.0.15(i18next@26.4.2(typescript@5.9.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3):
     dependencies:
       '@babel/runtime': 7.29.7
-      html-parse-stringify: 3.1.0
-      i18next: 23.16.8
+      html-parse-stringify: 4.0.1
+      i18next: 26.4.2(typescript@5.9.3)
       react: 18.3.1
+      use-sync-external-store: 1.6.0(react@18.3.1)
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
+      typescript: 5.9.3
 
   react-immutable-proptypes@2.2.0(immutable@3.8.4):
     dependencies:
@@ -21753,8 +21737,6 @@ snapshots:
       jsdom: 26.1.0(supports-color@10.2.2)
     transitivePeerDependencies:
       - msw
-
-  void-elements@3.1.0: {}
 
   w3c-xmlserializer@5.0.0:
     dependencies:
