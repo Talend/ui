@@ -1,4 +1,3 @@
-import 'raf/polyfill';
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
@@ -19,6 +18,11 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const { mount } = Enzyme;
 
+vi.mock('../src/actions', async importOriginal => {
+	const actions = await importOriginal();
+	return { ...actions, onLocationChanged: vi.fn(actions.onLocationChanged) };
+});
+
 describe('ConnectedRouter', () => {
 	let props;
 	let store;
@@ -26,9 +30,9 @@ describe('ConnectedRouter', () => {
 	let onLocationChangedSpy;
 
 	beforeEach(() => {
-		// Rewire `onLocationChanged` of `createConnectedRouter` to contain a spy function
-		onLocationChangedSpy = jest.fn((location, action) => onLocationChanged(location, action));
-		createConnectedRouter.__Rewire__('onLocationChanged', onLocationChangedSpy);
+		// `onLocationChanged` is mocked (see vi.mock above) to spy on calls made by `createConnectedRouter`
+		onLocationChangedSpy = onLocationChanged;
+		onLocationChangedSpy.mockClear();
 
 		// Reset history
 		history = createMemoryHistory();
@@ -50,11 +54,6 @@ describe('ConnectedRouter', () => {
 				location: props.history.location,
 			},
 		});
-	});
-
-	afterEach(() => {
-		// Restore to remove a spy function
-		createConnectedRouter.__ResetDependency__('onLocationChanged');
 	});
 
 	describe('with plain structure', () => {

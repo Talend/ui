@@ -7,11 +7,11 @@ describe('Middleware', () => {
 		const history = {
 			location: {},
 			action: 'POP',
-			push: jest.fn(),
-			replace: jest.fn(),
-			go: jest.fn(),
-			goBack: jest.fn(),
-			goForward: jest.fn(),
+			push: vi.fn(),
+			replace: vi.fn(),
+			go: vi.fn(),
+			goBack: vi.fn(),
+			goForward: vi.fn(),
 		};
 		const middlewares = [routerMiddleware(history)];
 		const mockStore = configureStore(middlewares);
@@ -69,7 +69,7 @@ describe('Middleware', () => {
 	});
 
 	it('passes to next middleware if action type is not CALL_HISTORY_METHOD', () => {
-		const spy = jest.fn();
+		const spy = vi.fn();
 		const nextMiddleware = store => next => action => {
 			// eslint-disable-line no-unused-vars
 			spy(action);
