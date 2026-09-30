@@ -85,7 +85,6 @@
     "@storybook/react-vite": "^10.5.5",
     "@testing-library/jest-dom": "^6.10.0",
     "@testing-library/react": "^14.3.1",
-    "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/classnames": "^2.3.4",
     "@types/d3": "^7.4.3",

@@ -1,5 +1,5 @@
 import { useColumnsVisibility } from './useColumnsVisibility.hook';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { StorageMock } from '../../../../../test/storageMock';
 
 const STORAGE_KEY = 'storage-key';
