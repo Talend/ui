@@ -1,6 +1,3 @@
-/**
- * @jest-environment jest-environment-jsdom-global
- */
 import { Map, List } from 'immutable';
 import localStorageAPI from '../src/localStorage';
 
