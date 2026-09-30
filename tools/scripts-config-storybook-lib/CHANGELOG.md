@@ -1,5 +1,13 @@
 # @talend/scripts-config-storybook-lib
 
+## 6.1.4
+
+### Patch Changes
+
+- 7fe814a: chore: upgrade i18next to ^26.4.2, react-i18next to ^17.0.15 and i18next-http-backend to ^4.0.2
+- Updated dependencies [7fe814a]
+  - @talend/design-system@13.0.0
+
 ## 6.1.3
 
 ### Patch Changes

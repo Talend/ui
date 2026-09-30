@@ -1,5 +1,12 @@
 # @talend/react-faceted-search-query-client
 
+## 3.1.5
+
+### Patch Changes
+
+- Updated dependencies [7fe814a]
+  - @talend/react-faceted-search@23.0.0
+
 ## 3.1.4
 
 ### Patch Changes
