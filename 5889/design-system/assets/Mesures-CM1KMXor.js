@@ -1,7 +1,0 @@
-import{j as e}from"./index-Be2yYDe1.js";import{u as a,M as c}from"./blocks-KE-KE0P_.js";import{t as o}from"./TalendDesignTokens-JgHEBmOa.js";import"./iframe-Ryu-LzxR.js";import{D as l}from"./Dialog-C6R860Vk.js";import"./index-h1_9DAPL.js";import"./useCopyToClipboard-DA5Vhp65.js";import{T as i}from"./TokenValue-miyvafLs.js";import"./index-Dg8jJ_av.js";import"./preload-helper-PPVm8Dsz.js";import"./dictionary-CKKJDmnH.js";function s(r){const t={h1:"h1",h2:"h2",...a(),...r.components};return e.jsxs(e.Fragment,{children:[e.jsx(c,{title:"Design Tokens/Measures"}),`
-`,e.jsx(t.h1,{id:"measures",children:"Measures"}),`
-`,e.jsx(l,{}),`
-`,e.jsx(t.h2,{id:"spacing",children:"Spacing"}),`
-`,e.jsx(i,{style:n=>({padding:n.value,backgroundColor:o.coralColorAccentBackground,minHeight:"100%"}),type:"measure",category:"spacing",children:n=>e.jsx("div",{style:{border:`${o.coralBorderSDashed} ${o.coralColorAccentBorder}`,borderRadius:o.coralRadiusM,backgroundColor:o.coralColorNeutralBackground,display:"flex",justifyContent:"center",alignItems:"center",width:"100%",minHeight:"100%"},children:n.value})}),`
-`,e.jsx(t.h2,{id:"sizing",children:"Sizing"}),`
-`,e.jsx(i,{style:n=>({minHeight:"100%"}),type:"measure",category:"sizing",children:n=>e.jsx("div",{style:{display:"flex",justifyContent:"center",alignItems:"center",height:n.value},children:n.value})})]})}function M(r={}){const{wrapper:t}={...a(),...r.components};return t?e.jsx(t,{...r,children:e.jsx(s,{...r})}):s(r)}export{M as default};
