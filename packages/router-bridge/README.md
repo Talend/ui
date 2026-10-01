@@ -20,7 +20,7 @@ The library need to duplicate the route mapping
 **React-router v5 mode**
 ![Applications with react-router v5 will use the router-bridge routing definition that is a layer on top of react-router v5](./img/route-mapping-rrv5.png)
 
-`@talend/router-bridge` stays on top of `react-router-dom`. It serves react-router v5 components if it is loaded. Otherwise, nothing is rendered. So those route mapping can be used safely, they just won't set anything with `cmf-router`.
+`@talend/router-bridge` stays on top of `react-router` (v7). It serves react-router v7 components if it is loaded. Otherwise, nothing is rendered. So those route mapping can be used safely, they just won't set anything with `cmf-router`.
 
 ```javascript
 import { Switch, Route } from '@talend/router-bridge';

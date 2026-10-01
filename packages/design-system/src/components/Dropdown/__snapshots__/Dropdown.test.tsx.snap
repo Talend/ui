@@ -117,6 +117,7 @@ exports[`Dropdown > should render a11y html 1`] = `
         </button>
         <a
           class="_linkable_4927c6 _dropdownEntry_1ffa1e"
+          data-discover="true"
           data-test="link-as"
           data-testid="link-as"
           href="/route"

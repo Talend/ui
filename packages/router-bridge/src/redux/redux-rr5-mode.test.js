@@ -2,7 +2,7 @@ describe('redux action - rr5 mode', () => {
 	beforeEach(() => {
 		delete process.env.TALEND_ROUTER_BRIDGE_FORCE_LEGACY;
 		vi.resetModules();
-		vi.doUnmock('react-router-dom');
+		vi.doUnmock('react-router');
 	});
 
 	it('should return cmf router action on push', async () => {

@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import { createBrowserHistory } from 'history';
+import { UNSAFE_createBrowserHistory } from 'react-router';
 import {
 	connectRouter,
 	getLocation,
@@ -24,7 +24,7 @@ describe('selectors', () => {
 	let store;
 
 	beforeEach(() => {
-		const history = createBrowserHistory();
+		const history = UNSAFE_createBrowserHistory({ v5Compat: true });
 		const reducer = combineReducers({
 			router: connectRouter(history),
 		});

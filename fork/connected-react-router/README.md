@@ -12,7 +12,7 @@ Main features
 
 :sparkles: Synchronize router state with redux store through uni-directional flow (i.e. history -> store -> router -> components).
 
-:gift: Supports [React Router v4 and v5](https://github.com/ReactTraining/react-router).
+:gift: Supports [React Router v7](https://reactrouter.com) (the Talend fork dropped the `history` package, see docs/breaking-change-react-router-v7.md).
 
 :sunny: Supports functional component hot reloading while preserving state (with [react-hot-reload](https://github.com/gaearon/react-hot-loader)).
 
@@ -71,12 +71,12 @@ When creating a Redux store,
 ```js
 // configureStore.js
 ...
-import { createBrowserHistory } from 'history'
+import { UNSAFE_createBrowserHistory as createBrowserHistory } from 'react-router'
 import { applyMiddleware, compose, createStore } from 'redux'
 import { routerMiddleware } from 'connected-react-router'
 import createRootReducer from './reducers'
 ...
-export const history = createBrowserHistory()
+export const history = createBrowserHistory({ v5Compat: true })
 
 export default function configureStore(preloadedState) {
   const store = createStore(
@@ -96,7 +96,7 @@ export default function configureStore(preloadedState) {
 
 ### Step 3
 
-- Wrap your react-router v4/v5 routing with `ConnectedRouter` and pass the `history` object as a prop. Remember to delete any usage of `BrowserRouter` or `NativeRouter` as leaving this in will [cause](https://github.com/supasate/connected-react-router/issues/230#issuecomment-461628073) [problems](https://github.com/supasate/connected-react-router/issues/230#issuecomment-476164384) synchronising the state.
+- Wrap your react-router v7 routing with `ConnectedRouter` and pass the `history` object as a prop. Remember to delete any usage of `BrowserRouter` or `NativeRouter` as leaving this in will [cause](https://github.com/supasate/connected-react-router/issues/230#issuecomment-461628073) [problems](https://github.com/supasate/connected-react-router/issues/230#issuecomment-476164384) synchronising the state.
 - Place `ConnectedRouter` as a child of `react-redux`'s `Provider`.
 - **N.B.** If doing server-side rendering, you should still use the `StaticRouter` from `react-router` on the server.
 

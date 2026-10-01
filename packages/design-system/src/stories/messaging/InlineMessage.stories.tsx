@@ -8,7 +8,7 @@ import {
 	InlineMessageBeta,
 } from '../../';
 import { StoryFn } from '@storybook/react';
-import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
+import { BrowserRouter, Link as RouterLink } from 'react-router';
 
 export default { component: InlineMessage, title: 'Messaging/InlineMessage' };
 

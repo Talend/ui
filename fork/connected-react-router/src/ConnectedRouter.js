@@ -22,6 +22,9 @@ const createConnectedRouter = structure => {
 			const { store, history, onLocationChanged, stateCompareFunction } = props;
 
 			this.inTimeTravelling = false;
+			this.mounted = false;
+			// react-router v7 `Router` does not listen to a history, it renders the given location
+			this.state = { location: history.location, action: history.action };
 
 			// Subscribe to store changes to check if we are in time travelling
 			this.unsubscribe = store.subscribe(() => {
@@ -54,16 +57,23 @@ const createConnectedRouter = structure => {
 					(pathnameInHistory !== pathnameInStore ||
 						searchInHistory !== searchInStore ||
 						hashInHistory !== hashInStore ||
-						!isEqualWith(stateInStore, stateInHistory, stateCompareFunction))
+						// react-router locations have a `null` state where history v5 had `undefined`
+						!isEqualWith(
+							stateInStore === null ? undefined : stateInStore,
+							stateInHistory === null ? undefined : stateInHistory,
+							stateCompareFunction,
+						))
 				) {
 					this.inTimeTravelling = true;
 					// Update history's location to match store's location
-					history.push({
-						pathname: pathnameInStore,
-						search: searchInStore,
-						hash: hashInStore,
-						state: stateInStore,
-					});
+					history.push(
+						{
+							pathname: pathnameInStore,
+							search: searchInStore,
+							hash: hashInStore,
+						},
+						stateInStore,
+					);
 				}
 			});
 
@@ -74,10 +84,16 @@ const createConnectedRouter = structure => {
 				} else {
 					this.inTimeTravelling = false;
 				}
+				if (this.mounted) {
+					this.setState({ location, action });
+				}
 			};
 
 			// Listen to history changes
-			this.unlisten = history.listen(handleLocationChange);
+			// history v5 and react-router v7 call the listener with `{ location, action }`
+			this.unlisten = history.listen(({ location, action }) =>
+				handleLocationChange(location, action),
+			);
 
 			if (!props.noInitialPop) {
 				// Dispatch a location change action for the initial location.
@@ -87,7 +103,17 @@ const createConnectedRouter = structure => {
 			}
 		}
 
+		componentDidMount() {
+			this.mounted = true;
+			// the location may have changed between the constructor and the mount
+			const { history } = this.props;
+			if (history.location !== this.state.location) {
+				this.setState({ location: history.location, action: history.action });
+			}
+		}
+
 		componentWillUnmount() {
+			this.mounted = false;
 			this.unlisten();
 			this.unsubscribe();
 		}
@@ -103,7 +129,15 @@ const createConnectedRouter = structure => {
 				return <>{children}</>;
 			}
 
-			return <Router history={history}>{children}</Router>;
+			return (
+				<Router
+					location={this.state.location}
+					navigationType={this.state.action}
+					navigator={history}
+				>
+					{children}
+				</Router>
+			);
 		}
 	}
 

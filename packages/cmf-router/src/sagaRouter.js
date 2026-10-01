@@ -2,7 +2,7 @@
  * @module react-cmf/lib/sagaRouter
  * @example
  *	import { sagaRouter } from '@talend/react-cmf';
- *	import { browserHistory as history } from 'react-router';
+ *	// history is the one returned by getRouter(): const { history } = getRouter(config);
 
  *	const CANCEL_ACTION = 'CANCEL_ACTION';
  *	// route configuration, a url fragment match with a generator
@@ -158,7 +158,7 @@ export default function* sagaRouter(history, routes) {
 	while (true) {
 		const shouldStart = [];
 		const currentLocation = history.location;
-		for (let index = 0; index < routeFragments.length; ) {
+		for (let index = 0; index < routeFragments.length;) {
 			const routeFragment = routeFragments[index];
 			const routeSaga = routes[routeFragment];
 			const { match, maybeSaga } = parseSagaState(routeFragment, sagas, currentLocation);
@@ -172,7 +172,7 @@ export default function* sagaRouter(history, routes) {
 			}
 			index += 1;
 		}
-		for (let index = 0; index < shouldStart.length; ) {
+		for (let index = 0; index < shouldStart.length;) {
 			const { routeFragment, match } = shouldStart[index];
 			let routeSaga = routes[routeFragment];
 			if (typeof routes[routeFragment] === 'object') {

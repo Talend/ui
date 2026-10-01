@@ -1,4 +1,4 @@
-import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
+import { BrowserRouter, Link as RouterLink } from 'react-router';
 
 import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
