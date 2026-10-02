@@ -325,3 +325,19 @@ describe('PieChart', () => {
 		});
 	});
 });
+
+describe('setMinimumPercentage with extreme values', () => {
+	it.each([
+		[[{ percentage: -Infinity }, { percentage: Infinity }]],
+		[[{ percentage: -1e15 }, { percentage: 1e15 }]],
+		[[{ percentage: NaN }, { percentage: 'x' }, { percentage: 50 }]],
+	])('should terminate and stay within [0, 100]: %j', model => {
+		const result = setMinimumPercentage(model, 5);
+		expect(result).toHaveLength(model.length);
+		result.forEach(v => {
+			expect(Number.isFinite(v.percentageShown)).toBe(true);
+			expect(v.percentageShown).toBeGreaterThanOrEqual(0);
+			expect(v.percentageShown).toBeLessThanOrEqual(100);
+		});
+	});
+});

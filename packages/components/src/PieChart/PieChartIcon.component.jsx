@@ -136,6 +136,18 @@ export function distributePercentages(values, minimumPercentage, amountToSubtrac
 }
 
 /**
+ * Coerce any input to a finite number within [0, 100]
+ * @param {*} percentage the raw percentage
+ */
+function sanitizePercentage(percentage) {
+	const number = Number(percentage);
+	if (!Number.isFinite(number)) {
+		return 0;
+	}
+	return Math.min(100, Math.max(0, number));
+}
+
+/**
  * This function sets minimum percentage show with the minimum percentage shown
  * @param {array} values the set of values
  * @param {number} minimumPercentage the minimum value we have to show
@@ -147,7 +159,8 @@ export function setMinimumPercentage(model, minimumPercentage) {
 
 	let amountToSubtract = 0;
 
-	const valuesMins = model.map(value => {
+	const valuesMins = model.map(rawValue => {
+		const value = { ...rawValue, percentage: sanitizePercentage(rawValue.percentage) };
 		if (value.percentage && value.percentage < minimumPercentage) {
 			amountToSubtract += minimumPercentage - value.percentage;
 			return { ...value, percentageShown: minimumPercentage };
