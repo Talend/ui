@@ -78,7 +78,7 @@ export const FigmaImage = ({
 				.then(({ data }) => setFileImageResponse(data))
 				.catch(reason => {
 					console.error(
-						'[FigmaImage] Verify that you use STORYBOOK_FIGMA_ACCESS_TOKEN correctly!',
+						'[FigmaImage] Unable to fetch the Figma image. Verify the FigmaContext client configuration.',
 						reason,
 					);
 				});
