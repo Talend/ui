@@ -10,6 +10,30 @@ import { generateDescriptionId, generateErrorId } from '../../Message/generateId
 import { getLabelProps } from '../../utils/labels';
 import { convertValue, extractDataAttributes } from '../../utils/properties';
 
+const ALLOWED_PROTOCOLS = ['http:', 'https:'];
+
+function isSafeUrl(url) {
+	if (typeof url !== 'string') {
+		return false;
+	}
+	try {
+		return ALLOWED_PROTOCOLS.includes(new URL(url, 'https://localhost').protocol);
+	} catch {
+		return false;
+	}
+}
+
+function getSafeLink(link) {
+	if (!link || typeof link !== 'object') {
+		return null;
+	}
+	if (link.href === undefined || isSafeUrl(link.href)) {
+		return link;
+	}
+	const { href: _href, ...safeLink } = link;
+	return safeLink;
+}
+
 export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
 	const {
@@ -72,7 +96,7 @@ export default function Text(props) {
 	if (type === 'password') {
 		fieldProps = {
 			...fieldProps,
-			link,
+			link: getSafeLink(link),
 		};
 	}
 

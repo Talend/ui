@@ -279,4 +279,28 @@ describe('Text field', () => {
 		expect(screen.getByTitle(link.title)).toHaveTextContent(link.children);
 		expect(screen.getByTestId('link.icon.external')).toBeVisible();
 	});
+
+	it.each(['javascript:alert(1)', ' JavaScript:alert(1)', 'data:text/html,x', 'vbscript:x'])(
+		'should not render a password link href with a non http(s) url: %s',
+		href => {
+			const link = { href, title: 'Help', children: 'Need help?' };
+			render(<Text {...defaultProps} schema={{ title: 'Password', type: 'password', link }} />);
+			expect(screen.getByTitle('Help')).not.toHaveAttribute('href', href);
+			expect(screen.getByTitle('Help').getAttribute('href') || '').not.toMatch(/script|data:/i);
+		},
+	);
+
+	it('should keep relative and https password link href', () => {
+		render(
+			<Text
+				{...defaultProps}
+				schema={{
+					title: 'Password',
+					type: 'password',
+					link: { href: '/help', title: 'Help', children: 'Need help?' },
+				}}
+			/>,
+		);
+		expect(screen.getByTitle('Help')).toHaveAttribute('href', '/help');
+	});
 });
