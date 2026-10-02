@@ -36,6 +36,24 @@ describe('supernova exporter escaping helpers', () => {
 		expect(out).not.toMatch(/[;{}]|url\(|@import/);
 	});
 
+	it('should treat the data scheme case-insensitively', () => {
+		const out = functions.baseWrap("DATA:x') ; body { color: red", 'Light');
+		expect(out.startsWith("url('")).toBe(true);
+		expect(out.slice(5, -2)).not.toMatch(/['){};]/);
+	});
+
+	it('should strip css comment delimiters from text values', () => {
+		const out = functions.baseWrap('a /* b */ c', 'Light');
+		expect(out).not.toMatch(/\/\*|\*\//);
+	});
+
+	it('should sanitize theme-prefixed text values', () => {
+		const out = functions.sanitizeCssText(
+			functions.prefixWithThemeName('coral; } b { x: y', 'Light'),
+		);
+		expect(out).toBe('coral-light  b  x: y');
+	});
+
 	it('should keep legitimate values unchanged', () => {
 		expect(
 			functions.baseWrap('coral-keyframes-blink 1.5s cubic-bezier(0.7, 0, 1, 1) infinite', 'Light'),

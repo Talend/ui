@@ -171,6 +171,7 @@ function sanitizeCssText(text) {
 	return String(text)
 		.replace(/[\u0000-\u001f\u007f]/g, ' ')
 		.replace(/[{};<>\\]/g, '')
+		.replace(/\/\*|\*\//g, '')
 		.replace(/@import|url\s*\(|expression\s*\(/gi, '');
 }
 
@@ -186,7 +187,7 @@ function encodeDataUri(text) {
 }
 
 Pulsar.registerFunction('baseWrap', function (token, designSystemName) {
-	const stringPrefix = token.split(':')[0];
+	const stringPrefix = token.split(':')[0].trim().toLowerCase();
 	const safeName = designSystemName.toLowerCase();
 	if (stringPrefix === 'data') {
 		return `url('${encodeDataUri(token)}')`;
@@ -272,6 +273,10 @@ Pulsar.registerFunction('constructGenericTokensStyles', function (token, dsName)
 Pulsar.registerFunction('prefixWithThemeName', function (value, dsName) {
 	const safeThemeName = dsName.toLowerCase();
 	return value.replace('coral', `coral-${safeThemeName}`);
+});
+
+Pulsar.registerFunction('sanitizeCssText', function (value) {
+	return sanitizeCssText(value);
 });
 
 // TS
