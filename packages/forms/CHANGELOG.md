@@ -1,5 +1,23 @@
 # @talend/react-forms
 
+## 18.0.1
+
+### Patch Changes
+
+- d1dd571: fix(forms): restrict Button widget href to http(s) urls
+- a7b9a34: fix(forms): restrict uiSchema `condition` evaluation to an allow-list of operators and safe variable paths
+- Updated dependencies [4694f97]
+- Updated dependencies [e2d343d]
+- Updated dependencies [c8aff45]
+- Updated dependencies [af19a23]
+- Updated dependencies [adaea0d]
+- Updated dependencies [6f8a9f1]
+- Updated dependencies [d02fb3d]
+- Updated dependencies [ea2fe26]
+  - @talend/react-components@20.0.1
+  - @talend/design-system@13.0.2
+  - @talend/design-tokens@4.1.6
+
 ## 18.0.0
 
 ### Major Changes

@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 4.1.6
+
+### Patch Changes
+
+- ea2fe26: fix: escape design-tool provided text (descriptions, text values, font families) in the Supernova exporter templates so it cannot alter the generated TS/CSS code
+
 ## 4.1.5
 
 ### Patch Changes

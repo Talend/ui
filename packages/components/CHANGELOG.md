@@ -1,5 +1,18 @@
 # @talend/react-components
 
+## 20.0.1
+
+### Patch Changes
+
+- 4694f97: fix(components): Action displayMode no longer resolves arbitrary components from the registry, unknown values fall back to ActionButton
+- e2d343d: fix(components): harden CellMappedData values lookup
+- c8aff45: fix(components): harden legacy DateTimePicker text input handling
+- adaea0d: fix(components): do not forward componentClass from action props or dropdown items in ActionButton, ActionIconToggle, ActionDropdown and ActionSplitDropdown
+- 6f8a9f1: fix(components): escape the dateFormat characters when building the date parsing RegExp
+- d02fb3d: fix(components): sanitize PieChart percentages so redistribution always terminates
+- Updated dependencies [ea2fe26]
+  - @talend/design-tokens@4.1.6
+
 ## 20.0.0
 
 ### Major Changes
