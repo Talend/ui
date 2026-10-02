@@ -370,6 +370,28 @@ describe('REACT_CMF.COLLECTION_MUTATE', () => {
 			]);
 		});
 
+		it('should not apply own reserved-key updates to a List', () => {
+			const state = defaultState.set(
+				'collectionid',
+				new List([
+					{ id: 'constructor', label: 'a' },
+					{ id: 'ok', label: 'b' },
+				]),
+			);
+			const update = JSON.parse(
+				'{"constructor": {"id": "constructor", "label": "x"}, "ok": {"id": "ok", "label": "y"}}',
+			);
+			const nextState = collectionsReducers(state, {
+				type: 'REACT_CMF.COLLECTION_MUTATE',
+				id: ['collectionid'],
+				operations: { update },
+			});
+			expect(nextState.get('collectionid').toJS()).toEqual([
+				{ id: 'constructor', label: 'a' },
+				{ id: 'ok', label: 'y' },
+			]);
+		});
+
 		it('should not add unsafe ids when updating a Map', () => {
 			const update = JSON.parse('{"__proto__": "x", "constructor": "y", "test0": "z"}');
 			const nextState = collectionsReducers(mapInitialState, {

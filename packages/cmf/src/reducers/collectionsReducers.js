@@ -109,6 +109,9 @@ function updateListElements(state, action) {
 
 	const changedCollection = state.getIn(action.collectionId).map(element => {
 		const id = getId(element);
+		if (UNSAFE_IDS.includes(id)) {
+			return element;
+		}
 		return Object.prototype.hasOwnProperty.call(updates, id) && updates[id] ? updates[id] : element;
 	});
 	return state.setIn(action.collectionId, changedCollection);
