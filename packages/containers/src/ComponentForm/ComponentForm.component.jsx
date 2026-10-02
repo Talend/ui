@@ -80,9 +80,19 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 	const parentKey = schema.key.slice();
 	const key = parentKey.pop();
 	const nameKey = `$${key}_name`;
-	const parentValue = Form.UIForm.utils.properties.getValue(properties, { key: parentKey });
+	let parentValue = properties;
+	for (const part of parentKey) {
+		if (
+			!parentValue ||
+			typeof parentValue !== 'object' ||
+			!Object.prototype.hasOwnProperty.call(parentValue, part)
+		) {
+			return;
+		}
+		parentValue = parentValue[part];
+	}
 
-	if (!parentValue || typeof parentValue !== 'object' || parentValue === Object.prototype) {
+	if (!parentValue || typeof parentValue !== 'object') {
 		return;
 	}
 

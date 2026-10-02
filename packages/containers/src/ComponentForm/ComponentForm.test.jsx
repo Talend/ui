@@ -89,6 +89,17 @@ describe('ComponentForm', () => {
 			},
 		);
 
+		it('should not write on an inherited parent object', () => {
+			const inherited = {};
+			const properties = Object.create({ my: inherited });
+			const schema = {
+				key: ['my', 'value'],
+				titleMap: [{ name: 'Name', value: 'v' }],
+			};
+			resolveNameForTitleMap({ schema, properties, value: 'v' });
+			expect(Object.keys(inherited)).toEqual([]);
+		});
+
 		it('should not pollute Object.prototype when the parent key is __proto__', () => {
 			const schema = {
 				key: ['__proto__', '__proto__'],
