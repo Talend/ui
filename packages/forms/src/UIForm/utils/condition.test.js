@@ -190,3 +190,41 @@ describe('array condition', () => {
 		expect(truthyResult).toBeTruthy();
 	});
 });
+
+describe('shouldRender security', () => {
+	it('should reject the method operator', () => {
+		const spy = vi.fn();
+		globalThis.__pwned = spy;
+		const condition = {
+			method: [
+				{ method: [{ var: 'constructor' }, 'constructor', ['globalThis.__pwned()']] },
+				'call',
+				[null],
+			],
+		};
+		expect(shouldRender(condition, { a: 1 })).toBe(false);
+		expect(spy).not.toHaveBeenCalled();
+		delete globalThis.__pwned;
+	});
+
+	it('should reject unsafe var paths', () => {
+		expect(shouldRender({ '!!': [{ var: 'constructor' }] }, {})).toBe(false);
+		expect(shouldRender({ '!!': [{ var: '__proto__.x' }] }, {})).toBe(false);
+	});
+
+	it('should reject unsafe paths produced by array notation resolution', () => {
+		const condition = { '!!': [{ var: 'items[].x' }] };
+		expect(shouldRender(condition, { items: [{ x: 1 }] }, ['items', 'constructor'])).toBe(false);
+		expect(shouldRender(condition, { items: [{ x: 1 }] }, ['items', '__proto__'])).toBe(false);
+		expect(shouldRender(condition, { items: [{ x: 1 }] }, ['items', 0])).toBe(true);
+	});
+
+	it('should not crash on null values in condition', () => {
+		expect(shouldRender({ '===': [{ var: 'a' }, null] }, { a: null })).toBe(true);
+	});
+
+	it('should still evaluate allowed conditions', () => {
+		expect(shouldRender({ '===': [{ var: 'a.b' }, 1] }, { a: { b: 1 } })).toBe(true);
+		expect(shouldRender({ and: [{ '!==': [{ var: 'a' }, 2] }, true] }, { a: 1 })).toBe(true);
+	});
+});
