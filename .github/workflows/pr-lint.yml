@@ -2,6 +2,8 @@ name: PR lint
 
 on:
   pull_request:
+  merge_group:
+    types: [checks_requested]
 
 permissions:
   contents: write
@@ -14,7 +16,7 @@ permissions:
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name != 'merge_group' }}
 
 jobs:
   build:
@@ -53,12 +55,14 @@ jobs:
           pnpm oxlint:run --concurrency=1
 
       - name: Merge lint
+        if: github.event_name == 'pull_request'
         uses: ./.github/actions/lint-merge-report
         with:
           base-branch: master
           head-branch: ${{ github.head_ref }}
 
       - name: Annotate Code Linting Results
+        if: github.event_name == 'pull_request'
         uses: ataylorme/eslint-annotate-action@5a8d8ab89a57679e90c32750e0f382e9d8570750 #v4.0.0
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
