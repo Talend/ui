@@ -73,4 +73,14 @@ describe('AppSwitcher', () => {
 		render(<AppSwitcher {...brand} />);
 		expect(screen.getByRole('presentation')).toHaveClass('hasIcon');
 	});
+
+	it('should keep the icon url inside a single css url() value', () => {
+		const iconUrl = 'x.png\');}body{color:red}</style><b>"';
+		const { container } = render(<AppSwitcher id="brand" label="My App" iconUrl={iconUrl} />);
+		const style = container.querySelector('style');
+		expect(container.querySelector('b')).toBeNull();
+		expect(style.textContent).not.toContain('}body{');
+		expect(style.textContent).not.toContain('</style>');
+		expect(style.textContent.match(/url\(/g)).toHaveLength(2);
+	});
 });
