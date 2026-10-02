@@ -14,7 +14,7 @@ const theme = getTheme(AppSwitcherCSSModule);
 
 function toCssUrl(value) {
 	const escaped = String(value).replace(
-		/[^a-zA-Z0-9\-._~:/?#[\]@!$&*+,;=%]/g,
+		/[^a-zA-Z0-9\-._~:/?#[\]@!$&*+,;=%]/gu,
 		char => `\\${char.codePointAt(0).toString(16)} `,
 	);
 	return `url("${escaped}")`;

@@ -83,4 +83,11 @@ describe('AppSwitcher', () => {
 		expect(style.textContent).not.toContain('</style>');
 		expect(style.textContent.match(/url\(/g)).toHaveLength(2);
 	});
+
+	it('should escape non-BMP characters of the icon url as a single code point', () => {
+		const { container } = render(
+			<AppSwitcher id="brand" label="My App" iconUrl={'https://example.test/\u{1F600}.png'} />,
+		);
+		expect(container.querySelector('style').textContent).toContain('\\1f600 .png');
+	});
 });
