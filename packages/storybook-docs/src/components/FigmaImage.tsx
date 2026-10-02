@@ -69,7 +69,7 @@ export const FigmaImage = ({
 	}, []);
 
 	useEffect(() => {
-		if (src) {
+		if (src && figma.isConfigured) {
 			const { projectId, nodeId } = getMetadata(src);
 			figma
 				.fileImages(projectId, {
@@ -83,7 +83,7 @@ export const FigmaImage = ({
 					);
 				});
 		}
-	}, [src, figma]);
+	}, [src, figma, figma.isConfigured]);
 
 	if (!figma.isConfigured) {
 		return <FigmaImagePlaceholder />;
