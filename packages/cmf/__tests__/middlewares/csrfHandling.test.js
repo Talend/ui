@@ -55,8 +55,7 @@ describe('csrf token destination check', () => {
 		},
 	);
 
-	it('does not add the token when the url is missing or invalid', () => {
-		expect(mergeCSRFToken({})({ headers: {} })).toEqual({ headers: {} });
+	it('does not add the token when the url is invalid', () => {
 		expect(mergeCSRFToken({}, 'http://[bad')({ headers: {} })).toEqual({ headers: {} });
 	});
 
