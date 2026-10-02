@@ -96,4 +96,14 @@ describe('SingleButton field', () => {
 			schema: triggerSchema,
 		});
 	});
+
+	it('should not render unsafe href', () => {
+		render(<SingleButton id="myForm" schema={{ ...schema, href: 'javascript:alert(1)' }} />);
+		expect(document.querySelector('[href]')).toBeNull();
+	});
+
+	it('should keep http(s) href', () => {
+		render(<SingleButton id="myForm" schema={{ ...schema, href: 'https://talend.com' }} />);
+		expect(document.querySelector('[href="https://talend.com"]')).not.toBeNull();
+	});
 });
