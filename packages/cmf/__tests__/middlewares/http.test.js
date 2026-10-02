@@ -623,4 +623,29 @@ describe('httpMiddleware configuration', () => {
 		// eslint-disable-next-line no-underscore-dangle
 		interceptors._clear();
 	});
+
+	it('should not send the CSRF token to an url set by an interceptor on another origin', async () => {
+		const json = () => Promise.resolve({ foo: 'bar' });
+		const store = { dispatch: vi.fn() };
+		const next = vi.fn();
+		const action = {
+			url: 'foo',
+			type: HTTP_METHODS.POST,
+			body: { label: 'great test' },
+			response: { ok: true, status: HTTP_STATUS.OK, json, headers: {} },
+		};
+		document.cookie = 'csrfToken=secret; dwf_section_edit=True;';
+		interceptors.push({
+			request: vi.fn(config => ({ ...config, url: 'https://evil.example/x' })),
+		});
+
+		await httpMiddleware()(store)(next)(action);
+
+		const [url, config] = global.fetch.mock.calls[0];
+		expect(url).toBe('https://evil.example/x');
+		expect(config.headers).not.toHaveProperty('X-CSRF-Token');
+		// eslint-disable-next-line no-underscore-dangle
+		interceptors._clear();
+		document.cookie = 'csrfToken=; Max-Age=0';
+	});
 });

@@ -97,9 +97,12 @@ export function isCSRFTokenAllowedForUrl(
 	url: string | URL | undefined,
 	security: TalendRequestInitSecurity = {},
 ): boolean {
+	if (url === undefined || url === null) {
+		return false;
+	}
 	try {
 		const base = document.baseURI || window.location.href;
-		const { origin } = new URL(String(url ?? ''), base);
+		const { origin } = new URL(String(url), base);
 		if (origin === 'null') {
 			return false;
 		}

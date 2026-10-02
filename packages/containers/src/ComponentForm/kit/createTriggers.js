@@ -205,7 +205,10 @@ export default function createTriggers({
 		})}`;
 		return fetch(
 			fetchUrl,
-			mergeCSRFToken({ security: httpSecurity })({
+			mergeCSRFToken(
+				{ security: httpSecurity },
+				fetchUrl,
+			)({
 				method: 'POST',
 				headers: actualHeaders,
 				body: JSON.stringify(parameters),
