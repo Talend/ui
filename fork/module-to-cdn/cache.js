@@ -89,7 +89,11 @@ function getInfo(url) {
 
 function getPathFromURL(url) {
     const info = getInfo(url);
-    return `${AXIOS_CACHE_PATH}/${info.name}/${info.version}/${info.path}`;
+    const resolved = path.resolve(AXIOS_CACHE_PATH, `${info.name}/${info.version}/${info.path}`);
+    if (!resolved.startsWith(AXIOS_CACHE_PATH + path.sep)) {
+        throw new Error(`Refusing to use a cache path outside of ${AXIOS_CACHE_PATH}: ${url}`);
+    }
+    return resolved;
 }
 
 async function cachedGet(url) {
@@ -119,11 +123,19 @@ function isInCache(url) {
     return fs.existsSync(getPathFromURL(url));
 }
 
+const NPM_PACKAGE_NAME = /^(?:@[a-z0-9~][a-z0-9._~-]*\/)?[a-z0-9~][a-z0-9._~-]*$/;
+
 function getModuleInfo(moduleName) {
+    if (typeof moduleName !== 'string' || !NPM_PACKAGE_NAME.test(moduleName)) {
+        throw new Error(`Invalid npm package name: ${JSON.stringify(moduleName)}`);
+    }
+
     ensureCacheFolderExists();
 
     if (!CACHE_NPM[moduleName]) {
-        const stdout = child.execSync(`npm info --json ${moduleName}`, {encoding: 'utf8'});
+        const stdout = child.execFileSync('npm', ['info', '--json', moduleName], {
+            encoding: 'utf8'
+        });
         const info = JSON.parse(stdout);
         CACHE_NPM[moduleName] = {
             'dist-tags': info['dist-tags'],
