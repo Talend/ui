@@ -24,12 +24,13 @@ describe('Icon', () => {
 	});
 
 	it('should support remote svg', () => {
-		cy.intercept('/assets/icons/my-icon.svg', '<svg data-testid="myicon"></svg>').as(
-			'getRemoteIcon',
-		);
+		cy.intercept(
+			'/assets/icons/my-icon.svg',
+			'<svg xmlns="http://www.w3.org/2000/svg"><path id="myicon" d="M0 0"/></svg>',
+		).as('getRemoteIcon');
 		cy.mount(<Icon name="remote-/assets/icons/my-icon.svg" />);
-		cy.findByTestId('myicon').should('not.to.exist');
+		cy.get('#myicon').should('not.exist');
 		cy.wait('@getRemoteIcon');
-		cy.findByTestId('myicon').should('to.exist');
+		cy.get('#myicon').should('exist');
 	});
 });
