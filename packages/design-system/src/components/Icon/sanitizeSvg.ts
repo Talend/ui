@@ -117,7 +117,6 @@ const ALLOWED_ATTRIBUTES = new Set(
 		'letter-spacing',
 		'dx',
 		'dy',
-		'style',
 		// filter primitives
 		'in',
 		'in2',
