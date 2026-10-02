@@ -1,0 +1,4 @@
+import{j as o}from"./index-CCEpV28b.js";import{u as i,M as m}from"./blocks-Da94LpnN.js";import{t as n}from"./TalendDesignTokens-JgHEBmOa.js";import"./iframe-C5qYXkrc.js";import{D as c}from"./Dialog-bJFHQdXZ.js";import"./index-P3Thdz53.js";import"./useCopyToClipboard-C_nvIDIX.js";import{T as a}from"./TokenValue-DwtRHf5r.js";import"./index-C9j0kBDA.js";import"./preload-helper-PPVm8Dsz.js";import"./dictionary-CKKJDmnH.js";function s(r){const t={h1:"h1",...i(),...r.components};return o.jsxs(o.Fragment,{children:[o.jsx(m,{title:"Design Tokens/Borders"}),`
+`,o.jsx(t.h1,{id:"borders",children:"Borders"}),`
+`,o.jsx(c,{}),`
+`,o.jsx(a,{style:e=>({background:n.coralColorAccentBackground,border:`${e.value} ${n.coralColorAccentBorder}`}),type:"border",children:e=>e.value})]})}function C(r={}){const{wrapper:t}={...i(),...r.components};return t?o.jsx(t,{...r,children:o.jsx(s,{...r})}):s(r)}export{C as default};
