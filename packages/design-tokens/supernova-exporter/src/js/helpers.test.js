@@ -36,6 +36,16 @@ describe('supernova exporter escaping helpers', () => {
 		expect(out).not.toMatch(/[;{}]|url\(|@import/);
 	});
 
+	it('should not let a generic token name close the css block', () => {
+		const out = functions.constructGenericTokensStyles({ name: 'x} body { color: red' }, 'Light');
+		expect(out).not.toMatch(/[{};]/);
+		const keyframes = functions.constructGenericTokensStyles(
+			{ name: 'coral-x keyframes } body { color: red' },
+			'Light',
+		);
+		expect(keyframes).not.toMatch(/[};]/);
+	});
+
 	it('should treat the data scheme case-insensitively', () => {
 		const out = functions.baseWrap("DATA:x') ; body { color: red", 'Light');
 		expect(out.startsWith("url('")).toBe(true);

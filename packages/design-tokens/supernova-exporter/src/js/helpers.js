@@ -260,14 +260,14 @@ Pulsar.registerFunction('getScheme', function (name) {
 });
 
 Pulsar.registerFunction('constructGenericTokensStyles', function (token, dsName) {
-	const name = token.name;
+	const name = sanitizeCssText(token.name);
 	const safeThemeName = dsName.toLowerCase();
 
-	if (token.name.includes('keyframes')) {
+	if (name.includes('keyframes')) {
 		return `@keyframes ${name.replace('coral', `coral-${safeThemeName}`)} `;
 	}
 
-	return token.name;
+	return name;
 });
 
 Pulsar.registerFunction('prefixWithThemeName', function (value, dsName) {
