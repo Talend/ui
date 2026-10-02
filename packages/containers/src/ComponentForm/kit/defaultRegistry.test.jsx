@@ -64,6 +64,24 @@ describe('defaultRegistry', () => {
 				},
 			});
 		});
+		it('should ignore option paths containing reserved keys', () => {
+			const body = { entries: [{ name: 'entry1', type: 'string' }] };
+			const trigger = {
+				options: [
+					{ path: '__proto__.polluted', type: 'array' },
+					{ path: 'constructor.prototype.polluted', type: 'array' },
+				],
+			};
+			const results = service.schema({
+				schema,
+				body,
+				properties: { attr: 'value' },
+				trigger,
+				errors: {},
+			});
+			expect({}.polluted).toBeUndefined();
+			expect(results.properties).toEqual({ attr: 'value' });
+		});
 		it('should add errors from body', () => {
 			expect(
 				service.schema({

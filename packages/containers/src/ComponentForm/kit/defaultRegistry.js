@@ -56,6 +56,12 @@ function schemaReducer(acc, entry) {
 	return acc;
 }
 
+const UNSAFE_KEYS = ['__proto__', 'prototype', 'constructor'];
+
+function hasUnsafeSegment(segments) {
+	return segments.some(segment => UNSAFE_KEYS.includes(segment));
+}
+
 /**
  * Insert new form data
  * @param schema The input schema
@@ -73,6 +79,9 @@ function updateSchema({ schema, body, properties, trigger, errors }) {
 		newProperties = clonedeep(properties);
 		trigger.options.forEach(option => {
 			const splitted = option.path.split('.');
+			if (hasUnsafeSegment(splitted)) {
+				return;
+			}
 			const key = splitted[splitted.length - 1];
 			const parent = get(newProperties, splitted.slice(0, -1).join('.'));
 			if (!parent || typeof parent !== 'object') {
