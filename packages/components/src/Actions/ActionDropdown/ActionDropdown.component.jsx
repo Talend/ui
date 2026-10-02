@@ -74,7 +74,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 
 	return (
 		<Renderers.MenuItem
-			{...item}
+			{...omit(item, 'componentClass')}
 			key={index}
 			eventKey={item}
 			onClick={wrapOnClick(item)}

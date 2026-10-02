@@ -60,7 +60,7 @@ export default function ActionSplitDropdown(props) {
 			{...rest}
 		>
 			{items.length ? (
-				items.map((item, index) => (
+				items.map(({ componentClass: _itemComponentClass, ...item }, index) => (
 					<MenuItem {...item} key={index} onClick={wrapOnClick(item)}>
 						{item.icon && <Icon name={item.icon} />}
 						{item.label}
