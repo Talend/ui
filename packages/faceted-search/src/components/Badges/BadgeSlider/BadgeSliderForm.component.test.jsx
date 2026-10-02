@@ -172,4 +172,42 @@ describe('BadgeSliderForm', () => {
 
 		expect(onSubmit).toHaveBeenCalled();
 	});
+
+	it('should not render an icon whose name selects a remote or img mode', () => {
+		const fetchSpy = jest.fn();
+		global.fetch = fetchSpy;
+		const baseProps = {
+			id: 'customId',
+			onSubmit: jest.fn(),
+			feature: 'quality',
+			t: getDefaultT(),
+			onChange: jest.fn(),
+		};
+		const { container } = render(
+			<BadgeFacetedProvider value={badgeFacetedContextValue}>
+				<BadgeSliderForm {...baseProps} icon={{ name: 'remote-https://example.com/x.svg' }} />
+				<BadgeSliderForm {...baseProps} icon={{ name: 'src-https://example.com/x.png' }} />
+				<BadgeSliderForm {...baseProps} icon={{ name: 'a"] , body #b[' }} />
+			</BadgeFacetedProvider>,
+		);
+		expect(fetchSpy).not.toHaveBeenCalled();
+		expect(container.querySelector('.tc-icon')).not.toBeInTheDocument();
+		expect(container.querySelector('img')).not.toBeInTheDocument();
+	});
+
+	it('should render an icon with a valid name', () => {
+		const { container } = render(
+			<BadgeFacetedProvider value={badgeFacetedContextValue}>
+				<BadgeSliderForm
+					id="customId"
+					onSubmit={jest.fn()}
+					feature="quality"
+					t={getDefaultT()}
+					onChange={jest.fn()}
+					icon={{ name: 'talend-warning' }}
+				/>
+			</BadgeFacetedProvider>,
+		);
+		expect(container.querySelector('.tc-icon')).toBeInTheDocument();
+	});
 });
