@@ -222,13 +222,14 @@ export const httpMiddleware =
 			return next(action);
 		}
 		const httpAction = get(action, 'cmf.http', action);
-		const config = flow([
-			mergeOptions,
-			mergeConfiguredHeader(middlewareDefaultConfig),
-			mergeCSRFToken(middlewareDefaultConfig),
-		])(action);
+		const config = flow([mergeOptions, mergeConfiguredHeader(middlewareDefaultConfig)])(action);
 
-		return interceptors.onRequest({ url: httpAction.url, ...config }).then(newConfig => {
+		return interceptors.onRequest({ url: httpAction.url, ...config }).then(interceptedConfig => {
+			// merge the token last, against the url really passed to fetch (interceptors may change it)
+			const newConfig = mergeCSRFToken(
+				middlewareDefaultConfig,
+				interceptedConfig.url,
+			)(interceptedConfig);
 			dispatch(http.onRequest(newConfig.url, newConfig));
 			if (httpAction.onSend) {
 				dispatch({

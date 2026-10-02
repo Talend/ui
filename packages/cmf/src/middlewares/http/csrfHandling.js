@@ -81,18 +81,59 @@ const mergeCSRFTokenConfig = curry(
 );
 
 /**
- * if a CSRF token is found in csrfToken cookie, merge it in the headers
- * under key X-CSRF-Token
+ * Tell if the CSRF token may be sent to the given url:
+ * the url, resolved the way fetch does (against document.baseURI), must have the same origin
+ * as window.location (never as the <base> element, which may be attacker-controlled)
+ * or its origin must be listed in `security.CSRFTokenAllowedOrigins`.
+ * @param {string} url
  * @param {Object.security} security
+ * @return {boolean}
+ */
+export function isCSRFTokenAllowedForUrl(url, security = {}) {
+	if (url === undefined || url === null) {
+		return false;
+	}
+	try {
+		const base = document.baseURI || window.location.href;
+		const { origin } = new URL(String(url), base);
+		if (origin === 'null') {
+			return false;
+		}
+		if (origin === window.location.origin) {
+			return true;
+		}
+		return (security.CSRFTokenAllowedOrigins || []).some(allowed => {
+			try {
+				return new URL(allowed).origin === origin;
+			} catch {
+				return false;
+			}
+		});
+	} catch {
+		return false;
+	}
+}
+
+/**
+ * if a CSRF token is found in csrfToken cookie, merge it in the headers
+ * under key X-CSRF-Token.
+ * The token is only merged if the request url is same-origin with the document
+ * or allowed by `security.CSRFTokenAllowedOrigins`.
+ * @param {Object.security} security
+ * @param {string} url - the request url
  * @param {HTTPConfig} config
  * @return {HTTPConfig}
  */
-export function mergeCSRFToken({ security = {} }) {
-	return httpConfig =>
-		flow([
+export function mergeCSRFToken({ security = {} }, url) {
+	return httpConfig => {
+		if (!isCSRFTokenAllowedForUrl(url, security)) {
+			return httpConfig;
+		}
+		return flow([
 			getCookie,
 			parseCookie,
 			findCSRFToken(security),
 			mergeCSRFTokenConfig(security, httpConfig),
 		])();
+	};
 }
