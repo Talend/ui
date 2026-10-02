@@ -42,7 +42,11 @@ class ResourcePicker extends Component {
 	onFilter(event) {
 		this.setState({ isLoading: true }, () => {
 			this.onTrigger(event, FILTER, { filters: this.state.filters })
-				.then(data => this.setState(data))
+				.then(data => {
+					if (data && Array.isArray(data.collection)) {
+						this.setState({ collection: data.collection });
+					}
+				})
 				.finally(() => this.setState({ isLoading: false }));
 		});
 	}

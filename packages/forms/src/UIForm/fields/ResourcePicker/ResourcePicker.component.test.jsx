@@ -483,4 +483,15 @@ describe('ResourcePicker field', () => {
 			});
 		});
 	});
+
+	it('should only use known keys of the filter trigger response', async () => {
+		const onTrigger = vi.fn(() =>
+			Promise.resolve({ collection, rowProps: { 'data-injected': 'x' }, 'data-extra': 'y' }),
+		);
+		render(<ResourcePicker {...props} onTrigger={onTrigger} />);
+		await screen.findByTestId('collection');
+		const rendered = screen.getByTestId('ResourcePicker').getAttribute('data-props');
+		expect(rendered).not.toContain('rowProps');
+		expect(rendered).not.toContain('data-extra');
+	});
 });
