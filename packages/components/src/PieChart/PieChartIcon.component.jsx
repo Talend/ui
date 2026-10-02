@@ -140,12 +140,15 @@ export function distributePercentages(values, minimumPercentage, amountToSubtrac
  * @param {*} percentage the raw percentage
  */
 function sanitizePercentage(percentage) {
-	const number = Number(percentage);
-	if (!Number.isFinite(number)) {
+	try {
+		const number = Number(percentage);
+		if (!Number.isFinite(number)) {
+			return 0;
+		}
+		return Math.min(100, Math.max(0, number));
+	} catch {
 		return 0;
 	}
-	return Math.min(100, Math.max(0, number));
-}
 
 /**
  * This function sets minimum percentage show with the minimum percentage shown
