@@ -1,0 +1,55 @@
+import{j as e}from"./iframe-CaM4pCYv.js";import{L as r,S as g,D as w}from"./SidePanel.component-B_4Jn48P.js";import{H}from"./HeaderBar.component-COHta4vl.js";import{L as o}from"./index-C3eWE4pH.js";import{S as K}from"./SubHeaderBar.component-CA8UGscf.js";import"./preload-helper-PPVm8Dsz.js";import"./OverlayTrigger.component-CMwhMkOs.js";import"./RootCloseWrapper-BQusrErX.js";import"./interopRequireDefault-CBIuXflU.js";import"./Popover-BuQcakZm.js";import"./Transition-CCocwTET.js";import"./Transition-ByM5Uw3w.js";import"./TabBar.component-CqJmd00T.js";import"./debounce-CZiMB27n.js";import"./debounce-BEiFOiio.js";import"./Action.component-CZE9ZQF6.js";import"./ActionButton.component-C0ot--5y.js";import"./TooltipTrigger.component-BueHNT20.js";import"./index-DTwir-ZV.js";import"./CircularProgress.component-BGprhGdK.js";import"./constants-CZYEPhht.js";import"./translate-BYClF0Em.js";import"./withTranslation-dmg4-Q5z.js";import"./Skeleton.component-CnEYHeXI.js";import"./index-C9jwf_CE.js";import"./theme-VhsxeChM.js";import"./ActionSplitDropdown.component-ZOAoKQYy.js";import"./SplitButton-q_TkxrQy.js";import"./inheritsLoose-CN7rSwcY.js";import"./DropdownButton-IyHy4vIQ.js";import"./ActionIconToggle.component-Dxy5Hf60.js";import"./Actions.component-IWaOR18-.js";import"./Tab-CPC72ujo.js";import"./NavItem-MgnyyCFX.js";import"./index-COpS5Smi.js";import"./removeClass-B-DUduzN.js";import"./noop-CMQefOJp.js";import"./ActionBar.component-DO3CbVGX.js";import"./EditableText.component-Dl3oZj_d.js";import"./FocusManager.component-ClbLhlkP.js";import"./ActionList.component-qBsrg9w9.js";import"./Intercom.component-ChHhYiIq.js";import"./Typeahead.component-Cmd8vAtW.js";import"./index-FiNvuPM6.js";import"./usePopper-alIGMGro.js";import"./index-M-tf8MgB.js";import"./index-Dk8g1PGz.js";import"./Emphasis.component-BRs_Ux2A.js";import"./useLocalStorage-DpE6Bqw0.js";import"./util-jvF6Sxgj.js";import"./SelectAll.component-D7GAhTAw.js";import"./ColumnChooser.component-C7shMSp9.js";import"./FilterBar.component-Do7sAXDZ.js";import"./FormControl-DtP9RUjC.js";import"./RichLayout.component-B49AvEWd.js";import"./clsx-jMJYEyMh.js";import"./map-C5yATCaW.js";import"./map-BmCq4m1P.js";import"./index-DI3Bmdda.js";import"./index-ti6aGxDk.js";import"./findIndex-BxuzXrft.js";import"./locale-ehZSeiHj.js";import"./index-IPI_gJky.js";import"./CellMeasurerCache-D8vcSRKK.js";import"./CollapsiblePanel.component-ClBYKDXR.js";import"./Status.component-DC8iaQ55.js";import"./Panel-BOexyvQk.js";import"./index-BRcPpbsD.js";import"./Badge.component-pjXKJLqW.js";import"./locale-y16cKWJG.js";import"./Checkbox-CSBpciUL.js";import"./QualityBar.component-ChjOghSK.js";import"./isNil-rcGeu7ds.js";import"./NavDropdown-DKdqiZyu.js";const S=[{label:"Preparations",icon:"talend-dataprep",onClick:()=>console.log("Preparations clicked")},{label:"Datasets",icon:"talend-folder",onClick:()=>console.log("Datasets clicked")},{label:"Favorites",icon:"talend-star",onClick:()=>console.log("Favorites clicked")}],M=[e.jsx(w,{stacked:!0,title:"Hello drawers",footerActions:{},children:e.jsx("p",{children:"You should not being able to read this because I'm first"})}),e.jsx(w,{title:"Hello drawers",footerActions:{},children:e.jsx("p",{children:"The content dictate the width"})})],t=e.jsxs("div",{children:[e.jsx("h1",{children:"Welcome to the content for testing scroll"}),e.jsx("ul",{children:[...new Array(138)].map((W,C)=>e.jsx("li",{children:"one"},C))})]}),s=e.jsx(g,{actions:S}),k=e.jsx(g,{actions:S,docked:!0}),a=e.jsx(H,{brand:{label:"Example App Name"}}),j=e.jsx(K,{title:"MyTitle",onGoBack:()=>console.log("SubHeader onGoBack")}),f=e.jsx(e.Fragment,{children:"Footer content"}),V=[...new Array(61)].map((W,C)=>({id:C,name:"Title",created:"2016-09-22",modified:"2016-09-22",author:"Jean-Pierre DUPONT",display:"text"})),O={id:"tab-bar",items:[{key:"1",label:"Tab1"},{key:"2",label:"Tab2"},{key:"3",label:"Tab3"}],onSelect:()=>console.log("onSelect"),selectedKey:"2"},$e={title:"Components/Layout/AppLayout",component:r,tags:["autodocs"],parameters:{layout:"fullscreen"}},n={render:()=>e.jsx(r,{mode:"OneColumn",children:t})},i={render:()=>e.jsx(r,{mode:"OneColumn",header:a,children:t})},d={render:()=>e.jsx(r,{mode:"OneColumn",header:a,subHeader:j,children:t})},l={render:()=>e.jsx(r,{mode:"OneColumn",header:a,footer:f,children:t})},m={render:()=>e.jsx(r,{mode:"OneColumn",header:a,tabs:O,children:t})},c={render:()=>e.jsx(r,{mode:"TwoColumns",header:a,one:s,children:t})},p={render:()=>e.jsx(r,{mode:"TwoColumns",header:a,subHeader:j,one:s,children:t})},u={render:()=>e.jsx(r,{mode:"TwoColumns",header:a,footer:f,one:s,children:t})},h={render:()=>e.jsx(r,{mode:"TwoColumns",header:a,one:s,tabs:O,children:t})},L={render:()=>e.jsx(r,{mode:"TwoColumns",header:a,one:s,children:e.jsxs(o.Manager,{id:"my-list",collection:V,children:[e.jsx(o.Toolbar,{children:e.jsx(o.DisplayMode,{id:"my-list-displayMode"})}),e.jsxs(o.VList,{id:"my-vlist",children:[e.jsx(o.VList.Text,{label:"Id",dataKey:"id"}),e.jsx(o.VList.Text,{label:"Name",dataKey:"name"}),e.jsx(o.VList.Text,{label:"Author",dataKey:"author"}),e.jsx(o.VList.Text,{label:"Created",dataKey:"created"}),e.jsx(o.VList.Text,{label:"Modified",dataKey:"modified"})]})]})})},y={render:()=>e.jsx(r,{mode:"TwoColumns",header:a,one:s,children:e.jsxs(o.Manager,{id:"my-list",collection:V,initialDisplayMode:"large",children:[e.jsx(o.Toolbar,{children:e.jsx(o.DisplayMode,{id:"my-list-displayMode"})}),e.jsxs(o.VList,{id:"my-vlist",children:[e.jsx(o.VList.Text,{label:"Id",dataKey:"id"}),e.jsx(o.VList.Text,{label:"Name",dataKey:"name"}),e.jsx(o.VList.Text,{label:"Author",dataKey:"author"}),e.jsx(o.VList.Text,{label:"Created",dataKey:"created"}),e.jsx(o.VList.Text,{label:"Modified",dataKey:"modified"})]})]})})},T={render:()=>e.jsx(r,{mode:"TwoColumns",header:a,one:k,children:t})},x={render:()=>e.jsx(r,{mode:"TwoColumns",header:a,one:s,drawers:M,children:t})},b={render:()=>e.jsx(r,{subHeader:j,children:t})};n.parameters={...n.parameters,docs:{...n.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout mode="OneColumn" children={content} />
+}`,...n.parameters?.docs?.source}}};i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout mode="OneColumn" header={header} children={content} />
+}`,...i.parameters?.docs?.source}}};d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout mode="OneColumn" header={header} subHeader={subHeader} children={content} />
+}`,...d.parameters?.docs?.source}}};l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout mode="OneColumn" header={header} footer={footer} children={content} />
+}`,...l.parameters?.docs?.source}}};m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout mode="OneColumn" header={header} tabs={tabs} children={content} />
+}`,...m.parameters?.docs?.source}}};c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout mode="TwoColumns" header={header} one={sidePanel} children={content} />
+}`,...c.parameters?.docs?.source}}};p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout mode="TwoColumns" header={header} subHeader={subHeader} one={sidePanel} children={content} />
+}`,...p.parameters?.docs?.source}}};u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout mode="TwoColumns" header={header} footer={footer} one={sidePanel} children={content} />
+}`,...u.parameters?.docs?.source}}};h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout mode="TwoColumns" header={header} one={sidePanel} tabs={tabs} children={content} />
+}`,...h.parameters?.docs?.source}}};L.parameters={...L.parameters,docs:{...L.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout mode="TwoColumns" header={header} one={sidePanel}>
+            <List.Manager id="my-list" collection={items}>
+                <List.Toolbar>
+                    <List.DisplayMode id="my-list-displayMode" />
+                </List.Toolbar>
+                <List.VList id="my-vlist">
+                    <List.VList.Text label="Id" dataKey="id" />
+                    <List.VList.Text label="Name" dataKey="name" />
+                    <List.VList.Text label="Author" dataKey="author" />
+                    <List.VList.Text label="Created" dataKey="created" />
+                    <List.VList.Text label="Modified" dataKey="modified" />
+                </List.VList>
+            </List.Manager>
+        </Layout>
+}`,...L.parameters?.docs?.source}}};y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout mode="TwoColumns" header={header} one={sidePanel}>
+            <List.Manager id="my-list" collection={items} initialDisplayMode="large">
+                <List.Toolbar>
+                    <List.DisplayMode id="my-list-displayMode" />
+                </List.Toolbar>
+                <List.VList id="my-vlist">
+                    <List.VList.Text label="Id" dataKey="id" />
+                    <List.VList.Text label="Name" dataKey="name" />
+                    <List.VList.Text label="Author" dataKey="author" />
+                    <List.VList.Text label="Created" dataKey="created" />
+                    <List.VList.Text label="Modified" dataKey="modified" />
+                </List.VList>
+            </List.Manager>
+        </Layout>
+}`,...y.parameters?.docs?.source}}};T.parameters={...T.parameters,docs:{...T.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout mode="TwoColumns" header={header} one={dockedSidePanel} children={content} />
+}`,...T.parameters?.docs?.source}}};x.parameters={...x.parameters,docs:{...x.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout mode="TwoColumns" header={header} one={sidePanel} drawers={drawers} children={content} />
+}`,...x.parameters?.docs?.source}}};b.parameters={...b.parameters,docs:{...b.parameters?.docs,source:{originalSource:`{
+  render: () => <Layout subHeader={subHeader} children={content} />
+}`,...b.parameters?.docs?.source}}};const eo=["OneColumn","OneColumnWithHeader","OneColumnWithSubheader","OneColumnWithHeaderAndFooter","OneColumnWithTabs","TwoColumnsWithHeader","TwoColumnsWithSubheader","TwoColumnsWithHeaderAndFooter","TwoColumnsWithTabs","TwoColumnsWithBigTableList","TwoColumnsWithBigLargeList","TwoColumnsDocked","TwoColumnsWithDrawers","OnlySubheader"];export{n as OneColumn,i as OneColumnWithHeader,l as OneColumnWithHeaderAndFooter,d as OneColumnWithSubheader,m as OneColumnWithTabs,b as OnlySubheader,T as TwoColumnsDocked,y as TwoColumnsWithBigLargeList,L as TwoColumnsWithBigTableList,x as TwoColumnsWithDrawers,c as TwoColumnsWithHeader,u as TwoColumnsWithHeaderAndFooter,p as TwoColumnsWithSubheader,h as TwoColumnsWithTabs,eo as __namedExportsOrder,$e as default};
