@@ -439,7 +439,14 @@ function Datalist(props) {
 	const icon = getSelectedIcon();
 	return (
 		<FocusManager onFocusOut={onBlur} className={theme['tc-datalist-item']} key="focus-manager">
-			{icon && <Icon className={theme['tc-datalist-item-icon']} {...icon} />}
+			{icon && (
+				<Icon
+					className={theme['tc-datalist-item-icon']}
+					name={icon.name}
+					title={icon.title}
+					transform={icon.transform}
+				/>
+			)}
 			<Typeahead
 				{...omit(props, PROPS_TO_OMIT)}
 				className={classNames('tc-datalist', props.className)}

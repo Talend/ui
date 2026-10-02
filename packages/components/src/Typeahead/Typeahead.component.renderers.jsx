@@ -231,7 +231,14 @@ export function renderItem(item, { value, valueId, ...rest }) {
 			title={title}
 			data-feature={item['data-feature'] || rest['data-feature']}
 		>
-			{get(item, 'icon') && <Icon className={theme['item-icon']} {...item.icon} />}
+			{get(item, 'icon') && (
+				<Icon
+					className={theme['item-icon']}
+					name={item.icon.name}
+					title={item.icon.title}
+					transform={item.icon.transform}
+				/>
+			)}
 			<div className={theme['item-text']}>
 				<span className={css('item-title', 'tc-typeahead-item-title')}>
 					<Emphasis value={value} text={title} />

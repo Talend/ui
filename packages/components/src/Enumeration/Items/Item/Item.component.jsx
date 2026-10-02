@@ -115,7 +115,12 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 				{item.icon && (
 					<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
 						<span>
-							<Icon {...item.icon} aria-hidden="false" />
+							<Icon
+								name={item.icon.name}
+								title={item.icon.title}
+								transform={item.icon.transform}
+								aria-hidden="false"
+							/>
 						</span>
 					</TooltipTrigger>
 				)}
