@@ -61,7 +61,7 @@ function resolveConditionVar(item, key) {
  * It is a recursive implementation to support any kind of condition.
  */
 function resolveArrayNotation(condition, key) {
-	if (typeof condition !== 'object') {
+	if (!condition || typeof condition !== 'object') {
 		return condition;
 	}
 

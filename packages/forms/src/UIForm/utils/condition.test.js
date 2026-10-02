@@ -212,6 +212,17 @@ describe('shouldRender security', () => {
 		expect(shouldRender({ '!!': [{ var: '__proto__.x' }] }, {})).toBe(false);
 	});
 
+	it('should reject unsafe paths produced by array notation resolution', () => {
+		const condition = { '!!': [{ var: 'items[].x' }] };
+		expect(shouldRender(condition, { items: [{ x: 1 }] }, ['items', 'constructor'])).toBe(false);
+		expect(shouldRender(condition, { items: [{ x: 1 }] }, ['items', '__proto__'])).toBe(false);
+		expect(shouldRender(condition, { items: [{ x: 1 }] }, ['items', 0])).toBe(true);
+	});
+
+	it('should not crash on null values in condition', () => {
+		expect(shouldRender({ '===': [{ var: 'a' }, null] }, { a: null })).toBe(true);
+	});
+
 	it('should still evaluate allowed conditions', () => {
 		expect(shouldRender({ '===': [{ var: 'a.b' }, 1] }, { a: { b: 1 } })).toBe(true);
 		expect(shouldRender({ and: [{ '!==': [{ var: 'a' }, 2] }, true] }, { a: 1 })).toBe(true);
