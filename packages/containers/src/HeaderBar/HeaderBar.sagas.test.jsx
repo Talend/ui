@@ -57,6 +57,7 @@ describe('HeaderBar sagas', () => {
 					{ name: 'C', url: '\tjavascript:alert(1)' },
 					null,
 					{ name: 5, url: 'https://example.com' },
+					{ id: 1, url: 'https://example.com' },
 				]),
 			).toEqual(cmf.actions.collections.addOrReplace(Constants.COLLECTION_ID, [good]));
 			expect(run({ foo: 'bar' })).toEqual(

@@ -29,6 +29,7 @@ function isValidProduct(product) {
 		!!product &&
 		typeof product === 'object' &&
 		isSafeUrl(product.url) &&
+		(product.id === undefined || typeof product.id === 'string') &&
 		(product.name === undefined || typeof product.name === 'string') &&
 		(product.icon === undefined || typeof product.icon === 'string')
 	);
