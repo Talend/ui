@@ -171,10 +171,10 @@ function shouldRender(condition, properties, key) {
 	if (condition === undefined) {
 		return true;
 	}
-	if (!isSafeCondition(condition)) {
+	const runtimeCondition = resolveArrayNotation(condition, key);
+	if (!isSafeCondition(runtimeCondition)) {
 		return false;
 	}
-	const runtimeCondition = resolveArrayNotation(condition, key);
 	return jsonLogic.apply(runtimeCondition, properties);
 }
 
