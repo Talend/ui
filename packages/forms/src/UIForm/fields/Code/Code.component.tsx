@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, LabelHTMLAttributes, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IAceEditorProps } from 'react-ace';
 import { useTranslation } from 'react-i18next';
 import ReactAce from 'react-ace';
@@ -28,7 +28,13 @@ interface CodeSchema {
 	readOnly: boolean;
 	required: boolean;
 	title: string;
-	labelProps: DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
+	labelProps?: {
+		id?: string;
+		title?: string;
+		className?: string;
+		[key: `data-${string}`]: string | number | boolean | undefined;
+		[key: `aria-${string}`]: string | number | boolean | undefined;
+	};
 	type: string;
 }
 export interface CodeProps {
