@@ -225,7 +225,7 @@ export const httpMiddleware =
 		const config = flow([
 			mergeOptions,
 			mergeConfiguredHeader(middlewareDefaultConfig),
-			mergeCSRFToken(middlewareDefaultConfig),
+			config => mergeCSRFToken(middlewareDefaultConfig, httpAction.url)(config),
 		])(action);
 
 		return interceptors.onRequest({ url: httpAction.url, ...config }).then(newConfig => {

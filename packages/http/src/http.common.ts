@@ -9,10 +9,13 @@ import { TalendHttpResponse, TalendRequestInit } from './http.types';
  * @param {Object} config
  * @returns {Function}
  */
-export function handleCSRFToken(config: TalendRequestInit) {
-	return mergeCSRFToken({
-		security: config.security,
-	})(config);
+export function handleCSRFToken(config: TalendRequestInit, url?: string | URL) {
+	return mergeCSRFToken(
+		{
+			security: config.security,
+		},
+		url,
+	)(config);
 }
 
 /**
@@ -119,10 +122,13 @@ export async function httpFetch<T>(
 		},
 	};
 
-	const { context, ...init } = handleCSRFToken({
-		...params,
-		body: encodePayload(params.headers || {}, payload),
-	});
+	const { context, ...init } = handleCSRFToken(
+		{
+			...params,
+			body: encodePayload(params.headers || {}, payload),
+		},
+		url,
+	);
 
 	const response = await fetch(url, init).then(resp =>
 		applyInterceptors(
