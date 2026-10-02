@@ -73,6 +73,29 @@ describe('ComponentForm', () => {
 			expect(properties.my.awesome).toEqual({ value: 'correct value' });
 		});
 
+		it.each([['__proto__'], ['constructor'], ['prototype']])(
+			'should ignore unsafe key %s in schema key',
+			unsafe => {
+				const schema = {
+					key: [unsafe, 'value'],
+					titleMap: [{ name: 'Name', value: 'v' }],
+				};
+				const properties = {};
+				resolveNameForTitleMap({ schema, properties, value: 'v' });
+				expect({}.$value_name).toBeUndefined();
+				expect(Object.prototype.$value_name).toBeUndefined();
+			},
+		);
+
+		it('should not pollute Object.prototype when the parent key is __proto__', () => {
+			const schema = {
+				key: ['__proto__', '__proto__'],
+				titleMap: [{ name: 'Name', value: 'v' }],
+			};
+			resolveNameForTitleMap({ schema, properties: {}, value: 'v' });
+			expect(Object.prototype.$__proto___name).toBeUndefined();
+		});
+
 		it('should add titleMap entry name', () => {
 			// given
 			const schema = {
