@@ -28,7 +28,6 @@ function RichRadioButtonIcon({ asset }: { asset?: LogoAsset | IllustrationAsset 
 				{getIconWithDeprecatedSupport({
 					iconSrc: asset.name || '',
 					size: 'L',
-					...asset,
 				})}
 			</span>
 		);
