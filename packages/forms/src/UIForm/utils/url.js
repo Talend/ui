@@ -1,5 +1,9 @@
 const ALLOWED_PROTOCOLS = ['http:', 'https:'];
 
+function getBaseUrl() {
+	return typeof document !== 'undefined' ? document.baseURI : 'http://localhost/';
+}
+
 /**
  * Check that the url is a string which resolves to an http(s) url.
  * The url is parsed the same way the browser does (leading/trailing spaces and
@@ -12,7 +16,7 @@ export function isSafeUrl(url) {
 		return false;
 	}
 	try {
-		return ALLOWED_PROTOCOLS.includes(new URL(url, document.baseURI).protocol);
+		return ALLOWED_PROTOCOLS.includes(new URL(url, getBaseUrl()).protocol);
 	} catch {
 		return false;
 	}

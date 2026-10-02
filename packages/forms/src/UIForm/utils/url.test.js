@@ -21,4 +21,14 @@ describe('isSafeUrl', () => {
 	])('should reject %s', url => {
 		expect(isSafeUrl(url)).toBe(false);
 	});
+
+	it('should work without document', () => {
+		vi.stubGlobal('document', undefined);
+		try {
+			expect(isSafeUrl('https://a.b')).toBe(true);
+			expect(isSafeUrl('javascript:alert(1)')).toBe(false);
+		} finally {
+			vi.unstubAllGlobals();
+		}
+	});
 });
