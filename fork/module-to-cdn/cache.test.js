@@ -40,9 +40,16 @@ describe('cache', () => {
                         JSON.stringify({'dist-tags': {latest: '1.0.0'}, versions: ['1.0.0']})
                     );
                 expect(cache.getModuleInfo(name).versions).toEqual(['1.0.0']);
-                expect(execFileSync).toHaveBeenCalledWith('npm', ['info', '--json', name], {
-                    encoding: 'utf8'
-                });
+                const [file, args, options] = execFileSync.mock.calls[0];
+                if (process.platform === 'win32') {
+                    expect(file).toBe(process.execPath);
+                    expect(args[0]).toMatch(/npm-cli\.js$/);
+                    expect(args.slice(1)).toEqual(['info', '--json', name]);
+                } else {
+                    expect(file).toBe('npm');
+                    expect(args).toEqual(['info', '--json', name]);
+                }
+                expect(options).toEqual({encoding: 'utf8'});
             }
         );
     });
