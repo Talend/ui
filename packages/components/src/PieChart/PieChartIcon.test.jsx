@@ -357,3 +357,38 @@ describe('setMinimumPercentage with extreme values', () => {
 		expect(result.map(v => v.percentageShown)).toEqual([0, 0, 50]);
 	});
 });
+
+describe('PieChartIconComponent with malformed label percentage', () => {
+	it.each([
+		['Symbol', Symbol('x')],
+		[
+			'throwing valueOf',
+			{
+				valueOf: () => {
+					throw new Error('boom');
+				},
+			},
+		],
+		['NaN', NaN],
+		['Infinity', Infinity],
+	])('should render without throwing nor NaN for %s', (_, percentage) => {
+		const t = (key, { defaultValue, ...opts }) =>
+			defaultValue.replace('{{percentage}}', opts.percentage);
+		const { container } = render(
+			<PieChartIconComponent model={[{ color: 'rio-grande', percentage }]} t={t} />,
+		);
+		expect(container.textContent).not.toMatch(/NaN|Infinity/);
+	});
+
+	it('should not throw when labelIndex is out of range', () => {
+		expect(() =>
+			render(
+				<PieChartIconComponent
+					model={[{ color: 'rio-grande', percentage: 10 }]}
+					labelIndex={3}
+					t={(k, { defaultValue }) => defaultValue}
+				/>,
+			),
+		).not.toThrow();
+	});
+});
