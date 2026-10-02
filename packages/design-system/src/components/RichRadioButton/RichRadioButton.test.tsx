@@ -27,7 +27,7 @@ describe('RichRadioButton', () => {
 				/>
 			</main>,
 		);
-		const results = await axe(container);
+		const results = await axe(document.body);
 		expect(results).toHaveNoViolations();
 	});
 });
