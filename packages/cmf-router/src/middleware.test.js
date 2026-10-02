@@ -76,3 +76,37 @@ describe('CMF middleware', () => {
 		expect(arg.payload.args[0]).toBe('/route/28');
 	});
 });
+
+describe('CMF middleware route validation', () => {
+	const unsafe = [
+		'javascript:alert(1)',
+		'  JavaScript:alert(1)',
+		'java\tscript:alert(1)',
+		'https://evil.example/',
+		'//evil.example',
+		'/\\evil.example',
+		'\\\\evil.example',
+		{ pathname: 'javascript:alert(1)' },
+		{ pathname: '//evil.example' },
+		undefined,
+	];
+	['routerPush', 'routerReplace'].forEach(key => {
+		it.each(unsafe)(`should not dispatch ${key} for %j`, route => {
+			const store = { dispatch: vi.fn() };
+			const next = vi.fn();
+			const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+			cmfMiddleware(store)(next)({ cmf: { [key]: () => route } });
+			expect(store.dispatch).not.toHaveBeenCalled();
+			expect(next).toHaveBeenCalled();
+			errorSpy.mockRestore();
+		});
+		it.each(['/a/b?x=1#h', 'relative/path', '?q=1', { pathname: '/a' }])(
+			`should dispatch ${key} for %j`,
+			route => {
+				const store = { dispatch: vi.fn() };
+				cmfMiddleware(store)(vi.fn())({ cmf: { [key]: route } });
+				expect(store.dispatch).toHaveBeenCalledTimes(1);
+			},
+		);
+	});
+});
