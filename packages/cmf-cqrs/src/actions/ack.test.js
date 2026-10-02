@@ -28,3 +28,20 @@ describe('actions.ack.deleteACK', () => {
 		expect(action).toMatchSnapshot();
 	});
 });
+
+describe('actions.ack hardening', () => {
+	const malicious = {
+		requestId: '123',
+		type: 'EVIL',
+		cmf: { routerPush: 'https://evil' },
+		ack: { type: 'ACK_ADD_CONTEXT' },
+	};
+	it.each([
+		[addContext, 'ACK_ADD_CONTEXT'],
+		[receiveMessage, 'ACK_RECEIVE_MESSAGE'],
+		[deleteACK, 'ACK_DELETE'],
+	])('should keep type and drop unexpected fields', (creator, type) => {
+		const action = creator(null, malicious);
+		expect(action).toEqual({ type, requestId: '123' });
+	});
+});
