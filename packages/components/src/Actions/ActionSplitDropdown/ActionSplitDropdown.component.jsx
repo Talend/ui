@@ -8,6 +8,33 @@ import theme from './ActionSplitDropdown.module.css';
 import wrapOnClick from '../wrapOnClick';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
+const MENU_ITEM_PROPS = [
+	'active',
+	'bsClass',
+	'className',
+	'disabled',
+	'divider',
+	'eventKey',
+	'header',
+	'href',
+	'id',
+	'onKeyDown',
+	'onSelect',
+	'rel',
+	'style',
+	'target',
+	'title',
+];
+
+function getMenuItemProps(item) {
+	return Object.keys(item).reduce((acc, key) => {
+		if (MENU_ITEM_PROPS.includes(key) || key.startsWith('data-') || key.startsWith('aria-')) {
+			acc[key] = item[key];
+		}
+		return acc;
+	}, {});
+}
+
 /**
  * @param {object} props react props
  * @example
@@ -60,8 +87,8 @@ export default function ActionSplitDropdown(props) {
 			{...rest}
 		>
 			{items.length ? (
-				items.map(({ componentClass: _itemComponentClass, ...item }, index) => (
-					<MenuItem {...item} key={index} onClick={wrapOnClick(item)}>
+				items.map((item, index) => (
+					<MenuItem {...getMenuItemProps(item)} key={index} onClick={wrapOnClick(item)}>
 						{item.icon && <Icon name={item.icon} />}
 						{item.label}
 					</MenuItem>
