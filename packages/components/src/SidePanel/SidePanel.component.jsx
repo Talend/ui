@@ -4,8 +4,6 @@ import { withTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import tokens from '@talend/design-tokens';
-
 import ActionList from '../ActionList';
 import Action from '../Actions/Action';
 import I18N_DOMAIN_COMPONENTS from '../constants';
@@ -101,7 +99,11 @@ function SidePanel({
 		reverse,
 		[theme.reverse]: reverse,
 		[theme.animate]: animation,
+		[theme['with-background-icon']]: !!backgroundIcon,
 	});
+	const navStyle = backgroundIcon
+		? { width, '--tc-side-panel-background-icon': `url(${JSON.stringify(backgroundIcon)})` }
+		: { width };
 	const listCSS = classNames(theme['tc-side-panel-list'], 'tc-side-panel-list');
 
 	const expandLabel = t('SIDEPANEL_EXPAND', { defaultValue: 'Expand menu' });
@@ -109,24 +111,7 @@ function SidePanel({
 	const toggleButtonTitle = docked ? expandLabel : collapseTitle;
 	const Components = Inject.getAll(getComponent, { Action, ActionList });
 	return (
-		<nav id={id} className={navCSS} role="navigation" ref={ref} style={{ width }}>
-			{backgroundIcon && (
-				<style>
-					{`#${id}::before {
-						content: '';
-						position: absolute;
-						left: 0;
-						bottom: -50px;
-						height: 19.375rem;
-						width: 19.375rem;
-						background-repeat: no-repeat;
-						opacity: 0.1;
-						background-color: ${tokens.coralColorBrandIcon};
-						mask-image: url('${backgroundIcon}');
-						-webkit-mask-image: url('${backgroundIcon}');
-				}`}
-				</style>
-			)}
+		<nav id={id} className={navCSS} role="navigation" ref={ref} style={navStyle}>
 			{dockable && !minimised && (
 				<div className={classNames(theme['toggle-btn'], 'tc-side-panel-toggle-btn')}>
 					<Components.Action

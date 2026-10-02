@@ -17,6 +17,19 @@
 	left: 0.625rem;
 	bottom: -3.125rem;
 }
+.tc-side-panel.with-background-icon::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -50px;
+	height: 19.375rem;
+	width: 19.375rem;
+	background-repeat: no-repeat;
+	opacity: 0.1;
+	background-color: var(--coral-color-brand-icon, hsla(0, 0%, 25%, 1));
+	mask-image: var(--tc-side-panel-background-icon);
+	-webkit-mask-image: var(--tc-side-panel-background-icon);
+}
 .tc-side-panel.animate {
 	transition: 0.2s width ease-out;
 }
