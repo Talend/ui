@@ -142,7 +142,8 @@ function ActionButton(props) {
 		return <Skeleton type="button" />;
 	}
 
-	const buttonProps = getPropsFrom(Button, rest);
+	const { componentClass: _componentClass, ...safeRest } = rest;
+	const buttonProps = getPropsFrom(Button, safeRest);
 	const buttonContent = getContent(props);
 	const btnIsDisabled = inProgress || disabled;
 	const style = link ? 'link' : bsStyle;
