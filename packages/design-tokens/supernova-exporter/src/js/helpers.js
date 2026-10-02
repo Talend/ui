@@ -1,3 +1,4 @@
+/* eslint-disable no-control-regex */
 // @ts-ignore
 function getReadableVariableNameByCaseStyle(caseStyle) {
 	return function getReadableVariableName(token, tokenGroup, prefix) {
@@ -164,18 +165,38 @@ Pulsar.registerFunction('parseTokenType', function (token) {
 	return `${token.tokenType.toLowerCase()}`;
 });
 
+// Designer-controlled text must never alter the structure of the generated code.
+// Neutralise what could break out of a CSS declaration or url('...').
+function sanitizeCssText(text) {
+	return String(text)
+		.replace(/[\u0000-\u001f\u007f]/g, ' ')
+		.replace(/[{};<>\\]/g, '')
+		.replace(/@import|url\s*\(|expression\s*\(/gi, '');
+}
+
+function encodeDataUri(text) {
+	return String(text)
+		.replace(/\\/g, '%5C')
+		.replace(/'/g, '%27')
+		.replace(/"/g, '%22')
+		.replace(/\(/g, '%28')
+		.replace(/\)/g, '%29')
+		.replace(/[{}<>]/g, c => `%${c.charCodeAt(0).toString(16)}`)
+		.replace(/[\u0000-\u001f\u007f]/g, c => `%${c.charCodeAt(0).toString(16).padStart(2, '0')}`);
+}
+
 Pulsar.registerFunction('baseWrap', function (token, designSystemName) {
 	const stringPrefix = token.split(':')[0];
 	const safeName = designSystemName.toLowerCase();
 	if (stringPrefix === 'data') {
-		return `url('${token}')`;
+		return `url('${encodeDataUri(token)}')`;
 	}
 
 	if (token.includes('keyframes')) {
-		return token.replace('coral', `coral-${safeName}`);
+		return sanitizeCssText(token.replace('coral', `coral-${safeName}`));
 	}
 
-	return token;
+	return sanitizeCssText(token);
 });
 
 Pulsar.registerFunction('getFigmaKey', function (token) {
@@ -255,5 +276,32 @@ Pulsar.registerFunction('prefixWithThemeName', function (value, dsName) {
 
 // TS
 Pulsar.registerFunction('addQuotes', function (text) {
-	return `'${text}'`;
+	return `'${escapeSingleQuoted(text)}'`;
 });
+
+// Escape text to be placed inside a single quoted JS string
+function escapeSingleQuoted(text) {
+	return String(text)
+		.replace(/\\/g, '\\\\')
+		.replace(/'/g, "\\'")
+		.replace(/\r/g, '\\r')
+		.replace(/\n/g, '\\n')
+		.replace(/\u2028/g, '\\u2028')
+		.replace(/\u2029/g, '\\u2029');
+}
+
+// Escape text to be placed inside a JS template literal
+function escapeTemplateLiteral(text) {
+	return String(text).replace(/[\\`]/g, '\\$&').replace(/\$\{/g, '\\${');
+}
+
+// Escape text to be placed inside a single quoted CSS string
+function escapeCssString(text) {
+	return String(text)
+		.replace(/[\u0000-\u001f\u007f]/g, ' ')
+		.replace(/[\\']/g, '\\$&');
+}
+
+Pulsar.registerFunction('escapeCssString', escapeCssString);
+Pulsar.registerFunction('escapeSingleQuoted', escapeSingleQuoted);
+Pulsar.registerFunction('escapeTemplateLiteral', escapeTemplateLiteral);

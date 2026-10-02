@@ -52,4 +52,4 @@ Rendered as:
 
 *}
 {[ inject "reference-wrapper" context context ]}
-{[ if ds.isFontItalic(context.font) ]}italic {[/]}{{ ds.fontWeight(context.font)  }} {{ pixelsToRem(context.fontSize) }}/{[ if context.lineHeight ]}{[ inject "rendered-lineHeight" context context.lineHeight /]}{[ else ]}100%{[/]} '{{ context.font.family }}'{[/]}
+{[ if ds.isFontItalic(context.font) ]}italic {[/]}{{ ds.fontWeight(context.font)  }} {{ pixelsToRem(context.fontSize) }}/{[ if context.lineHeight ]}{[ inject "rendered-lineHeight" context context.lineHeight /]}{[ else ]}100%{[/]} '{{ escapeTemplateLiteral(escapeCssString(context.font.family)) }}'{[/]}
