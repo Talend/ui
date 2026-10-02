@@ -35,6 +35,8 @@ export function toJS(immutableObject) {
 	return immutableObject.toJS();
 }
 
+const UNSAFE_KEYS = ['__proto__', 'constructor', 'prototype'];
+
 /**
  * Insert titleMap name for corresponding value
  * Its key is prefixed by '$', this means that it's an internal property
@@ -44,6 +46,9 @@ export function toJS(immutableObject) {
  */
 export function resolveNameForTitleMap({ schema, properties, value }) {
 	if (!schema.titleMap) {
+		return;
+	}
+	if (!Array.isArray(schema.key) || schema.key.some(k => UNSAFE_KEYS.includes(String(k)))) {
 		return;
 	}
 	// Here we add a field side by side with the value
@@ -75,7 +80,21 @@ export function resolveNameForTitleMap({ schema, properties, value }) {
 	const parentKey = schema.key.slice();
 	const key = parentKey.pop();
 	const nameKey = `$${key}_name`;
-	const parentValue = Form.UIForm.utils.properties.getValue(properties, { key: parentKey });
+	let parentValue = properties;
+	for (const part of parentKey) {
+		if (
+			!parentValue ||
+			typeof parentValue !== 'object' ||
+			!Object.prototype.hasOwnProperty.call(parentValue, part)
+		) {
+			return;
+		}
+		parentValue = parentValue[part];
+	}
+
+	if (!parentValue || typeof parentValue !== 'object') {
+		return;
+	}
 
 	if (names.some(name => name !== undefined)) {
 		parentValue[nameKey] = valueIsArray ? names : names[0];
