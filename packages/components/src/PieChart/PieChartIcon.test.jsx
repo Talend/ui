@@ -340,4 +340,20 @@ describe('setMinimumPercentage with extreme values', () => {
 			expect(v.percentageShown).toBeLessThanOrEqual(100);
 		});
 	});
+
+	it('should not throw when a percentage cannot be converted to a number', () => {
+		const model = [
+			{ percentage: Symbol('x') },
+			{
+				percentage: {
+					valueOf: () => {
+						throw new Error('boom');
+					},
+				},
+			},
+			{ percentage: 50 },
+		];
+		const result = setMinimumPercentage(model, 5);
+		expect(result.map(v => v.percentageShown)).toEqual([0, 0, 50]);
+	});
 });

@@ -149,6 +149,7 @@ function sanitizePercentage(percentage) {
 	} catch {
 		return 0;
 	}
+}
 
 /**
  * This function sets minimum percentage show with the minimum percentage shown
