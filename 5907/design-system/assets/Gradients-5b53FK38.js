@@ -1,0 +1,4 @@
+import{j as t}from"./index-DEJiKwqn.js";import{u as r,M as s}from"./blocks-DD_Mx_oE.js";import"./iframe-DK75T9Hp.js";import{D as m}from"./Dialog-CIs1sVpl.js";import"./index-FEG8ABOP.js";import"./useCopyToClipboard-BIgDLXVH.js";import"./TalendDesignTokens-JgHEBmOa.js";import{T as a}from"./TokenValue-B4lPhxIy.js";import"./index-CUZkzeUt.js";import"./preload-helper-PPVm8Dsz.js";import"./dictionary-CKKJDmnH.js";function o(n){const e={h1:"h1",...r(),...n.components};return t.jsxs(t.Fragment,{children:[t.jsx(s,{title:"Design Tokens/Gradients"}),`
+`,t.jsx(e.h1,{id:"gradients",children:"Gradients"}),`
+`,t.jsx(m,{}),`
+`,t.jsx(a,{style:i=>({background:i.value}),type:"gradient"})]})}function g(n={}){const{wrapper:e}={...r(),...n.components};return e?t.jsx(e,{...n,children:t.jsx(o,{...n})}):o(n)}export{g as default};
