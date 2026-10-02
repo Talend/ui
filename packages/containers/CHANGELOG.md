@@ -1,5 +1,25 @@
 # @talend/react-containers
 
+## 14.0.1
+
+### Patch Changes
+
+- 4e2d3be: fix(containers): harden ComponentForm schema trigger option path handling
+- 944ab93: fix(containers): HeaderBar only navigates to http(s) product urls and validates the fetched products
+- a18a4c5: fix(containers): harden ComponentForm titleMap key handling
+- Updated dependencies [4694f97]
+- Updated dependencies [e2d343d]
+- Updated dependencies [c8aff45]
+- Updated dependencies [d1dd571]
+- Updated dependencies [af19a23]
+- Updated dependencies [a7b9a34]
+- Updated dependencies [adaea0d]
+- Updated dependencies [6f8a9f1]
+- Updated dependencies [d02fb3d]
+  - @talend/react-components@20.0.1
+  - @talend/react-forms@18.0.1
+  - @talend/design-system@13.0.2
+
 ## 14.0.0
 
 ### Major Changes

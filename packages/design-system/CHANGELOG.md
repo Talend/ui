@@ -1,5 +1,13 @@
 # @talend/design-system
 
+## 13.0.2
+
+### Patch Changes
+
+- af19a23: fix(design-system): harden Icon remote svg handling (sanitize content, restrict url schemes, forward only safe props) and escape ids in IconsProvider.injectIcon
+- Updated dependencies [ea2fe26]
+  - @talend/design-tokens@4.1.6
+
 ## 13.0.1
 
 ### Patch Changes
