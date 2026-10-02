@@ -32,7 +32,15 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 export default function ActionSplitDropdown(props) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const { icon, items, label, emptyDropdownLabel, className, ...rest } = props;
+	const {
+		icon,
+		items,
+		label,
+		emptyDropdownLabel,
+		className,
+		componentClass: _componentClass,
+		...rest
+	} = props;
 
 	const Title = (
 		<span>
@@ -52,7 +60,7 @@ export default function ActionSplitDropdown(props) {
 			{...rest}
 		>
 			{items.length ? (
-				items.map((item, index) => (
+				items.map(({ componentClass: _itemComponentClass, ...item }, index) => (
 					<MenuItem {...item} key={index} onClick={wrapOnClick(item)}>
 						{item.icon && <Icon name={item.icon} />}
 						{item.label}

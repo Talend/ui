@@ -20,6 +20,7 @@ function ActionIconToggle(props) {
 		label,
 		tooltipPlacement,
 		buttonRef,
+		componentClass: _componentClass,
 		...rest
 	} = props;
 

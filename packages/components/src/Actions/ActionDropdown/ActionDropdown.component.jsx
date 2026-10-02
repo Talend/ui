@@ -74,7 +74,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 
 	return (
 		<Renderers.MenuItem
-			{...item}
+			{...omit(item, 'componentClass')}
 			key={index}
 			eventKey={item}
 			onClick={wrapOnClick(item)}
@@ -258,7 +258,7 @@ class ActionDropdown extends Component {
 					[theme.ellipsis]: ellipsis,
 				})}
 				aria-label={tooltipLabel || label}
-				{...omit(rest, 'tReady')}
+				{...omit(rest, 'tReady', 'componentClass')}
 				onToggle={this.onToggle}
 				ref={ref => {
 					this.ref = ref;

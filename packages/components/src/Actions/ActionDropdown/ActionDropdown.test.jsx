@@ -108,6 +108,17 @@ describe('ActionDropdown', () => {
 	});
 });
 
+describe('ActionDropdown componentClass hardening', () => {
+	it('should ignore componentClass coming from items', async () => {
+		const user = userEvent.setup();
+		const items = [{ id: 'i1', label: 'Item 1', componentClass: 'iframe' }];
+		render(<ActionDropdown id="d" label="Dropdown" items={items} />);
+		await user.click(screen.getByRole('button'));
+		expect(screen.getByText('Item 1')).toBeVisible();
+		expect(document.querySelector('iframe')).toBeNull();
+	});
+});
+
 describe('getMenuItem', () => {
 	it('should return a MenuItem with divider', () => {
 		render(getMenuItem({ divider: true }));

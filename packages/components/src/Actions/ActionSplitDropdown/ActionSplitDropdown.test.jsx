@@ -146,3 +146,19 @@ describe('ActionSplitDropdown', () => {
 		expect(onItemClick.mock.calls[1][0].type).toEqual('click');
 	});
 });
+
+describe('ActionSplitDropdown componentClass hardening', () => {
+	it('should ignore componentClass coming from props', () => {
+		render(<ActionSplitDropdown label="x" items={items} componentClass="base" />);
+		expect(document.querySelector('base')).toBeNull();
+	});
+
+	it('should ignore componentClass coming from items', async () => {
+		const user = userEvent.setup();
+		const withClass = [{ label: 'a', onClick: jest.fn(), componentClass: 'iframe' }];
+		render(<ActionSplitDropdown label="x" items={withClass} />);
+		await user.click(screen.getByLabelText(/Open x menu/));
+		expect(screen.getByText('a')).toBeVisible();
+		expect(document.querySelector('iframe')).toBeNull();
+	});
+});

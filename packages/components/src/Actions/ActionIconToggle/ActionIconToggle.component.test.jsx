@@ -46,3 +46,11 @@ describe('ActionIconToggle', () => {
 		expect(inactiveIconToggle.onClick).toHaveBeenCalled();
 	});
 });
+
+describe('ActionIconToggle componentClass hardening', () => {
+	it('should ignore componentClass coming from props', () => {
+		render(<ActionIconToggle {...inactiveIconToggle} componentClass="iframe" />);
+		expect(document.querySelector('iframe')).toBeNull();
+		expect(screen.getByRole('button')).toBeVisible();
+	});
+});
