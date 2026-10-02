@@ -72,4 +72,40 @@ describe('Icon security', () => {
 	it('should not throw on icon names that are not valid selectors', () => {
 		expect(() => render(<Icon name={'x"] , body #y['} />)).not.toThrow();
 	});
+
+	it('should drop xlink href whatever the namespace prefix is', async () => {
+		mockFetch(
+			'<svg xmlns="http://www.w3.org/2000/svg" xmlns:x="http://www.w3.org/1999/xlink"><use x:href="https://evil.example/a.svg#b"/><use x:href="#local" id="ok"/></svg>',
+		);
+		const { container } = render(<Icon name="remote-https://example.com/prefix.svg" />);
+		await waitFor(() => expect(container.querySelector('use#ok')).toBeInTheDocument());
+		expect(container.innerHTML).not.toContain('evil.example');
+	});
+
+	it('should only keep allowlisted attributes and local url references', async () => {
+		mockFetch(
+			'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-x="1" xmlns:foo="urn:foo" foo:bar="1">' +
+				'<path id="keep" d="M0 0" fill="url(/endpoint)" stroke="url(https://evil.example/x)" custom="1" data-y="2"/>' +
+				'<path id="local" d="M0 0" fill="url(#grad)" filter="url(\'#f\')" clip-path="url(#c)"/>' +
+				'<path id="esc" d="M0 0" mask="\\75rl(/endpoint)"/>' +
+				'<path id="plain" d="M0 0" fill="#fff"/></svg>',
+		);
+		const { container } = render(<Icon name="remote-https://example.com/allow.svg" />);
+		await waitFor(() => expect(container.querySelector('#plain')).toBeInTheDocument());
+		const keep = container.querySelector('#keep') as Element;
+		expect(keep.getAttribute('d')).toBe('M0 0');
+		['fill', 'stroke', 'custom', 'data-y'].forEach(name =>
+			expect(keep.hasAttribute(name)).toBe(false),
+		);
+		const local = container.querySelector('#local') as Element;
+		expect(local.getAttribute('fill')).toBe('url(#grad)');
+		expect(local.getAttribute('filter')).toBe("url('#f')");
+		expect(local.getAttribute('clip-path')).toBe('url(#c)');
+		expect((container.querySelector('#esc') as Element).hasAttribute('mask')).toBe(false);
+		const svg = container.querySelector('svg svg') as Element;
+		expect(svg.hasAttribute('data-x')).toBe(false);
+		expect(svg.hasAttribute('foo:bar')).toBe(false);
+		expect(svg.getAttribute('viewBox')).toBe('0 0 16 16');
+		expect(container.querySelector('#plain')?.getAttribute('fill')).toBe('#fff');
+	});
 });

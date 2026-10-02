@@ -36,7 +36,134 @@ const ALLOWED_ELEMENTS = new Set(
 	].map(name => name.toLowerCase()),
 );
 
-const URL_ATTRIBUTES = ['href', 'xlink:href'];
+// Attributes are matched on their lowercased local name; xml namespaced attributes are handled
+// separately in isAllowedAttribute.
+const ALLOWED_ATTRIBUTES = new Set(
+	[
+		// structure / geometry
+		'id',
+		'class',
+		'viewBox',
+		'width',
+		'height',
+		'x',
+		'y',
+		'x1',
+		'y1',
+		'x2',
+		'y2',
+		'cx',
+		'cy',
+		'r',
+		'rx',
+		'ry',
+		'fx',
+		'fy',
+		'd',
+		'points',
+		'transform',
+		'preserveAspectRatio',
+		'focusable',
+		'role',
+		'aria-hidden',
+		'aria-label',
+		'aria-labelledby',
+		'aria-describedby',
+		'version',
+		'overflow',
+		'display',
+		'visibility',
+		// references (validated as local fragments)
+		'href',
+		// presentation
+		'fill',
+		'fill-opacity',
+		'fill-rule',
+		'stroke',
+		'stroke-width',
+		'stroke-linecap',
+		'stroke-linejoin',
+		'stroke-miterlimit',
+		'stroke-dasharray',
+		'stroke-dashoffset',
+		'stroke-opacity',
+		'opacity',
+		'color',
+		'clip-path',
+		'clip-rule',
+		'clipPathUnits',
+		'mask',
+		'maskUnits',
+		'maskContentUnits',
+		'filter',
+		'filterUnits',
+		'primitiveUnits',
+		'color-interpolation-filters',
+		'stop-color',
+		'stop-opacity',
+		'offset',
+		'gradientUnits',
+		'gradientTransform',
+		'spreadMethod',
+		'patternUnits',
+		'patternContentUnits',
+		'patternTransform',
+		'font-family',
+		'font-size',
+		'font-weight',
+		'font-style',
+		'text-anchor',
+		'dominant-baseline',
+		'letter-spacing',
+		'dx',
+		'dy',
+		'style',
+		// filter primitives
+		'in',
+		'in2',
+		'result',
+		'type',
+		'values',
+		'mode',
+		'operator',
+		'k1',
+		'k2',
+		'k3',
+		'k4',
+		'stdDeviation',
+		'flood-color',
+		'flood-opacity',
+		'exponent',
+	].map(name => name.toLowerCase()),
+);
+
+const XLINK_NS = 'http://www.w3.org/1999/xlink';
+
+function isAllowedAttribute(attr: Attr) {
+	const localName = attr.localName.toLowerCase();
+	if (!attr.namespaceURI) {
+		return ALLOWED_ATTRIBUTES.has(localName);
+	}
+	// only xlink:href is allowed among namespaced attributes, whatever the prefix is bound to
+	return attr.namespaceURI === XLINK_NS && localName === 'href';
+}
+
+const LOCAL_URL_REFERENCE = /url\(\s*(['"]?)#[^'")\s]*\1\s*\)/gi;
+
+/**
+ * Values may only reference local fragments, either as a whole (href) or through url(#id).
+ */
+function isSafeAttributeValue(localName: string, value: string) {
+	if (localName === 'href') {
+		return value.trim().startsWith('#');
+	}
+	if (/url\s*\(|\\/i.test(value.replace(LOCAL_URL_REFERENCE, ''))) {
+		return false;
+	}
+	return !/javascript:|data:|expression\s*\(|@import|behavior|-moz-binding/i.test(
+		stripWhitespaceAndControls(value),
+	);
+}
 
 /**
  * Only allow http(s) and relative urls to be fetched / displayed for remote icons.
@@ -49,10 +176,6 @@ export function isSafeRemoteUrl(url: string): boolean {
 	} catch {
 		return false;
 	}
-}
-
-function isSafeStyle(value: string) {
-	return !/url\s*\(|expression\s*\(|javascript:|@import|behavior|-moz-binding/i.test(value);
 }
 
 function stripWhitespaceAndControls(value: string) {
@@ -71,21 +194,11 @@ function sanitizeElement(element: Element) {
 	});
 
 	Array.from(element.attributes).forEach(attr => {
-		const attrName = attr.name.toLowerCase();
-		const value = attr.value;
-		if (attrName.startsWith('on')) {
-			element.removeAttribute(attr.name);
-		} else if (URL_ATTRIBUTES.includes(attrName)) {
-			// only references to local fragments are allowed
-			if (!value.trim().startsWith('#')) {
-				element.removeAttribute(attr.name);
-			}
-		} else if (attrName === 'style') {
-			if (!isSafeStyle(value)) {
-				element.removeAttribute(attr.name);
-			}
-		} else if (/javascript:|data:text\/html/i.test(stripWhitespaceAndControls(value))) {
-			element.removeAttribute(attr.name);
+		if (
+			!isAllowedAttribute(attr) ||
+			!isSafeAttributeValue(attr.localName.toLowerCase(), attr.value)
+		) {
+			element.removeAttributeNode(attr);
 		}
 	});
 }
