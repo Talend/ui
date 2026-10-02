@@ -32,8 +32,8 @@ interface CodeSchema {
 		id?: string;
 		title?: string;
 		className?: string;
-		[key: `data-${string}`]: string | undefined;
-		[key: `aria-${string}`]: string | undefined;
+		[key: `data-${string}`]: string | number | boolean | undefined;
+		[key: `aria-${string}`]: string | number | boolean | undefined;
 	};
 	type: string;
 }
