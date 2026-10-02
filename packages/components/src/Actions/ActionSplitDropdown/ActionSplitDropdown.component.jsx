@@ -19,6 +19,7 @@ const MENU_ITEM_PROPS = [
 	'id',
 	'onKeyDown',
 	'onSelect',
+	'rel',
 	'style',
 	'target',
 	'title',
