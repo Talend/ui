@@ -80,10 +80,12 @@ describe('ComponentForm', () => {
 					key: [unsafe, 'value'],
 					titleMap: [{ name: 'Name', value: 'v' }],
 				};
-				const properties = {};
+				const properties = JSON.parse(`{"${unsafe}": {}}`);
+				const target = Object.getOwnPropertyDescriptor(properties, unsafe).value;
 				resolveNameForTitleMap({ schema, properties, value: 'v' });
-				expect({}.$value_name).toBeUndefined();
+				expect(Object.keys(target)).toEqual([]);
 				expect(Object.prototype.$value_name).toBeUndefined();
+				expect(Object.$value_name).toBeUndefined();
 			},
 		);
 
