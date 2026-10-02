@@ -78,4 +78,26 @@ describe('csrf token destination check', () => {
 			headers: {},
 		});
 	});
+
+	describe('with a cross-origin <base> element', () => {
+		let base;
+		beforeEach(() => {
+			base = document.createElement('base');
+			base.href = 'https://evil.example/';
+			document.head.appendChild(base);
+		});
+		afterEach(() => {
+			base.remove();
+		});
+
+		it.each(['/api/foo', 'api/foo'])('does not add the token for relative url %s', url => {
+			const conf = mergeCSRFToken({}, url)({ headers: {} });
+			expect(conf).toEqual({ headers: {} });
+		});
+
+		it('still adds the token for absolute same-origin urls', () => {
+			const conf = mergeCSRFToken({}, `${window.location.origin}/api/foo`)({ headers: {} });
+			expect(conf.headers).toHaveProperty('X-CSRF-Token');
+		});
+	});
 });

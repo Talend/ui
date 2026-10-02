@@ -87,7 +87,8 @@ function mergeCSRFTokenConfig(
 
 /**
  * Tell if the CSRF token may be sent to the given url:
- * the url, resolved against document.baseURI, must be same-origin with the document
+ * the url, resolved the way fetch does (against document.baseURI), must have the same origin
+ * as window.location (never as the <base> element, which may be attacker-controlled)
  * or its origin must be listed in `security.CSRFTokenAllowedOrigins`.
  * @param {string} url
  * @param {Object.security} security
@@ -106,7 +107,7 @@ export function isCSRFTokenAllowedForUrl(
 		if (origin === 'null') {
 			return false;
 		}
-		if (origin === new URL(base).origin) {
+		if (origin === window.location.origin) {
 			return true;
 		}
 		return (security.CSRFTokenAllowedOrigins || []).some(allowed => {
