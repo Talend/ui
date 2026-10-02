@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.19.9",
+    "@figma/rest-api-spec": "^0.36.0",
     "@storybook/addon-docs": "^10.5.5",
     "@storybook/react": "^10.5.5",
     "@talend/design-tokens": "workspace:^",
@@ -38,7 +39,6 @@
     "react": "^18.3.1"
   },
   "devDependencies": {
-    "@figma/rest-api-spec": "^0.36.0",
     "@storybook/addon-a11y": "^10.5.5",
     "@storybook/addon-docs": "^10.5.5",
     "@storybook/react-vite": "^10.5.5",
