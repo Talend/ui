@@ -1,1 +1,0 @@
-import{bp as b,bq as o,br as q}from"./iframe-Cfph2DnH.js";import{r as f}from"./_baseUniq-CEzt9W6o.js";var r,e;function p(){if(e)return r;e=1;var a=b(),i=o(),n=f(),t=q(),s=i(function(u){return n(a(u,1,t,!0))});return r=s,r}export{p as r};
