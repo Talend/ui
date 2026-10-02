@@ -11,7 +11,7 @@ describe('HeaderBar sagas', () => {
 		const action = { payload: { url } };
 
 		it('should fetch HeaderBar products', () => {
-			const data = 'foo';
+			const data = [{ id: 'a', name: 'A', icon: 'x', url: 'https://example.com' }];
 			const httpResponse = { response: { ok: true }, data };
 
 			const gen = fetchProducts(action);
@@ -39,6 +39,29 @@ describe('HeaderBar sagas', () => {
 			const { done } = gen.next();
 
 			expect(done).toBe(true);
+		});
+
+		it('should drop invalid products and non array responses', () => {
+			const run = data => {
+				const gen = fetchProducts(action);
+				gen.next();
+				gen.next();
+				gen.next({ response: { ok: true }, data });
+				return gen.next().value.payload.action;
+			};
+			const good = { name: 'A', url: 'https://example.com' };
+			expect(
+				run([
+					good,
+					{ name: 'B', url: null },
+					{ name: 'C', url: '\tjavascript:alert(1)' },
+					null,
+					{ name: 5, url: 'https://example.com' },
+				]),
+			).toEqual(cmf.actions.collections.addOrReplace(Constants.COLLECTION_ID, [good]));
+			expect(run({ foo: 'bar' })).toEqual(
+				cmf.actions.collections.addOrReplace(Constants.COLLECTION_ID, []),
+			);
 		});
 
 		it('should fetch HeaderBar products and handle an error case', () => {
@@ -86,6 +109,27 @@ describe('HeaderBar sagas', () => {
 
 			handleOpenProduct(action);
 			expect(window.location.assign).toHaveBeenCalledWith('productUrl');
+		});
+
+		it.each([
+			'\tjavascript:alert(1)',
+			' javascript:alert(1)',
+			'\njavascript:alert(1)',
+			'java\nscript:alert(1)',
+			'JavaScript:alert(1)',
+			'data:text/html,<script>alert(1)</script>',
+			'vbscript:msgbox(1)',
+			null,
+			42,
+			{},
+		])('should not navigate to %p', url => {
+			expect(() => handleOpenProduct({ payload: { url } })).not.toThrow();
+			expect(window.location.assign).not.toHaveBeenCalled();
+		});
+
+		it('should navigate to an https URL', () => {
+			handleOpenProduct({ payload: { url: 'https://example.com/app' } });
+			expect(window.location.assign).toHaveBeenCalledWith('https://example.com/app');
 		});
 
 		it('should do nothing if no product URI is provided', () => {

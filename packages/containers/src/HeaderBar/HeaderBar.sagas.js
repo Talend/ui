@@ -4,6 +4,36 @@ import { call, put, takeEvery, take } from 'redux-saga/effects';
 import Connected from './HeaderBar.connect';
 import Constants from './HeaderBar.constant';
 
+const ALLOWED_PROTOCOLS = ['http:', 'https:'];
+
+/**
+ * Check that the url is a string which resolves to an http(s) url.
+ * The url is parsed the same way the browser does (leading/trailing spaces and
+ * tab/newline characters are normalized by the URL parser).
+ * @param {*} url
+ * @returns {boolean}
+ */
+function isSafeUrl(url) {
+	if (typeof url !== 'string') {
+		return false;
+	}
+	try {
+		return ALLOWED_PROTOCOLS.includes(new URL(url, document.baseURI).protocol);
+	} catch {
+		return false;
+	}
+}
+
+function isValidProduct(product) {
+	return (
+		!!product &&
+		typeof product === 'object' &&
+		isSafeUrl(product.url) &&
+		(product.name === undefined || typeof product.name === 'string') &&
+		(product.icon === undefined || typeof product.icon === 'string')
+	);
+}
+
 /**
  * This saga takes care of fetching authorized products for the HeaderBar
  * container according to the provided products URL in the action's payload.
@@ -19,7 +49,12 @@ export function* fetchProducts(action) {
 	if (response.ok) {
 		// Success, update collection
 		yield put(Connected.setStateAction({ productsFetchState: Constants.FETCH_PRODUCTS_SUCCESS }));
-		yield put(cmf.actions.collections.addOrReplace(Constants.COLLECTION_ID, data));
+		yield put(
+			cmf.actions.collections.addOrReplace(
+				Constants.COLLECTION_ID,
+				Array.isArray(data) ? data.filter(isValidProduct) : [],
+			),
+		);
 	} else {
 		// Loading products failed
 		yield put(Connected.setStateAction({ productsFetchState: Constants.FETCH_PRODUCTS_ERROR }));
@@ -33,8 +68,9 @@ export function* fetchProducts(action) {
  * @param {Object} action
  */
 export function handleOpenProduct(action) {
-	if ('url' in action.payload && !/^javascript:/.test(action.payload.url.toLowerCase())) {
-		window.location.assign(action.payload.url);
+	const url = action && action.payload && action.payload.url;
+	if (isSafeUrl(url)) {
+		window.location.assign(url);
 	}
 }
 
