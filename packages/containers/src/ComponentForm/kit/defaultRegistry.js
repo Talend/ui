@@ -16,6 +16,7 @@
 
 import clonedeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
+import toPath from 'lodash/toPath';
 import Form from '@talend/react-forms';
 
 const { removeError, addError, getError } = Form.UIForm.utils.errors;
@@ -78,12 +79,12 @@ function updateSchema({ schema, body, properties, trigger, errors }) {
 	if (body.entries && trigger.options && trigger.options.length !== 0) {
 		newProperties = clonedeep(properties);
 		trigger.options.forEach(option => {
-			const splitted = option.path.split('.');
+			const splitted = toPath(option.path);
 			if (hasUnsafeSegment(splitted)) {
 				return;
 			}
 			const key = splitted[splitted.length - 1];
-			const parent = get(newProperties, splitted.slice(0, -1).join('.'));
+			const parent = get(newProperties, splitted.slice(0, -1));
 			if (!parent || typeof parent !== 'object') {
 				return;
 			}

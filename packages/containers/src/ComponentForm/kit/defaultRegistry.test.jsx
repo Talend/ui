@@ -70,6 +70,8 @@ describe('defaultRegistry', () => {
 				options: [
 					{ path: '__proto__.polluted', type: 'array' },
 					{ path: 'constructor.prototype.polluted', type: 'array' },
+					{ path: '["__proto__"].polluted', type: 'array' },
+					{ path: 'constructor["prototype"].polluted', type: 'array' },
 				],
 			};
 			const results = service.schema({
