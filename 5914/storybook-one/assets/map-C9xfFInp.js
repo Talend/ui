@@ -1,0 +1,1 @@
+import{r as o,j as a,b2 as s,Y as n}from"./iframe-DMYygnnc.js";import{r as i}from"./map-Df0TA1bU.js";function e(t,r){return a.jsx(s,{...t,variant:"floating",ref:r})}const u=o.forwardRef(e);var m=i();const x=n(m);export{u as B,x as m};
