@@ -17,7 +17,9 @@ const MENU_ITEM_PROPS = [
 	'header',
 	'href',
 	'id',
+	'onKeyDown',
 	'onSelect',
+	'style',
 	'target',
 	'title',
 ];
