@@ -65,7 +65,9 @@ function getAllFilterIds() {
  * @param {Element} container
  */
 function injectIcon(id: string, container: Element) {
-	const element = document.querySelector(`${ICONS_PROVIDER_CLASS} #${id}`);
+	const element = document.querySelector(
+		`${ICONS_PROVIDER_CLASS} #${id.replace(/[^\w-]/g, char => `\\${char}`)}`,
+	);
 	if (element) {
 		while (container.hasChildNodes()) {
 			const lastChild = container.lastChild;
