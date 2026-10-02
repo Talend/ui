@@ -17,7 +17,7 @@ function isSafeUrl(url) {
 		return false;
 	}
 	try {
-		return ALLOWED_PROTOCOLS.includes(new URL(url, document.baseURI).protocol);
+		return ALLOWED_PROTOCOLS.includes(new URL(url, 'https://localhost').protocol);
 	} catch {
 		return false;
 	}
