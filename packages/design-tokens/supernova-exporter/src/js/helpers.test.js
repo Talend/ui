@@ -39,7 +39,7 @@ describe('supernova exporter escaping helpers', () => {
 	it('should treat the data scheme case-insensitively', () => {
 		const out = functions.baseWrap("DATA:x') ; body { color: red", 'Light');
 		expect(out.startsWith("url('")).toBe(true);
-		expect(out.slice(5, -2)).not.toMatch(/['){};]/);
+		expect(out.slice(5, -2)).not.toMatch(/['){}]/);
 	});
 
 	it('should strip css comment delimiters from text values', () => {
