@@ -44,7 +44,8 @@ function getActionComponent({ displayMode, getComponent }) {
 		case DISPLAY_MODE_ICON_TOGGLE:
 			return Renderers.ActionIconToggle;
 		default:
-			return Inject.get(getComponent, displayMode, Renderers.ActionButton);
+			// displayMode is a display hint, never a registry key: unknown values fall back to a button
+			return Renderers.ActionButton;
 	}
 	/* eslint-enable no-use-before-define */
 }
