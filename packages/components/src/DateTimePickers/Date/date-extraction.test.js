@@ -161,6 +161,15 @@ describe('Date extraction', () => {
 	});
 
 	describe('extractPartsFromTextInput', () => {
+		it('should treat regexp syntax in the date format literally (no ReDoS)', () => {
+			const start = Date.now();
+			const result = extractPartsFromTextInput(`2020-01-01${'a'.repeat(40)}x`, {
+				dateFormat: 'YYYY-MM-DD(a+)c',
+			});
+			expect(Date.now() - start).toBeLessThan(1000);
+			expect(result.errors.length).toBeGreaterThan(0);
+		});
+
 		it('should extract parts with empty string', () => {
 			// given
 			const textInput = '';
