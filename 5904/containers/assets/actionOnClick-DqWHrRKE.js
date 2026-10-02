@@ -1,1 +1,0 @@
-import{w as e}from"./iframe-Crm7aU1k.js";function c(r,a){return r.href?{}:!r.actionCreator&&!e(r,"payload.type")?{}:{onClick(o,t){r.actionCreator?a.dispatchActionCreator(r.actionCreator,o,t):a.dispatch({model:a.model,...r.payload})}}}export{c as g};
