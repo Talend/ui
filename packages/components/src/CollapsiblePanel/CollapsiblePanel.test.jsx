@@ -125,3 +125,24 @@ describe('CollapsiblePanel', () => {
 		expect(screen.getByText('Custom label')).toBeVisible();
 	});
 });
+
+describe('CollapsiblePanel badge header item', () => {
+	it('should only forward allowed props to the badge', () => {
+		render(
+			<CollapsiblePanel
+				id="panel"
+				header={[
+					{
+						displayMode: 'badge',
+						label: 'My badge',
+						bsStyle: 'info',
+						dangerouslySetInnerHTML: { __html: '<b>injected</b>' },
+						onClick: () => {},
+					},
+				]}
+			/>,
+		);
+		expect(screen.getByText('My badge')).toBeInTheDocument();
+		expect(document.querySelector('b')).toBeNull();
+	});
+});

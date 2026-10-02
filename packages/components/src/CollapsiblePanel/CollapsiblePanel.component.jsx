@@ -74,10 +74,15 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 			);
 		}
 		case TYPE_BADGE: {
-			const { label, tooltipLabel, tooltipPlacement, ...rest } = headerItem;
+			const { label, tooltipLabel, tooltipPlacement, bsStyle, id } = headerItem;
 			return (
 				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-					<Tag {...rest} className={css[className]}>
+					<Tag
+						bsStyle={bsStyle}
+						id={id}
+						data-testid={headerItem['data-testid']}
+						className={css[className]}
+					>
 						{label}
 					</Tag>
 				</TooltipTrigger>
