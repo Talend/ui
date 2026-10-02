@@ -78,6 +78,84 @@ function resolveArrayNotation(condition, key) {
 	return acc;
 }
 
+const ALLOWED_OPERATORS = new Set([
+	'var',
+	'missing',
+	'missing_some',
+	'if',
+	'?:',
+	'==',
+	'===',
+	'!=',
+	'!==',
+	'!',
+	'!!',
+	'or',
+	'and',
+	'>',
+	'>=',
+	'<',
+	'<=',
+	'max',
+	'min',
+	'+',
+	'-',
+	'*',
+	'/',
+	'%',
+	'map',
+	'filter',
+	'reduce',
+	'all',
+	'none',
+	'some',
+	'merge',
+	'in',
+	'cat',
+	'substr',
+	'lowercase',
+	'toNumber',
+]);
+
+const FORBIDDEN_PATH_PARTS = new Set(['__proto__', 'constructor', 'prototype']);
+
+function isUnsafePath(path) {
+	if (typeof path !== 'string') {
+		return false;
+	}
+	return path.split(/[.[\]]/).some(part => FORBIDDEN_PATH_PARTS.has(part));
+}
+
+/**
+ * Conditions come from (possibly remote) data: only allow-listed operators
+ * and safe variable paths can be evaluated.
+ */
+function isSafeCondition(condition) {
+	if (Array.isArray(condition)) {
+		return condition.every(isSafeCondition);
+	}
+	if (!condition || typeof condition !== 'object') {
+		return true;
+	}
+	const keys = Object.keys(condition);
+	if (keys.length !== 1) {
+		return keys.length === 0;
+	}
+	const [operator] = keys;
+	if (!ALLOWED_OPERATORS.has(operator)) {
+		return false;
+	}
+	const args = condition[operator];
+	if (['var', 'missing', 'missing_some'].includes(operator)) {
+		const paths = Array.isArray(args) ? args : [args];
+		const toCheck = operator === 'missing_some' ? [].concat(paths[1] || []) : paths;
+		if (toCheck.some(isUnsafePath)) {
+			return false;
+		}
+	}
+	return isSafeCondition(args);
+}
+
 /**
  *
  * @example {
@@ -92,6 +170,9 @@ function resolveArrayNotation(condition, key) {
 function shouldRender(condition, properties, key) {
 	if (condition === undefined) {
 		return true;
+	}
+	if (!isSafeCondition(condition)) {
+		return false;
 	}
 	const runtimeCondition = resolveArrayNotation(condition, key);
 	return jsonLogic.apply(runtimeCondition, properties);
