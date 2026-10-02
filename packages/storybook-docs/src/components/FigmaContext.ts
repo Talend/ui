@@ -3,7 +3,7 @@ import type { GetImagesResponse } from '@figma/rest-api-spec';
 
 const FIGMA_API_BASE = 'https://api.figma.com/v1';
 
-interface FileImagesParams {
+export interface FileImagesParams {
 	ids: string[];
 	scale?: number;
 	format?: 'jpg' | 'png' | 'svg' | 'pdf';
@@ -13,7 +13,7 @@ interface FileImagesParams {
 	version?: string;
 }
 
-interface FigmaClient {
+export interface FigmaClient {
 	isConfigured: boolean;
 	fileImages: (fileKey: string, params: FileImagesParams) => Promise<{ data: GetImagesResponse }>;
 }
