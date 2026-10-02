@@ -15,7 +15,7 @@ import styles from './BadgeSlider.module.css';
 // icon names coming from badge definitions must be plain identifiers:
 // no `remote-` / `src-` modes and nothing that could alter a selector
 const isValidIconName = name =>
-	typeof name === 'string' && /^[\w-]+$/.test(name) && !/^(remote|src)-/.test(name);
+	typeof name === 'string' && /^[A-Za-z_][\w-]*$/.test(name) && !/^(remote|src)-/.test(name);
 
 const getSliderMode = ({ name }) => {
 	switch (name) {

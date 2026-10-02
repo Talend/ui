@@ -403,5 +403,30 @@ describe('Typeahead', () => {
 				'smtg.item-3',
 			);
 		});
+
+		it('should not forward unsafe icon fields to the item icon', () => {
+			const props = {
+				...initialProps,
+				onToggle: jest.fn(),
+				docked: false,
+				items: [
+					{
+						title: 'item',
+						icon: {
+							name: 'talend-warning',
+							title: 'warn',
+							id: 'injected-id',
+							dangerouslySetInnerHTML: { __html: '<img src="x" data-injected="true">' },
+						},
+					},
+				],
+				multiSection: false,
+			};
+
+			const { container } = render(<Typeahead {...props} />);
+
+			expect(container.querySelector('[data-injected]')).not.toBeInTheDocument();
+			expect(container.querySelector('#injected-id')).not.toBeInTheDocument();
+		});
 	});
 });
