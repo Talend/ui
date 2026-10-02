@@ -26,7 +26,7 @@ if (fs.existsSync(CACHE_NPM_PATH)) {
     }
 }
 
-const AXIOS_CACHE_PATH = `${CACHE_BASE_PATH}/axios`;
+const AXIOS_CACHE_PATH = path.resolve(CACHE_BASE_PATH, 'axios');
 
 function httpGet(url, {retry} = {retry: 0}) {
     return new Promise((resolve, reject) => {
@@ -89,7 +89,14 @@ function getInfo(url) {
 
 function getPathFromURL(url) {
     const info = getInfo(url);
-    return `${AXIOS_CACHE_PATH}/${info.name}/${info.version}/${info.path}`;
+    const resolved = path.resolve(AXIOS_CACHE_PATH, `${info.name}/${info.version}/${info.path}`);
+    const root = AXIOS_CACHE_PATH.endsWith(path.sep)
+        ? AXIOS_CACHE_PATH
+        : AXIOS_CACHE_PATH + path.sep;
+    if (!resolved.startsWith(root)) {
+        throw new Error(`Refusing to use a cache path outside of ${AXIOS_CACHE_PATH}: ${url}`);
+    }
+    return resolved;
 }
 
 async function cachedGet(url) {
@@ -119,11 +126,34 @@ function isInCache(url) {
     return fs.existsSync(getPathFromURL(url));
 }
 
+const NPM_PACKAGE_NAME = /^(?:@[a-z0-9~][a-z0-9._~-]*\/)?[a-z0-9~][a-z0-9._~-]*$/;
+
+// On Windows npm is an npm.cmd wrapper that cannot be launched without a shell:
+// run npm's own CLI script with the current node binary instead.
+function getNpmCommand(args) {
+    if (process.platform === 'win32') {
+        const npmCli = path.join(
+            path.dirname(process.execPath),
+            'node_modules',
+            'npm',
+            'bin',
+            'npm-cli.js'
+        );
+        return {file: process.execPath, args: [npmCli, ...args]};
+    }
+    return {file: 'npm', args};
+}
+
 function getModuleInfo(moduleName) {
+    if (typeof moduleName !== 'string' || !NPM_PACKAGE_NAME.test(moduleName)) {
+        throw new Error(`Invalid npm package name: ${JSON.stringify(moduleName)}`);
+    }
+
     ensureCacheFolderExists();
 
     if (!CACHE_NPM[moduleName]) {
-        const stdout = child.execSync(`npm info --json ${moduleName}`, {encoding: 'utf8'});
+        const npm = getNpmCommand(['info', '--json', moduleName]);
+        const stdout = child.execFileSync(npm.file, npm.args, {encoding: 'utf8'});
         const info = JSON.parse(stdout);
         CACHE_NPM[moduleName] = {
             'dist-tags': info['dist-tags'],
