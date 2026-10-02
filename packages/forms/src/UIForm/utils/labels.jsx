@@ -4,7 +4,22 @@ import { ButtonIcon, Popover, StackHorizontal } from '@talend/design-system';
 
 import styles from './labels.module.css';
 
-export const getLabelProps = (title, labelProps, hint, required) => {
+const ALLOWED_LABEL_PROPS = ['id', 'title', 'className'];
+
+export const getSafeLabelProps = labelProps => {
+	if (!labelProps || typeof labelProps !== 'object') {
+		return {};
+	}
+	return Object.keys(labelProps).reduce((acc, key) => {
+		if (ALLOWED_LABEL_PROPS.includes(key) || /^(data|aria)-/.test(key)) {
+			acc[key] = labelProps[key];
+		}
+		return acc;
+	}, {});
+};
+
+export const getLabelProps = (title, rawLabelProps, hint, required) => {
+	const labelProps = getSafeLabelProps(rawLabelProps);
 	if (!hint) {
 		return {
 			children: title,
