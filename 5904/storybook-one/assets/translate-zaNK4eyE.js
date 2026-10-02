@@ -1,0 +1,1 @@
+import{ab as t,ac as n,ad as a}from"./iframe-Cfph2DnH.js";t()||(console.warn("@talend/react-components used without i18n host."),a(n.createInstance({},()=>{})));function s(){return t()?n:n.createInstance({},()=>{})}function u(){const e=t();return e?e.t.bind(t()):global.I18NEXT_T}function c(){return n.language?n.language:"en"}export{u as a,c as b,s as g};
