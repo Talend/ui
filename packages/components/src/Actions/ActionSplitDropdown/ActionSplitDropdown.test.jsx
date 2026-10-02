@@ -161,4 +161,23 @@ describe('ActionSplitDropdown componentClass hardening', () => {
 		expect(screen.getByText('a')).toBeVisible();
 		expect(document.querySelector('iframe')).toBeNull();
 	});
+
+	it('should only forward known props of items to the menu item', () => {
+		const props = {
+			label: 'Add File',
+			onClick: jest.fn(),
+			items: [
+				{
+					label: 'Entry',
+					'data-feature': 'action.entry',
+					dangerouslySetInnerHTML: { __html: '<b>x</b>' },
+				},
+				{ divider: true, dangerouslySetInnerHTML: { __html: '<b>y</b>' } },
+			],
+		};
+		render(<ActionSplitDropdown {...props} />);
+		expect(document.querySelector('b')).not.toBeInTheDocument();
+		expect(screen.getByText('Entry').closest('li')).toBeInTheDocument();
+		expect(document.querySelector('[data-feature="action.entry"]')).toBeInTheDocument();
+	});
 });
