@@ -10,6 +10,7 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 const MENU_ITEM_PROPS = [
 	'active',
+	'bsClass',
 	'className',
 	'disabled',
 	'divider',
