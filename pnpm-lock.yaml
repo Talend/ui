@@ -1613,6 +1613,9 @@ importers:
       '@algolia/autocomplete-js':
         specifier: ^1.19.9
         version: 1.19.9(@algolia/client-search@4.27.0)(algoliasearch@4.27.0)(search-insights@2.17.3)
+      '@figma/rest-api-spec':
+        specifier: ^0.36.0
+        version: 0.36.0
       '@storybook/addon-docs':
         specifier: ^10.5.5
         version: 10.5.5(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(esbuild@0.28.1)(rollup@4.62.3)(storybook@10.5.5(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1))(vite@7.3.6(@types/node@6.14.13)(jiti@2.7.0)(sass@1.102.0)(terser@5.49.0)(yaml@2.9.0))(webpack@5.109.2)
@@ -1632,9 +1635,6 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
     devDependencies:
-      '@figma/rest-api-spec':
-        specifier: ^0.36.0
-        version: 0.36.0
       '@storybook/addon-a11y':
         specifier: ^10.5.5
         version: 10.5.5(storybook@10.5.5(@types/react@18.3.31)(prettier@3.9.6)(react@18.3.1))

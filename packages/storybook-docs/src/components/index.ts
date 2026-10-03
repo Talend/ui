@@ -6,3 +6,4 @@ export * from './FigmaIframe';
 export * from './Grid';
 export * from './Use';
 export * from './Statuses';
+export * from './FigmaContext';

@@ -69,7 +69,7 @@ export const FigmaImage = ({
 	}, []);
 
 	useEffect(() => {
-		if (src) {
+		if (src && figma.isConfigured) {
 			const { projectId, nodeId } = getMetadata(src);
 			figma
 				.fileImages(projectId, {
@@ -78,12 +78,12 @@ export const FigmaImage = ({
 				.then(({ data }) => setFileImageResponse(data))
 				.catch(reason => {
 					console.error(
-						'[FigmaImage] Verify that you use STORYBOOK_FIGMA_ACCESS_TOKEN correctly!',
+						'[FigmaImage] Unable to fetch the Figma image. Verify the FigmaContext client configuration.',
 						reason,
 					);
 				});
 		}
-	}, [src, figma]);
+	}, [src, figma, figma.isConfigured]);
 
 	if (!figma.isConfigured) {
 		return <FigmaImagePlaceholder />;
