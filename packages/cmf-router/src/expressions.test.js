@@ -93,3 +93,37 @@ describe('expressions', () => {
 		});
 	});
 });
+
+describe('expressions edge cases', () => {
+	const context = {
+		store: {
+			getState: () => ({
+				routing: { locationBeforeTransitions: { pathname: '/foo/12', search: '?a=1' } },
+			}),
+		},
+	};
+
+	it('matchPath should return the value at getPathArg or the default value', () => {
+		expect(matchPath({ context }, { path: '/foo/:id' }, 'params.id')).toBe('12');
+		expect(matchPath({ context }, { path: '/foo/:id' }, 'params.nope', 'dft')).toBe('dft');
+		expect(matchPath({ context }, { path: '/bar' }, 'params.id', 'dft')).toBe('dft');
+	});
+
+	it('matchPath should return a boolean without getPathArg', () => {
+		expect(matchPath({ context }, { path: '/foo/:id' })).toBe(true);
+		expect(matchPath({ context }, { path: '/bar' })).toBe(false);
+	});
+
+	it('matchPath should refuse getPathArg "params"', () => {
+		// KNOWN BUG pinned before the router upgrade: the message constant
+		// ERROR_ROUTER_DONT_GET_PARAMS does not exist so the error message is empty.
+		expect(() => matchPath({ context }, { path: '/foo/:id' }, 'params')).toThrow(Error);
+		expect(() => matchPath({ context }, { path: '/foo/:id' }, 'params')).toThrow(/^$/);
+		expect(CONSTANTS.ERROR_ROUTER_DONT_GET_PARAMS).toBeUndefined();
+	});
+
+	it('location should return the whole location or one of its keys', () => {
+		expect(location({ context })).toEqual({ pathname: '/foo/12', search: '?a=1' });
+		expect(location({ context }, 'search')).toBe('?a=1');
+	});
+});

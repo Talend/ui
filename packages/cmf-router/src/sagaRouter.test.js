@@ -420,3 +420,44 @@ describe('sagaRouter route and route params', () => {
 		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
 	});
 });
+
+describe('sagaRouter extra scenarios', () => {
+	const location = pathname => ({ location: { pathname } });
+
+	it('should respawn a saga that ended by itself while its route still matches', () => {
+		const finished = createMockTask();
+		finished.setResult(true);
+		const saga = vi.fn();
+		const history = location('/foo');
+		const gen = sagaRouter(history, { '/foo': saga });
+		// first loop: start
+		expect(gen.next().value).toEqual(spawn(saga, {}, true));
+		gen.next(finished); // take LOCATION_CHANGE
+		// second loop: task finished, still matching => spawn again
+		expect(gen.next().value).toEqual(spawn(saga, {}, true));
+	});
+
+	it('should spawn the saga property of an object route', () => {
+		const saga = vi.fn();
+		const gen = sagaRouter(location('/foo'), { '/foo': { saga, restartOnRouteChange: true } });
+		expect(gen.next().value).toEqual(spawn(saga, {}, true));
+	});
+
+	it('should not cancel a saga that is not running anymore when leaving its route', () => {
+		const stopped = createMockTask();
+		stopped.setResult(true);
+		const saga = vi.fn();
+		const history = location('/foo');
+		const gen = sagaRouter(history, { '/foo': saga });
+		gen.next(); // spawn
+		gen.next(stopped); // take
+		history.location = { pathname: '/other' };
+		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
+	});
+
+	it('should keep waiting on LOCATION_CHANGE when nothing matches', () => {
+		const gen = sagaRouter(location('/nothing'), { '/foo': vi.fn() });
+		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
+		expect(gen.next().value).toEqual(take('@@router/LOCATION_CHANGE'));
+	});
+});

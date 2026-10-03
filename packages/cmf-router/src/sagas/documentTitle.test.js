@@ -163,3 +163,33 @@ describe('#changeDocumentTitle', () => {
 		);
 	});
 });
+
+describe('documentTitle edge cases', () => {
+	it('buildMapFromRoutes should ignore routes without path or documentTitle', () => {
+		expect(buildMapFromRoutes(undefined, new Map()).size).toBe(0);
+		expect(buildMapFromRoutes({ documentTitle: 'x' }, new Map()).size).toBe(0);
+		const map = buildMapFromRoutes({ path: '/a', childRoutes: [{ path: 'b' }] }, new Map());
+		expect(map.size).toBe(0);
+	});
+
+	it('buildMapFromRoutes should ignore non array childRoutes', () => {
+		const map = buildMapFromRoutes(
+			{ path: '/a', documentTitle: 'A', childRoutes: { path: 'b', documentTitle: 'B' } },
+			new Map(),
+		);
+		expect([...map.keys()]).toEqual(['/a']);
+	});
+
+	it('formatPath should not double the slash of a parent ending with /', () => {
+		expect(formatPath('foo', '/')).toBe('/foo');
+		expect(formatPath('foo', '/bar')).toBe('/bar/foo');
+		expect(formatPath('/foo(/:id)')).toBe('/foo/:id?');
+	});
+
+	it('handleDocumentTitle should not set a title when settings have no routes', () => {
+		document.title = 'untouched';
+		const gen = handleDocumentTitle({ settings: {} });
+		gen.next();
+		expect(document.title).toBe('untouched');
+	});
+});
