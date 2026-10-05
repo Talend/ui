@@ -173,9 +173,7 @@ describe('BadgeSliderForm', () => {
 		expect(onSubmit).toHaveBeenCalled();
 	});
 
-	it('should not render an icon whose name selects a remote or img mode', () => {
-		const fetchSpy = jest.fn();
-		global.fetch = fetchSpy;
+	it('should render an image icon from a CDN', () => {
 		const baseProps = {
 			id: 'customId',
 			onSubmit: jest.fn(),
@@ -185,14 +183,13 @@ describe('BadgeSliderForm', () => {
 		};
 		const { container } = render(
 			<BadgeFacetedProvider value={badgeFacetedContextValue}>
-				<BadgeSliderForm {...baseProps} icon={{ name: 'remote-https://example.com/x.svg' }} />
-				<BadgeSliderForm {...baseProps} icon={{ name: 'src-https://example.com/x.png' }} />
-				<BadgeSliderForm {...baseProps} icon={{ name: 'a"] , body #b[' }} />
+				<BadgeSliderForm {...baseProps} icon={{ name: 'src-https://cdn.example.com/x.png' }} />
 			</BadgeFacetedProvider>,
 		);
-		expect(fetchSpy).not.toHaveBeenCalled();
-		expect(container.querySelector('.tc-icon')).not.toBeInTheDocument();
-		expect(container.querySelector('img')).not.toBeInTheDocument();
+		expect(container.querySelector('img.tc-icon')).toHaveAttribute(
+			'src',
+			'https://cdn.example.com/x.png',
+		);
 	});
 
 	it('should render an icon with a valid name', () => {

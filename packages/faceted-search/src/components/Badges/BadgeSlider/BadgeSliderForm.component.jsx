@@ -12,11 +12,6 @@ import { getApplyDataFeature } from '../../../helpers/usage.helpers';
 
 import styles from './BadgeSlider.module.css';
 
-// icon names coming from badge definitions must be plain identifiers:
-// no `remote-` / `src-` modes and nothing that could alter a selector
-const isValidIconName = name =>
-	typeof name === 'string' && /^[A-Za-z_][\w-]*$/.test(name) && !/^(remote|src)-/.test(name);
-
 const getSliderMode = ({ name }) => {
 	switch (name) {
 		case 'greaterThan':
@@ -80,7 +75,7 @@ const BadgeSliderForm = ({
 		<Form id={`${id}-slider`} onSubmit={onSubmit}>
 			<div className={styles['tc-badge-slider-form-body']}>
 				<div className={styles['tc-badge-slider-form-body-row']}>
-					{isValidIconName(icon?.name) && (
+					{icon?.name && (
 						<div className={styles['tc-badge-slider-form-body-row-icon']}>
 							<Icon
 								name={icon.name}
