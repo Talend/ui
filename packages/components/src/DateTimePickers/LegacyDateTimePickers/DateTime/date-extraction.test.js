@@ -480,6 +480,20 @@ describe('Date extraction', () => {
 			});
 		});
 
+		it('should treat regexp syntax in the date format as literal characters', () => {
+			// given
+			const options = { dateFormat: 'YYYY.MM.DD' };
+
+			// when
+			const valid = extractPartsFromTextInput('2018.12.25', options);
+			const invalid = extractPartsFromTextInput('2018x12x25', options);
+
+			// then
+			expect(valid.date).toEqual(new Date(2018, 11, 25));
+			expect(invalid.date).toBeUndefined();
+			expect(invalid.errors.length).toBe(1);
+		});
+
 		it('should extract parts with valid date', () => {
 			// given
 			const textInput = '2018-12-25';
