@@ -28,13 +28,7 @@ interface CodeSchema {
 	readOnly: boolean;
 	required: boolean;
 	title: string;
-	labelProps?: {
-		id?: string;
-		title?: string;
-		className?: string;
-		[key: `data-${string}`]: string | number | boolean | undefined;
-		[key: `aria-${string}`]: string | number | boolean | undefined;
-	};
+	labelProps: DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
 	type: string;
 }
 export interface CodeProps {
