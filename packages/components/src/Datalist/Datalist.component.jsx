@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import get from 'lodash/get';
 import omit from 'lodash/omit';
 import PropTypes from 'prop-types';
+
 import { sanitizeReactProps } from '@talend/utils';
 
 import I18N_DOMAIN_COMPONENTS from '../constants';
