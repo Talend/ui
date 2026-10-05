@@ -4,6 +4,25 @@ import { axe } from 'jest-axe';
 import { RichRadioButton } from './RichRadioButton.component';
 
 describe('RichRadioButton', () => {
+	it('should not forward unknown asset keys to the icon', () => {
+		const asset = {
+			name: 'talend-warning',
+			'data-testid': 'radio.icon',
+			'data-unexpected': 'x',
+			fill: 'red',
+			componentClass: 'iframe',
+			dangerouslySetInnerHTML: { __html: '<image data-injected="true" />' },
+		} as any;
+		const { container } = render(
+			<RichRadioButton id="a" name="n" title="t" onChange={vi.fn()} asset={asset} />,
+		);
+		const icon = screen.getByTestId('radio.icon');
+		expect(icon).toHaveAttribute('data-unexpected', 'x');
+		expect(icon).toHaveAttribute('fill', 'red');
+		expect(document.querySelector('iframe')).toBeNull();
+		expect(container.querySelector('[data-injected]')).toBeNull();
+	});
+
 	it('blocks unsafe asset props without discarding ordinary SVG attributes', () => {
 		const asset = {
 			name: 'talend-warning',
@@ -33,14 +52,15 @@ describe('RichRadioButton', () => {
 		render(
 			<main>
 				<RichRadioButton
-					id="choice"
-					name="choices"
-					title="Choice"
-					onChange={vi.fn<() => void>()}
+					id="a"
+					name="n"
+					title="t"
+					onChange={vi.fn()}
 					asset={{ name: 'talend-warning' }}
 				/>
 			</main>,
 		);
-		expect((await axe(document.body)).violations).toEqual([]);
+		const results = await axe(document.body);
+		expect(results).toHaveNoViolations();
 	});
 });
