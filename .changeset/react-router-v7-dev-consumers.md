@@ -1,7 +1,6 @@
 ---
 '@talend/react-components': major
 '@talend/design-system': major
-'@talend/design-docs': major
 '@talend/storybook-one': major
 ---
 
