@@ -53,11 +53,7 @@ export default function ActionSplitDropdown(props) {
 		>
 			{items.length ? (
 				items.map((item, index) => (
-					<MenuItem
-						{...sanitizeReactProps(item)}
-						key={index}
-						onClick={wrapOnClick(item)}
-					>
+					<MenuItem {...sanitizeReactProps(item)} key={index} onClick={wrapOnClick(item)}>
 						{item.icon && <Icon name={item.icon} />}
 						{item.label}
 					</MenuItem>
