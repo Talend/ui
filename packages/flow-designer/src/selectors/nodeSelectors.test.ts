@@ -287,4 +287,25 @@ describe('Testing node selectors on nested nodes', () => {
 		expect(givenState.get('nodes').get('nodeIdA').get('components').size).toBe(1);
 		expect(givenState.get('nodes').get('nodeIdB').get('components').size).toBe(0);
 	});
+
+	describe('cyclic graph', () => {
+		const cyclicState: State = Map({
+			parents: Map<Id, Map<Id, Id>>()
+				.set('a', Map({ c: 'c' }))
+				.set('b', Map({ a: 'a' }))
+				.set('c', Map({ b: 'b' })),
+			childrens: Map<Id, Map<Id, Id>>()
+				.set('a', Map({ b: 'b' }))
+				.set('b', Map({ c: 'c' }))
+				.set('c', Map({ a: 'a' })),
+		}) as unknown as State;
+
+		it('should terminate when getting predecessors', () => {
+			expect(Selectors.getPredecessors(cyclicState, 'a').toArray().sort()).toEqual(['a', 'b', 'c']);
+		});
+
+		it('should terminate when getting successors', () => {
+			expect(Selectors.getSuccessors(cyclicState, 'a').toArray().sort()).toEqual(['a', 'b', 'c']);
+		});
+	});
 });
