@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { DetailedHTMLProps, LabelHTMLAttributes, useEffect, useState } from 'react';
 import { IAceEditorProps } from 'react-ace';
 import { useTranslation } from 'react-i18next';
 import ReactAce from 'react-ace';
