@@ -1,4 +1,0 @@
-import{j as t}from"./index-CYqg0ycl.js";import{u as i,M as a}from"./blocks-CHiFf2fq.js";import{t as e}from"./TalendDesignTokens-JgHEBmOa.js";import"./iframe-CRyHhmKf.js";import{D as m}from"./Dialog-_6O7IAkG.js";import"./index-CtK4wXNA.js";import"./useCopyToClipboard-D93hFZOx.js";import{T as p}from"./TokenValue-q-08HZCY.js";import"./index-C7OE7htD.js";import"./preload-helper-PPVm8Dsz.js";import"./dictionary-CKKJDmnH.js";function s(o){const n={h1:"h1",...i(),...o.components};return t.jsxs(t.Fragment,{children:[t.jsx(a,{title:"Design Tokens/Breakpoints"}),`
-`,t.jsx(n.h1,{id:"breakpoints",children:"Breakpoints"}),`
-`,t.jsx(m,{}),`
-`,t.jsx(p,{style:r=>({boxShadow:`${e.coralSpacingXs} ${r.value}px 0 ${e.coralColorAccentBackgroundStrong}`}),type:"breakpoint",sortOnValue:!0,children:r=>r.value})]})}function g(o={}){const{wrapper:n}={...i(),...o.components};return n?t.jsx(n,{...o,children:t.jsx(s,{...o})}):s(o)}export{g as default};
