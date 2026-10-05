@@ -75,7 +75,7 @@ const BadgeSliderForm = ({
 		<Form id={`${id}-slider`} onSubmit={onSubmit}>
 			<div className={styles['tc-badge-slider-form-body']}>
 				<div className={styles['tc-badge-slider-form-body-row']}>
-					{icon && (
+					{icon?.name && (
 						<div className={styles['tc-badge-slider-form-body-row-icon']}>
 							<Icon
 								name={icon.name}

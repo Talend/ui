@@ -325,3 +325,70 @@ describe('PieChart', () => {
 		});
 	});
 });
+
+describe('setMinimumPercentage with extreme values', () => {
+	it.each([
+		[[{ percentage: -Infinity }, { percentage: Infinity }]],
+		[[{ percentage: -1e15 }, { percentage: 1e15 }]],
+		[[{ percentage: NaN }, { percentage: 'x' }, { percentage: 50 }]],
+	])('should terminate and stay within [0, 100]: %j', model => {
+		const result = setMinimumPercentage(model, 5);
+		expect(result).toHaveLength(model.length);
+		result.forEach(v => {
+			expect(Number.isFinite(v.percentageShown)).toBe(true);
+			expect(v.percentageShown).toBeGreaterThanOrEqual(0);
+			expect(v.percentageShown).toBeLessThanOrEqual(100);
+		});
+	});
+
+	it('should not throw when a percentage cannot be converted to a number', () => {
+		const model = [
+			{ percentage: Symbol('x') },
+			{
+				percentage: {
+					valueOf: () => {
+						throw new Error('boom');
+					},
+				},
+			},
+			{ percentage: 50 },
+		];
+		const result = setMinimumPercentage(model, 5);
+		expect(result.map(v => v.percentageShown)).toEqual([0, 0, 50]);
+	});
+});
+
+describe('PieChartIconComponent with malformed label percentage', () => {
+	it.each([
+		['Symbol', Symbol('x')],
+		[
+			'throwing valueOf',
+			{
+				valueOf: () => {
+					throw new Error('boom');
+				},
+			},
+		],
+		['NaN', NaN],
+		['Infinity', Infinity],
+	])('should render without throwing nor NaN for %s', (_, percentage) => {
+		const t = (key, { defaultValue, ...opts }) =>
+			defaultValue.replace('{{percentage}}', opts.percentage);
+		const { container } = render(
+			<PieChartIconComponent model={[{ color: 'rio-grande', percentage }]} t={t} />,
+		);
+		expect(container.textContent).not.toMatch(/NaN|Infinity/);
+	});
+
+	it('should not throw when labelIndex is out of range', () => {
+		expect(() =>
+			render(
+				<PieChartIconComponent
+					model={[{ color: 'rio-grande', percentage: 10 }]}
+					labelIndex={3}
+					t={(k, { defaultValue }) => defaultValue}
+				/>,
+			),
+		).not.toThrow();
+	});
+});

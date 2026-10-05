@@ -172,4 +172,39 @@ describe('BadgeSliderForm', () => {
 
 		expect(onSubmit).toHaveBeenCalled();
 	});
+
+	it('should render an image icon from a CDN', () => {
+		const baseProps = {
+			id: 'customId',
+			onSubmit: jest.fn(),
+			feature: 'quality',
+			t: getDefaultT(),
+			onChange: jest.fn(),
+		};
+		const { container } = render(
+			<BadgeFacetedProvider value={badgeFacetedContextValue}>
+				<BadgeSliderForm {...baseProps} icon={{ name: 'src-https://cdn.example.com/x.png' }} />
+			</BadgeFacetedProvider>,
+		);
+		expect(container.querySelector('img.tc-icon')).toHaveAttribute(
+			'src',
+			'https://cdn.example.com/x.png',
+		);
+	});
+
+	it('should render an icon with a valid name', () => {
+		const { container } = render(
+			<BadgeFacetedProvider value={badgeFacetedContextValue}>
+				<BadgeSliderForm
+					id="customId"
+					onSubmit={jest.fn()}
+					feature="quality"
+					t={getDefaultT()}
+					onChange={jest.fn()}
+					icon={{ name: 'talend-warning' }}
+				/>
+			</BadgeFacetedProvider>,
+		);
+		expect(container.querySelector('.tc-icon')).toBeInTheDocument();
+	});
 });

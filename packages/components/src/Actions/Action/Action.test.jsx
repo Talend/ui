@@ -71,4 +71,15 @@ describe('Action', () => {
 		render(<Action label="hello world" displayMode="iconToggle" getComponent={getComponent} />);
 		expect(screen.getByText('icon toggle')).toBeInTheDocument();
 	});
+	it('should not resolve an unknown displayMode from the component registry', () => {
+		const Redirect = jest.fn(() => <div>redirect</div>);
+		const getComp = key => (key === 'Redirect' ? Redirect : renderers[key]);
+		render(<Action label="hello world" displayMode="Redirect" to="x" getComponent={getComp} />);
+		expect(Redirect).not.toHaveBeenCalled();
+		expect(screen.getByText('mock')).toBeInTheDocument();
+	});
+	it('should render a button for an unknown displayMode without registry', () => {
+		render(<Action label="hello world" displayMode="Redirect" />);
+		expect(screen.getByRole('button')).toBeInTheDocument();
+	});
 });

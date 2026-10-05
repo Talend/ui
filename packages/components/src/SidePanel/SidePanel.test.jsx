@@ -26,6 +26,18 @@ describe('SidePanel', () => {
 		expect(screen.getAllByRole('presentation')).toHaveLength(3);
 	});
 
+	it('should not inject a style element from backgroundIcon and id', () => {
+		const icon = "x');} body{display:none} .a{b:url('y";
+		const { container } = render(
+			<SidePanel id="sp{}</style><b>" backgroundIcon={icon} {...props} />,
+		);
+		expect(container.querySelector('style')).toBeNull();
+		const nav = screen.getByRole('navigation');
+		expect(nav.style.getPropertyValue('--tc-side-panel-background-icon')).toBe(
+			`url(${JSON.stringify(icon)})`,
+		);
+	});
+
 	it('should trigger callback on toggle click (controlled)', async () => {
 		const user = userEvent.setup();
 

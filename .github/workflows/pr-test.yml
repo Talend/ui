@@ -2,11 +2,13 @@ name: PR tests
 
 on:
   pull_request:
+  merge_group:
+    types: [checks_requested]
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name != 'merge_group' }}
 
 permissions:
   contents: read
@@ -43,6 +45,7 @@ jobs:
           pnpm vitest:cov --concurrency=1
 
       - name: Jest Coverage Comment
+        if: github.event_name == 'pull_request'
         uses: MishaKav/jest-coverage-comment@642ef024cc554a34b7082cea12c7bf63575ae151 #1.0.36
         with:
           multiple-files: |

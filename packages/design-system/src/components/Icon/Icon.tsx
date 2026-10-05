@@ -1,8 +1,10 @@
-import { forwardRef, createRef, useState, useEffect, memo } from 'react';
+import { forwardRef, createRef, useState, useEffect, useMemo, memo } from 'react';
 import type { CSSProperties, Ref } from 'react';
 import classnames from 'classnames';
+import { sanitizeReactProps } from '@talend/utils';
 import { IconsProvider } from '../IconsProvider';
 import style from './Icon.module.css';
+import { isSafeRemoteUrl, sanitizeSvg } from './sanitizeSvg';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export enum SVG_TRANSFORMS {
@@ -27,6 +29,27 @@ export type IconProps = {
 	border?: boolean;
 };
 
+function filterProps(props: Record<string, unknown>) {
+	const safe = sanitizeReactProps(props, [
+		'src',
+		'srcSet',
+		'alt',
+		'href',
+		'xlinkHref',
+		'xlink:href',
+	]);
+	Object.keys(safe).forEach(key => {
+		const value = safe[key];
+		if (
+			(key === 'style' && (!value || typeof value !== 'object' || Array.isArray(value))) ||
+			(/^on[A-Z]/.test(key) && typeof value !== 'function')
+		) {
+			delete safe[key];
+		}
+	});
+	return safe;
+}
+
 const accessibility = {
 	focusable: false,
 	'aria-hidden': true,
@@ -35,9 +58,10 @@ const accessibility = {
 // eslint-disable-next-line react/display-name
 const IconBase = forwardRef(
 	(
-		{ className, name = 'talend-empty-space', transform, border, ...rest }: IconProps,
+		{ className, name = 'talend-empty-space', transform, border, ...unsafeRest }: IconProps,
 		ref: Ref<SVGSVGElement>,
 	) => {
+		const rest = filterProps(unsafeRest as Record<string, unknown>);
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		const safeRef = createRef<SVGSVGElement>(ref);
@@ -46,11 +70,15 @@ const IconBase = forwardRef(
 		const isRemote = name.startsWith('remote-');
 		const isImg = name.startsWith('src-');
 		const imgSrc = name.replace('remote-', '').replace('src-', '');
-		const isRemoteSVG =
-			isRemote && content && content.includes('svg') && !content.includes('script');
+		const isSafeUrl = !isRemote || isSafeRemoteUrl(imgSrc);
+		const sanitizedContent = useMemo(
+			() => (isRemote && isSafeUrl && content ? sanitizeSvg(content) : undefined),
+			[isRemote, isSafeUrl, content],
+		);
+		const isRemoteSVG = !!sanitizedContent;
 
 		useEffect(() => {
-			if (isRemote) {
+			if (isRemote && isSafeUrl) {
 				fetch(imgSrc, {
 					headers: {
 						Accept: 'image/svg+xml',
@@ -73,17 +101,16 @@ const IconBase = forwardRef(
 						console.error('IconResponseError', imgSrc, error);
 					});
 			}
-		}, [imgSrc, isRemote]);
+		}, [imgSrc, isRemote, isSafeUrl]);
 
 		useEffect(() => {
 			const current = safeRef?.current;
-			if (current && isRemoteSVG && content) {
-				// eslint-disable-next-line no-param-reassign
-				current.innerHTML = content;
+			if (current && sanitizedContent) {
+				current.replaceChildren(document.importNode(sanitizedContent, true));
 			} else if (current && !isRemote) {
 				IconsProvider.injectIcon(name, current);
 			}
-		}, [isRemoteSVG, safeRef, content, name, isRemote]);
+		}, [sanitizedContent, safeRef, name, isRemote]);
 
 		useEffect(() => {
 			if (border) {
@@ -126,7 +153,7 @@ const IconBase = forwardRef(
 			);
 		}
 
-		if (isRemote && content && !isRemoteSVG) {
+		if (isRemote && isSafeUrl && content && !isRemoteSVG) {
 			return (
 				<img
 					alt="remote icon"
