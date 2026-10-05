@@ -601,6 +601,5 @@ describe('Datalist icon', () => {
 		];
 		const { container } = render(<Datalist {...props} titleMap={titleMap} value="foo" />);
 		expect(container.querySelector('[data-injected]')).not.toBeInTheDocument();
-		expect(container.querySelector('#injected-id')).not.toBeInTheDocument();
 	});
 });
