@@ -7,6 +7,7 @@ describe('getLabelProps', () => {
 	it('should keep allowed props', () => {
 		const onClick = vi.fn();
 		const labelProps = {
+			id: 'label',
 			'data-testid': 'a',
 			'aria-label': 'b',
 			title: 'c',
@@ -56,11 +57,16 @@ describe('getLabelProps', () => {
 	it('preserves the real input association and renders a11y html', async () => {
 		render(
 			<main>
-				<label htmlFor="field" {...getLabelProps('Title', { htmlFor: 'other', style: {} })} />
+				<label
+					htmlFor="field"
+					data-testid="label"
+					{...getLabelProps('Title', { htmlFor: 'other', style: {} })}
+				/>
 				<input id="field" />
 			</main>,
 		);
 		expect(screen.getByRole('textbox', { name: 'Title' })).toHaveAttribute('id', 'field');
-		expect(await axe(document.body)).toHaveNoViolations();
+		expect(screen.getByTestId('label')).toHaveAttribute('for', 'field');
+		expect((await axe(document.body)).violations).toEqual([]);
 	});
 });

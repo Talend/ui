@@ -22,10 +22,10 @@ export function sanitizeReactProps<Props extends object, ExtraBlockedProp extend
 	extraBlockedProps: readonly ExtraBlockedProp[] = [],
 ): Omit<Props, BlockedProp | ExtraBlockedProp> {
 	const result: Record<string, unknown> = {};
-	const extraBlocked = new Set(extraBlockedProps.map(key => key.toLowerCase()));
+	const blockedLower = new Set(extraBlockedProps.map(key => key.toLowerCase()));
 	for (const key of Object.keys(props)) {
 		const normalizedKey = key.toLowerCase();
-		if (!blockedProps.has(normalizedKey) && !extraBlocked.has(normalizedKey)) {
+		if (!blockedProps.has(normalizedKey) && !blockedLower.has(normalizedKey)) {
 			result[key] = (props as Record<string, unknown>)[key];
 		}
 	}
