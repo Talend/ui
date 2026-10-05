@@ -6,6 +6,7 @@ import get from 'lodash/get';
 import PropTypes from 'prop-types';
 
 import { Form } from '@talend/design-system';
+import { sanitizeReactProps } from '@talend/utils';
 
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
@@ -40,7 +41,7 @@ export function renderInputComponent(props) {
 		<div className={typeaheadContainerIconClasses}>
 			{icon && (
 				<div className={css('icon-cls', { 'icon-caret': hasCaret })}>
-					{icon && <Icon {...icon} />}
+					{icon && <Icon {...sanitizeReactProps(icon)} />}
 				</div>
 			)}
 			{debounceMinLength || debounceTimeout ? (
@@ -231,7 +232,9 @@ export function renderItem(item, { value, valueId, ...rest }) {
 			title={title}
 			data-feature={item['data-feature'] || rest['data-feature']}
 		>
-			{get(item, 'icon') && <Icon className={theme['item-icon']} {...item.icon} />}
+			{get(item, 'icon') && (
+				<Icon className={theme['item-icon']} {...sanitizeReactProps(item.icon)} />
+			)}
 			<div className={theme['item-text']}>
 				<span className={css('item-title', 'tc-typeahead-item-title')}>
 					<Emphasis value={value} text={title} />

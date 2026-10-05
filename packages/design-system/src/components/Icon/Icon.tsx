@@ -1,6 +1,7 @@
 import { forwardRef, createRef, useState, useEffect, useMemo, memo } from 'react';
 import type { CSSProperties, Ref } from 'react';
 import classnames from 'classnames';
+import { sanitizeReactProps } from '@talend/utils';
 import { IconsProvider } from '../IconsProvider';
 import style from './Icon.module.css';
 import { isSafeRemoteUrl, sanitizeSvg } from './sanitizeSvg';
@@ -28,24 +29,22 @@ export type IconProps = {
 	border?: boolean;
 };
 
-const ALLOWED_PROPS = ['id', 'title', 'role', 'tabIndex'];
-
-/**
- * Only forward presentational / aria / data-* attributes (and event handlers)
- * to the DOM host so that arbitrary prop bags can't reach it.
- */
 function filterProps(props: Record<string, unknown>) {
-	const safe: Record<string, unknown> = {};
-	Object.keys(props).forEach(key => {
-		const value = props[key];
-		if (key === 'style') {
-			if (value && typeof value === 'object' && !Array.isArray(value)) {
-				safe[key] = value;
-			}
-		} else if (key.startsWith('data-') || key.startsWith('aria-') || ALLOWED_PROPS.includes(key)) {
-			safe[key] = value;
-		} else if (/^on[A-Z]/.test(key) && typeof value === 'function') {
-			safe[key] = value;
+	const safe = sanitizeReactProps(props, [
+		'src',
+		'srcSet',
+		'alt',
+		'href',
+		'xlinkHref',
+		'xlink:href',
+	]);
+	Object.keys(safe).forEach(key => {
+		const value = safe[key];
+		if (
+			(key === 'style' && (!value || typeof value !== 'object' || Array.isArray(value))) ||
+			(/^on[A-Z]/.test(key) && typeof value !== 'function')
+		) {
+			delete safe[key];
 		}
 	});
 	return safe;

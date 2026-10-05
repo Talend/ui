@@ -93,6 +93,7 @@
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
     "i18next": "^26.4.2",
+    "jest-axe": "^8.0.0",
     "jsdom": "^26.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",

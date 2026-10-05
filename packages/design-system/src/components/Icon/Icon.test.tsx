@@ -27,6 +27,29 @@ describe('Icon', () => {
 });
 
 describe('Icon security', () => {
+	it('preserves ordinary SVG attributes through the shared blocklist', () => {
+		const props = { name: 'talend-x', fill: 'red', strokeWidth: 2, lang: 'fr' };
+		const { container } = render(<Icon {...props} />);
+		const svg = container.querySelector('svg');
+		expect(svg).toHaveAttribute('fill', 'red');
+		expect(svg).toHaveAttribute('stroke-width', '2');
+		expect(svg).toHaveAttribute('lang', 'fr');
+	});
+
+	it('prevents rest props from overriding the generated image source and description', () => {
+		const props = {
+			name: 'src-https://example.com/icon.png',
+			src: 'https://other.example.com/icon.png',
+			srcSet: 'https://other.example.com/icon.png 2x',
+			alt: 'Overridden',
+		};
+		const { container } = render(<Icon {...props} />);
+		const image = container.querySelector('img');
+		expect(image).toHaveAttribute('src', 'https://example.com/icon.png');
+		expect(image).toHaveAttribute('alt', 'icon');
+		expect(image).not.toHaveAttribute('srcset');
+	});
+
 	const mockFetch = (body: string) => {
 		const fetchMock = vi.fn().mockResolvedValue({
 			status: 200,
