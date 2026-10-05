@@ -49,18 +49,6 @@ export function getAngle(percentage) {
 }
 
 /**
- * This function return the showed value on the chart
- * @param {array} model the pie chart model
- * @param {index} index current index showed
- */
-function getShowedValue(model, index) {
-	if (!model) {
-		return {};
-	}
-	return model[index];
-}
-
-/**
  * This function is just a sort
  * @param {object} a an element with a percentageShown to compare
  * @param {object} b an other element with a percentageShown to compare
@@ -136,6 +124,22 @@ export function distributePercentages(values, minimumPercentage, amountToSubtrac
 }
 
 /**
+ * Coerce any input to a finite number within [0, 100]
+ * @param {*} percentage the raw percentage
+ */
+function sanitizePercentage(percentage) {
+	try {
+		const number = Number(percentage);
+		if (!Number.isFinite(number)) {
+			return 0;
+		}
+		return Math.min(100, Math.max(0, number));
+	} catch {
+		return 0;
+	}
+}
+
+/**
  * This function sets minimum percentage show with the minimum percentage shown
  * @param {array} values the set of values
  * @param {number} minimumPercentage the minimum value we have to show
@@ -147,7 +151,8 @@ export function setMinimumPercentage(model, minimumPercentage) {
 
 	let amountToSubtract = 0;
 
-	const valuesMins = model.map(value => {
+	const valuesMins = model.map(rawValue => {
+		const value = { ...rawValue, percentage: sanitizePercentage(rawValue.percentage) };
 		if (value.percentage && value.percentage < minimumPercentage) {
 			amountToSubtract += minimumPercentage - value.percentage;
 			return { ...value, percentageShown: minimumPercentage };
@@ -289,8 +294,8 @@ export function PieChartIconComponent({
 			</span>
 		);
 	}
-	const labelValue = getShowedValue(model, labelIndex);
 	const preparedValues = setMinimumPercentage(model, minimumPercentage);
+	const labelValue = preparedValues[labelIndex] ?? {};
 	// Here we are omitting the props from i18n,
 	// to keep only the event listener from the TooltipTrigger.
 	const omitI18N = omit(rest, ['i18n', 'tReady']);

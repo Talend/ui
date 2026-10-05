@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
+import { sanitizeReactProps } from '@talend/utils';
 
 import TooltipTrigger from '../../TooltipTrigger';
 import CircularProgress from '../../CircularProgress';
@@ -142,7 +143,7 @@ function ActionButton(props) {
 		return <Skeleton type="button" />;
 	}
 
-	const buttonProps = getPropsFrom(Button, rest);
+	const buttonProps = getPropsFrom(Button, sanitizeReactProps(rest));
 	const buttonContent = getContent(props);
 	const btnIsDisabled = inProgress || disabled;
 	const style = link ? 'link' : bsStyle;

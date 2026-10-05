@@ -445,6 +445,20 @@ describe('Date extraction', () => {
 	});
 
 	describe('extractPartsFromTextInput', () => {
+		it('should reject oversized text input quickly', () => {
+			// given
+			const textInput = `${' '.repeat(50000)}x`;
+			const options = { dateFormat: 'YYYY-MM-DD', useTime: true };
+
+			// when
+			const start = Date.now();
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(Date.now() - start).toBeLessThan(1000);
+			expect(parts.errors.length).toBeGreaterThan(0);
+		});
+
 		it('should extract parts with empty string', () => {
 			// given
 			const textInput = '';

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SplitButton, MenuItem } from '@talend/react-bootstrap';
-import { randomUUID } from '@talend/utils';
+import { randomUUID, sanitizeReactProps } from '@talend/utils';
 import { useTranslation } from 'react-i18next';
 import Icon from '../../Icon';
 import theme from './ActionSplitDropdown.module.css';
@@ -49,11 +49,11 @@ export default function ActionSplitDropdown(props) {
 			className={classNames(className, theme['tc-split-dropdown'])}
 			aria-label={label}
 			toggleLabel={t('ACTION_MENU_OPEN', { defaultValue: 'Open {{label}} menu', label })}
-			{...rest}
+			{...sanitizeReactProps(rest)}
 		>
 			{items.length ? (
 				items.map((item, index) => (
-					<MenuItem {...item} key={index} onClick={wrapOnClick(item)}>
+					<MenuItem {...sanitizeReactProps(item)} key={index} onClick={wrapOnClick(item)}>
 						{item.icon && <Icon name={item.icon} />}
 						{item.label}
 					</MenuItem>

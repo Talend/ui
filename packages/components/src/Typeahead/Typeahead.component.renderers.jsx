@@ -40,7 +40,7 @@ export function renderInputComponent(props) {
 		<div className={typeaheadContainerIconClasses}>
 			{icon && (
 				<div className={css('icon-cls', { 'icon-caret': hasCaret })}>
-					{icon && <Icon {...icon} />}
+					{icon && <Icon {...sanitizeReactProps(icon)} />}
 				</div>
 			)}
 			{debounceMinLength || debounceTimeout ? (
