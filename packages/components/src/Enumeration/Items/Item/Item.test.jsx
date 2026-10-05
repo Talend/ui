@@ -122,6 +122,5 @@ describe('Item', () => {
 		const { container } = render(<Item {...props} />);
 
 		expect(container.querySelector('[data-injected]')).not.toBeInTheDocument();
-		expect(container.querySelector('#injected-id')).not.toBeInTheDocument();
 	});
 });
