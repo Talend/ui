@@ -6,6 +6,7 @@ import get from 'lodash/get';
 import PropTypes from 'prop-types';
 
 import { Form } from '@talend/design-system';
+import { sanitizeReactProps } from '@talend/utils';
 
 import CircularProgress from '../CircularProgress';
 import Emphasis from '../Emphasis';
@@ -232,12 +233,7 @@ export function renderItem(item, { value, valueId, ...rest }) {
 			data-feature={item['data-feature'] || rest['data-feature']}
 		>
 			{get(item, 'icon') && (
-				<Icon
-					className={theme['item-icon']}
-					name={item.icon.name}
-					title={item.icon.title}
-					transform={item.icon.transform}
-				/>
+				<Icon className={theme['item-icon']} {...sanitizeReactProps(item.icon)} />
 			)}
 			<div className={theme['item-text']}>
 				<span className={css('item-title', 'tc-typeahead-item-title')}>

@@ -7,6 +7,8 @@ import get from 'lodash/get';
 import omit from 'lodash/omit';
 import PropTypes from 'prop-types';
 
+import { sanitizeReactProps } from '@talend/utils';
+
 import I18N_DOMAIN_COMPONENTS from '../constants';
 import FocusManager from '../FocusManager';
 import Icon from '../Icon';
@@ -439,14 +441,7 @@ function Datalist(props) {
 	const icon = getSelectedIcon();
 	return (
 		<FocusManager onFocusOut={onBlur} className={theme['tc-datalist-item']} key="focus-manager">
-			{icon && (
-				<Icon
-					className={theme['tc-datalist-item-icon']}
-					name={icon.name}
-					title={icon.title}
-					transform={icon.transform}
-				/>
-			)}
+			{icon && <Icon className={theme['tc-datalist-item-icon']} {...sanitizeReactProps(icon)} />}
 			<Typeahead
 				{...omit(props, PROPS_TO_OMIT)}
 				className={classNames('tc-datalist', props.className)}
