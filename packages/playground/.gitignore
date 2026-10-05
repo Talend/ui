@@ -1,3 +1,5 @@
 dist
 package-lock.json
 .cache-loader/
+playwright-report/
+test-results/

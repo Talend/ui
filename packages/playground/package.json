@@ -10,7 +10,8 @@
     "build": "vite build && cmf-settings",
     "build:settings": "cmf-settings",
     "start-dist": "node serve-dist.mjs",
-    "vitest:run": "vitest run"
+    "vitest:run": "vitest run",
+    "playwright:test": "playwright test"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@talend/scripts-config-babel": "workspace:^",
     "@talend/scripts-config-stylelint": "workspace:^",
     "@talend/scripts-core": "workspace:^",

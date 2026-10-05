@@ -1,0 +1,42 @@
+name: Playwright test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  playground-e2e:
+    runs-on: ubuntu-latest
+    environment: pull_request_unsafe
+    name: Playground E2E
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
+
+      - name: Use Node.js
+        uses: ./.github/actions/setup-node
+        with:
+          NPM_TOKEN: ${{ github.token }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}
+
+      - name: Install Playwright browser
+        run: pnpm --filter @talend/ui-playground exec playwright install --with-deps chromium
+
+      - name: Run playground E2E tests
+        run: pnpm exec turbo run playwright:test --filter=@talend/ui-playground
