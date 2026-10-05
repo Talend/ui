@@ -46,8 +46,8 @@
     "redux-saga": "^1.5.1"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.10.0",
-    "@testing-library/react": "^14.3.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
     "mock-socket": "^9.3.1",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
