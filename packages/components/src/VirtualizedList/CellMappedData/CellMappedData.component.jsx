@@ -11,7 +11,7 @@ function CellMappedData(props) {
 	let cellContent;
 
 	const getMappedValue = value => {
-		const mappedValue = valuesMap[value] || value;
+		const mappedValue = (valuesMap && Object.hasOwn(valuesMap, value) && valuesMap[value]) || value;
 		return mappedValue !== undefined ? mappedValue : null;
 	};
 

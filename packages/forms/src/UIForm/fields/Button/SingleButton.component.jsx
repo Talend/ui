@@ -4,6 +4,8 @@ import { Action } from '@talend/react-components/lib/Actions';
 import Inject from '@talend/react-components/lib/Inject';
 import classNames from 'classnames';
 
+import { isSafeUrl } from '../../utils/url';
+
 export default class SingleButton extends Component {
 	constructor(props) {
 		super(props);
@@ -27,6 +29,9 @@ export default class SingleButton extends Component {
 	render() {
 		const { className, id, schema, getComponent } = this.props;
 		const { type = 'button', title, label, inProgress, ...props } = schema;
+		if ('href' in props && !isSafeUrl(props.href)) {
+			delete props.href;
+		}
 		const Renderer = Inject.getAll(getComponent, { Action });
 		return (
 			<Renderer.Action
