@@ -106,4 +106,21 @@ describe('Item', () => {
 
 		expect(screen.getByText('toto').parentElement).toHaveClass('special');
 	});
+
+	it('should not forward unsafe icon fields to the Icon', () => {
+		const props = {
+			item: {
+				...item,
+				icon: {
+					name: 'talend-warning',
+					title: 'warn',
+					id: 'injected-id',
+					dangerouslySetInnerHTML: { __html: '<img src="x" data-injected="true">' },
+				},
+			},
+		};
+		const { container } = render(<Item {...props} />);
+
+		expect(container.querySelector('[data-injected]')).not.toBeInTheDocument();
+	});
 });

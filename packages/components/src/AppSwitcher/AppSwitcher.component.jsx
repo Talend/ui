@@ -12,6 +12,14 @@ import AppSwitcherCSSModule from './AppSwitcher.module.css';
 
 const theme = getTheme(AppSwitcherCSSModule);
 
+function toCssUrl(value) {
+	const escaped = String(value).replace(
+		/[^a-zA-Z0-9\-._~:/?#[\]@!$&*+,;=%]/gu,
+		char => `\\${char.codePointAt(0).toString(16)} `,
+	);
+	return `url("${escaped}")`;
+}
+
 export default function AppSwitcher({
 	label,
 	isSeparated,
@@ -48,8 +56,8 @@ export default function AppSwitcher({
 			{iconUrl && (
 				<style>
 					{`.tc-app-switcher-action [role='heading'] span:first-child:before {
-						-webkit-mask-image: url('${iconUrl}');
-						mask-image: url('${iconUrl}');
+						-webkit-mask-image: ${toCssUrl(iconUrl)};
+						mask-image: ${toCssUrl(iconUrl)};
 				}`}
 				</style>
 			)}

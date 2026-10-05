@@ -62,5 +62,5 @@ fontStyle: '{[ if ds.isFontItalic(context.font) ]}italic{[else]}normal{[/]}',
 fontWeight: '{{ ds.fontWeight(context.font)}}',
 fontSize: '{{ pixelsToRem(context.fontSize) }}',
 lineHeight: '{[ if context.lineHeight ]}{[ inject "rendered-lineHeight" context context.lineHeight /]}{[ else ]}100%{[/]}',
-fontFamily: '{{ context.font.family }}',
+fontFamily: '{{ escapeSingleQuoted(context.font.family) }}',
 {[/]}

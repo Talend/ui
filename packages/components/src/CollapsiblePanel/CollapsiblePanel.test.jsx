@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
 
@@ -35,6 +36,34 @@ const propsPanelWithActions = {
 };
 
 describe('CollapsiblePanel', () => {
+	it('blocks badge HTML injection and preserves ordinary attributes', () => {
+		const { container } = render(
+			<CollapsiblePanel
+				header={[
+					{
+						displayMode: 'badge',
+						label: 'Ready',
+						'data-testid': 'panel.badge',
+						title: 'Badge title',
+						dangerouslySetInnerHTML: { __html: '<img data-injected="true" src="x" />' },
+					},
+				]}
+			/>,
+		);
+		expect(container.querySelector('[data-injected]')).toBeNull();
+		expect(screen.getByTestId('panel.badge')).toHaveTextContent('Ready');
+		expect(screen.getByTestId('panel.badge')).toHaveAttribute('title', 'Badge title');
+	});
+
+	it('should render a11y html', async () => {
+		render(
+			<main>
+				<CollapsiblePanel header={[{ displayMode: 'badge', label: 'Ready' }]} />
+			</main>,
+		);
+		expect((await axe(document.body)).violations).toEqual([]);
+	});
+
 	it('should trigger onSelect callback on header click', async () => {
 		const user = userEvent.setup();
 
@@ -123,5 +152,31 @@ describe('CollapsiblePanel', () => {
 
 		// then
 		expect(screen.getByText('Custom label')).toBeVisible();
+	});
+});
+
+describe('CollapsiblePanel badge header item', () => {
+	it('should sanitize dangerous props while forwarding ordinary badge props', () => {
+		render(
+			<CollapsiblePanel
+				id="panel"
+				header={[
+					{
+						displayMode: 'badge',
+						label: 'My badge',
+						bsStyle: 'info',
+						id: 'badge',
+						'data-testid': 'panel.badge',
+						componentClass: 'iframe',
+						dangerouslySetInnerHTML: { __html: '<b>injected</b>' },
+						onClick: () => {},
+					},
+				]}
+			/>,
+		);
+		expect(screen.getByTestId('panel.badge')).toHaveAttribute('id', 'badge');
+		expect(screen.getByText('My badge')).toBeInTheDocument();
+		expect(document.querySelector('b')).toBeNull();
+		expect(document.querySelector('iframe')).toBeNull();
 	});
 });

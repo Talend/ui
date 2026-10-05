@@ -50,4 +50,17 @@ describe('CellMappedData', () => {
 		// then
 		expect(screen.getByText('Value 1 / Value 2')).toBeVisible();
 	});
+
+	it('should only resolve own keys of the values map', () => {
+		// when
+		render(
+			<CellMappedData
+				cellData={['__proto__', 'constructor', 'value_1']}
+				columnData={defaultColumnData}
+			/>,
+		);
+
+		// then
+		expect(screen.getByText('__proto__, constructor, Value 1')).toBeVisible();
+	});
 });

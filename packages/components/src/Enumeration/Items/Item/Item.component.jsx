@@ -1,6 +1,7 @@
 import { withTranslation } from 'react-i18next';
 
 import classNames from 'classnames';
+import { sanitizeReactProps } from '@talend/utils';
 
 import Action from '../../../Actions/Action';
 import Checkbox from '../../../Checkbox';
@@ -115,7 +116,7 @@ function Item({ id, item, searchCriteria, showCheckboxes, style, t }) {
 				{item.icon && (
 					<TooltipTrigger label={item.icon.title} tooltipPlacement="bottom">
 						<span>
-							<Icon {...item.icon} aria-hidden="false" />
+							<Icon {...sanitizeReactProps(item.icon)} aria-hidden="false" />
 						</span>
 					</TooltipTrigger>
 				)}

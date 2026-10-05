@@ -397,3 +397,16 @@ describe('Action', () => {
 		expect(myRefFunc).toHaveBeenCalled();
 	});
 });
+
+describe('ActionButton componentClass hardening', () => {
+	it('should ignore componentClass coming from the action object', () => {
+		render(<ActionButton label="x" href="https://example.com/" componentClass="base" />);
+		expect(document.querySelector('base')).toBeNull();
+		expect(screen.getByRole('link')).toBeVisible();
+	});
+	it('should ignore componentClass when rendering a button', () => {
+		render(<ActionButton label="x" componentClass="iframe" />);
+		expect(document.querySelector('iframe')).toBeNull();
+		expect(screen.getByRole('button')).toBeVisible();
+	});
+});
