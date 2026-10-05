@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { isImmutable } from 'immutable';
 import { DropdownButton, MenuItem } from '@talend/react-bootstrap';
 import { withTranslation } from 'react-i18next';
-import omit from 'lodash/omit';
+import { sanitizeReactProps } from '@talend/utils';
 import Inject from '../../Inject';
 import OverlayTrigger from '../../OverlayTrigger';
 import theme from './ActionDropdown.module.css';
@@ -74,7 +74,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 
 	return (
 		<Renderers.MenuItem
-			{...omit(item, 'componentClass')}
+			{...sanitizeReactProps(item)}
 			key={index}
 			eventKey={item}
 			onClick={wrapOnClick(item)}
@@ -258,7 +258,7 @@ class ActionDropdown extends Component {
 					[theme.ellipsis]: ellipsis,
 				})}
 				aria-label={tooltipLabel || label}
-				{...omit(rest, 'tReady', 'componentClass')}
+				{...sanitizeReactProps(rest, ['tReady'])}
 				onToggle={this.onToggle}
 				ref={ref => {
 					this.ref = ref;
