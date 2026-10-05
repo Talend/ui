@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 
 import CollapsiblePanel from './CollapsiblePanel.component';
 
@@ -35,6 +36,34 @@ const propsPanelWithActions = {
 };
 
 describe('CollapsiblePanel', () => {
+	it('blocks badge HTML injection and preserves ordinary attributes', () => {
+		const { container } = render(
+			<CollapsiblePanel
+				header={[
+					{
+						displayMode: 'badge',
+						label: 'Ready',
+						'data-testid': 'panel.badge',
+						title: 'Badge title',
+						dangerouslySetInnerHTML: { __html: '<img data-injected="true" src="x" />' },
+					},
+				]}
+			/>,
+		);
+		expect(container.querySelector('[data-injected]')).toBeNull();
+		expect(screen.getByTestId('panel.badge')).toHaveTextContent('Ready');
+		expect(screen.getByTestId('panel.badge')).toHaveAttribute('title', 'Badge title');
+	});
+
+	it('should render a11y html', async () => {
+		render(
+			<main>
+				<CollapsiblePanel header={[{ displayMode: 'badge', label: 'Ready' }]} />
+			</main>,
+		);
+		expect((await axe(document.body)).violations).toEqual([]);
+	});
+
 	it('should trigger onSelect callback on header click', async () => {
 		const user = userEvent.setup();
 

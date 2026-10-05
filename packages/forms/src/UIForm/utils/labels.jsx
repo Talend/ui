@@ -1,25 +1,18 @@
 import classnames from 'classnames';
 
 import { ButtonIcon, Popover, StackHorizontal } from '@talend/design-system';
+import { sanitizeReactProps } from '@talend/utils';
 
 import styles from './labels.module.css';
 
-const ALLOWED_LABEL_PROPS = ['id', 'title', 'className'];
-
-export const getSafeLabelProps = labelProps => {
-	if (!labelProps || typeof labelProps !== 'object') {
-		return {};
-	}
-	return Object.keys(labelProps).reduce((acc, key) => {
-		if (ALLOWED_LABEL_PROPS.includes(key) || /^(data|aria)-/.test(key)) {
-			acc[key] = labelProps[key];
-		}
-		return acc;
-	}, {});
-};
-
 export const getLabelProps = (title, rawLabelProps, hint, required) => {
-	const labelProps = getSafeLabelProps(rawLabelProps);
+	const labelProps = sanitizeReactProps(rawLabelProps || {}, [
+		'style',
+		'htmlFor',
+		'for',
+		'children',
+		'required',
+	]);
 	if (!hint) {
 		return {
 			children: title,

@@ -10,6 +10,7 @@ import { date as dateUtils } from '@talend/utils';
 import getErrorMessage from './error-messages';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
+const MAX_DATETIME_TEXT_LENGTH = 256;
 const timePartRegex = new RegExp(/^(.*):(.*)$/);
 const timeWithSecondsPartRegex = new RegExp(/^(.*):(.*):(.*)$/);
 
@@ -541,7 +542,10 @@ function extractPartsFromTextInput(textInput, options) {
 
 	try {
 		if (options.useTime) {
-			const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
+			const splitMatches =
+				(textInput.length <= MAX_DATETIME_TEXT_LENGTH &&
+					textInput.match(splitDateAndTimePartsRegex)) ||
+				[];
 			if (!splitMatches.length) {
 				if (!hybridMode) {
 					throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
