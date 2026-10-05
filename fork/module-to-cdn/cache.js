@@ -126,7 +126,7 @@ function isInCache(url) {
     return fs.existsSync(getPathFromURL(url));
 }
 
-const NPM_PACKAGE_NAME = /^(?:@[a-z0-9~][a-z0-9._~-]*\/)?[a-z0-9~][a-z0-9._~-]*$/;
+const NPM_PACKAGE_NAME = /^(?:@[A-Za-z0-9~][A-Za-z0-9._~-]*\/)?[A-Za-z0-9~][A-Za-z0-9._~-]*$/;
 
 // On Windows npm is an npm.cmd wrapper that cannot be launched without a shell:
 // run npm's own CLI script with the current node binary instead.
