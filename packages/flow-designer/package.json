@@ -30,7 +30,7 @@
   "author": "Talend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@testing-library/react": "^14.3.1",
+    "@testing-library/react": "^16.3.3",
     "@testing-library/jest-dom": "^6.10.0",
     "@types/d3": "^7.4.3",
     "@types/invariant": "^2.2.37",
