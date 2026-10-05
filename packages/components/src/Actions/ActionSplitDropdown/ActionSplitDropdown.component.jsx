@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SplitButton, MenuItem } from '@talend/react-bootstrap';
-import { randomUUID } from '@talend/utils';
+import { randomUUID, sanitizeReactProps } from '@talend/utils';
 import { useTranslation } from 'react-i18next';
 import Icon from '../../Icon';
 import theme from './ActionSplitDropdown.module.css';
@@ -32,15 +32,7 @@ import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 export default function ActionSplitDropdown(props) {
 	const { t } = useTranslation(I18N_DOMAIN_COMPONENTS);
-	const {
-		icon,
-		items,
-		label,
-		emptyDropdownLabel,
-		className,
-		componentClass: _componentClass,
-		...rest
-	} = props;
+	const { icon, items, label, emptyDropdownLabel, className, ...rest } = props;
 
 	const Title = (
 		<span>
@@ -57,11 +49,11 @@ export default function ActionSplitDropdown(props) {
 			className={classNames(className, theme['tc-split-dropdown'])}
 			aria-label={label}
 			toggleLabel={t('ACTION_MENU_OPEN', { defaultValue: 'Open {{label}} menu', label })}
-			{...rest}
+			{...sanitizeReactProps(rest)}
 		>
 			{items.length ? (
-				items.map(({ componentClass: _itemComponentClass, ...item }, index) => (
-					<MenuItem {...item} key={index} onClick={wrapOnClick(item)}>
+				items.map((item, index) => (
+					<MenuItem {...sanitizeReactProps(item)} key={index} onClick={wrapOnClick(item)}>
 						{item.icon && <Icon name={item.icon} />}
 						{item.label}
 					</MenuItem>
