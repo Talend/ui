@@ -1,10 +1,18 @@
 import classnames from 'classnames';
 
 import { ButtonIcon, Popover, StackHorizontal } from '@talend/design-system';
+import { sanitizeReactProps } from '@talend/utils';
 
 import styles from './labels.module.css';
 
-export const getLabelProps = (title, labelProps, hint, required) => {
+export const getLabelProps = (title, rawLabelProps, hint, required) => {
+	const labelProps = sanitizeReactProps(rawLabelProps || {}, [
+		'style',
+		'htmlFor',
+		'for',
+		'children',
+		'required',
+	]);
 	if (!hint) {
 		return {
 			children: title,

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button } from '@talend/react-bootstrap';
+import { sanitizeReactProps } from '@talend/utils';
 
 import Icon from '../../Icon';
 import TooltipTrigger from '../../TooltipTrigger';
@@ -20,7 +21,6 @@ function ActionIconToggle(props) {
 		label,
 		tooltipPlacement,
 		buttonRef,
-		componentClass: _componentClass,
 		...rest
 	} = props;
 
@@ -34,7 +34,7 @@ function ActionIconToggle(props) {
 	return (
 		<TooltipTrigger label={label} tooltipPlacement={tooltipPlacement}>
 			<Button
-				{...getPropsFrom(Button, rest)}
+				{...getPropsFrom(Button, sanitizeReactProps(rest))}
 				id={id}
 				className={cn}
 				aria-label={label}

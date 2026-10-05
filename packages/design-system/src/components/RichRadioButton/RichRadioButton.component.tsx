@@ -1,3 +1,4 @@
+import { sanitizeReactProps } from '@talend/utils';
 import {
 	RichRadioButtonProps,
 	LogoAsset,
@@ -26,6 +27,7 @@ function RichRadioButtonIcon({ asset }: { asset?: LogoAsset | IllustrationAsset 
 		return (
 			<span className={style['rich-radio-button__icon']}>
 				{getIconWithDeprecatedSupport({
+					...sanitizeReactProps(asset, ['iconSrc', 'size', 'children', 'style']),
 					iconSrc: asset.name || '',
 					size: 'L',
 				})}
