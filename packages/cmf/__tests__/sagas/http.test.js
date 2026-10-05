@@ -1365,3 +1365,43 @@ describe('handleDefaultConfiguration', () => {
 		expect(resultTwo).toEqual(copyOfDefaultHttpConfig);
 	});
 });
+
+describe('#httpFetch CSRF token destination', () => {
+	beforeAll(() => {
+		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True;`;
+	});
+	afterAll(() => {
+		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
+	});
+
+	const run = async (url, extra = {}) => {
+		const config = {
+			response: new Response('{"foo": 42}', {
+				status: HTTP_STATUS.OK,
+				headers: new Headers({ 'Content-Type': 'application/json' }),
+			}),
+			...extra,
+		};
+		await httpFetch(url, config, HTTP_METHODS.GET, {});
+		return fetch.mock.calls.at(-1)[1].headers;
+	};
+
+	it('sends the token to a relative url', async () => {
+		expect(await run('/foo')).toHaveProperty('X-CSRF-Token', CSRFToken);
+	});
+
+	it('sends the token to an absolute same-origin url', async () => {
+		expect(await run(`${window.location.origin}/foo`)).toHaveProperty('X-CSRF-Token', CSRFToken);
+	});
+
+	it('does not send the token to a cross-origin url', async () => {
+		expect(await run('https://other.example/foo')).not.toHaveProperty('X-CSRF-Token');
+	});
+
+	it('sends the token to a cross-origin url present in the allow-list', async () => {
+		const headers = await run('https://other.example/foo', {
+			security: { CSRFTokenAllowedOrigins: ['https://other.example'] },
+		});
+		expect(headers).toHaveProperty('X-CSRF-Token', CSRFToken);
+	});
+});

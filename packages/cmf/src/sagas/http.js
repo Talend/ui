@@ -25,10 +25,13 @@ export const HTTP = {
  * @param {Object} config
  * @returns {Function}
  */
-export function handleCSRFToken(config) {
-	return mergeCSRFToken({
-		security: config.security,
-	})(config);
+export function handleCSRFToken(config, url) {
+	return mergeCSRFToken(
+		{
+			security: config.security,
+		},
+		url,
+	)(config);
 }
 
 export class HTTPError extends Error {
@@ -156,10 +159,13 @@ export function httpFetch(url, config, method, payload) {
 
 	return fetch(
 		url,
-		handleCSRFToken({
-			...params,
-			body: encodePayload(params.headers, payload),
-		}),
+		handleCSRFToken(
+			{
+				...params,
+				body: encodePayload(params.headers, payload),
+			},
+			url,
+		),
 	)
 		.then(response => handleHttpResponse(response, params))
 		.catch(response => handleError(response, params));
