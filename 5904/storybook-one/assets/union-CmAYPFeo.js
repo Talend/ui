@@ -1,1 +1,0 @@
-import{bq as b,br as o,bs as q}from"./iframe-30-spegq.js";import{r as f}from"./_baseUniq-CVze6p6t.js";var r,e;function v(){if(e)return r;e=1;var a=b(),i=o(),n=f(),s=q(),t=i(function(u){return n(a(u,1,s,!0))});return r=t,r}export{v as r};
