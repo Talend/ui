@@ -45,7 +45,7 @@ module.exports = (env, argv) => {
 							loader: require.resolve('postcss-loader'),
 							options: {
 								postcssOptions: {
-									plugins: [postcssPresetEnv({ browsers: 'last 2 versions' })],
+									plugins: [postcssPresetEnv()],
 								},
 								sourceMap: true,
 							},
@@ -69,7 +69,7 @@ module.exports = (env, argv) => {
 							loader: require.resolve('postcss-loader'),
 							options: {
 								postcssOptions: {
-									plugins: [postcssPresetEnv({ browsers: 'last 2 versions' })],
+									plugins: [postcssPresetEnv()],
 								},
 								sourceMap: true,
 							},
