@@ -583,3 +583,23 @@ describe('Datalist component', () => {
 		});
 	});
 });
+
+describe('Datalist icon', () => {
+	it('should only forward known icon fields to Icon', () => {
+		const titleMap = [
+			{
+				name: 'My foo',
+				value: 'foo',
+				icon: {
+					name: 'talend-warning',
+					title: 'warn',
+					id: 'injected-id',
+					style: 'invalid',
+					dangerouslySetInnerHTML: { __html: '<img src="x" data-injected="true">' },
+				},
+			},
+		];
+		const { container } = render(<Datalist {...props} titleMap={titleMap} value="foo" />);
+		expect(container.querySelector('[data-injected]')).not.toBeInTheDocument();
+	});
+});

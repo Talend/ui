@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { Panel, Button } from '@talend/react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { ButtonIcon } from '@talend/design-system';
+import { sanitizeReactProps } from '@talend/utils';
 
 import OverlayTrigger from '../OverlayTrigger';
 import Action from '../Actions/Action';
@@ -77,7 +78,7 @@ function renderHeaderItem({ displayMode, className, ...headerItem }, key) {
 			const { label, tooltipLabel, tooltipPlacement, ...rest } = headerItem;
 			return (
 				<TooltipTrigger key={key} label={tooltipLabel || label} tooltipPlacement={tooltipPlacement}>
-					<Tag {...rest} className={css[className]}>
+					<Tag {...sanitizeReactProps(rest)} className={css[className]}>
 						{label}
 					</Tag>
 				</TooltipTrigger>

@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 
 import ActionSplitDropdown from './ActionSplitDropdown.component';
 
@@ -17,6 +18,33 @@ const items = [
 ];
 
 describe('ActionSplitDropdown', () => {
+	it('blocks HTML injection on divider items and keeps ordinary menu props', () => {
+		const { container } = render(
+			<ActionSplitDropdown
+				label="Add File"
+				items={[
+					{
+						divider: true,
+						dangerouslySetInnerHTML: { __html: '<img data-injected="true" src="x" />' },
+					},
+					{ label: 'Item', title: 'Item title', 'data-testid': 'menu.item', lang: 'fr' },
+				]}
+			/>,
+		);
+		expect(container.querySelector('[data-injected]')).toBeNull();
+		expect(screen.getByTestId('menu.item')).toHaveAttribute('lang', 'fr');
+		expect(screen.getByRole('menuitem', { name: 'Item' })).toHaveAttribute('title', 'Item title');
+	});
+
+	it('should render a11y html', async () => {
+		render(
+			<main>
+				<ActionSplitDropdown label="Add File" items={items} />
+			</main>,
+		);
+		expect((await axe(document.body)).violations).toEqual([]);
+	});
+
 	it('should render a button with label', () => {
 		// given
 		const props = {
@@ -160,5 +188,24 @@ describe('ActionSplitDropdown componentClass hardening', () => {
 		await user.click(screen.getByLabelText(/Open x menu/));
 		expect(screen.getByText('a')).toBeVisible();
 		expect(document.querySelector('iframe')).toBeNull();
+	});
+
+	it('should only forward known props of items to the menu item', () => {
+		const props = {
+			label: 'Add File',
+			onClick: jest.fn(),
+			items: [
+				{
+					label: 'Entry',
+					'data-feature': 'action.entry',
+					dangerouslySetInnerHTML: { __html: '<b>x</b>' },
+				},
+				{ divider: true, dangerouslySetInnerHTML: { __html: '<b>y</b>' } },
+			],
+		};
+		render(<ActionSplitDropdown {...props} />);
+		expect(document.querySelector('b')).not.toBeInTheDocument();
+		expect(screen.getByText('Entry').closest('li')).toBeInTheDocument();
+		expect(document.querySelector('[data-feature="action.entry"]')).toBeInTheDocument();
 	});
 });

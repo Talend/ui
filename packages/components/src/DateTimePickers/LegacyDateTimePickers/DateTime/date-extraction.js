@@ -10,6 +10,7 @@ import { date as dateUtils } from '@talend/utils';
 import getErrorMessage from './error-messages';
 
 const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
+const MAX_DATETIME_TEXT_LENGTH = 256;
 const timePartRegex = new RegExp(/^(.*):(.*)$/);
 const timeWithSecondsPartRegex = new RegExp(/^(.*):(.*):(.*)$/);
 
@@ -79,9 +80,19 @@ function extractTimeOnly(date, { useSeconds, useUTC }) {
  */
 function getDateRegexp(dateFormat) {
 	const partsOrder = dateFormat.split(/[^A-Za-z]/);
-	const dateFormatAsRegexp = dateFormat
-		.replace(/[A-Za-z]{4}/g, '([0-9]{4})')
-		.replace(/[A-Za-z]{2}/g, '([0-9]{2})');
+	// every character that is not a YYYY / MM token is escaped, so the format can't inject regexp syntax
+	const dateFormatAsRegexp = dateFormat.replace(
+		/([A-Za-z]{4})|([A-Za-z]{2})|([\s\S])/g,
+		(match, four, two) => {
+			if (four) {
+				return '([0-9]{4})';
+			}
+			if (two) {
+				return '([0-9]{2})';
+			}
+			return match.replace(/[.*+?^${}()|[\]\\\/-]/g, '\\$&');
+		},
+	);
 	return {
 		partsOrder,
 		regexp: new RegExp(`^\\s*${dateFormatAsRegexp}\\s*$`),
@@ -541,7 +552,10 @@ function extractPartsFromTextInput(textInput, options) {
 
 	try {
 		if (options.useTime) {
-			const splitMatches = textInput.match(splitDateAndTimePartsRegex) || [];
+			const splitMatches =
+				(textInput.length <= MAX_DATETIME_TEXT_LENGTH &&
+					textInput.match(splitDateAndTimePartsRegex)) ||
+				[];
 			if (!splitMatches.length) {
 				if (!hybridMode) {
 					throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
