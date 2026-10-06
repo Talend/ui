@@ -72,7 +72,6 @@
     "i18next": "^26.4.2",
     "i18next-scanner-typescript": "^1.2.1",
     "jest-axe": "^8.0.0",
-    "json-loader": "^0.5.7",
     "mutationobserver-shim": "^0.3.7",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",

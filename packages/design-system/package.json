@@ -57,10 +57,10 @@
   "devDependencies": {
     "@talend/icons": "workspace:^",
     "@talend/storybook-docs": "workspace:^",
-    "@storybook/addon-a11y": "^10.5.5",
-    "@storybook/addon-docs": "^10.5.5",
-    "@storybook/addon-links": "^10.5.5",
-    "@storybook/react": "^10.5.5",
+    "@storybook/addon-a11y": "^10.6.1",
+    "@storybook/addon-docs": "^10.6.1",
+    "@storybook/addon-links": "^10.6.1",
+    "@storybook/react": "^10.6.1",
     "@testing-library/jest-dom": "^7.0.1",
     "@types/classnames": "^2.3.4",
     "@types/jest-axe": "^3.5.9",
@@ -82,7 +82,7 @@
     "react-hook-form": "^7.83.0",
     "react-i18next": "^17.0.15",
     "react-router": "^7.18.4",
-    "storybook": "^10.5.5"
+    "storybook": "^10.6.1"
   },
   "peerDependencies": {
     "@talend/icons": "workspace:^",

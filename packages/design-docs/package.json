@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.19.9",
-    "@storybook/react": "^10.5.5",
+    "@storybook/react": "^10.6.1",
     "@talend/design-system": "workspace:^",
     "@talend/design-tokens": "workspace:^",
     "@talend/storybook-docs": "workspace:^",
@@ -37,16 +37,16 @@
     "use-overflow": "^1.2.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^10.5.5",
-    "@storybook/addon-links": "^10.5.5",
-    "@storybook/addon-docs": "^10.5.5",
-    "@storybook/react-vite": "^10.5.5",
+    "@storybook/addon-a11y": "^10.6.1",
+    "@storybook/addon-links": "^10.6.1",
+    "@storybook/addon-docs": "^10.6.1",
+    "@storybook/react-vite": "^10.6.1",
     "@types/react": "^18.3.31",
     "i18next": "^26.4.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router": "^7.18.4",
-    "storybook": "^10.5.5"
+    "storybook": "^10.6.1"
   },
   "private": true
 }
