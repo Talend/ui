@@ -34,10 +34,10 @@
     "react-hook-form": "^7.83.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^10.5.5",
-    "@storybook/addon-links": "^10.5.5",
+    "@storybook/addon-a11y": "^10.6.1",
+    "@storybook/addon-links": "^10.6.1",
     "@types/react": "^18.3.31",
-    "storybook": "^10.5.5",
+    "storybook": "^10.6.1",
     "i18next": "^26.4.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
