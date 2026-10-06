@@ -1295,9 +1295,6 @@ importers:
       jest-axe:
         specifier: ^8.0.0
         version: 8.0.0
-      json-loader:
-        specifier: ^0.5.7
-        version: 0.5.7
       mutationobserver-shim:
         specifier: ^0.3.7
         version: 0.3.7
@@ -7761,9 +7758,6 @@ packages:
 
   json-buffer@3.0.1:
     resolution: {integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==}
-
-  json-loader@0.5.7:
-    resolution: {integrity: sha512-QLPs8Dj7lnf3e3QYS1zkCo+4ZwqOiF9d/nZnYozTISxXWCfNs9yuky5rJw4/W34s7POaNlbZmQGaB5NiXCbP4w==}
 
   json-logic-js@2.0.5:
     resolution: {integrity: sha512-rTT2+lqcuUmj4DgWfmzupZqQDA64AdmYqizzMPWj3DxGdfFNsxPpcNVSaTj4l8W2tG/+hg7/mQhxjU3aPacO6g==}
@@ -17587,8 +17581,6 @@ snapshots:
   jsesc@3.1.0: {}
 
   json-buffer@3.0.1: {}
-
-  json-loader@0.5.7: {}
 
   json-logic-js@2.0.5: {}
 
