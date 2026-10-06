@@ -1,7 +1,6 @@
 ---
 '@talend/storybook-docs': minor
 '@talend/design-system': patch
-'@talend/design-docs': patch
 '@talend/design-tokens': patch
 ---
 
