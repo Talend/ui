@@ -1,4 +1,0 @@
-import{j as o}from"./index-5JMcgpIM.js";import{u as i,M as a}from"./blocks-DdaeDrLt.js";import{t as r}from"./TalendDesignTokens-JgHEBmOa.js";import"./iframe-DU8JNyr9.js";import{D as c}from"./Dialog-1-SZRHLp.js";import"./index-m1jMUCwX.js";import"./useCopyToClipboard-C16KDEQG.js";import{T as m}from"./TokenValue-smh8D665.js";import"./index-CH-_Pbwk.js";import"./preload-helper-PPVm8Dsz.js";import"./dictionary-CKKJDmnH.js";function s(t){const n={h1:"h1",...i(),...t.components};return o.jsxs(o.Fragment,{children:[o.jsx(a,{title:"Design Tokens/Elevations"}),`
-`,o.jsx(n.h1,{id:"elevations",children:"Elevations"}),`
-`,o.jsx(c,{}),`
-`,o.jsx(m,{style:e=>({backgroundColor:r.coralColorAccentBackground,boxShadow:`${r.coralSpacingXs} ${e.value}px 0 ${r.coralColorAccentBackgroundStrong}`}),type:"elevation",sortOnValue:!0,children:e=>e.value})]})}function C(t={}){const{wrapper:n}={...i(),...t.components};return n?o.jsx(n,{...t,children:o.jsx(s,{...t})}):s(t)}export{C as default};
