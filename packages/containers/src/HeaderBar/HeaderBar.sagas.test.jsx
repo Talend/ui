@@ -139,5 +139,17 @@ describe('HeaderBar sagas', () => {
 			handleOpenProduct(action);
 			expect(window.location.assign).not.toHaveBeenCalled();
 		});
+
+		it('should not throw when window is unavailable (SSR)', () => {
+			const originalWindow = global.window;
+			try {
+				delete global.window;
+				expect(() =>
+					handleOpenProduct({ payload: { url: 'https://example.com/app' } }),
+				).not.toThrow();
+			} finally {
+				global.window = originalWindow;
+			}
+		});
 	});
 });

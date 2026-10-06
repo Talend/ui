@@ -26,6 +26,7 @@ describe('isSafeUrl', () => {
 		vi.stubGlobal('document', undefined);
 		try {
 			expect(isSafeUrl('https://a.b')).toBe(true);
+			expect(isSafeUrl('/relative/path')).toBe(true);
 			expect(isSafeUrl('javascript:alert(1)')).toBe(false);
 		} finally {
 			vi.unstubAllGlobals();

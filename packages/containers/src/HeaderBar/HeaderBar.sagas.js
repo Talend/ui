@@ -51,7 +51,7 @@ export function* fetchProducts(action) {
  */
 export function handleOpenProduct(action) {
 	const url = action && action.payload && action.payload.url;
-	if (isSafeUrl(url)) {
+	if (typeof window !== 'undefined' && isSafeUrl(url)) {
 		window.location.assign(url);
 	}
 }

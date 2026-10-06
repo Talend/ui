@@ -21,5 +21,12 @@ less robust) implementations:
   `document.baseURI` directly, would throw during SSR) — now imports `isSafeUrl` from
   `@talend/utils` directly.
 
-No behavior change for existing valid/invalid urls; the SSR edge case in `HeaderBar.sagas.js`
-is now also covered.
+Observable behavior changes:
+
+- `Text` password links: previously any `link.href` value was rendered as-is; now only
+  urls resolving to `http(s)` (absolute or relative) are rendered, other hrefs are dropped.
+- `HeaderBar.sagas.js`'s `handleOpenProduct`: previously `document.baseURI` access
+  threw during SSR, which was caught and treated as an invalid url (no navigation).
+  The shared `isSafeUrl` is SSR-safe and now validates the url correctly; navigation
+  itself remains guarded to browser environments only (`window` access is skipped
+  during SSR).
