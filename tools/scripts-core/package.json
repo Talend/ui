@@ -32,7 +32,6 @@
     "@talend/scripts-config-prettier": "workspace:^",
     "@talend/scripts-config-stylelint": "workspace:^",
     "@talend/scripts-config-typescript": "workspace:^",
-    "babel-loader": "^9.2.1",
     "cpx2": "^8.0.2",
     "fs-extra": "^10.1.0",
     "lodash": "^4.18.1",
