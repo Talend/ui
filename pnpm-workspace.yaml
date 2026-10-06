@@ -25,3 +25,10 @@ allowBuilds:
   msw: true
   ttf2woff2: false
 minimumReleaseAgeExcludePrune: true
+minimumReleaseAgeExclude:
+  - '@csstools/postcss-cascade-layers@6.0.2'
+  - '@csstools/postcss-is-pseudo-class@6.0.3'
+  - '@csstools/selector-specificity@6.0.1'
+  - css-has-pseudo@8.0.2
+  - postcss-nesting@14.0.3
+  - postcss-preset-env@11.6.1
