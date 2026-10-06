@@ -3,7 +3,6 @@ import { describe, it } from 'mocha';
 
 import {
 	canonicalTitleMap,
-	jsonref,
 	merge,
 	schemaDefaults,
 	select,
@@ -25,6 +24,5 @@ describe('module.js', () => {
 		sfPath.should.be.an('object');
 		schemaDefaults.should.be.an('object');
 		canonicalTitleMap.should.be.an('function');
-		jsonref.should.be.an('function');
 	});
 });
