@@ -1,5 +1,33 @@
 # @talend/design-system
 
+## 13.0.2
+
+### Patch Changes
+
+- ef6b004: chore: remove all Figma integrations and references
+
+  - Deleted `FigmaImage`, `FigmaIframe` and `FigmaContext` components from `@talend/storybook-docs`, along with their `@figma/rest-api-spec` devDependency.
+  - Removed the `figma` status type/badge from the component status overview (`StatusType`, `Statuses`, `status.json` in both `design-system` and `design-docs`).
+  - Removed the `## Zoning` sections and Figma embeds from all Design System MDX stories and from `DOCTEMPLATE.md`.
+  - Removed Figma links/mentions from docs prose (`GettingStarted.mdx`, `Principles.mdx`, `SizedIcon.mdx`, `A-About.mdx`, `design-tokens/README.md`, `CONTRIBUTING.md`).
+  - Deleted the Figma-asset caching service worker (`design-system/static/sw.js`).
+  - Deleted the `.github/workflows/icons.yml` workflow that downloaded icons from Figma via `@talend/figma-icons-downloader`.
+
+  No functional change for component consumers; this is a documentation/tooling cleanup to drop the Figma dependency end-to-end.
+
+- af19a23: fix(design-system): harden Icon remote svg handling (sanitize content, restrict url schemes, forward only safe props) and escape ids in IconsProvider.injectIcon
+- 9af4127: fix(design-system): harden RichRadioButton icon input handling
+- 4d782d1: Add a shared shallow React prop blocklist and use it for Action components, Icon consumers,
+  RichRadioButton assets, panel badges and form labels. Preserve ordinary props while excluding
+  HTML injection, content replacement, component substitution and prototype-related keys. Keep
+  context-specific exclusions and existing URL/SVG validation separate.
+- Updated dependencies [ef6b004]
+- Updated dependencies [ea2fe26]
+- Updated dependencies [50b868b]
+- Updated dependencies [4d782d1]
+  - @talend/design-tokens@4.1.6
+  - @talend/utils@3.8.0
+
 ## 13.0.1
 
 ### Patch Changes
