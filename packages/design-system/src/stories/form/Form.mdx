@@ -1,7 +1,5 @@
 import { Canvas, Meta } from '@storybook/addon-docs/blocks';
 
-import { FigmaImage } from '@talend/storybook-docs';
-
 import { Tabs } from '../../';
 import { Status } from '../Status.block';
 
@@ -14,13 +12,6 @@ import * as Stories from './Form.stories.tsx';
 
 The `Form` component is a slightly opinionated `<form>` tag with a flex layout and set vertical gap.
 
-## Zoning
-
-<FigmaImage
-	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=349%3A135"
-	alt="zoning image for form"
-/>
-
 ## Style
 
 - The vertical gap between fields, unless specified otherwise, is `spacing-s`.
@@ -32,11 +23,6 @@ The `Form` component is a slightly opinionated `<form>` tag with a flex layout a
 
 ### Skeleton
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A25"
-	alt="Form mockup"
-/>
-
 <Canvas of={Stories.FormSkeleton} />
 
 ### Field states
@@ -46,43 +32,11 @@ The `Form` component is a slightly opinionated `<form>` tag with a flex layout a
 		{
 			tabTitle: 'Default',
 			tabContent: (
-				<FigmaImage
-					src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=362%3A699"
-					alt="Form mockup"
-				/>
-			),
-		},
-		{
-			tabTitle: 'Disabled',
-			tabContent: (
-				<FigmaImage
-					src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=26978%3A137499"
-					alt="Form mockup disabled state"
-				/>
-			),
-		},
-		{
-			tabTitle: 'ReadOnly',
-			tabContent: (
-				<FigmaImage
-					src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=26980%3A128569"
-					alt="Form mockup readonly"
-				/>
-			),
-		},
-	]}
-/>
-
-<Canvas of={Stories.Default} />
+				<Canvas of={Stories.Default} />
 
 ### Error
 
 When an error occurs at a level that is not specific to one field, use `InlineMessage` to give the user feedback:
-
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A704"
-	alt="Form mockup"
-/>
 
 <Canvas of={Stories.Error} />
 
@@ -94,32 +48,17 @@ When an error occurs at a level that is not specific to one field, use `InlineMe
 
 Consider using an [Inline message](/?path=/docs/messaging-inlinemessage--docs) when help is needed to fill the form.
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=314%3A1028"
-	alt="Form mockup"
-/>
-
 <Canvas of={Stories.InlineHelp} />
 
 ## Interactions
 
 ### Synchronous action
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=311%3A9"
-	alt="Form mockup"
-/>
-
 <Canvas of={Stories.Loading} />
 
 ### Data loss message
 
 When the user clicks on the cancel button or go back to the previous page, provide a confirm dialog.
-
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=232%3A39"
-	alt="Form mockup"
-/>
 
 You can easily build that dialog with the [Modal component.](/docs/layout-modal--docs).
 
