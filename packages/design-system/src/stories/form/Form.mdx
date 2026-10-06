@@ -1,6 +1,5 @@
 import { Canvas, Meta } from '@storybook/addon-docs/blocks';
 
-import { Tabs } from '../../';
 import { Status } from '../Status.block';
 
 import * as Stories from './Form.stories.tsx';
@@ -27,12 +26,7 @@ The `Form` component is a slightly opinionated `<form>` tag with a flex layout a
 
 ### Field states
 
-<Tabs
-	tabs={[
-		{
-			tabTitle: 'Default',
-			tabContent: (
-				<Canvas of={Stories.Default} />
+<Canvas of={Stories.Default} />
 
 ### Error
 
