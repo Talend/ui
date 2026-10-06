@@ -4,7 +4,7 @@
 /* eslint-disable react/display-name */
 import { screen, render } from '@testing-library/react';
 import CellTitle from './CellTitle.component';
-import { BrowserRouter, Link as RouterLink } from 'react-router-dom';
+import { BrowserRouter, Link as RouterLink } from 'react-router';
 import { vi } from 'vitest';
 
 vi.mock('../../TooltipTrigger', () => ({

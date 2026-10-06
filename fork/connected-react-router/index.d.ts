@@ -2,19 +2,47 @@ declare module 'connected-react-router' {
 	import * as React from 'react';
 	import { Middleware, Reducer } from 'redux';
 	import { ReactReduxContextValue } from 'react-redux';
-	import { match, matchPath } from 'react-router';
-	import {
-		Action,
-		Hash,
-		History,
-		Path,
-		Location,
-		LocationState,
-		LocationDescriptorObject,
-		Search,
-	} from 'history';
 
-	type PathParam = Parameters<typeof matchPath>[1];
+	// react-router v7 does not depend on `history` anymore, these are the (structural)
+	// types this library needs from the history object.
+	export type Action = 'POP' | 'PUSH' | 'REPLACE';
+	export type Path = string;
+	export type Hash = string;
+	export type Search = string;
+	export type LocationState = unknown;
+
+	export interface Location<S = LocationState> {
+		pathname: string;
+		search: Search;
+		hash: Hash;
+		state: S | null;
+		key: string;
+	}
+
+	export interface LocationDescriptorObject<S = LocationState> {
+		pathname?: string;
+		search?: Search;
+		hash?: Hash;
+		state?: S;
+	}
+
+	export interface History<S = LocationState> {
+		readonly action: Action;
+		readonly location: Location<S>;
+		listen(listener: (update: { action: Action; location: Location<S> }) => void): () => void;
+		push(to: Path | LocationDescriptorObject<S>, state?: S): void;
+		replace(to: Path | LocationDescriptorObject<S>, state?: S): void;
+		go(delta: number): void;
+	}
+
+	export interface match<Params extends { [K in keyof Params]?: string } = {}> {
+		path: string;
+		url: string;
+		isExact: boolean;
+		params: Params;
+	}
+
+	type PathParam = string | { path: string; exact?: boolean; sensitive?: boolean };
 
 	interface ConnectedRouterProps<S = LocationState> {
 		history: History<S>;

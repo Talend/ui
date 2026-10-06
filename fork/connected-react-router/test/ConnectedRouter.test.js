@@ -2,10 +2,8 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { ActionCreators, instrument } from 'redux-devtools';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { createMemoryHistory } from 'history';
-import { Route } from 'react-router';
+import { act, render } from '@testing-library/react';
+import { UNSAFE_createMemoryHistory, useLocation } from 'react-router';
 import { Provider } from 'react-redux';
 import createConnectedRouter from '../src/ConnectedRouter';
 import { onLocationChanged, LOCATION_CHANGE } from '../src/actions';
@@ -14,9 +12,37 @@ import immutableStructure from '../src/structure/immutable';
 import seamlessImmutableStructure from '../src/structure/seamless-immutable';
 import { connectRouter, ConnectedRouter, routerMiddleware } from '../src';
 
-Enzyme.configure({ adapter: new Adapter() });
+const mount = ui => render(ui);
 
-const { mount } = Enzyme;
+/**
+ * react-router memory history has no `entries` and, unlike history v5, replaces the
+ * location state with the second argument of push/replace: restore both for the tests.
+ */
+const createMemoryHistory = () => {
+	const history = UNSAFE_createMemoryHistory({ v5Compat: true });
+	history.entries = [history.location];
+	const { push, replace } = history;
+	const withState = (to, state) => [
+		to,
+		state === undefined && typeof to === 'object' ? to.state : state,
+	];
+	history.push = (to, state) => {
+		push(...withState(to, state));
+		history.entries.push(history.location);
+	};
+	history.replace = (to, state) => {
+		replace(...withState(to, state));
+		history.entries[history.entries.length - 1] = history.location;
+	};
+	// react-router history keeps a single listener, history v5 supported several
+	const listeners = new Set();
+	history.listen(update => Array.from(listeners).forEach(fn => fn(update)));
+	history.listen = fn => {
+		listeners.add(fn);
+		return () => listeners.delete(fn);
+	};
+	return history;
+};
 
 vi.mock('../src/actions', async importOriginal => {
 	const actions = await importOriginal();
@@ -67,7 +93,7 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" render={() => <div>Home</div>} />
+						<div>Home</div>
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -84,7 +110,7 @@ describe('ConnectedRouter', () => {
 			const wrapper = mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" render={() => <div>Home</div>} />
+						<div>Home</div>
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -107,7 +133,7 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store} context={context}>
 					<ConnectedRouter {...props} context={context}>
-						<Route path="/" render={() => <div>Home</div>} />
+						<div>Home</div>
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -124,11 +150,11 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" render={() => <div>Home</div>} />
+						<div>Home</div>
 					</ConnectedRouter>
 				</Provider>,
 			);
-			props.history.push({ pathname: '/new-location', state: { foo: 'bar' } });
+			props.history.push({ pathname: '/new-location' }, { foo: 'bar' });
 
 			expect(onLocationChangedSpy.mock.calls[1][0].state).toEqual({ foo: 'bar' });
 		});
@@ -144,7 +170,7 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" render={() => <div>Home</div>} />
+						<div>Home</div>
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -194,7 +220,7 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" render={() => <div>Home</div>} />
+						<div>Home</div>
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -258,7 +284,7 @@ describe('ConnectedRouter', () => {
 						}}
 						{...props}
 					>
-						<Route path="/" render={() => <div>Home</div>} />
+						<div>Home</div>
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -301,6 +327,8 @@ describe('ConnectedRouter', () => {
 			let renderCount = 0;
 
 			const RenderCounter = () => {
+				// subscribe to the location like a Route does
+				useLocation();
 				renderCount++;
 				return null;
 			};
@@ -308,7 +336,7 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" component={RenderCounter} />
+						<RenderCounter />
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -334,6 +362,8 @@ describe('ConnectedRouter', () => {
 			);
 
 			const RenderCounter = () => {
+				// subscribe to the location like a Route does
+				useLocation();
 				renderCount++;
 				return null;
 			};
@@ -341,13 +371,13 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" component={RenderCounter} />
+						<RenderCounter />
 					</ConnectedRouter>
 				</Provider>,
 			);
 
 			store.dispatch({ type: 'testAction' });
-			history.push('/new-location');
+			act(() => history.push('/new-location'));
 			expect(renderCount).toBe(2);
 		});
 
@@ -355,7 +385,7 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props} noInitialPop>
-						<Route path="/" render={() => <div>Home</div>} />
+						<div>Home</div>
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -375,7 +405,7 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" render={() => <div>Home</div>} />
+						<div>Home</div>
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -392,7 +422,7 @@ describe('ConnectedRouter', () => {
 			const wrapper = mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" render={() => <div>Home</div>} />
+						<div>Home</div>
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -415,7 +445,7 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store} context={context}>
 					<ConnectedRouter {...props} context={context}>
-						<Route path="/" render={() => <div>Home</div>} />
+						<div>Home</div>
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -432,6 +462,8 @@ describe('ConnectedRouter', () => {
 			let renderCount = 0;
 
 			const RenderCounter = () => {
+				// subscribe to the location like a Route does
+				useLocation();
 				renderCount++;
 				return null;
 			};
@@ -439,7 +471,7 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" component={RenderCounter} />
+						<RenderCounter />
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -465,6 +497,8 @@ describe('ConnectedRouter', () => {
 			);
 
 			const RenderCounter = () => {
+				// subscribe to the location like a Route does
+				useLocation();
 				renderCount++;
 				return null;
 			};
@@ -472,13 +506,13 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" component={RenderCounter} />
+						<RenderCounter />
 					</ConnectedRouter>
 				</Provider>,
 			);
 
 			store.dispatch({ type: 'testAction' });
-			history.push('/new-location');
+			act(() => history.push('/new-location'));
 			expect(renderCount).toBe(2);
 		});
 	});
@@ -494,7 +528,7 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" render={() => <div>Home</div>} />
+						<div>Home</div>
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -511,7 +545,7 @@ describe('ConnectedRouter', () => {
 			const wrapper = mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" render={() => <div>Home</div>} />
+						<div>Home</div>
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -533,6 +567,8 @@ describe('ConnectedRouter', () => {
 			let renderCount = 0;
 
 			const RenderCounter = () => {
+				// subscribe to the location like a Route does
+				useLocation();
 				renderCount++;
 				return null;
 			};
@@ -540,7 +576,7 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" component={RenderCounter} />
+						<RenderCounter />
 					</ConnectedRouter>
 				</Provider>,
 			);
@@ -566,6 +602,8 @@ describe('ConnectedRouter', () => {
 			);
 
 			const RenderCounter = () => {
+				// subscribe to the location like a Route does
+				useLocation();
 				renderCount++;
 				return null;
 			};
@@ -573,13 +611,13 @@ describe('ConnectedRouter', () => {
 			mount(
 				<Provider store={store}>
 					<ConnectedRouter {...props}>
-						<Route path="/" component={RenderCounter} />
+						<RenderCounter />
 					</ConnectedRouter>
 				</Provider>,
 			);
 
 			store.dispatch({ type: 'testAction' });
-			history.push('/new-location');
+			act(() => history.push('/new-location'));
 			expect(renderCount).toBe(2);
 		});
 	});
@@ -609,7 +647,7 @@ describe('ConnectedRouter', () => {
 			);
 
 			let currentPath;
-			const historyUnsubscribe = history.listen(location => {
+			const historyUnsubscribe = history.listen(({ location }) => {
 				currentPath = location.pathname;
 			});
 
@@ -631,7 +669,7 @@ describe('ConnectedRouter', () => {
 			);
 
 			let currentPath;
-			const historyUnsubscribe = history.listen(location => {
+			const historyUnsubscribe = history.listen(({ location }) => {
 				currentPath = location.pathname;
 			});
 

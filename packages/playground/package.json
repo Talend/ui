@@ -53,7 +53,6 @@
     "@talend/react-dataviz": "workspace:^",
     "@talend/react-faceted-search": "workspace:^",
     "@talend/react-forms": "workspace:^",
-    "history": "^5.3.0",
     "i18next": "^26.4.2",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",

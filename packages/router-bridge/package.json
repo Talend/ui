@@ -31,19 +31,20 @@
   "homepage": "https://github.com/ui/tree/master/packages/router-bridge#readme",
   "devDependencies": {
     "@talend/connected-react-router": "workspace:^",
-    "history": "^5.3.0",
+    "@testing-library/react": "^14.3.1",
     "react": "^18.3.1",
-    "react-router-dom": "~6.3.0"
+    "react-dom": "^18.3.1",
+    "react-router": "^7.18.4"
   },
   "peerDependencies": {
     "@talend/connected-react-router": "^6.9.3",
-    "react-router-dom": "~6.3.0"
+    "react-router": "^7.18.4"
   },
   "peerDependenciesMeta": {
     "@talend/connected-react-router": {
       "optional": true
     },
-    "react-router-dom": {
+    "react-router": {
       "optional": true
     }
   },
