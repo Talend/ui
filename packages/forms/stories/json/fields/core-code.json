@@ -3,6 +3,9 @@
     "type": "object",
     "title": "A code form",
     "properties": {
+      "codeWidget": {
+        "type": "string"
+      },
       "codeWidgetSmall": {
         "type": "string"
       },
@@ -33,7 +36,7 @@
       "description": "This widget with custom prop 'height: 100px'",
       "title": "Code small",
       "options": {
-        "language": "python",
+        "language": "sql",
         "height": "100px"
       }
     },
@@ -43,14 +46,15 @@
       "description": "This widget with custom prop 'fontSize: 30'",
       "title": "Big font size",
       "options": {
-        "language": "python",
+        "language": "sql",
         "height": "200px",
         "fontSize": 30
       }
     }
   ],
   "properties": {
-    "codeWidgetSmall": "#hello comment",
-    "codeWidgetFontSize": "#hello big font"
+    "codeWidget": "-- Top 10 customers by revenue over the last completed quarter\nSELECT\n    c.customer_id,\n    c.company_name,\n    COUNT(DISTINCT o.order_id) AS order_count,\n    SUM(oi.quantity * oi.unit_price) AS total_revenue\nFROM customers AS c\nINNER JOIN orders AS o\n    ON o.customer_id = c.customer_id\nINNER JOIN order_items AS oi\n    ON oi.order_id = o.order_id\nWHERE o.order_date >= DATE_TRUNC('quarter', CURRENT_DATE) - INTERVAL '3 months'\n    AND o.order_date < DATE_TRUNC('quarter', CURRENT_DATE)\n    AND o.status <> 'CANCELLED' -- ignore cancelled orders\nGROUP BY c.customer_id, c.company_name\nHAVING SUM(oi.quantity * oi.unit_price) > 0\nORDER BY total_revenue DESC\nLIMIT 10;",
+    "codeWidgetSmall": "-- Find duplicate emails before enforcing the unique constraint\nSELECT email, COUNT(*) AS occurrences\nFROM users\nGROUP BY email\nHAVING COUNT(*) > 1;",
+    "codeWidgetFontSize": "/* Monthly active users, last 6 months */\nSELECT\n    DATE_TRUNC('month', last_login_at) AS month,\n    COUNT(DISTINCT user_id) AS active_users\nFROM user_sessions\nWHERE last_login_at >= CURRENT_DATE - INTERVAL '6 months'\nGROUP BY 1\nORDER BY 1;"
   }
 }
