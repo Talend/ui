@@ -38,7 +38,6 @@
     "react": "^18.3.1"
   },
   "devDependencies": {
-    "@figma/rest-api-spec": "^0.43.0",
     "@storybook/addon-a11y": "^10.5.5",
     "@storybook/addon-docs": "^10.5.5",
     "@storybook/react-vite": "^10.5.5",

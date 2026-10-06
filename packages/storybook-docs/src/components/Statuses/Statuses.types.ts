@@ -8,7 +8,6 @@ export enum StatusValue {
 }
 
 export enum StatusType {
-	figma = 'figma',
 	storybook = 'storybook',
 	react = 'react',
 	i18n = 'i18n',

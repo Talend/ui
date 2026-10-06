@@ -4,26 +4,17 @@ Use the following template when creating a new `ComponentName.stories.mdx` page.
 
 ```markdown
 import { Meta, Story } from '@storybook/addon-docs/blocks';
-import { FigmaImage, FigmaLink, Use } from '~docs';
 
 <Meta
-    title="Design System/Components/Title"
-    parameters={{
-		status: { figma: 'wip', storybook: 'wip', react: 'wip', i18n: 'na' },
-		figmaLink: 'https://www.figma.com/file/????',
+title="Design System/Components/Title"
+parameters={{
+		status: { storybook: 'wip', react: 'wip', i18n: 'na' },
 	}}
 />
 
 # Title
 
 Description
-
-## Zoning
-
-<FigmaImage
-    src=""
-    alt="zoning image"
-/>
 
 ## Style
 
