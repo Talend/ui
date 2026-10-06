@@ -15,8 +15,6 @@ overrides:
   qs: '>=6.14.1'
   tar: '>=7.5.4'
   minimist: ^1.2.5
-  proxy-addr: '>=2.0.8'
-  compression: '>=1.8.2'
 allowBuilds:
   '@parcel/watcher': false
   '@sentry/cli': false
