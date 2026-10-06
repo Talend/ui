@@ -1,5 +1,14 @@
 # Changelog
 
+## 9.0.1
+
+### Patch Changes
+
+- 180bf8e: fix(flow-designer): harden node selectors against cyclic flow data
+- Updated dependencies [ef6b004]
+- Updated dependencies [ea2fe26]
+  - @talend/design-tokens@4.1.6
+
 ## 9.0.0
 
 ### Major Changes

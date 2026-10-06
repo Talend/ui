@@ -1,6 +1,6 @@
 {
   "name": "@talend/module-to-cdn",
-  "version": "9.18.4",
+  "version": "9.18.5",
   "description": "Get cdn config from npm module name",
   "license": "MIT",
   "repository": "https://github.com/Talend/ui",
@@ -18,9 +18,9 @@
     "node": ">=14"
   },
   "scripts": {
-    "vitest:run": "vitest run index.test.js",
-    "vitest:cov": "vitest run --coverage index.test.js",
-    "vitest:update": "vitest run --update index.test.js",
+    "vitest:run": "vitest run index.test.js cache.test.js",
+    "vitest:cov": "vitest run --coverage index.test.js cache.test.js",
+    "vitest:update": "vitest run --update index.test.js cache.test.js",
     "test:cron": "vitest run modules.test.js",
     "oxlint:run": "oxlint --format=json > oxlint-report.json"
   },

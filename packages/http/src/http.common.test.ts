@@ -418,3 +418,46 @@ describe('#httpFetch with interceptors', () => {
 		);
 	});
 });
+
+describe('#httpFetch CSRF token destination', () => {
+	beforeAll(() => {
+		HTTP.defaultConfig = null;
+		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True;`;
+	});
+	afterAll(() => {
+		document.cookie = `csrfToken=${CSRFToken}; dwf_section_edit=True; Max-Age=0`;
+	});
+	beforeEach(() => {
+		(global.self.fetch as FetchMock).mockResponse = new Response(JSON.stringify(defaultBody), {
+			status: 200,
+			headers: { 'Content-Type': 'application/json' },
+		});
+	});
+
+	const sentHeaders = () => (global.self.fetch as any).mock.calls.at(-1)[1].headers;
+
+	it('sends the token to a relative url', async () => {
+		await httpFetch('/foo', {}, HTTP_METHODS.GET, defaultPayload);
+		expect(sentHeaders()).toHaveProperty('X-CSRF-Token', CSRFToken);
+	});
+
+	it('sends the token to an absolute same-origin url', async () => {
+		await httpFetch(`${window.location.origin}/foo`, {}, HTTP_METHODS.GET, defaultPayload);
+		expect(sentHeaders()).toHaveProperty('X-CSRF-Token', CSRFToken);
+	});
+
+	it('does not send the token to a cross-origin url', async () => {
+		await httpFetch('https://other.example/foo', {}, HTTP_METHODS.GET, defaultPayload);
+		expect(sentHeaders()).not.toHaveProperty('X-CSRF-Token');
+	});
+
+	it('sends the token to a cross-origin url present in the allow-list', async () => {
+		await httpFetch(
+			'https://other.example/foo',
+			{ security: { CSRFTokenAllowedOrigins: ['https://other.example'] } },
+			HTTP_METHODS.GET,
+			defaultPayload,
+		);
+		expect(sentHeaders()).toHaveProperty('X-CSRF-Token', CSRFToken);
+	});
+});

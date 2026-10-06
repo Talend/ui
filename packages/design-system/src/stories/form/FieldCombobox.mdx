@@ -1,7 +1,5 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 
-import { FigmaImage } from '@talend/storybook-docs';
-
 import { Combobox, InlineMessageWarning, StackVertical } from '../../';
 import { Status } from '../Status.block';
 
@@ -15,47 +13,20 @@ import * as Stories from './Combobox.stories';
 Combobox is used to suggest items using rich preview.
 Custom values are still possible like a datalist.
 
-## Zoning
-
-<FigmaImage
-	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=64%3A0"
-	alt="zoning for combobox"
-/>
-
 ## Style
 
 ### Variations
 
 **With categories**
 
-<FigmaImage
-	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A422"
-	alt="combobox with categories"
-/>
-
 **With icons**
 
-<FigmaImage
-	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A468"
-	alt="combobox with icons"
-/>
-
 **Multi-selection**
-
-<FigmaImage
-	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A547"
-	alt="combobox for multiselection"
-/>
 
 <Canvas of={Stories.Default} />
 <Controls of={Stories.Default} />
 
 ## States
-
-<FigmaImage
-	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A202"
-	alt="combobox behaviors"
-/>
 
 ## Content
 
@@ -67,28 +38,13 @@ _Not applicable_
 
 Typing in the field will filter the predefined list options and highlight the searching value.
 
-<FigmaImage
-	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A846"
-	alt="combobox filtering values"
-/>
-
 ### Searching
 
 The asynchronous scenario allows for lazy loading of the pre-selected options. In that case there is a "loading" spinner and message that's displayed before the options load is complete.
 
-<FigmaImage
-	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A287"
-	alt="combobox searching for a value"
-/>
-
 ### Add a value
 
 If a value is not available in the predefined list options the user may have the possibility to add a new value by clicking on the button.
-
-<FigmaImage
-	src="https://www.figma.com/file/XLAg5NdlNDKGVp6IgqDzGC/Combo-box?node-id=33%3A207"
-	alt="combobox add a new value"
-/>
 
 ## Accessibility
 

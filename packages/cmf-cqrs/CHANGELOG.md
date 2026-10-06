@@ -1,5 +1,17 @@
 # @talend/react-cmf-cqrs
 
+## 13.0.1
+
+### Patch Changes
+
+- 0530bef: fix(cmf-cqrs): ack action creators only copy expected fields and never let data override the action type
+- Updated dependencies [70afc3b]
+- Updated dependencies [dee6a48]
+- Updated dependencies [50b868b]
+- Updated dependencies [4d782d1]
+  - @talend/react-cmf@13.0.1
+  - @talend/utils@3.8.0
+
 ## 13.0.0
 
 ### Major Changes

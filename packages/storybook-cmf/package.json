@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@talend/react-cmf": "workspace:^",
-    "@testing-library/react": "^14.3.1",
+    "@testing-library/react": "^16.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^7.2.9",

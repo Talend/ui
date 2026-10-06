@@ -1,5 +1,32 @@
 # @talend/react-components
 
+## 20.0.1
+
+### Patch Changes
+
+- dd6421a: fix(components): harden legacy DateTimePicker date format handling
+- 4694f97: fix(components): Action displayMode no longer resolves arbitrary components from the registry, unknown values fall back to ActionButton
+- 45d4023: fix(components): harden AppSwitcher icon url handling
+- e2d343d: fix(components): harden CellMappedData values lookup
+- fcf16ab: fix(components): CollapsiblePanel badge header items only forward known props to Tag
+- c8aff45: fix(components): harden legacy DateTimePicker text input handling
+- 56ef1d4: fix: only pass known fields (name, title, transform) of data-supplied icons to Icon, and ignore slider badge icon names that are not plain identifiers
+- 7ba1620: fix(components): harden SidePanel backgroundIcon handling
+- 9f3551a: fix(components): ActionSplitDropdown only forwards known item props to menu items
+- adaea0d: fix(components): do not forward componentClass from action props or dropdown items in ActionButton, ActionIconToggle, ActionDropdown and ActionSplitDropdown
+- 6f8a9f1: fix(components): escape the dateFormat characters when building the date parsing RegExp
+- d02fb3d: fix(components): sanitize PieChart percentages so redistribution always terminates
+- 4d782d1: Add a shared shallow React prop blocklist and use it for Action components, Icon consumers,
+  RichRadioButton assets, panel badges and form labels. Preserve ordinary props while excluding
+  HTML injection, content replacement, component substitution and prototype-related keys. Keep
+  context-specific exclusions and existing URL/SVG validation separate.
+- Updated dependencies [ef6b004]
+- Updated dependencies [ea2fe26]
+- Updated dependencies [50b868b]
+- Updated dependencies [4d782d1]
+  - @talend/design-tokens@4.1.6
+  - @talend/utils@3.8.0
+
 ## 20.0.0
 
 ### Major Changes

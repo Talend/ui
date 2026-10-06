@@ -18,10 +18,6 @@ export function StatusTable() {
 		<>
 			<div className={theme.legend}>
 				<dl className={theme.dl}>
-					<dt>Figma</dt>
-					<dd>
-						All use cases have been designed, Figma library is ready to be consumed by designers.
-					</dd>
 					<dt>Storybook</dt>
 					<dd>The guidelines are exhaustive and all sections have been completed.</dd>
 					<dt>React</dt>

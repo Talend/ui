@@ -3,7 +3,6 @@ import { Status } from './Status';
 import { Statuses, StatusType } from './Statuses.types';
 
 const iconByStatusType = {
-	[StatusType.figma]: 'figma',
 	[StatusType.i18n]: 'i18next',
 	[StatusType.react]: 'react',
 	[StatusType.storybook]: 'storybook',

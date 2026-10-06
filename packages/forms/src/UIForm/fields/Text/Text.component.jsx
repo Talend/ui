@@ -9,6 +9,18 @@ import { Form } from '@talend/design-system';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { getLabelProps } from '../../utils/labels';
 import { convertValue, extractDataAttributes } from '../../utils/properties';
+import { isSafeUrl } from '../../utils/url';
+
+function getSafeLink(link) {
+	if (!link || typeof link !== 'object') {
+		return null;
+	}
+	if (link.href === undefined || isSafeUrl(link.href)) {
+		return link;
+	}
+	const { href: _href, ...safeLink } = link;
+	return safeLink;
+}
 
 export default function Text(props) {
 	const { id, isValid, errorMessage, onChange, onFinish, schema, value, valueIsUpdating } = props;
@@ -72,7 +84,7 @@ export default function Text(props) {
 	if (type === 'password') {
 		fieldProps = {
 			...fieldProps,
-			link,
+			link: getSafeLink(link),
 		};
 	}
 
