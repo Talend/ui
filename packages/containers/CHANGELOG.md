@@ -1,5 +1,73 @@
 # @talend/react-containers
 
+## 14.0.1
+
+### Patch Changes
+
+- 70afc3b: fix(cmf): only attach the CSRF token header to same-origin requests in the http middleware and sagas (compared with window.location.origin, so a cross-origin <base> element cannot make requests look trusted). Cross-origin APIs that need the token can be listed in `security.CSRFTokenAllowedOrigins`.
+- 4e2d3be: fix(containers): harden ComponentForm schema trigger option path handling
+- 944ab93: fix(containers): HeaderBar only navigates to http(s) product urls and validates the fetched products
+- a18a4c5: fix(containers): harden ComponentForm titleMap key handling
+- 50b868b: chore(utils): add shared `isSafeUrl` utility and de-duplicate it across consumers
+
+  `@talend/utils` now exports `isSafeUrl(url)`, which checks that a value is a string
+  resolving to an `http(s)` url (same parsing rules as the browser, SSR-safe fallback
+  when `document` is unavailable).
+
+  Prior to this fix, `packages/forms/src/UIForm/fields/Text/Text.component.jsx` performed
+  no url validation at all: any `link.href` was rendered as-is. The new validation added
+  there, along with the already-existing local implementations below, led to the same
+  `isSafeUrl` logic being duplicated in three places with slightly different (and in one
+  case less robust) implementations:
+
+  - `packages/forms/src/UIForm/utils/url.js` (`isSafeUrl`, SSR-safe) — now re-exports
+    `@talend/utils`'s implementation.
+  - `packages/forms/src/UIForm/fields/Text/Text.component.jsx` (new local `isSafeUrl`,
+    hardcoded `https://localhost` base, not SSR-aware) — now reuses `../../utils/url`.
+  - `packages/containers/src/HeaderBar/HeaderBar.sagas.js` (local `isSafeUrl`, used
+    `document.baseURI` directly, would throw during SSR) — now imports `isSafeUrl` from
+    `@talend/utils` directly.
+
+  Observable behavior changes:
+
+  - `Text` password links: previously any `link.href` value was rendered as-is; now only
+    urls resolving to `http(s)` (absolute or relative) are rendered, other hrefs are dropped.
+  - `HeaderBar.sagas.js`'s `handleOpenProduct`: previously `document.baseURI` access
+    threw during SSR, which was caught and treated as an invalid url (no navigation).
+    The shared `isSafeUrl` is SSR-safe and now validates the url correctly; navigation
+    itself remains guarded to browser environments only (`window` access is skipped
+    during SSR).
+
+- Updated dependencies [a444827]
+- Updated dependencies [70afc3b]
+- Updated dependencies [dd6421a]
+- Updated dependencies [ef6b004]
+- Updated dependencies [4694f97]
+- Updated dependencies [45d4023]
+- Updated dependencies [e2d343d]
+- Updated dependencies [dee6a48]
+- Updated dependencies [fcf16ab]
+- Updated dependencies [c8aff45]
+- Updated dependencies [d1dd571]
+- Updated dependencies [fa3a364]
+- Updated dependencies [50b868b]
+- Updated dependencies [56ef1d4]
+- Updated dependencies [af19a23]
+- Updated dependencies [9af4127]
+- Updated dependencies [7ba1620]
+- Updated dependencies [9f3551a]
+- Updated dependencies [a7b9a34]
+- Updated dependencies [adaea0d]
+- Updated dependencies [6f8a9f1]
+- Updated dependencies [d02fb3d]
+- Updated dependencies [50b868b]
+- Updated dependencies [4d782d1]
+  - @talend/react-forms@18.0.1
+  - @talend/react-cmf@13.0.1
+  - @talend/react-components@20.0.1
+  - @talend/design-system@13.0.2
+  - @talend/utils@3.8.0
+
 ## 14.0.0
 
 ### Major Changes
