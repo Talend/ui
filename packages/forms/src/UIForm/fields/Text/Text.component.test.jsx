@@ -290,17 +290,20 @@ describe('Text field', () => {
 		},
 	);
 
-	it('should keep relative and https password link href', () => {
-		render(
-			<Text
-				{...defaultProps}
-				schema={{
-					title: 'Password',
-					type: 'password',
-					link: { href: '/help', title: 'Help', children: 'Need help?' },
-				}}
-			/>,
-		);
-		expect(screen.getByTitle('Help')).toHaveAttribute('href', '/help');
-	});
+	it.each(['/help', 'http://talend.com/help', 'https://talend.com/help'])(
+		'should keep relative, http and https password link href unchanged: %s',
+		href => {
+			render(
+				<Text
+					{...defaultProps}
+					schema={{
+						title: 'Password',
+						type: 'password',
+						link: { href, title: 'Help', children: 'Need help?' },
+					}}
+				/>,
+			);
+			expect(screen.getByTitle('Help')).toHaveAttribute('href', href);
+		},
+	);
 });
