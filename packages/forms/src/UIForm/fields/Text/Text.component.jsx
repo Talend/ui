@@ -9,19 +9,7 @@ import { Form } from '@talend/design-system';
 import { generateDescriptionId, generateErrorId } from '../../Message/generateId';
 import { getLabelProps } from '../../utils/labels';
 import { convertValue, extractDataAttributes } from '../../utils/properties';
-
-const ALLOWED_PROTOCOLS = ['http:', 'https:'];
-
-function isSafeUrl(url) {
-	if (typeof url !== 'string') {
-		return false;
-	}
-	try {
-		return ALLOWED_PROTOCOLS.includes(new URL(url, 'https://localhost').protocol);
-	} catch {
-		return false;
-	}
-}
+import { isSafeUrl } from '../../utils/url';
 
 function getSafeLink(link) {
 	if (!link || typeof link !== 'object') {
