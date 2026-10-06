@@ -1,0 +1,8 @@
+import{j as l}from"./index-Bt0J1H2x.js";import"./DialogBackdrop-BmRdzrus.js";import{F as o,a as r}from"./Skeleton-CNusLmmW.js";import"./iframe-Z8CgFHxs.js";import"./useCopyToClipboard-CAPbi2bC.js";import"./index-CaSEEbqi.js";import"./TalendDesignTokens-JgHEBmOa.js";const a={title:"Form/Fields/Color",component:o.Color},e=()=>l.jsxs(r,{gap:"M",justify:"stretch",align:"stretch",children:[l.jsx(o.Color,{name:"color",label:"Color field"}),l.jsx(o.Color,{name:"color",label:"Color field disabled",disabled:!0}),l.jsx(o.Color,{name:"color",label:"Color field",readOnly:!0}),l.jsx(o.Color,{name:"color",label:"Color field filled",defaultValue:"#E884C0"}),l.jsx(o.Color,{name:"color",label:"Color field filled disabled",disabled:!0,defaultValue:"#E884C0"}),l.jsx(o.Color,{name:"color",label:"Color field filled read-only",readOnly:!0,defaultValue:"#E884C0"})]});e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`() => <StackVertical gap="M" justify="stretch" align="stretch">
+        <Form.Color name="color" label="Color field" />
+        <Form.Color name="color" label="Color field disabled" disabled />
+        <Form.Color name="color" label="Color field" readOnly />
+        <Form.Color name="color" label="Color field filled" defaultValue="#E884C0" />
+        <Form.Color name="color" label="Color field filled disabled" disabled defaultValue="#E884C0" />
+        <Form.Color name="color" label="Color field filled read-only" readOnly defaultValue="#E884C0" />
+    </StackVertical>`,...e.parameters?.docs?.source}}};const t=["ColorStates"],f=Object.freeze(Object.defineProperty({__proto__:null,ColorStates:e,__namedExportsOrder:t,default:a},Symbol.toStringTag,{value:"Module"}));export{e as C,f as S};
