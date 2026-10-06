@@ -5,8 +5,8 @@
   "mainSrc": "src/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "build:lib": "webpack",
-    "start": "webpack serve --mode=development",
+    "build:lib": "vite build",
+    "start": "vite",
     "oxlint:run": "oxlint --format=json > oxlint-report.json",
     "stylelint:run": "stylelint --config .stylelintrc.js --formatter json -o stylelint-report.json 'src/**/*.{css,scss}'"
   },
@@ -30,19 +30,11 @@
     "@talend/design-tokens": "workspace:^"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^14.0.0",
-    "css-minimizer-webpack-plugin": "^8.0.0",
-    "css-loader": "^7.1.4",
-    "html-webpack-plugin": "^5.6.8",
-    "mini-css-extract-plugin": "^2.10.2",
+    "@types/node": "^20.19.43",
     "postcss": "^8.5.25",
-    "postcss-loader": "^8.2.1",
-    "postcss-preset-env": "^7.8.3",
+    "postcss-preset-env": "^11.6.1",
     "sass": "^1.102.0",
-    "sass-loader": "^14.2.1",
-    "style-loader": "^3.3.4",
-    "webpack": "^5.109.2",
-    "webpack-cli": "^6.0.1"
+    "vite": "^7.3.6"
   },
   "peerDependencies": {},
   "publishConfig": {

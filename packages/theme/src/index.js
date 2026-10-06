@@ -1,2 +1,2 @@
-require('./theme/bootstrap.scss');
-require('./variables.css');
+import './theme/bootstrap.scss';
+import './variables.css';
