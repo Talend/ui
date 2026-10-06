@@ -8,8 +8,7 @@
  */
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { Router } from 'react-router';
-import { Route, Routes, Outlet } from 'react-router-dom';
+import { Router, Route, Routes, Outlet } from 'react-router';
 import { onLocationChanged } from '@talend/connected-react-router';
 import { connect } from 'react-redux';
 import { Inject } from '@talend/react-cmf';
@@ -56,18 +55,22 @@ function getRouteProps({ path, indexRoute, childRoutes, ...props }, currentpath,
 		}
 	}
 
+	const children = [indexRoute && <Route {...getRouteProps(indexRoute, currentpath, true)} />]
+		.filter(Boolean)
+		.concat(
+			(childRoutes || []).map((child, index) => (
+				<Route key={index} {...getRouteProps(child, path)} />
+			)),
+		);
 	const routeProps = {
 		path,
 		key: absPath || `${currentpath}index`,
 		element,
-		children: [indexRoute && <Route {...getRouteProps(indexRoute, currentpath, true)} />]
-			.filter(Boolean)
-			.concat(
-				(childRoutes || []).map((child, index) => (
-					<Route key={index} {...getRouteProps(child, path)} />
-				)),
-			),
 	};
+	// react-router v7 refuses a `children` prop, even empty, on index routes
+	if (children.length) {
+		routeProps.children = children;
+	}
 	if (isIndex) {
 		routeProps.index = true;
 	}

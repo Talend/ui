@@ -2,13 +2,14 @@ describe('router bridge - rr5 mode', () => {
 	beforeEach(() => {
 		delete process.env.TALEND_ROUTER_BRIDGE_FORCE_LEGACY;
 		vi.resetModules();
-		vi.doUnmock('react-router-dom');
+		vi.doUnmock('react-router');
 	});
 
 	it('should not export react router v5 implementation', async () => {
 		// when
 		const { history, Route, isLegacy } = await import('./index');
-		const reactRouterDom = await import('react-router-dom');
+		// the bridge uses require(): compare with the same (CJS) instance
+		const reactRouterDom = require('react-router');
 
 		// then
 		expect(history).toBeDefined();

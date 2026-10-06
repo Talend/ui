@@ -49,6 +49,26 @@
           "routerPush": "/Icons"
         }
       }
+    },
+    "menu:CmfFeatures": {
+      "icon": "talend-cog",
+      "label": "CMF examples",
+      "onClickDispatch": {
+        "type": "MENU_CMF_FEATURES_CLICKED",
+        "cmf": {
+          "routerPush": "/CmfFeatures"
+        }
+      }
+    },
+    "menu:RouterFeatures": {
+      "icon": "talend-world",
+      "label": "Router examples",
+      "onClickDispatch": {
+        "type": "MENU_ROUTER_FEATURES_CLICKED",
+        "cmf": {
+          "routerPush": "/RouterFeatures"
+        }
+      }
     }
   },
   "props": {
@@ -98,7 +118,9 @@
         "menu:List",
         "menu:Dataviz",
         "menu:FacetedSearch",
-        "menu:Icons"
+        "menu:Icons",
+        "menu:CmfFeatures",
+        "menu:RouterFeatures"
       ]
     },
     "Layout#default": {
@@ -112,11 +134,49 @@
       "uiSpecPath": "ui",
       "triggerURL": "/api/v1/application/action",
       "className": "full-form"
+    },
+    "CmfFeatures#default": {
+      "initialState": {
+        "count": 0,
+        "note": ""
+      },
+      "keepComponentState": true,
+      "onChangeSetState": {
+        "note": [0, "target.value"]
+      }
+    },
+    "CmfFeatureActionButton#default": {
+      "onClickActionCreator": {
+        "id": "playground.cmf.recordAction",
+        "data": {
+          "message": "A registered action creator ran."
+        }
+      }
+    },
+    "CmfFeatureDispatchButton#default": {
+      "onClickDispatch": {
+        "type": "PLAYGROUND_CMF_DISPATCHED",
+        "message": "A configured dispatch event ran."
+      }
+    },
+    "CmfFeatureNotice#default": {
+      "renderIfExpression": {
+        "id": "cmf.collections.get",
+        "args": ["playground.cmf.lastAction", false]
+      },
+      "messageExpression": {
+        "id": "cmf.collections.get",
+        "args": [
+          "playground.cmf.lastAction.message",
+          "Run an action to display this registered component."
+        ]
+      }
     }
   },
   "routes": {
     "path": "/",
     "component": "AppLoader",
+    "documentTitle": "Talend UI Playground",
     "indexRoute": {
       "component": "LeaguesList"
     },
@@ -140,6 +200,18 @@
       {
         "path": "Icons",
         "component": "Icons"
+      },
+      {
+        "path": "CmfFeatures",
+        "component": "CmfFeatures"
+      },
+      {
+        "path": "RouterFeatures",
+        "component": "RouterFeatures"
+      },
+      {
+        "path": "RouterFeatures/item/:itemId",
+        "component": "RouterFeatures"
       }
     ]
   }

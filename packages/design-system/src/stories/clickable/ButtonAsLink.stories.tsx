@@ -1,5 +1,5 @@
 import { StoryFn } from '@storybook/react';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router';
 
 import {
 	ButtonAsLink,

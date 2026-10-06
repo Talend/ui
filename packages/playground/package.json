@@ -10,7 +10,8 @@
     "build": "vite build && cmf-settings",
     "build:settings": "cmf-settings",
     "start-dist": "node serve-dist.mjs",
-    "vitest:run": "vitest run"
+    "vitest:run": "vitest run",
+    "playwright:test": "playwright test"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "author": "Talend Frontend <frontend@talend.com>",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@talend/scripts-config-babel": "workspace:^",
     "@talend/scripts-config-stylelint": "workspace:^",
     "@talend/scripts-core": "workspace:^",
@@ -51,13 +53,13 @@
     "@talend/react-dataviz": "workspace:^",
     "@talend/react-faceted-search": "workspace:^",
     "@talend/react-forms": "workspace:^",
-    "history": "^5.3.0",
     "i18next": "^26.4.2",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^17.0.15",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^1.5.1"
   },
   "msw": {
     "workerDirectory": [

@@ -52,6 +52,10 @@
     "vitest:run": {
       "dependsOn": ["^vitest:run"]
     },
+    "@talend/ui-playground#playwright:test": {
+      "dependsOn": ["^build:lib", "^build:lib:esm"],
+      "cache": false
+    },
     "vitest:cov": {
       "dependsOn": ["^vitest:cov"],
       "outputs": ["coverage/**"]
