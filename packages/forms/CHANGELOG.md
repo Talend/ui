@@ -1,5 +1,85 @@
 # @talend/react-forms
 
+## 18.0.1
+
+### Patch Changes
+
+- a444827: chore(forms): bump react-ace from 10.1.0 to 15.0.0 (used by the `Code` UIForm widget, `packages/forms/src/UIForm/fields/Code/Code.component.tsx`)
+
+  This is a 5 major version jump. Breaking/notable changes to review from the upstream releases between 10.1.0 and 15.0.0:
+
+  - **v15.0.0** (https://github.com/securingsincity/react-ace/releases/tag/v15.0.0) — ESM support:
+    - Deep imports (e.g. `react-ace/lib/ace`) are no longer resolvable, the package only exposes its root export. We only import from the package root (`import ReactAce, { IAceEditorProps } from 'react-ace'`), so this does not affect us.
+    - `ace-builds` is now loaded eagerly when `react-ace` is imported, instead of lazily on first render. We already eagerly import `ace-builds/src-noconflict/ext-language_tools` and configure `ace.config.set('basePath', ...)` at module scope in `Code.component.tsx`, so behavior should be unaffected, but worth confirming no duplicate/early Ace init happens now.
+    - The SSR `window` shim was removed (no more global mutation on server import).
+  - **v14.1.0** — fixed handling of a null/absent `markers` prop, added editor index to the Split editor's `onFocus` event, Vite upgrade.
+  - **v14.0.1** — added React 19 support (no impact, we're on React 18).
+  - **v13.0.0** — bumped the embedded `ace-builds` to 1.36.3 (brings upstream Ace editor engine fixes/behavior changes).
+  - **v11.0.0** — internal test suite rewrite, React 18 peer dependency support.
+
+  The previously skipped `Code.component.test.tsx` tests (disabled since the react-testing-library upgrade) have been re-enabled and pass against react-ace 15, and a dedicated test rendering a full `type: 'code'` UIForm schema was added to confirm end-to-end widget resolution.
+
+- d1dd571: fix(forms): restrict Button widget href to http(s) urls
+- fa3a364: fix(forms): restrict label props to a known set of attributes
+- 50b868b: fix(forms): Text password widget only renders link urls resolving to http(s) (absolute http(s) and relative urls)
+- a7b9a34: fix(forms): restrict uiSchema `condition` evaluation to an allow-list of operators and safe variable paths
+- 50b868b: chore(utils): add shared `isSafeUrl` utility and de-duplicate it across consumers
+
+  `@talend/utils` now exports `isSafeUrl(url)`, which checks that a value is a string
+  resolving to an `http(s)` url (same parsing rules as the browser, SSR-safe fallback
+  when `document` is unavailable).
+
+  Prior to this fix, `packages/forms/src/UIForm/fields/Text/Text.component.jsx` performed
+  no url validation at all: any `link.href` was rendered as-is. The new validation added
+  there, along with the already-existing local implementations below, led to the same
+  `isSafeUrl` logic being duplicated in three places with slightly different (and in one
+  case less robust) implementations:
+
+  - `packages/forms/src/UIForm/utils/url.js` (`isSafeUrl`, SSR-safe) — now re-exports
+    `@talend/utils`'s implementation.
+  - `packages/forms/src/UIForm/fields/Text/Text.component.jsx` (new local `isSafeUrl`,
+    hardcoded `https://localhost` base, not SSR-aware) — now reuses `../../utils/url`.
+  - `packages/containers/src/HeaderBar/HeaderBar.sagas.js` (local `isSafeUrl`, used
+    `document.baseURI` directly, would throw during SSR) — now imports `isSafeUrl` from
+    `@talend/utils` directly.
+
+  Observable behavior changes:
+
+  - `Text` password links: previously any `link.href` value was rendered as-is; now only
+    urls resolving to `http(s)` (absolute or relative) are rendered, other hrefs are dropped.
+  - `HeaderBar.sagas.js`'s `handleOpenProduct`: previously `document.baseURI` access
+    threw during SSR, which was caught and treated as an invalid url (no navigation).
+    The shared `isSafeUrl` is SSR-safe and now validates the url correctly; navigation
+    itself remains guarded to browser environments only (`window` access is skipped
+    during SSR).
+
+- 4d782d1: Add a shared shallow React prop blocklist and use it for Action components, Icon consumers,
+  RichRadioButton assets, panel badges and form labels. Preserve ordinary props while excluding
+  HTML injection, content replacement, component substitution and prototype-related keys. Keep
+  context-specific exclusions and existing URL/SVG validation separate.
+- Updated dependencies [dd6421a]
+- Updated dependencies [ef6b004]
+- Updated dependencies [4694f97]
+- Updated dependencies [45d4023]
+- Updated dependencies [e2d343d]
+- Updated dependencies [fcf16ab]
+- Updated dependencies [c8aff45]
+- Updated dependencies [56ef1d4]
+- Updated dependencies [af19a23]
+- Updated dependencies [9af4127]
+- Updated dependencies [7ba1620]
+- Updated dependencies [9f3551a]
+- Updated dependencies [adaea0d]
+- Updated dependencies [6f8a9f1]
+- Updated dependencies [d02fb3d]
+- Updated dependencies [ea2fe26]
+- Updated dependencies [50b868b]
+- Updated dependencies [4d782d1]
+  - @talend/react-components@20.0.1
+  - @talend/design-system@13.0.2
+  - @talend/design-tokens@4.1.6
+  - @talend/utils@3.8.0
+
 ## 18.0.0
 
 ### Major Changes

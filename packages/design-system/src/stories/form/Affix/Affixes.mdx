@@ -1,7 +1,5 @@
 import { Canvas, Meta } from '@storybook/addon-docs/blocks';
 
-import { FigmaImage } from '@talend/storybook-docs';
-
 import * as Stories from './Affix.stories';
 import { Status } from '../../Status.block';
 
@@ -15,13 +13,6 @@ All the base inputs (`Form.Text`, `Form.Select`, `Form.Email`, `Form.Number` etc
 Fill in their `prefix` or `suffix` prop and the deed is done.
 
 `Form.Textarea` and "on/off" inputs (`Radio`, `Checkbox` etc...) are not compatible with affixes.
-
-## Zoning
-
-<FigmaImage
-	src="https://www.figma.com/file/qc8oUSyVJM67gSsbTShftt/%F0%9F%93%90-Zoning?node-id=249%3A129"
-	alt="zoning image for field groups"
-/>
 
 ## Style
 
@@ -37,28 +28,13 @@ Both `prefix` and `affix` accept the same 3 kinds of objects.
 
 ##### Select affixes
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A1"
-	alt="Select affixes"
-/>
-
 <Canvas sourceState="hidden" of={Stories.AffixSelect} />
 
 ##### Button affixes
 
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A112"
-	alt="Button affixes"
-/>
-
 <Canvas sourceState="hidden" of={Stories.AffixButton} />
 
 ##### Text affixes
-
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A50"
-	alt="Text affixes"
-/>
 
 <Canvas sourceState="hidden" of={Stories.AffixText} />
 
@@ -71,11 +47,6 @@ Both `prefix` and `affix` accept the same 3 kinds of objects.
 #### Mix and match
 
 An input can mix multiple types of affixes indiscriminately.
-
-<FigmaImage
-	src="https://www.figma.com/file/FaYIWpJeP6LwjWr78L8eAr/Forms?node-id=2008%3A1010"
-	alt="An input group demo"
-/>
 
 <Canvas of={Stories.Mix} />
 

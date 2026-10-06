@@ -1,5 +1,17 @@
 # Changelog
 
+## 24.0.1
+
+### Patch Changes
+
+- 56ef1d4: fix: only pass known fields (name, title, transform) of data-supplied icons to Icon, and ignore slider badge icon names that are not plain identifiers
+- Updated dependencies [ef6b004]
+- Updated dependencies [ea2fe26]
+- Updated dependencies [50b868b]
+- Updated dependencies [4d782d1]
+  - @talend/design-tokens@4.1.6
+  - @talend/utils@3.8.0
+
 ## 24.0.0
 
 ### Major Changes

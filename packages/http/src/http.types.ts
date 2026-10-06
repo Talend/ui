@@ -6,6 +6,11 @@ export interface TalendHttpResponse<T> {
 export type TalendRequestInitSecurity = {
 	CSRFTokenCookieKey?: string;
 	CSRFTokenHeaderKey?: string;
+	/**
+	 * Cross-origin origins (ex: https://api.example.com) that may receive the CSRF token.
+	 * Same-origin requests always receive it.
+	 */
+	CSRFTokenAllowedOrigins?: string[];
 };
 
 export interface TalendRequestInit extends RequestInit {

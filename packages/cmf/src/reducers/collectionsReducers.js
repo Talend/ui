@@ -7,6 +7,8 @@ import CONSTANTS from '../constant';
 
 export const defaultState = new Map();
 
+const UNSAFE_IDS = ['__proto__', 'constructor', 'prototype'];
+
 /**
  * Get element id. If it doesn't have "id" property, we consider it as immutable.
  */
@@ -105,16 +107,21 @@ function deleteCollectionElement(state, action) {
 function updateListElements(state, action) {
 	const updates = action.operations.update;
 
-	const changedCollection = state
-		.getIn(action.collectionId)
-		.map(element => updates[getId(element)] || element);
+	const changedCollection = state.getIn(action.collectionId).map(element => {
+		const id = getId(element);
+		if (UNSAFE_IDS.includes(id)) {
+			return element;
+		}
+		return Object.prototype.hasOwnProperty.call(updates, id) && updates[id] ? updates[id] : element;
+	});
 	return state.setIn(action.collectionId, changedCollection);
 }
 
 function updateMapElements(state, action) {
 	const updates = action.operations.update;
 	const changedCollection = Object.keys(updates).reduce(
-		(collectionAccu, id) => collectionAccu.set(id, updates[id]),
+		(collectionAccu, id) =>
+			UNSAFE_IDS.includes(id) ? collectionAccu : collectionAccu.set(id, updates[id]),
 		state.getIn(action.collectionId),
 	);
 	return state.setIn(action.collectionId, changedCollection);

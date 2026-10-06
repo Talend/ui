@@ -56,7 +56,7 @@ It's probably the most important part of the collaboration process. Ensure the s
 
 **Things you need to contribute during design:**
 
-- Feasibility feedback (browser vs Figma. ie: "The library we use for charts cannot support the target design's behavior" or a11y concerns.)
+- Feasibility feedback (browser vs design tool. ie: "The library we use for charts cannot support the target design's behavior" or a11y concerns.)
 - State requirements ("how does it look when hovered?" etc...)
 - Behaviour requirements ("how should I display in error in this case?" etc...)
 - Human linting ("This text is not using a design token, I can't code it!" etc...)

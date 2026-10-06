@@ -1,5 +1,11 @@
 # @talend/http
 
+## 4.2.4
+
+### Patch Changes
+
+- 70afc3b: fix(http): only attach the CSRF token header to same-origin requests (compared with window.location.origin, so a cross-origin <base> element cannot make requests look trusted). Cross-origin APIs that need the token can be listed in `security.CSRFTokenAllowedOrigins` of `setDefaultConfig`.
+
 ## 4.2.3
 
 ### Patch Changes

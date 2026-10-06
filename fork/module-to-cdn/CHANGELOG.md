@@ -1,5 +1,11 @@
 # @talend/module-to-cdn
 
+## 9.18.5
+
+### Patch Changes
+
+- 5921606: fix(module-to-cdn): cache helper validates npm package names, runs npm without a shell and keeps cache paths inside the cache folder
+
 ## 9.18.4
 
 ### Patch Changes

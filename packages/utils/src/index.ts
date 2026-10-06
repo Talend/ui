@@ -6,3 +6,4 @@ import validation from './validation';
 
 export { date, validation, randomUUID, filters, getDataAttrFromProps };
 export { sanitizeReactProps } from './sanitizeReactProps';
+export { isSafeUrl } from './isSafeUrl';

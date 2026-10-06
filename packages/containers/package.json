@@ -60,9 +60,9 @@
   "devDependencies": {
     "@talend/icons": "workspace:^",
     "@talend/react-storybook-cmf": "workspace:^",
-    "@testing-library/jest-dom": "^6.10.0",
-    "@testing-library/react": "^14.3.1",
-    "@testing-library/user-event": "^14.6.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
     "i18next": "^26.4.2",
     "msw": "2.13.0",
     "@storybook/addon-a11y": "^10.5.5",
@@ -85,5 +85,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "14.0.0"
+  "version": "14.0.1"
 }
