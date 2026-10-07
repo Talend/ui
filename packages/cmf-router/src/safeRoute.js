@@ -21,7 +21,10 @@ export function isSafeRoute(route) {
 		return isSafePath(route);
 	}
 	if (route && typeof route === 'object') {
-		return typeof route.pathname !== 'string' || isSafePath(route.pathname);
+		if (route.pathname === undefined) {
+			return true;
+		}
+		return typeof route.pathname === 'string' && isSafePath(route.pathname);
 	}
 	return false;
 }
