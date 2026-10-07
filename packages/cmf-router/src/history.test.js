@@ -91,10 +91,13 @@ describe('history.create', () => {
 				const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 				const history = create({});
 				const pushState = vi.spyOn(window.history, 'pushState');
+				const replaceState = vi.spyOn(window.history, 'replaceState');
 				history.push(target);
 				history.replace(target);
 				expect(pushState).not.toHaveBeenCalled();
+				expect(replaceState).not.toHaveBeenCalled();
 				pushState.mockRestore();
+				replaceState.mockRestore();
 				errorSpy.mockRestore();
 			},
 		);
