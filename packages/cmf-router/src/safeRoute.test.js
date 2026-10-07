@@ -37,4 +37,22 @@ describe('isSafeRoute', () => {
 		expect(isSafeRoute(null)).toBe(false);
 		expect(isSafeRoute(undefined)).toBe(false);
 	});
+
+	it('should accept an in-app path with an interior space', () => {
+		expect(isSafeRoute('/ /reports')).toBe(true);
+	});
+
+	it('should accept a path with an interior space before a colon', () => {
+		expect(isSafeRoute('foo bar:baz')).toBe(true);
+	});
+
+	it('should still trim leading/trailing C0 controls and spaces before checking', () => {
+		expect(isSafeRoute('  //evil.com')).toBe(false);
+		expect(isSafeRoute('\u0000javascript:alert(1)')).toBe(false);
+	});
+
+	it('should still strip tabs/newlines anywhere before checking', () => {
+		expect(isSafeRoute('/\t/\n/evil.com')).toBe(false);
+		expect(isSafeRoute('java\tscript:alert(1)')).toBe(false);
+	});
 });
