@@ -1,5 +1,18 @@
 # @talend/design-system
 
+## 14.0.0
+
+### Major Changes
+
+- b9468a0: Use `react-router` v7 in tests and stories (dev dependency only, no runtime import of
+  `react-router`/`react-router-dom` in this package). Consumers running their own tests or stories
+  against this package with react-router must upgrade to `react-router@^7.18.4` and replace any
+  `react-router-dom` import by `react-router`.
+
+### Patch Changes
+
+- b9468a0: chore(deps): remove unmaintained `mdx-embed` (pulled @babel/core 7.12.9 via @mdx-js/mdx v1); use a plain iframe for the CodeSandbox embed
+
 ## 13.0.2
 
 ### Patch Changes

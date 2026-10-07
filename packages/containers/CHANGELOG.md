@@ -1,5 +1,22 @@
 # @talend/react-containers
 
+## 15.0.0
+
+### Major Changes
+
+- 9eac725: chore: bump react-router to v7 from transitive dependencies
+
+### Patch Changes
+
+- Updated dependencies [9eac725]
+- Updated dependencies [b9468a0]
+- Updated dependencies [a4c88c6]
+- Updated dependencies [b9468a0]
+- Updated dependencies [b9468a0]
+  - @talend/react-forms@19.0.0
+  - @talend/design-system@14.0.0
+  - @talend/react-components@21.0.0
+
 ## 14.0.1
 
 ### Patch Changes

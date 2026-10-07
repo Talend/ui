@@ -1,5 +1,19 @@
 # @talend/react-stepper
 
+## 16.0.0
+
+### Major Changes
+
+- 9eac725: chore: bump react-router to v7 from transitive dependencies
+
+### Patch Changes
+
+- Updated dependencies [b9468a0]
+- Updated dependencies [b9468a0]
+- Updated dependencies [b9468a0]
+  - @talend/design-system@14.0.0
+  - @talend/react-components@21.0.0
+
 ## 15.0.0
 
 ### Major Changes

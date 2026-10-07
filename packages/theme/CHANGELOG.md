@@ -1,5 +1,11 @@
 # @talend/bootstrap-theme
 
+## 10.1.5
+
+### Patch Changes
+
+- a63adde: chore(build): migrate build tooling from webpack to Vite (no change to published `dist/bootstrap.js` / `dist/bootstrap.css` / `dist/fonts` output shape)
+
 ## 10.1.4
 
 ### Patch Changes

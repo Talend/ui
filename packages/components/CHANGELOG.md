@@ -1,5 +1,22 @@
 # @talend/react-components
 
+## 21.0.0
+
+### Major Changes
+
+- b9468a0: Use `react-router` v7 in tests and stories (dev dependency only, no runtime import of
+  `react-router`/`react-router-dom` in this package). Consumers running their own tests or stories
+  against this package with react-router must upgrade to `react-router@^7.18.4` and replace any
+  `react-router-dom` import by `react-router`.
+
+### Patch Changes
+
+- Updated dependencies [a63adde]
+- Updated dependencies [b9468a0]
+- Updated dependencies [b9468a0]
+  - @talend/bootstrap-theme@10.1.5
+  - @talend/design-system@14.0.0
+
 ## 20.0.1
 
 ### Patch Changes

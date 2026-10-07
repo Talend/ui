@@ -1,5 +1,11 @@
 # @talend/scripts-core
 
+## 21.0.2
+
+### Patch Changes
+
+- a4c88c6: chore: drop unused babel-loader dep
+
 ## 21.0.1
 
 ### Patch Changes

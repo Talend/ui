@@ -1,5 +1,16 @@
 # Changelog
 
+## 11.0.0
+
+### Major Changes
+
+- 9eac725: chore: bump react-router to v7 from transitive dependencies
+
+### Patch Changes
+
+- Updated dependencies [b9468a0]
+  - @talend/react-components@21.0.0
+
 ## 10.0.0
 
 ### Major Changes

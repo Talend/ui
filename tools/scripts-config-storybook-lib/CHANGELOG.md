@@ -1,5 +1,15 @@
 # @talend/scripts-config-storybook-lib
 
+## 7.0.1
+
+### Patch Changes
+
+- Updated dependencies [a63adde]
+- Updated dependencies [b9468a0]
+- Updated dependencies [b9468a0]
+  - @talend/bootstrap-theme@10.1.5
+  - @talend/design-system@14.0.0
+
 ## 7.0.0
 
 ### Major Changes

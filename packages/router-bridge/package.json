@@ -1,6 +1,6 @@
 {
   "name": "@talend/router-bridge",
-  "version": "3.1.5",
+  "version": "4.0.0",
   "description": "Bridge on top of cmf-router or react-router v5 + @talend/connected-react-router",
   "main": "lib/index.js",
   "exports": {
@@ -37,7 +37,7 @@
     "react-router": "^7.18.4"
   },
   "peerDependencies": {
-    "@talend/connected-react-router": "^6.9.3",
+    "@talend/connected-react-router": "^7.0.0",
     "react-router": "^7.18.4"
   },
   "peerDependenciesMeta": {

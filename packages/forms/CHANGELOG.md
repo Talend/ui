@@ -1,5 +1,22 @@
 # @talend/react-forms
 
+## 19.0.0
+
+### Major Changes
+
+- 9eac725: chore: bump react-router to v7 from transitive dependencies
+
+### Patch Changes
+
+- a4c88c6: chore: drop json-loader from the dev deps
+- Updated dependencies [0b47170]
+- Updated dependencies [b9468a0]
+- Updated dependencies [b9468a0]
+- Updated dependencies [b9468a0]
+  - @talend/json-schema-form-core@3.0.0
+  - @talend/design-system@14.0.0
+  - @talend/react-components@21.0.0
+
 ## 18.0.1
 
 ### Patch Changes

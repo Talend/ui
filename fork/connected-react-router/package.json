@@ -1,6 +1,6 @@
 {
   "name": "@talend/connected-react-router",
-  "version": "6.9.5",
+  "version": "7.0.0",
   "description": "Fork of connected-react-router: a Redux binding for React Router v4 and v5",
   "main": "lib/index.js",
   "module": "lib-esm/index.js",
