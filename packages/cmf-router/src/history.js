@@ -37,7 +37,7 @@ export function create(options) {
 		if (!basename) return location;
 
 		const object = typeof location === 'string' ? parsePath(location) : location;
-		const pname = object.pathname;
+		const pname = typeof object.pathname === 'string' ? object.pathname : '';
 		const normalizedBasename = basename.slice(-1) === '/' ? basename : `${basename}/`;
 		const normalizedPathname = pname.charAt(0) === '/' ? pname.slice(1) : pname;
 		const pathname = normalizedBasename + normalizedPathname;

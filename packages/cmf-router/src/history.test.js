@@ -71,6 +71,12 @@ describe('history.create', () => {
 			expect(history.location.state).toEqual({ x: 1 });
 		});
 
+		it('push should not throw when the location has no pathname', () => {
+			const history = create({ basename: '/app' });
+			expect(() => history.push({})).not.toThrow();
+			expect(history.location.pathname).toBe('/app/');
+		});
+
 		it('should notify listeners with the prefixed location', () => {
 			const history = create({ basename: '/app' });
 			const listener = vi.fn();
