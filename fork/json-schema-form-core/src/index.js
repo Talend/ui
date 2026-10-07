@@ -9,7 +9,6 @@ import canonicalTitleMapImp from './canonical-title-map';
 
 export { merge } from './merge';
 export { select } from './select';
-export { jsonref } from './resolve';
 export { traverseSchema, traverseForm } from './traverse';
 export { validate } from './validate';
 
