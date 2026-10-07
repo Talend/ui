@@ -89,4 +89,29 @@ describe('history.create', () => {
 			});
 		});
 	});
+
+	describe('route validation', () => {
+		it.each(['javascript:alert(1)', 'https://evil.example', '//evil.example'])(
+			'should refuse to push/replace %s',
+			target => {
+				const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+				const history = create({});
+				const pushState = vi.spyOn(window.history, 'pushState');
+				const replaceState = vi.spyOn(window.history, 'replaceState');
+				history.push(target);
+				history.replace(target);
+				expect(pushState).not.toHaveBeenCalled();
+				expect(replaceState).not.toHaveBeenCalled();
+				pushState.mockRestore();
+				replaceState.mockRestore();
+				errorSpy.mockRestore();
+			},
+		);
+
+		it('should still push in-app paths, with basename', () => {
+			const history = create({ basename: '/app' });
+			history.push('/foo');
+			expect(history.location.pathname).toBe('/app/foo');
+		});
+	});
 });

@@ -1,4 +1,5 @@
 import { push, replace } from '@talend/connected-react-router';
+import { isSafeRoute } from './safeRoute';
 
 const cmfMiddleware = store => next => action => {
 	const config = action.cmf;
@@ -9,6 +10,10 @@ const cmfMiddleware = store => next => action => {
 		let route = config.routerPush || config.routerReplace;
 		if (typeof route === 'function') {
 			route = route(action);
+		}
+		if (!isSafeRoute(route)) {
+			console.error('CMF router: refusing to navigate to a non in-app route', route);
+			return next(action);
 		}
 		if (config.routerPush) {
 			store.dispatch(push(route));
