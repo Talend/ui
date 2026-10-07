@@ -1,5 +1,16 @@
 # @talend/react-faceted-search-query-client
 
+## 5.0.0
+
+### Major Changes
+
+- 1ad75cc: chore: react-router v7 transitive update
+
+### Patch Changes
+
+- Updated dependencies [9eac725]
+  - @talend/react-faceted-search@25.0.0
+
 ## 4.0.0
 
 ### Major Changes

@@ -1,5 +1,11 @@
 # @talend/storybook-docs
 
+## 3.2.1
+
+### Patch Changes
+
+- a4c88c6: chore: drop sass and sass-loader deps unused
+
 ## 3.2.0
 
 ### Minor Changes
