@@ -29,7 +29,7 @@
 
 ### Minor Changes
 
-- ce6a03c: Declare `@talend/scripts-config-prettier` and `@talend/scripts-config-stylelint` as real dependencies instead of phantom deps that only resolved because yarn's flat hoist happened to expose them (pnpm's isolated linker doesn't hoist, so they'd otherwise be missing). Also drop the `extends` command's jest-config-file generation, which relied on `@talend/scripts-config-jest` and is no longer relevant now that jest is being phased out.
+- ce6a03c: Declare `@talend/scripts-config-prettier` and `@talend/scripts-config-stylelint` as real dependencies instead of phantom deps that only resolved because the former package manager's flat hoist happened to expose them (pnpm's isolated linker doesn't hoist, so they'd otherwise be missing). Also drop the `extends` command's jest-config-file generation, which relied on `@talend/scripts-config-jest` and is no longer relevant now that jest is being phased out.
 
 ### Patch Changes
 
@@ -476,7 +476,7 @@
 
 ### Minor Changes
 
-- 51206dfd6: Make scripts-core compliant with yarn v3.X
+- 51206dfd6: Update scripts-core for the workspace package manager used at the time.
 
 ## 13.2.0
 

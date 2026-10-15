@@ -17,6 +17,8 @@ Run `pnpm install` at the root, then `pnpm build` (`build:lib` + `build:lib:esm`
 
 Common root commands: `pnpm vitest:run`, `pnpm oxlint:run`, `pnpm stylelint:run`, `pnpm storybook:start-design-system`. Per package: `pnpm --filter <name> run <script>`.
 
+Derive gate commands from the root `packageManager` field and the relevant `package.json` scripts. The root test gate is `pnpm vitest:run`; there is no root `test` script. Check external agent workflow configuration for stale gates before running them.
+
 ---
 
 ## Code Style & Formatting

@@ -2,9 +2,9 @@
 
 ## Context
 
-Talend/UI is a Yarn workspaces monorepo with multiple packages, tools, and forked dependencies spread across `packages/`, `tools/`, and `fork/` directories. Each of these packages and tools has its own `package.json` with duplicated development dependencies.
+Talend/UI is a pnpm workspaces monorepo with multiple packages, tools, and forked dependencies spread across `packages/`, `tools/`, and `fork/` directories. Each of these packages and tools has its own `package.json` with duplicated development dependencies.
 
-Our current build orchestration relies on custom Yarn workspace scripts managed through `@talend/scripts-yarn-workspace`. As the monorepo grows, we face several challenges:
+Before adopting Turbo, our build orchestration relied on custom workspace scripts. As the monorepo grows, we face several challenges:
 
 - **Redundant installations**: Development tools like Babel, ESLint, TypeScript, and build scripts are installed in every package's `node_modules`, consuming significant disk space and installation time.
 - **Lack of build caching**: Without proper task orchestration and caching, builds are not optimized across the monorepo, leading to repeated compilation of unchanged dependencies.
@@ -128,7 +128,7 @@ Individual packages retain only **runtime dependencies** specific to their funct
 
 - **Misconfigured task outputs**: If `outputs` in `turbo.json` don't match actual build outputs, caching will fail silently, causing stale artifacts to be served.
 - **Root-level dependency bloat**: Over time, the root `package.json` could accumulate unnecessary dependencies if not carefully curated.
-- **Local development friction**: Developers must run `yarn install` at the root; package-level `yarn install` in subdirectories won't work as expected.
+- **Local development friction**: Developers should run `pnpm install` at the workspace root to install dependencies for all packages.
 
 ## Implementation Notes
 

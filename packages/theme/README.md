@@ -10,9 +10,8 @@ Note: The example has been taken from the excellent project [Bootstwatch](https:
 
 # Docs & Help
 
-* [Example page](https://talend.github.io/bootstrap-theme)
-* [Sass Api](https://talend.github.io/bootstrap-theme/sassdoc)
-
+- [Example page](https://talend.github.io/bootstrap-theme)
+- [Sass Api](https://talend.github.io/bootstrap-theme/sassdoc)
 
 # How to use
 
@@ -25,7 +24,7 @@ npm install --save @talend/bootstrap-heme
 or
 
 ```bash
-yarn add --dev @talend/bootstrap-theme
+pnpm add --save-dev @talend/bootstrap-theme
 ```
 
 ## Configure your project
@@ -76,7 +75,8 @@ You can now add [Bootstrap](http://getbootstrap.com/) markup!
 # How to contribute
 
 ```bash
-yarn && yarn start
+pnpm install
+pnpm --filter @talend/bootstrap-theme run start
 ```
 
 Open [http://localhost:1337/](http://localhost:1337/) to see your changes.

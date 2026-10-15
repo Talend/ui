@@ -3,12 +3,9 @@ const path = require('path');
 const crypto = require('crypto');
 
 function getLockFilePath(cwd = process.cwd()) {
-	const yarnlockPath = path.join(cwd, 'yarn.lock');
 	const pkglockPath = path.join(cwd, 'package-lock.json');
 	const pnpmLockPath = path.join(cwd, 'pnpm-lock.yaml');
-	if (fs.existsSync(yarnlockPath)) {
-		return yarnlockPath;
-	} else if (fs.existsSync(pkglockPath)) {
+	if (fs.existsSync(pkglockPath)) {
 		return pkglockPath;
 	} else if (fs.existsSync(pnpmLockPath)) {
 		return pnpmLockPath;

@@ -15,13 +15,13 @@ $> git clone git@github.com:Talend/ui.git
 Install the dependencies
 
 ```sh
-$> yarn
+$> pnpm install
 ```
 
 Start Storybook and start editing
 
 ```sh
-$> yarn workspace @talend/storybook-docs run start
+$> pnpm --filter @talend/storybook-docs run start
 ```
 
 ## How to integrate the shared theme in your storybook

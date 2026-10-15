@@ -47,7 +47,6 @@ test
 .eslintignore
 .eslintrc
 docs.json
-yarn.lock
 
 .babelrc.json
 eslint-report.json

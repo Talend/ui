@@ -88,7 +88,7 @@
 ### Patch Changes
 
 - 685d45a: fix: cwe-407 update immutable
-- ce6a03c: Switch internal `build:lib:tsc` script invocation from `yarn run tsc` to `pnpm run tsc` and drop the now-unused `resolutions.minimist` field (pnpm doesn't read `resolutions`; the override is handled at the workspace root instead).
+- ce6a03c: Switch internal `build:lib:tsc` script invocation to `pnpm run tsc` and drop the now-unused `resolutions.minimist` field (pnpm doesn't read `resolutions`; the override is handled at the workspace root instead).
 - 9b87959: chore: drop custom babel plugins
 - Updated dependencies [1de4792]
 - Updated dependencies [e52b3e1]

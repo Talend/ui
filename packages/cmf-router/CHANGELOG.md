@@ -391,8 +391,8 @@
 
   ## Migration (dependencies)
   - Update your package.json to point to `"@talend/react-cmf-router": "^4.0.0"`.
-  - Execute yarn install and yarn-deduplicate.
-  - yarn list --pattern router should not list `react-router-redux` anymore and all dependencies listed should be flat.
+  - Install and deduplicate dependencies with the project's package manager.
+  - Inspect the router dependency tree: it should not list `react-router-redux` anymore and all dependencies listed should be flat.
 
   # Breaking changes (code)
 
