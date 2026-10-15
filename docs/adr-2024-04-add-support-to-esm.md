@@ -4,7 +4,7 @@
 
 Our build and bundling setup currently uses CommonJS modules along with webpack and the dynamic-cdn-webpack-plugin.
 
-To streamline our development workflow and reduce complexity, we are adopting pnpm.
+To streamline our development workflow and reduce complexity, we are transitioning from yarn to pnpm.
 
 However, it has been identified that pnpm is not compatible with dynamic-cdn-webpack-plugin. This incompatibility, along with the decision to remove the plugin, has resulted in a degradation of the developer experience, primarily through increased build times.
 
@@ -18,7 +18,7 @@ Therefore, having to configure a complex toolchain is becoming obsolete. Given t
 
 ## Problem
 
-The adoption of pnpm has uncovered an incompatibility with dynamic-cdn-webpack-plugin, exacerbating the decision to discontinue using this plugin.
+The transition from yarn to pnpm has uncovered an incompatibility with dynamic-cdn-webpack-plugin, exacerbating the decision to discontinue using this plugin.
 
 This has adversely impacted the developer experience by elongating the build times, a significant concern as it can hinder our overall productivity and agility.
 

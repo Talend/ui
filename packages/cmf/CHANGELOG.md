@@ -398,8 +398,8 @@ So yes you can t use multiple contextTypes as for now. So all components using t
   - add "@redux-saga/testing-utils": "^1.1.3", for testing sagas purpose
   - up redux-batched-actions: from 0.2.0 to 0.5.0
 
-- The Redux dependency tree is flat
-- The project's test command passes, otherwise fix the failures
+- `yarn list --pattern redux` output is flat
+- `yarn test command` is ok else fix them
 - changeset has been added with major release on concerned packages
 - peer dependencies are aligned with dev dependencies
 - publish release on verdaccio is working
