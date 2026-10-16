@@ -1,5 +1,4 @@
 node_modules
-yarn.lock
 .npm-cache-info.json
 .axios-cache
 .test-cache

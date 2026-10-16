@@ -22,13 +22,13 @@ $> git clone git@github.com:Talend/ui.git
 Install the dependencies
 
 ```sh
-$> yarn
+$> pnpm install
 ```
 
 Start Storybook and start editing
 
 ```sh
-$> yarn start
+$> pnpm --filter @talend/design-system run start
 ```
 
 ## Contributions

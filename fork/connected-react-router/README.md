@@ -35,7 +35,7 @@ Connected React Router requires **React 16.4 and React Redux 6.0 or later**.
 
 Or
 
-    yarn add connected-react-router
+    pnpm add connected-react-router
 
 Usage
 -----
@@ -160,7 +160,7 @@ Generated files will be in the `lib` folder.
 Development
 -----------
 
-When testing the example apps with `npm link` or `yarn link`, you should explicitly provide the same `Context` to both `Provider` and `ConnectedRouter` to make sure that the `ConnectedRouter` doesn't pick up a different `ReactReduxContext` from a different `node_modules` folder.
+When testing the example apps with `npm link` or `pnpm link`, you should explicitly provide the same `Context` to both `Provider` and `ConnectedRouter` to make sure that the `ConnectedRouter` doesn't pick up a different `ReactReduxContext` from a different `node_modules` folder.
 
 In `index.js`.
 

@@ -49,7 +49,6 @@ storybook-static
 .editorconfig
 .eslintrc
 .sass-lint.yml
-yarn.lock
 
 .babelrc.json
 eslint-report.json
