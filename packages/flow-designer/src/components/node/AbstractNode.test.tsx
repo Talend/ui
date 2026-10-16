@@ -1,12 +1,15 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
+import { Map } from 'immutable';
 
 import {
 	NodeGraphicalAttributes,
 	NodeRecord,
+	PortRecord,
 	PositionRecord,
 	SizeRecord,
 } from '../../constants/flowdesigner.model';
+import { PORT_SOURCE } from '../../constants/flowdesigner.constants';
 import AbstractNode, { ABSTRACT_NODE_INVARIANT } from './AbstractNode.component';
 
 const node = new NodeRecord({
@@ -28,6 +31,24 @@ describe('Testing <AbstractNode>', () => {
 		);
 		const rect = document.querySelector('g[transform]');
 		expect(rect).toHaveAttribute('transform', 'translate(100, 50)');
+	});
+
+	it('updates source port positions from node geometry', () => {
+		const port = new PortRecord({
+			id: 'port-id',
+			nodeId: 'node-id',
+			graphicalAttributes: Map({ properties: Map({ type: PORT_SOURCE, index: 0 }) }),
+		});
+
+		const positionedPorts = AbstractNode.calculatePortPosition(
+			Map({ 'port-id': port }),
+			new PositionRecord({ x: 100, y: 50 }),
+			new SizeRecord({ width: 125, height: 75 }),
+		);
+		const position = positionedPorts.get('port-id')?.getPosition();
+
+		expect(position?.get('x')).toBe(225);
+		expect(position?.get('y')).toBe(87.5);
 	});
 
 	it('call the injected onClick action when clicked', () => {
