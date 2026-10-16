@@ -46,7 +46,7 @@ jobs:
 
       - name: Jest Coverage Comment
         if: github.event_name == 'pull_request'
-        uses: MishaKav/jest-coverage-comment@642ef024cc554a34b7082cea12c7bf63575ae151 #1.0.36
+        uses: MishaKav/jest-coverage-comment@1b5d15445c8afba0c13bd00167bd31130b812d0a #1.0.37
         with:
           multiple-files: |
             assets-api, ./packages/assets-api/coverage/coverage-summary.json
