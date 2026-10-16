@@ -4,7 +4,7 @@
 
 Add npm package
 
-`yarn add @talend/react-faceted-search-query-client`
+`pnpm add @talend/react-faceted-search-query-client`
 
 ## General
 

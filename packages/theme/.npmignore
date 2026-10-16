@@ -44,7 +44,6 @@ test
 .editorconfig
 .sass-lint.yml
 screenshots.config.json
-yarn.lock
 
 .babelrc.json
 eslint-report.json

@@ -13,7 +13,7 @@ npm i @talend/utils
 or
 
 ```sh
-yarn add @talend/utils
+pnpm add @talend/utils
 ```
 
 ## Usage

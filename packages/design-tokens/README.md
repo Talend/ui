@@ -6,7 +6,7 @@ They are exported from the design source files using [Supernova](https://www.sup
 ## Install
 
 ```bash
-$> yarn add -D @talend/design-tokens
+$> pnpm add -D @talend/design-tokens
 ```
 
 ## Usage

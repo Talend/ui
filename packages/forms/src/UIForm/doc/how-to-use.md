@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-yarn install @talend/react-forms
+pnpm add @talend/react-forms
 ```
 
 ## Show me the code !
@@ -13,24 +13,20 @@ import React from 'react';
 import { UIForm } from '@talend/react-forms/lib/UIForm';
 
 class MyComponent extends React.Component {
-	onChange(event, { schema, value, oldProperties, properties }) {
+	onChange(event, { schema, value, oldProperties, properties }) {}
 
-	}
+	onErrors(event, errors) {}
 
-	onErrors(event, errors) {
-
-	}
-
-	onSubmit(event, properties) {
-
-	}
+	onSubmit(event, properties) {}
 
 	render() {
-		return (<UIForm
-		    {...props}
-		    id={'my-unique-form-id'}
-		    data={{ jsonSchema, uiSchema, properties, errors }}
-		/>);
+		return (
+			<UIForm
+				{...props}
+				id={'my-unique-form-id'}
+				data={{ jsonSchema, uiSchema, properties, errors }}
+			/>
+		);
 	}
 }
 ```
@@ -41,32 +37,31 @@ UIForms manage its own state based on its `props.data`. But if you need to manag
 
 This is called at each value change, as the user type.
 
-| Argument | Type | Description |
-|---|---|---|
-| event | `object` | The event that triggered the change. |
-| payload.schema | `object` | The widget schema. See [principles](./principles.md). |
-| payload.value | `any` | The widget new value. |
-| payload.oldProperties | `object` | The whole form data before the change. |
-| payload.properties | `object` | The whole form data after the change. |### onChange
+| Argument              | Type     | Description                                           |
+| --------------------- | -------- | ----------------------------------------------------- |
+| event                 | `object` | The event that triggered the change.                  |
+| payload.schema        | `object` | The widget schema. See [principles](./principles.md). |
+| payload.value         | `any`    | The widget new value.                                 |
+| payload.oldProperties | `object` | The whole form data before the change.                |
+| payload.properties    | `object` | The whole form data after the change.                 | ### onChange |
 
 ### onErrors
 
 This is called at each new validation errors.
 
-| Argument | Type | Description |
-|---|---|---|
-| event | `object` | The event that triggered the error. |
-| errors | `object` | The whole form error map by property key. |
+| Argument | Type     | Description                               |
+| -------- | -------- | ----------------------------------------- |
+| event    | `object` | The event that triggered the error.       |
+| errors   | `object` | The whole form error map by property key. |
 
 ### onSubmit
 
 This is called on form submit.
 
-| Argument | Type | Description |
-|---|---|---|
-| event | `object` | The event that triggered the submit. |
-| properties | `object` | The whole form data. |
-
+| Argument   | Type     | Description                          |
+| ---------- | -------- | ------------------------------------ |
+| event      | `object` | The event that triggered the submit. |
+| properties | `object` | The whole form data.                 |
 
 ## How to synchronize data
 
@@ -77,7 +72,6 @@ import React from 'react';
 import { UIForm } from '@talend/react-forms/lib/UIForm';
 
 class MyComponent extends React.Component {
-
 	onChange(event, { schema, value, oldProperties, properties }) {
 		// save properties in your app state
 	}
@@ -92,13 +86,15 @@ class MyComponent extends React.Component {
 		const properties = myAppState.properties;
 		const errors = myAppState.errors;
 
-		return (<UIForm
-		    {...props}
-		    id={'my-unique-form-id'}
-		    data={{ jsonSchema, uiSchema, properties, errors }}
-		    onErrors={this.onErrors.bind(this)}
-		    onChange={this.onChange.bind(this)}
-		/>);
+		return (
+			<UIForm
+				{...props}
+				id={'my-unique-form-id'}
+				data={{ jsonSchema, uiSchema, properties, errors }}
+				onErrors={this.onErrors.bind(this)}
+				onChange={this.onChange.bind(this)}
+			/>
+		);
 	}
 }
 ```

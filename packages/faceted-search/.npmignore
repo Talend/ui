@@ -47,4 +47,3 @@ test
 .eslintignore
 .eslintrc
 docs.json
-yarn.lock

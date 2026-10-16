@@ -8,9 +8,11 @@ It can also be used as a development environment.
 
 #### Install
 
-Install is done at the root of the mono repository but because we use the UMD we need to do
+Install dependencies and build the workspace libraries from the repository root before starting the playground:
 
+```sh
 cd Talend/ui
-yarn
-yarn pre-release
-yarn start
+pnpm install
+pnpm build
+pnpm start
+```

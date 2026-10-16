@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { UNSAFE_createBrowserHistory as createReactRouterHistory, parsePath } from 'react-router';
+import { isSafeRoute } from './safeRoute';
 
 /**
  * react-router v7 does not depend on `history` anymore, it embeds a small history
@@ -36,7 +37,7 @@ export function create(options) {
 		if (!basename) return location;
 
 		const object = typeof location === 'string' ? parsePath(location) : location;
-		const pname = object.pathname;
+		const pname = typeof object.pathname === 'string' ? object.pathname : '';
 		const normalizedBasename = basename.slice(-1) === '/' ? basename : `${basename}/`;
 		const normalizedPathname = pname.charAt(0) === '/' ? pname.slice(1) : pname;
 		const pathname = normalizedBasename + normalizedPathname;
@@ -57,10 +58,22 @@ export function create(options) {
 	];
 
 	const oldPush = history.push;
-	const push = (location, state) => oldPush(...withState(prependBasename(location), state));
+	const push = (location, state) => {
+		if (!isSafeRoute(location)) {
+			console.error('CMF router: refusing to navigate to a non in-app route', location);
+			return undefined;
+		}
+		return oldPush(...withState(prependBasename(location), state));
+	};
 
 	const oldReplace = history.replace;
-	const replace = (location, state) => oldReplace(...withState(prependBasename(location), state));
+	const replace = (location, state) => {
+		if (!isSafeRoute(location)) {
+			console.error('CMF router: refusing to navigate to a non in-app route', location);
+			return undefined;
+		}
+		return oldReplace(...withState(prependBasename(location), state));
+	};
 
 	Object.assign(history, {
 		push,

@@ -23,7 +23,6 @@ This is the set of SVG icons used in our apps.
 [quality-badge]: http://npm.packagequality.com/shield/talend-icons.svg
 [quality-url]: http://packagequality.com/#?package=talend-icons
 
-
 # How to use
 
 To use this icon set you just have to install it through NPM.
@@ -105,10 +104,8 @@ those are useless as they can't be styled and only add size to icons
 # How to test in local
 
 ```
-yarn docs
-cd docs
-# use your command-line http server to provide the content
-http-server
+# from the repository root
+pnpm --filter @talend/icons run start
 ```
 
 # How to build in local
@@ -116,17 +113,17 @@ http-server
 ```
 # go the UI root
 cd ../..
-yarn build-icons
-# this builds the new icons and build components with this new icons and launch the unit test
+pnpm --filter @talend/icons run build:lib
+# this builds the icon bundles, type declarations, and webfont
 ```
 
 # Interaction with backend product
 
 The icons module produces the icons as jars:
 
-* `org.talend.ui:talend-icon:${talend-ui.version}:jar:api`: Talend Component Kit API extension for internal icons.
-* `org.talend.ui:talend-icon:${talend-ui.version}:jar:svg`: the SVG icons.
-* `org.talend.ui:talend-icon:${talend-ui.version}:jar:png`: the icons as PNG (for the Studio).
+- `org.talend.ui:talend-icon:${talend-ui.version}:jar:api`: Talend Component Kit API extension for internal icons.
+- `org.talend.ui:talend-icon:${talend-ui.version}:jar:svg`: the SVG icons.
+- `org.talend.ui:talend-icon:${talend-ui.version}:jar:png`: the icons as PNG (for the Studio).
 
 You can ensure the jar is ready to be released using the following command - you must have maven installed:
 
