@@ -74,7 +74,7 @@
     "reactour": "^1.19.4",
     "recharts": "^2.15.4",
     "styled-components": "^5.3.11",
-    "warning": "^3.0.0"
+    "warning": "^4.0.3"
   },
   "devDependencies": {
     "@talend/bootstrap-theme": "workspace:^",
