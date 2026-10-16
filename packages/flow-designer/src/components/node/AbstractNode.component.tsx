@@ -10,7 +10,9 @@ import { GRID_SIZE, PORT_SINK, PORT_SOURCE } from '../../constants/flowdesigner.
 import {
 	PortRecordMap,
 	Position as PositionType,
+	PositionRecord,
 	Size as SizeType,
+	SizeRecord,
 	NodeRecord,
 	Id,
 } from '../../customTypings/index.d';
@@ -26,10 +28,10 @@ ex: <AbstractNode><rect /></AbstractNode>`;
  */
 function calculatePortPosition(
 	ports: PortRecordMap,
-	nodePosition: PositionType,
-	nodeSize: SizeType,
-) {
-	let portsWithPosition = Map();
+	nodePosition: PositionRecord,
+	nodeSize: SizeRecord,
+): PortRecordMap {
+	let portsWithPosition: PortRecordMap = Map();
 	const emitterPorts = ports.filter(port => Port.getTopology(port) === PORT_SOURCE);
 	const sinkPorts = ports.filter(port => Port.getTopology(port) === PORT_SINK);
 	const range = [
@@ -61,7 +63,7 @@ function calculatePortPosition(
 				Position.getXCoordinate(nodePosition) + Size.getWidth(nodeSize),
 				scaleYEmitter(emitterNumber),
 			);
-			portsWithPosition = portsWithPosition.set(Port.getId(port), Port.setPosition(port, position));
+			portsWithPosition = portsWithPosition.set(Port.getId(port), Port.setPosition(position, port));
 		});
 	sinkPorts
 		.sort((a, b) => {
@@ -79,7 +81,7 @@ function calculatePortPosition(
 				Position.getXCoordinate(nodePosition),
 				scaleYSink(sinkNumber),
 			);
-			portsWithPosition = portsWithPosition.set(Port.getId(port), Port.setPosition(port, position));
+			portsWithPosition = portsWithPosition.set(Port.getId(port), Port.setPosition(position, port));
 		});
 	return portsWithPosition;
 }

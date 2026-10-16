@@ -13,10 +13,11 @@ import {
 } from '../constants/flowdesigner.constants';
 
 import { LinkRecord, LinkGraphicalAttributes, LinkData } from '../constants/flowdesigner.model';
+import type { State } from '../customTypings/index.d';
 
-const defaultState = Map();
+const defaultState: State = Map() as State;
 
-export default function linkReducer(state = defaultState, action: any) {
+export default function linkReducer(state: State = defaultState, action: any): State {
 	switch (action.type) {
 		case FLOWDESIGNER_LINK_ADD:
 			if (state.getIn(['links', action.linkId])) {

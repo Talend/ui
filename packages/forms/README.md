@@ -150,4 +150,3 @@ Modes are loaded from CDN. No more additional config is required.
 Copyright (c) 2006-2016 Talend
 
 Licensed under the Apache V2 License
-<!-- Temporary change to trigger CI build diagnosis. -->

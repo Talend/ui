@@ -37,7 +37,11 @@ class AbstractPort extends Component<Props> {
 	}
 
 	render() {
-		const position = Port.getPosition(this.props.port);
+		const { port } = this.props;
+		if (!port) {
+			return null;
+		}
+		const position = Port.getPosition(port);
 		return (
 			<g>
 				<g

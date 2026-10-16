@@ -4,7 +4,7 @@ import type { ReactElement } from 'react';
 import { line, curveBasis, interpolateBasis } from 'd3';
 
 import LinkHandle from './LinkHandle.component';
-import { Position, PortRecord } from '../../customTypings/index.d';
+import { Position, PositionRecord, PortRecord } from '../../customTypings/index.d';
 
 const concreteLine = line()
 	.x((d: any) => d.x)
@@ -24,7 +24,7 @@ function calculatePath(sourcePosition: Position, targetPosition: Position) {
 type Props = {
 	source: PortRecord;
 	target: PortRecord;
-	targetHandlePosition: Position;
+	targetHandlePosition: PositionRecord;
 	calculatePath: (
 		sourcePosition: Position,
 		targetPosition: Position,
@@ -35,7 +35,7 @@ type Props = {
 	onTargetDragEnd?: (event: any) => void;
 	children?: any;
 	linkSourceHandleComponent?: ReactElement;
-	sourceHandlePosition?: Position;
+	sourceHandlePosition?: PositionRecord;
 	linkTargetHandleComponent?: ReactElement;
 };
 

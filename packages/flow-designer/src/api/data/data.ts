@@ -6,6 +6,7 @@ import isString from 'lodash/isString';
 import { Map } from 'immutable';
 
 import { throwInDev, throwTypeError } from '../throwInDev';
+import type { ImmutableDataContainer } from '../../customTypings/index.d';
 
 /**
  * return true if the parameter is an Immutable.Map throw otherwise
@@ -13,7 +14,7 @@ import { throwInDev, throwTypeError } from '../throwInDev';
  * @param {any} map - the value to be checkd as Immutable.Map
  * @return {bool}
  */
-export function isMapElseThrow(map: Map<any, any>) {
+export function isMapElseThrow(map: ImmutableDataContainer): map is Map<any, any> {
 	const test = Map.isMap(map);
 	if (!test) {
 		throwTypeError('Immutable.Map', map, 'map');
@@ -30,9 +31,7 @@ export function isMapElseThrow(map: Map<any, any>) {
 export function isKeyElseThrow(key: string | number) {
 	const test = isString(key);
 	if (!test) {
-		throwInDev(
-			`key should be a string, was given ${key && key.toString()} of type ${typeof key}`,
-		);
+		throwInDev(`key should be a string, was given ${key && key.toString()} of type ${typeof key}`);
 	}
 	return test;
 }
@@ -45,7 +44,7 @@ export function isKeyElseThrow(key: string | number) {
  * @param {Immutable.Map} map
  * @returns {Immutable.Map}
  */
-export const set = curry((key: any, value: any, map: Map<any, any>) => {
+export const set = curry((key: any, value: any, map: ImmutableDataContainer) => {
 	if (isKeyElseThrow(key) && isMapElseThrow(map)) {
 		return map.set(key, value);
 	}
@@ -59,7 +58,7 @@ export const set = curry((key: any, value: any, map: Map<any, any>) => {
  * @param {Immutable.Map} map
  * @returns {any | null}
  */
-export const get = curry((key: any, map: Map<any, any>) => {
+export const get = curry((key: any, map: ImmutableDataContainer) => {
 	if (isKeyElseThrow(key) && isMapElseThrow(map)) {
 		return map.get(key);
 	}
@@ -73,7 +72,7 @@ export const get = curry((key: any, map: Map<any, any>) => {
  * @param {Immutable.Map} map
  * @return {bool}
  */
-export const has = curry((key: any, map: Map<any, any>) => {
+export const has = curry((key: any, map: ImmutableDataContainer) => {
 	if (isKeyElseThrow(key) && isMapElseThrow(map)) {
 		return map.has(key);
 	}
@@ -87,7 +86,7 @@ export const has = curry((key: any, map: Map<any, any>) => {
  * @param {Immutable.Map} map
  * @returns {Immutable.Map}
  */
-export const deleteKey = curry((key: any, map: Map<any, any>) => {
+export const deleteKey = curry((key: any, map: ImmutableDataContainer) => {
 	if (isKeyElseThrow(key) && isMapElseThrow(map)) {
 		return map.delete(key);
 	}

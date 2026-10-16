@@ -1,4 +1,4 @@
-import { RecordOf, Map } from 'immutable';
+import { List, Map, RecordOf } from 'immutable';
 import { PORT_SINK, PORT_SOURCE } from '../constants/flowdesigner.constants';
 
 /** $BASIC */
@@ -89,31 +89,51 @@ export type PositionRecord = RecordOf<Position>;
 
 export type SizeRecord = RecordOf<Size>;
 
-export type PortRecord = RecordOf<Port> & {
-	getPosition: () => Position;
+export type ImmutableDataContainer = Map<any, any> | RecordOf<any>;
+
+export type PortRecordValues = {
+	id: Id;
+	nodeId: Id;
+	data: ImmutableDataContainer;
+	graphicalAttributes: ImmutableDataContainer;
+	getPosition: () => PositionRecord;
 	getPortType: () => string;
 	getPortDirection: () => PortDirection;
 	getPortFlowType: () => string;
 	getIndex: () => number;
+	setPosition: (position: Position) => PortRecord;
 	setIndex: (index: number) => PortRecord;
 };
 
-// TODO add record
-export type NodeRecord = RecordOf<Node> & {
-	getPosition: () => Position;
-	getSize: () => Size;
+export type PortRecord = RecordOf<PortRecordValues>;
+
+export type NodeRecordValues = {
+	id: Id;
+	type: string;
+	data: ImmutableDataContainer;
+	graphicalAttributes: ImmutableDataContainer;
+	components?: List<any>;
+	getComponents?: () => Map<any, any>;
+	setComponents?: (components: Map<any, any>) => any;
+	getPosition: () => PositionRecord;
+	getSize: () => SizeRecord;
 	getNodeType: () => string;
 };
 
-export type NestedNodeRecord = RecordOf<Node> & {
-	getPosition: () => Position;
-	getSize: () => Size;
-	getNodeType: () => string;
-};
+export type NodeRecord = RecordOf<NodeRecordValues>;
 
-export type LinkRecord = RecordOf<Link> & {
+export type NestedNodeRecord = NodeRecord;
+
+export type LinkRecordValues = {
+	id: Id;
+	sourceId: Id;
+	targetId: Id;
+	data: ImmutableDataContainer;
+	graphicalAttributes: ImmutableDataContainer;
 	getLinkType: () => string;
 };
+
+export type LinkRecord = RecordOf<LinkRecordValues>;
 
 /** $STATE */
 
