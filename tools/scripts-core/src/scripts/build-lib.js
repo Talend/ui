@@ -172,11 +172,7 @@ export default async function build(env, presetApi, unsafeOptions) {
 			}
 		});
 
-	return Promise.all([babelPromise(), tscPromise(), copyPromise()])
-		.then(() => {
-			console.log('🎉 Build complete');
-		})
-		.catch(e => {
-			console.error(e);
-		});
+	return Promise.all([babelPromise(), tscPromise(), copyPromise()]).then(() => {
+		console.log('🎉 Build complete');
+	});
 }

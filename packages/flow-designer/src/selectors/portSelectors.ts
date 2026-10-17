@@ -37,7 +37,7 @@ export function inPort(state: State, nodeId: string) {
  */
 export const getPortsForNode = createSelector(
 	getPorts,
-	(ports: PortRecordMap): PortRecord =>
+	(ports: PortRecordMap): ((nodeId: string) => PortRecordMap) =>
 		memoize((nodeId: string) =>
 			ports.filter((port: PortRecord) => Port.getNodeId(port) === nodeId),
 		),
@@ -48,10 +48,8 @@ export const getPortsForNode = createSelector(
  * map key is the port id
  * @return Map
  */
-export const getEmitterPorts = createSelector(
-	getPorts,
-	(ports: PortRecordMap): PortRecord =>
-		ports.filter((port: any) => Port.getTopology(port) === PORT_SOURCE),
+export const getEmitterPorts = createSelector(getPorts, (ports: PortRecordMap): PortRecordMap =>
+	ports.filter((port: any) => Port.getTopology(port) === PORT_SOURCE),
 );
 
 /**
@@ -59,10 +57,8 @@ export const getEmitterPorts = createSelector(
  * map key is the port id
  * @return Map
  */
-export const getSinkPorts = createSelector(
-	getPorts,
-	(ports: PortRecordMap): PortRecord =>
-		ports.filter((port: any) => Port.getTopology(port) === PORT_SINK),
+export const getSinkPorts = createSelector(getPorts, (ports: PortRecordMap): PortRecordMap =>
+	ports.filter((port: any) => Port.getTopology(port) === PORT_SINK),
 );
 
 /**
@@ -70,8 +66,9 @@ export const getSinkPorts = createSelector(
  */
 export const getEmitterPortsForNode = createSelector(
 	getEmitterPorts as any,
-	(ports: PortRecordMap): PortRecord => (nodeId: string) =>
-		ports.filter((port: any) => Port.getNodeId(port) === nodeId),
+	(ports: PortRecordMap): ((nodeId: string) => PortRecordMap) =>
+		(nodeId: string) =>
+			ports.filter((port: any) => Port.getNodeId(port) === nodeId),
 );
 
 /**
@@ -79,8 +76,9 @@ export const getEmitterPortsForNode = createSelector(
  */
 export const getSinkPortsForNode = createSelector(
 	getSinkPorts as any,
-	(ports: PortRecordMap): PortRecord => (nodeId: string) =>
-		ports.filter((port: any) => Port.getNodeId(port) === nodeId),
+	(ports: PortRecordMap): ((nodeId: string) => PortRecordMap) =>
+		(nodeId: string) =>
+			ports.filter((port: any) => Port.getNodeId(port) === nodeId),
 );
 
 /**
@@ -123,7 +121,7 @@ export const getFreeEmitterPorts = createSelector(
 export const getActionKeyedPorts = createSelector(
 	getFreeSinkPorts as any,
 	(freeSinkPorts: PortRecordMap) =>
-		freeSinkPorts.filter((sinkPort: { accessKey: any }) => sinkPort.accessKey),
+		freeSinkPorts.filter((sinkPort: PortRecord & { accessKey?: unknown }) => sinkPort.accessKey),
 );
 
 export const getDetachedPorts = createSelector(

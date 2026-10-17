@@ -49,11 +49,11 @@ export function isPositionElseThrow(position: PositionRecordType) {
  * @param {PositionRecord} position
  * @return {number}
  */
-export function getXCoordinate(position: PositionRecordType) {
+export function getXCoordinate(position: PositionRecordType): number {
 	if (isPositionElseThrow(position)) {
 		return position.get('x');
 	}
-	return null;
+	return null as unknown as number;
 }
 
 /**
@@ -76,11 +76,11 @@ export const setXCoordinate = curry((x: number, position: PositionRecordType) =>
  * @param {PositionRecord} position
  * @return {number}
  */
-export function getYCoordinate(position: PositionRecordType) {
+export function getYCoordinate(position: PositionRecordType): number {
 	if (isPositionElseThrow(position)) {
 		return position.get('y');
 	}
-	return null;
+	return null as unknown as number;
 }
 
 /**

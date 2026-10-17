@@ -1,10 +1,16 @@
 /* eslint-disable new-cap */
-import { Record, Map, List } from 'immutable';
+import { List, Map, Record } from 'immutable';
 import {
-	Size,
-	Position,
+	Id,
+	LinkRecordValues,
+	NodeRecordValues,
 	PortDirection,
 	PortRecord as PortRecordType,
+	PortRecordValues,
+	Position,
+	PositionRecord as PositionRecordType,
+	Size,
+	SizeRecord as SizeRecordType,
 } from '../customTypings/index.d';
 
 export const NONE = 'NONE';
@@ -12,18 +18,26 @@ export const SELECTED = 'SELECTED';
 export const DROP_TARGET = 'DROP_TARGET';
 export const FORBIDDEN_DROP_TARGET = 'FORBIDDEN_DROP_TARGET';
 
-export const PositionRecord = Record({
-	x: undefined,
-	y: undefined,
+export const PositionRecord = Record<Position>({
+	x: undefined as unknown as number,
+	y: undefined as unknown as number,
 });
 
-export const SizeRecord = Record({
-	width: undefined,
-	height: undefined,
+export const SizeRecord = Record<Size>({
+	width: undefined as unknown as number,
+	height: undefined as unknown as number,
 });
 
 /** TO BE REMOVED */
-export const NodeGraphicalAttributes = Record({
+type NodeGraphicalAttributeValues = {
+	position: PositionRecordType;
+	nodeSize: SizeRecordType;
+	nodeType: string | undefined;
+	label: string;
+	description: string;
+	properties: Map<any, any>;
+};
+export const NodeGraphicalAttributes = Record<NodeGraphicalAttributeValues>({
 	position: new PositionRecord(),
 	nodeSize: new SizeRecord(),
 	nodeType: undefined,
@@ -33,7 +47,13 @@ export const NodeGraphicalAttributes = Record({
 });
 
 /** TO BE REMOVED */
-export const NodeData = Record({
+type NodeDataValues = {
+	properties: Map<any, any>;
+	label: string;
+	description: string;
+	datasetInfo: Map<any, any>;
+};
+export const NodeData = Record<NodeDataValues>({
 	properties: Map(),
 	label: '',
 	description: '',
@@ -41,32 +61,41 @@ export const NodeData = Record({
 });
 
 /** TO BE REMOVED */
-export const LinkGraphicalAttributes = Record({
+type LinkGraphicalAttributeValues = {
+	linkType: string | undefined;
+	properties: Map<any, any>;
+};
+export const LinkGraphicalAttributes = Record<LinkGraphicalAttributeValues>({
 	linkType: undefined,
 	properties: Map(),
 });
 
 /** TO BE REMOVED */
-export const LinkData = Record({
-	properties: Map(),
-});
+type LinkDataValues = { properties: Map<any, any> };
+export const LinkData = Record<LinkDataValues>({ properties: Map() });
 
 /** TO BE REMOVED */
-export const PortGraphicalAttributes = Record({
+type PortGraphicalAttributeValues = {
+	position: PositionRecordType | typeof PositionRecord;
+	portType: string | undefined;
+	properties: Map<any, any>;
+};
+export const PortGraphicalAttributes = Record<PortGraphicalAttributeValues>({
 	position: PositionRecord,
 	portType: undefined,
 	properties: Map(),
 });
 
 /** TO BE REMOVED */
-export const PortData = Record({
+type PortDataValues = { properties: Map<any, any>; flowType: string | undefined };
+export const PortData = Record<PortDataValues>({
 	properties: Map(),
 	flowType: undefined,
 });
 
 const nodeRecordDefinition = {
-	id: undefined,
-	type: undefined,
+	id: undefined as unknown as Id,
+	type: undefined as unknown as string,
 	data: Map({
 		properties: Map(),
 		label: '',
@@ -88,13 +117,13 @@ const nodeRecordDefinition = {
 // (not the instantiated Record), so methods like getIn/get/set/setIn are not recognized.
 // `this: any` is a TypeScript-only fake parameter that suppresses the type check on `this`.
 // All affected methods are marked "TO BE REMOVED" — this is a transitional workaround only.
-export class NodeRecord extends Record({
+export class NodeRecord extends Record<NodeRecordValues>({
 	...nodeRecordDefinition,
-	getPosition(this: any): Position {
+	getPosition(this: any): PositionRecordType {
 		return this.getIn(['graphicalAttributes', 'position']);
 	},
 
-	getSize(this: any): Size {
+	getSize(this: any): SizeRecordType {
 		return this.getIn(['graphicalAttributes', 'nodeSize']);
 	},
 
@@ -103,20 +132,20 @@ export class NodeRecord extends Record({
 	},
 }) {}
 
-export class NestedNodeRecord extends Record({
+export class NestedNodeRecord extends Record<NodeRecordValues>({
 	...nodeRecordDefinition,
-	components: List(),
-	getComponents(this: any): Map<string, NestedNodeRecord> {
+	components: List<any>(),
+	getComponents(this: any): Map<string, any> {
 		return this.get('components');
 	},
-	setComponents(this: any, components: Map<string, NestedNodeRecord>) {
+	setComponents(this: any, components: Map<string, any>) {
 		return this.set('components', components);
 	},
-	getPosition(this: any): Position {
+	getPosition(this: any): PositionRecordType {
 		return this.getIn(['graphicalAttributes', 'position']);
 	},
 
-	getSize(this: any): Size {
+	getSize(this: any): SizeRecordType {
 		return this.getIn(['graphicalAttributes', 'nodeSize']);
 	},
 
@@ -125,10 +154,10 @@ export class NestedNodeRecord extends Record({
 	},
 }) {}
 
-export const LinkRecord = Record({
-	id: undefined,
-	sourceId: undefined,
-	targetId: undefined,
+export const LinkRecord = Record<LinkRecordValues>({
+	id: undefined as unknown as Id,
+	sourceId: undefined as unknown as Id,
+	targetId: undefined as unknown as Id,
 	data: Map({
 		properties: Map(),
 	}),
@@ -136,16 +165,14 @@ export const LinkRecord = Record({
 		linkType: undefined,
 		properties: Map(),
 	}),
-
-	/** methods TO BE REMOVED */
 	getLinkType(this: any): string {
 		return this.getIn(['graphicalAttributes', 'linkType']);
 	},
 });
 
-export const PortRecord = Record({
-	id: undefined,
-	nodeId: undefined,
+export const PortRecord = Record<PortRecordValues>({
+	id: undefined as unknown as Id,
+	nodeId: undefined as unknown as Id,
 	data: Map({
 		properties: Map(),
 		flowType: undefined,
@@ -155,9 +182,7 @@ export const PortRecord = Record({
 		portType: undefined,
 		properties: Map(),
 	}),
-
-	/** methods TO BE REMOVED */
-	getPosition(this: any): Position {
+	getPosition(this: any): PositionRecordType {
 		return this.getIn(['graphicalAttributes', 'position']);
 	},
 	setPosition(this: any, position: Position): PortRecordType {

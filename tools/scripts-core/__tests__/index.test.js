@@ -38,5 +38,32 @@ describe('talend-scripts', () => {
 			fs.existsSync(path.join(tmp, 'lib', 'index.js'));
 			fs.existsSync(path.join(tmp, 'lib', 'index.js.map'));
 		});
+		it('should exit with an error when declaration generation fails', () => {
+			const tmp = getTmpDirectory('build-types-error');
+			fs.writeFileSync(
+				path.join(tmp, 'package.json'),
+				JSON.stringify({
+					private: true,
+					name: '@talend/test-scripts-core',
+					types: 'lib/invalid.d.ts',
+				}),
+			);
+			fs.writeFileSync(
+				path.join(tmp, 'tsconfig.build.json'),
+				JSON.stringify({
+					compilerOptions: { declaration: true, strict: true },
+					include: ['src/**/*.ts'],
+				}),
+			);
+			fs.writeFileSync(
+				path.join(tmp, 'src/invalid.ts'),
+				'const value: string = 1;\nexport default value;\n',
+			);
+
+			const output = spawnSync('node', [bin, 'build'], { cwd: tmp });
+
+			expect(output.error).toBeUndefined();
+			expect(output.status).toBe(1);
+		});
 	});
 });

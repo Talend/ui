@@ -48,11 +48,11 @@ export function isSizeElseThrow(size: SizeRecordType) {
  * @param {SizeRecord} size
  * @return {number}
  */
-export function getWidth(size: SizeRecordType) {
+export function getWidth(size: SizeRecordType): number {
 	if (isSizeElseThrow(size)) {
 		return size.get('width');
 	}
-	return null;
+	return null as unknown as number;
 }
 
 /**
@@ -75,11 +75,11 @@ export const setWidth = curry((width: number, size: SizeRecordType) => {
  * @param {SizeRecord} size
  * @return {number}
  */
-export function getHeight(size: SizeRecordType) {
+export function getHeight(size: SizeRecordType): number {
 	if (isSizeElseThrow(size)) {
 		return size.get('height');
 	}
-	return null;
+	return null as unknown as number;
 }
 
 /**
@@ -93,9 +93,7 @@ export const setHeight = curry((height: number, size: SizeRecordType) => {
 	if (isSizeElseThrow(size) && typeof height === 'number') {
 		return size.set('height', height);
 	}
-	throwInDev(
-		`height should be a number, was given ${height.toString()}  of type ${typeof height}`,
-	);
+	throwInDev(`height should be a number, was given ${height.toString()}  of type ${typeof height}`);
 	return size;
 });
 

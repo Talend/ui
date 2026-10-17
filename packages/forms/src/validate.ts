@@ -1,11 +1,11 @@
-import Ajv from 'ajv';
+import Ajv, { type ValidateFunction } from 'ajv';
 
 import { FormDefinition } from './types';
 
 export default function validate(
 	jsonSchema: FormDefinition['jsonSchema'],
-	data: Parameters<Ajv.ValidateFunction>[0],
-): ReturnType<Ajv.ValidateFunction> {
+	data: Parameters<ValidateFunction>[0],
+): ReturnType<ValidateFunction> {
 	if (!data || !jsonSchema) {
 		return false;
 	}

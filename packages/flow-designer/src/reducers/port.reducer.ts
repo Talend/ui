@@ -21,11 +21,15 @@ import {
 	PortRecordMap,
 	Id,
 	LinkRecord as LinkRecordType,
+	Port as PortInputData,
+	PortGraphicalAttributes,
 	PortRecord as PortRecordType,
 	PortDirection,
 	State,
 	PortAction,
 } from '../customTypings/index.d';
+
+type PortInput = PortInputData & { graphicalAttributes: PortGraphicalAttributes };
 
 /**
  * get ports attached to a node
@@ -46,7 +50,7 @@ function filterPortsByDirection(ports: PortRecordMap, direction: PortDirection):
 /**
  * for a new port calculate its index by retrieving all its siblings
  */
-function calculateNewPortIndex(ports: PortRecordMap, port: PortRecordType): number {
+function calculateNewPortIndex(ports: PortRecordMap, port: PortInput): number {
 	return filterPortsByDirection(
 		filterPortsByNode(ports, port.nodeId),
 		port.graphicalAttributes.properties.type,
@@ -76,7 +80,7 @@ function indexPortMap(ports: PortRecordMap): PortRecordMap {
  * @param {*} state
  * @param {*} port
  */
-function setPort(state: State, port: PortRecordType) {
+function setPort(state: State, port: PortInput) {
 	const index: number =
 		port.graphicalAttributes.properties.index || calculateNewPortIndex(state.get('ports'), port);
 	const newState = state.setIn(
@@ -84,7 +88,10 @@ function setPort(state: State, port: PortRecordType) {
 		new PortRecord({
 			id: port.id,
 			nodeId: port.nodeId,
-			data: Map(port.data).set('properties', fromJS(port.data && port.data.properties) || Map()),
+			data: Map<string, any>(port.data || {}).set(
+				'properties',
+				fromJS(port.data && port.data.properties) || Map(),
+			),
 			graphicalAttributes: Map(port.graphicalAttributes)
 				.set('position', new PositionRecord(port.graphicalAttributes.position))
 				.set(
@@ -124,7 +131,7 @@ export default function portReducer(state: State, action: PortAction): State {
 				id: action.id,
 				nodeId: action.nodeId,
 				data: action.data,
-				graphicalAttributes: action.graphicalAttributes,
+				graphicalAttributes: action.graphicalAttributes!,
 			});
 		case FLOWDESIGNER_PORT_ADDS: {
 			const localAction = action;
@@ -137,7 +144,7 @@ export default function portReducer(state: State, action: PortAction): State {
 						id: port.id,
 						nodeId: localAction.nodeId,
 						data: port.data,
-						graphicalAttributes: port.graphicalAttributes,
+						graphicalAttributes: port.graphicalAttributes!,
 					}),
 				state,
 			);

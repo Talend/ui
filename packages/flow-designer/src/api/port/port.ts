@@ -10,7 +10,12 @@ import { PortRecord } from '../../constants/flowdesigner.model';
 import { PORT_SOURCE, PORT_SINK } from '../../constants/flowdesigner.constants';
 import { isPositionElseThrow } from '../position/position';
 import * as Data from '../data/data';
-import { PortRecord as PortRecordType, Id, Position } from '../../customTypings/index.d';
+import {
+	PortRecord as PortRecordType,
+	Id,
+	PositionRecord as PositionRecordType,
+	PortDirection,
+} from '../../customTypings/index.d';
 
 const positionSelector = ['graphicalAttributes', 'position'];
 const componentTypeSelector = ['graphicalAttributes', 'portType'];
@@ -62,9 +67,7 @@ export function isTopologyElseThrow(topology: string) {
 		return true;
 	}
 	throwInDev(
-		`Should be a topology 'OUTGOING' or 'INCOMING', was given ${
-			topology && topology.toString()
-		}`,
+		`Should be a topology 'OUTGOING' or 'INCOMING', was given ${topology && topology.toString()}`,
 	);
 	return false;
 }
@@ -73,11 +76,11 @@ export function isTopologyElseThrow(topology: string) {
  * @param {PortRecord} port
  * @returns {string}
  */
-export function getId(port: PortRecordType) {
+export function getId(port: PortRecordType): Id {
 	if (isPortElseThrow(port)) {
 		return port.get('id');
 	}
-	return null;
+	return null as unknown as Id;
 }
 
 /**
@@ -98,11 +101,11 @@ export const setId = curry((id: Id, port: PortRecordType) => {
  * @param {PortRecord} port
  * @return {string}
  */
-export function getNodeId(port: PortRecordType) {
+export function getNodeId(port: PortRecordType): Id {
 	if (isPortElseThrow(port)) {
 		return port.get('nodeId');
 	}
-	return null;
+	return null as unknown as Id;
 }
 
 /**
@@ -123,11 +126,11 @@ export const setNodeId = curry((nodeId: Id, port: PortRecordType) => {
  * @param {PortRecord} port
  * @returns {PositionRecord}
  */
-export function getPosition(port: PortRecordType) {
+export function getPosition(port: PortRecordType): PositionRecordType {
 	if (isPortElseThrow(port)) {
-		return port.getIn(positionSelector);
+		return port.getIn(positionSelector) as PositionRecordType;
 	}
-	return null;
+	return null as unknown as PositionRecordType;
 }
 
 /**
@@ -136,22 +139,28 @@ export function getPosition(port: PortRecordType) {
  * @param {PortRecord} port
  * @returns {Port}
  */
-export const setPosition = curry((position: Position, port: PortRecordType) => {
-	if (isPortElseThrow(port) && isPositionElseThrow(position)) {
-		return port.setIn(positionSelector, position);
-	}
-	return port;
-});
+type CurriedSetPosition = {
+	(position: PositionRecordType, port: PortRecordType): PortRecordType;
+	(position: PositionRecordType): (port: PortRecordType) => PortRecordType;
+};
+export const setPosition: CurriedSetPosition = curry(
+	(position: PositionRecordType, port: PortRecordType) => {
+		if (isPortElseThrow(port) && isPositionElseThrow(position)) {
+			return port.setIn(positionSelector, position);
+		}
+		return port;
+	},
+);
 
 /**
  * @param {PortRecord} port
  * @returns {string}
  */
-export function getComponentType(port: PortRecordType) {
+export function getComponentType(port: PortRecordType): string {
 	if (isPortElseThrow(port)) {
-		return port.getIn(componentTypeSelector);
+		return port.getIn(componentTypeSelector) as string;
 	}
-	return null;
+	return null as unknown as string;
 }
 
 /**
@@ -174,11 +183,11 @@ export const setComponentType = curry((componentType: string, port: PortRecordTy
  * @param {PortRecord} port
  * @returns {string}
  */
-export function getTopology(port: PortRecordType) {
+export function getTopology(port: PortRecordType): PortDirection {
 	if (isPortElseThrow(port)) {
-		return port.getIn(portTopologySelector);
+		return port.getIn(portTopologySelector) as PortDirection;
 	}
-	return null;
+	return null as unknown as PortDirection;
 }
 
 /**
@@ -200,11 +209,11 @@ export const setTopology = curry((topology: string, port: PortRecordType) => {
  * @param {PortRecord} port
  * @returns {number}
  */
-export function getIndex(port: PortRecordType) {
+export function getIndex(port: PortRecordType): number {
 	if (isPortElseThrow(port)) {
-		return port.getIn(indexSelector);
+		return port.getIn(indexSelector) as number;
 	}
-	return null;
+	return null as unknown as number;
 }
 
 /**
@@ -300,10 +309,7 @@ export function isWhiteListAttribute(key: string) {
  */
 export const setGraphicalAttribute = curry((key: string, value: any, port: PortRecordType) => {
 	if (isPortElseThrow(port) && isWhiteListAttribute(key)) {
-		return port.set(
-			'graphicalAttributes',
-			Data.set(key, value, port.get('graphicalAttributes')),
-		);
+		return port.set('graphicalAttributes', Data.set(key, value, port.get('graphicalAttributes')));
 	}
 	return port;
 });
@@ -342,10 +348,7 @@ export const hasGraphicalAttribute = curry((key: string, port: PortRecordType) =
  */
 export const deleteGraphicalAttribute = curry((key: string, port: PortRecordType) => {
 	if (isPortElseThrow(port) && isWhiteListAttribute(key)) {
-		return port.set(
-			'graphicalAttributes',
-			Data.deleteKey(key, port.get('graphicalAttributes')),
-		);
+		return port.set('graphicalAttributes', Data.deleteKey(key, port.get('graphicalAttributes')));
 	}
 	return port;
 });
