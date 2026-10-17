@@ -1,5 +1,13 @@
 # @talend/react-components
 
+## 21.0.1
+
+### Patch Changes
+
+- db6eee2: fix: update warning
+- Updated dependencies [db6eee2]
+  - @talend/react-bootstrap@5.0.3
+
 ## 21.0.0
 
 ### Major Changes

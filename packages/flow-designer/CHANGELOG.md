@@ -1,5 +1,11 @@
 # Changelog
 
+## 9.0.2
+
+### Patch Changes
+
+- 99c6b24: fix: propagate declaration build errors and restore affected packages
+
 ## 9.0.1
 
 ### Patch Changes
