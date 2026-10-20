@@ -15,6 +15,7 @@
       "require": "./lib/_tokens.scss"
     },
     "./lib/*": {
+      "types": "./lib/*.d.ts",
       "import": "./lib-esm/*.js",
       "require": "./lib/*.js"
     },
