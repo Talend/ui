@@ -1,5 +1,11 @@
 # @talend/design-tokens
 
+## 4.1.7
+
+### Patch Changes
+
+- fdedd8b: Add declaration resolution for token subpath exports.
+
 ## 4.1.6
 
 ### Patch Changes
