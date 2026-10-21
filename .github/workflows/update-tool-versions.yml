@@ -1,0 +1,76 @@
+name: Update tool versions
+
+on:
+  schedule:
+    - cron: '40 12 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout default branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch || github.ref_name }}
+
+      - name: Find latest Node.js LTS and pnpm releases
+        id: versions
+        run: node .github/scripts/update-tool-versions.mjs
+
+      - name: Create draft pull request
+        if: steps.versions.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch || github.ref_name }}
+          NODEJS_VERSION: ${{ steps.versions.outputs.nodejs }}
+          PNPM_VERSION: ${{ steps.versions.outputs.pnpm }}
+        run: |
+          set -euo pipefail
+
+          branch="update/tool-versions/nodejs-${NODEJS_VERSION}-pnpm-${PNPM_VERSION}"
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null; then
+            state=$(gh pr list --head "$branch" --state all --json state --jq '.[0].state // ""')
+            case "$state" in
+              OPEN|CLOSED|MERGED)
+                echo "An update for these versions already has a ${state,,} pull request; skipping."
+                exit 0
+                ;;
+            esac
+          else
+            git switch --create "$branch"
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add .tool-versions
+            git commit -m 'chore: update nodejs and pnpm versions'
+            git push --set-upstream origin "$branch"
+          fi
+
+          gh pr create --draft --base "$DEFAULT_BRANCH" --head "$branch" \
+            --title 'chore: update nodejs and pnpm versions' \
+            --body "$(cat <<EOF
+          **What is the problem this PR is trying to solve?**
+
+          Keep the Node.js and pnpm versions pinned in .tool-versions current.
+
+          **What is the chosen solution to this problem?**
+
+          Update .tool-versions to Node.js ${NODEJS_VERSION} and pnpm ${PNPM_VERSION}.
+
+          **Please check if the PR fulfills these requirements**
+
+          - [ ] The PR has used pnpm changesets to request a release (not applicable: no package release).
+          - [x] The PR commit message follows our guidelines.
+          - [ ] Tests have been added (not applicable: version-only update).
+          - [ ] Docs have been added or updated (not applicable: version-only update).
+          - [ ] Related design discussions or pages are linked (not applicable).
+
+          **[ ] This PR introduces a breaking change**
+
+          Close the PR without deleting its branch to skip this version pair.
+          EOF
+          )"
