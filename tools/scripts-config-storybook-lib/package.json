@@ -49,7 +49,7 @@
     "esbuild-plugin-react-virtualized": "^1.0.6",
     "i18next": "^26.4.2",
     "i18next-http-backend": "^4.0.2",
-    "vite": "^7.3.6",
+    "vite": "^7.3.7",
     "lodash": "^4.18.1",
     "msw": "2.13.0",
     "msw-storybook-addon": "^2.0.7",
