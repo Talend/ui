@@ -532,8 +532,8 @@ importers:
         specifier: ^11.1.9
         version: 11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-autowhatever:
-        specifier: 10.2.0
-        version: 10.2.0(react@18.3.1)
+        specifier: 10.2.1
+        version: 10.2.1(react@18.3.1)
       react-debounce-input:
         specifier: ^3.3.0
         version: 3.3.0(react@18.3.1)
@@ -1259,8 +1259,8 @@ importers:
         specifier: 15.0.0
         version: 15.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-autowhatever:
-        specifier: 10.2.0
-        version: 10.2.0(react@18.3.1)
+        specifier: 10.2.1
+        version: 10.2.1(react@18.3.1)
       react-hook-form:
         specifier: ^7.83.0
         version: 7.83.0(react@18.3.1)
@@ -8105,8 +8105,8 @@ packages:
       react: ^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  react-autowhatever@10.2.0:
-    resolution: {integrity: sha512-dqHH4uqiJldPMbL8hl/i2HV4E8FMTDEdVlOIbRqYnJi0kTpWseF9fJslk/KS9pGDnm80JkYzVI+nzFjnOG/u+g==}
+  react-autowhatever@10.2.1:
+    resolution: {integrity: sha512-5gQyoETyBH6GmuW1N1J81CuoAV+Djeg66DEo03xiZOl3WOwJHBP5LisKUvCGOakjrXU4M3hcIvCIqMBYGUmqOA==}
     peerDependencies:
       react: '>=0.14.7'
 
@@ -16626,7 +16626,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  react-autowhatever@10.2.0(react@18.3.1):
+  react-autowhatever@10.2.1(react@18.3.1):
     dependencies:
       prop-types: 15.8.1
       react: 18.3.1
