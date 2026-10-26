@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -103,10 +103,12 @@ export function generateChangeset({ root, baseRef, pullRequest }) {
 	}
 
 	const content = buildChangeset(packages);
+	const file = join(root, '.changeset', `dependabot-pr-${pullRequest}.md`);
 	if (content === null) {
+		// Drop a changeset from a previous run that no longer has matching dependency changes.
+		rmSync(file, { force: true });
 		return null;
 	}
-	const file = join(root, '.changeset', `dependabot-pr-${pullRequest}.md`);
 	writeFileSync(file, content);
 	return file;
 }

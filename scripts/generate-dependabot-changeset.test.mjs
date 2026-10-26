@@ -1,6 +1,14 @@
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { test } from 'node:test';
-import { buildChangeset, diffDependencies } from './generate-dependabot-changeset.mjs';
+import {
+	buildChangeset,
+	diffDependencies,
+	generateChangeset,
+} from './generate-dependabot-changeset.mjs';
 
 test('diffDependencies reports bumps, additions and removals across fields', () => {
 	const before = {
@@ -41,4 +49,37 @@ test('buildChangeset returns null when only private packages changed', () => {
 		]),
 		null,
 	);
+});
+
+test('generateChangeset removes a previous changeset once no dependency change remains', t => {
+	const root = mkdtempSync(join(tmpdir(), 'dependabot-changeset-'));
+	t.after(() => rmSync(root, { recursive: true, force: true }));
+	const git = (...args) => execFileSync('git', args, { cwd: root, stdio: 'ignore' });
+	const writeManifest = version => {
+		writeFileSync(
+			join(root, 'package.json'),
+			JSON.stringify({ name: '@fixture/pkg', dependencies: { dep: version } }),
+		);
+	};
+
+	mkdirSync(join(root, '.changeset'));
+	git('init', '--quiet', '-b', 'master');
+	git('config', 'user.name', 'Test User');
+	git('config', 'user.email', 'test@example.com');
+	writeManifest('^1.0.0');
+	git('add', '.');
+	git('commit', '--quiet', '-m', 'base');
+
+	git('checkout', '--quiet', '-b', 'dependabot');
+	writeManifest('^1.1.0');
+	git('commit', '--quiet', '-am', 'bump');
+	const options = { root, baseRef: 'master', pullRequest: '9' };
+	const file = generateChangeset(options);
+	assert.equal(file, join(root, '.changeset', 'dependabot-pr-9.md'));
+	assert.ok(existsSync(file));
+
+	writeManifest('^1.0.0');
+	git('commit', '--quiet', '-am', 'revert');
+	assert.equal(generateChangeset(options), null);
+	assert.equal(existsSync(file), false);
 });
