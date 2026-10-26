@@ -6,6 +6,7 @@
     "clean:build": "rimraf {packages,tools,fork}/*/{lib,lib-esm,dist}",
     "clean:demo": "rimraf {packages,tools,fork}/*/.storybook-static",
     "dependabot:update": "node ./scripts/update-dependabot-prs.mjs",
+    "dependabot:changeset": "node ./scripts/generate-dependabot-changeset.mjs",
     "start": "pnpm --filter @talend/ui-playground run start",
     "release": "pnpm changeset publish",
     "lint-staged": "lint-staged",

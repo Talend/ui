@@ -1,0 +1,83 @@
+name: "Dependabot Post-Update"
+
+on:
+  pull_request:
+    paths:
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/dependabot-post-update.yml"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: "dependabot-post-update-${{ github.event.pull_request.number }}"
+  cancel-in-progress: true
+
+jobs:
+  post-update:
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ secrets.GH_ACCESS_TOKEN }}
+
+      - name: Setup Node and PNPM
+        uses: ./.github/actions/setup-node
+        with:
+          GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Dedupe dependencies
+        run: pnpm dedupe
+
+      - name: Generate changeset for build/runtime updates
+        run: pnpm run dependabot:changeset -- "$PR_NUMBER"
+        env:
+          GH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+
+      - name: Run post-update commands
+        run: pnpm format:write
+
+      - name: Configure git author
+        run: |
+          git config user.name "svc-pipeline"
+          git config user.email "svc-pipeline@qlik.com"
+
+      - name: Commit formatting changes if needed
+        id: commit
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No formatting changes needed"
+            exit 0
+          fi
+
+          git add -A
+          git commit --no-verify -m "chore(deps): apply formatting"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Push formatting changes
+        if: steps.commit.outputs.changed == 'true'
+        run: git push origin "${{ github.event.pull_request.head.ref }}"
+
+      - name: Comment on PR
+        if: steps.commit.outputs.changed == 'true'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          github-token: ${{ secrets.GH_ACCESS_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ Formatting applied automatically'
+            })
