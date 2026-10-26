@@ -80,6 +80,39 @@ function readJsonAt(root, ref, path) {
 	}
 }
 
+/**
+ * Returns a predicate matching the package.json paths of workspace packages declared in
+ * pnpm-workspace.yaml (the root manifest always matches).
+ */
+export function createWorkspaceManifestMatcher(workspaceYaml) {
+	const patterns = [];
+	let inPackages = false;
+	for (const line of workspaceYaml.split('\n')) {
+		if (/^packages:\s*$/.test(line)) {
+			inPackages = true;
+		} else if (/^\S/.test(line)) {
+			inPackages = false;
+		} else if (inPackages) {
+			const match = /^\s*-\s*['"]?([^'"#\s]+)['"]?/.exec(line);
+			if (match) {
+				patterns.push(match[1].replace(/\/$/, ''));
+			}
+		}
+	}
+
+	const matchers = patterns
+		.filter(pattern => !pattern.startsWith('!'))
+		.map(pattern => {
+			const source = pattern
+				.split('/')
+				.map(segment => segment.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '[^/]*'))
+				.join('/');
+			return new RegExp(`^${source}/package\\.json$`);
+		});
+
+	return path => path === 'package.json' || matchers.some(matcher => matcher.test(path));
+}
+
 export function generateChangeset({ root, baseRef, pullRequest }) {
 	const mergeBase = git(root, 'merge-base', baseRef, 'HEAD').trim();
 	const changedManifests = git(
@@ -94,8 +127,11 @@ export function generateChangeset({ root, baseRef, pullRequest }) {
 		.split('\n')
 		.filter(Boolean);
 
+	const isWorkspaceManifest = createWorkspaceManifestMatcher(
+		readFileSync(join(root, 'pnpm-workspace.yaml'), 'utf8'),
+	);
 	const packages = [];
-	for (const path of changedManifests) {
+	for (const path of changedManifests.filter(isWorkspaceManifest)) {
 		const after = existsSync(join(root, path))
 			? JSON.parse(readFileSync(join(root, path), 'utf8'))
 			: null;

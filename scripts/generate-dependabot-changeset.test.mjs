@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { test } from 'node:test';
 import {
 	buildChangeset,
+	createWorkspaceManifestMatcher,
 	diffDependencies,
 	generateChangeset,
 } from './generate-dependabot-changeset.mjs';
@@ -63,6 +64,7 @@ test('generateChangeset removes a previous changeset once no dependency change r
 	};
 
 	mkdirSync(join(root, '.changeset'));
+	writeFileSync(join(root, 'pnpm-workspace.yaml'), "packages:\n  - 'packages/*'\n");
 	git('init', '--quiet', '-b', 'master');
 	git('config', 'user.name', 'Test User');
 	git('config', 'user.email', 'test@example.com');
@@ -102,4 +104,16 @@ test('distinct transitions of one dependency survive, identical ones are combine
 		content,
 		/- bump a from \^1\.0\.0 to \^1\.1\.0\n- bump a from \^2\.0\.0 to \^2\.1\.0\n$/,
 	);
+});
+
+test('workspace manifest matcher only accepts declared workspace packages', () => {
+	const matches = createWorkspaceManifestMatcher(
+		"packages:\n  - 'packages/*'\n  - 'tools/*'\n  - 'fork/*'\nlinkWorkspacePackages: true\n",
+	);
+
+	assert.equal(matches('package.json'), true);
+	assert.equal(matches('packages/utils/package.json'), true);
+	assert.equal(matches('tools/scripts-core/package.json'), true);
+	assert.equal(matches('tools/scripts-locales/codeshift/package.json'), false);
+	assert.equal(matches('packages/utils/node_modules/x/package.json'), false);
 });
