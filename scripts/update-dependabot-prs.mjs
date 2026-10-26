@@ -258,7 +258,7 @@ function processPullRequest(pullRequest, repository, originalBranch) {
 		}
 
 		try {
-			run('git', ['merge', '--no-commit', '--no-ff', 'origin/main']);
+			run('git', ['merge', '--no-commit', '--no-ff', 'origin/master']);
 		} catch (mergeError) {
 			const conflicts = getConflictedPaths();
 			if (conflicts.length === 0) {
@@ -273,7 +273,7 @@ function processPullRequest(pullRequest, repository, originalBranch) {
 		}
 
 		run('pnpm', ['dedupe']);
-		run('pnpm', ['install']);
+		run('pnpm', ['install', '--no-frozen-lockfile']);
 		run('git', ['add', '-u']);
 
 		const hasStagedChanges =
@@ -285,6 +285,15 @@ function processPullRequest(pullRequest, repository, originalBranch) {
 			run('git', ['commit', '--no-edit']);
 		} else if (hasStagedChanges) {
 			run('git', ['commit', '-m', 'chore(deps): update Dependabot lockfile']);
+		}
+
+		// Generated after the merge commit so the diff against master only holds the PR's own changes.
+		run('node', ['./scripts/generate-dependabot-changeset.mjs', String(pullRequest.number)]);
+		run('git', ['add', '--', '.changeset']);
+		if (
+			run('git', ['diff', '--cached', '--quiet'], { quiet: true, allowFailure: true }).status !== 0
+		) {
+			run('git', ['commit', '-m', 'chore(deps): add changeset']);
 		}
 
 		run('git', ['push']);
@@ -323,7 +332,7 @@ function main() {
 	if (options.help) {
 		console.log(
 			'Usage: pnpm dependabot:update [--dry-run]\n\n' +
-				'Merge origin/main into every open Dependabot PR, reconcile package.json ' +
+				'Merge origin/master into every open Dependabot PR, reconcile package.json ' +
 				'version conflicts, run pnpm dedupe and pnpm install, then push each branch.',
 		);
 		return;
@@ -358,7 +367,7 @@ function main() {
 	if (options.dryRun) {
 		for (const pullRequest of pullRequests) {
 			console.log(
-				`Would merge origin/main into PR #${pullRequest.number} (${pullRequest.headRefName}), run pnpm dedupe and pnpm install, and push.`,
+				`Would merge origin/master into PR #${pullRequest.number} (${pullRequest.headRefName}), run pnpm dedupe and pnpm install, and push.`,
 			);
 		}
 		return;
@@ -368,7 +377,7 @@ function main() {
 		return;
 	}
 
-	run('git', ['fetch', 'origin', 'main']);
+	run('git', ['fetch', 'origin', 'master']);
 	let failures = 0;
 	for (const pullRequest of pullRequests) {
 		try {

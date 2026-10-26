@@ -33,7 +33,7 @@ jobs:
           GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Dedupe dependencies
         run: pnpm dedupe
@@ -44,28 +44,25 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
 
-      - name: Run post-update commands
-        run: pnpm format:write
-
       - name: Configure git author
         run: |
           git config user.name "svc-pipeline"
           git config user.email "svc-pipeline@qlik.com"
 
-      - name: Commit formatting changes if needed
+      - name: Commit lockfile and changeset if needed
         id: commit
         run: |
-          if git diff --quiet; then
+          git add -A
+          if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No formatting changes needed"
+            echo "No changes needed"
             exit 0
           fi
 
-          git add -A
-          git commit --no-verify -m "chore(deps): apply formatting"
+          git commit --no-verify -m "chore(deps): update lockfile and add changeset"
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Push formatting changes
+      - name: Push changes
         if: steps.commit.outputs.changed == 'true'
         run: git push origin "${{ github.event.pull_request.head.ref }}"
 
@@ -79,5 +76,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '✅ Formatting applied automatically'
+              body: '✅ Lockfile deduped and changeset generated automatically'
             })
