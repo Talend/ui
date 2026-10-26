@@ -5,6 +5,7 @@
     "build:lib:esm": "turbo run build:lib:esm",
     "clean:build": "rimraf {packages,tools,fork}/*/{lib,lib-esm,dist}",
     "clean:demo": "rimraf {packages,tools,fork}/*/.storybook-static",
+    "dependabot:update": "node ./scripts/update-dependabot-prs.mjs",
     "start": "pnpm --filter @talend/ui-playground run start",
     "release": "pnpm changeset publish",
     "lint-staged": "lint-staged",
