@@ -44,6 +44,9 @@ jobs:
         run: |
           pnpm vitest:cov --concurrency=1
 
+      - name: Test root scripts
+        run: pnpm scripts:test
+
       - name: Jest Coverage Comment
         if: github.event_name == 'pull_request'
         uses: MishaKav/jest-coverage-comment@1b5d15445c8afba0c13bd00167bd31130b812d0a #1.0.37

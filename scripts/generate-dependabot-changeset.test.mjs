@@ -83,3 +83,23 @@ test('generateChangeset removes a previous changeset once no dependency change r
 	assert.equal(generateChangeset(options), null);
 	assert.equal(existsSync(file), false);
 });
+
+test('distinct transitions of one dependency survive, identical ones are combined', () => {
+	assert.deepEqual(
+		diffDependencies(
+			{ dependencies: { a: '^1.0.0' }, devDependencies: { a: '^2.0.0' } },
+			{ dependencies: { a: '^1.1.0' }, devDependencies: { a: '^2.1.0' } },
+		).length,
+		2,
+	);
+
+	const content = buildChangeset([
+		{ name: 'p1', changes: [{ name: 'a', from: '^1.0.0', to: '^1.1.0' }] },
+		{ name: 'p2', changes: [{ name: 'a', from: '^1.0.0', to: '^1.1.0' }] },
+		{ name: 'p3', changes: [{ name: 'a', from: '^2.0.0', to: '^2.1.0' }] },
+	]);
+	assert.match(
+		content,
+		/- bump a from \^1\.0\.0 to \^1\.1\.0\n- bump a from \^2\.0\.0 to \^2\.1\.0\n$/,
+	);
+});

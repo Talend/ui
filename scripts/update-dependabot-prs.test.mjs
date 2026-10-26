@@ -63,6 +63,18 @@ test('rejects conflicting values that are not comparable versions', () => {
 	);
 });
 
+test('does not pick between upper-bound ranges automatically', () => {
+	assert.throws(
+		() =>
+			mergePackageJson(
+				{ dependencies: { fixture: '>=1.0.0' } },
+				{ dependencies: { fixture: '>=2.0.0' } },
+				{ dependencies: { fixture: '<3.0.0' } },
+			),
+		/Cannot automatically resolve/,
+	);
+});
+
 function setupConflictRepo(t) {
 	const cwd = mkdtempSync(join(tmpdir(), 'dependabot-manifest-conflict-'));
 	t.after(() => rmSync(cwd, { recursive: true, force: true }));

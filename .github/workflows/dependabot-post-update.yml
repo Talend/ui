@@ -3,7 +3,7 @@ name: "Dependabot Post-Update"
 on:
   pull_request:
     paths:
-      - "package.json"
+      - "**/package.json"
       - "pnpm-lock.yaml"
       - ".github/workflows/dependabot-post-update.yml"
 

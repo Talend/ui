@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const MISSING = Symbol('missing');
 const VERSION_PATTERN =
-	/^(?:workspace:)?(?:(?:\^|~|=|v)|(?:>=|<=|>|<))?(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?(?:\+[0-9A-Za-z.-]+)?$/;
+	/^(?:workspace:)?(?:(?:\^|~|=|v)|(?:>=|>))?(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?(?:\+[0-9A-Za-z.-]+)?$/;
 let repositoryRoot;
 
 function run(command, args, { cwd = repositoryRoot, quiet = false, allowFailure = false } = {}) {

@@ -10,6 +10,10 @@ const DEPENDENCY_FIELDS = [
 	'optionalDependencies',
 ];
 
+function transitionKey({ name, from, to }) {
+	return JSON.stringify([name, from, to]);
+}
+
 /**
  * Lists dependency specifier changes between two package.json contents.
  * @returns {{ name: string, from: string | undefined, to: string | undefined }[]}
@@ -21,7 +25,8 @@ export function diffDependencies(before, after) {
 		const next = after?.[field] ?? {};
 		for (const name of new Set([...Object.keys(previous), ...Object.keys(next)])) {
 			if (previous[name] !== next[name]) {
-				changes.set(name, { name, from: previous[name], to: next[name] });
+				const change = { name, from: previous[name], to: next[name] };
+				changes.set(transitionKey(change), change);
 			}
 		}
 	}
@@ -48,7 +53,9 @@ export function buildChangeset(packages) {
 	}
 
 	const names = new Set(affected.flatMap(pkg => pkg.changes.map(change => change.name)));
-	const lines = [...new Map(affected.flatMap(pkg => pkg.changes).map(c => [c.name, c])).values()]
+	const lines = [
+		...new Map(affected.flatMap(pkg => pkg.changes).map(c => [transitionKey(c), c])).values(),
+	]
 		.sort((a, b) => a.name.localeCompare(b.name))
 		.map(change => `- ${describeChange(change)}`);
 	const frontmatter = affected.map(pkg => `${JSON.stringify(pkg.name)}: patch`).join('\n');
