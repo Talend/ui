@@ -1,5 +1,12 @@
 # Changelog
 
+## 11.0.1
+
+### Patch Changes
+
+- 5bfb1ce: Fix `history.push`/`history.replace` throwing (`Cannot read properties of undefined (reading 'charAt')`) when called with a location object that has no `pathname` (e.g. `history.push({})`) while a `basename` is configured. `prependBasename` now treats a missing/non-string `pathname` as an empty string instead of assuming it is always a string.
+- 4c32b14: fix(cmf-router): routerPush / routerReplace and the wrapped history now refuse targets with a scheme (javascript:, https:...) or protocol-relative (//host), only in-app paths are navigated
+
 ## 11.0.0
 
 ### Major Changes
