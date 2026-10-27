@@ -1,5 +1,11 @@
 ## [v0.32.5]
 
+## 5.0.3
+
+### Patch Changes
+
+- db6eee2: fix: update warning
+
 ## 5.0.2
 
 ### Patch Changes

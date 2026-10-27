@@ -1,5 +1,11 @@
 # @talend/scripts-core
 
+## 21.0.3
+
+### Patch Changes
+
+- 99c6b24: fix: propagate declaration build errors and restore affected packages
+
 ## 21.0.2
 
 ### Patch Changes
