@@ -1,4 +1,5 @@
 import { cmfConnect } from '@talend/react-cmf';
+import { get } from 'immutable';
 import Container, { DEFAULT_STATE } from './Notification.container';
 
 export function componentId(ownProps) {
@@ -8,7 +9,11 @@ export function componentId(ownProps) {
 export function deleteNotification(indexNotification) {
 	return function mutator(prevStateProps) {
 		const notifications = prevStateProps.state.get('notifications');
-		const index = notifications.indexOf(indexNotification);
+		const notificationId = get(indexNotification, 'id');
+		const index =
+			notificationId === undefined
+				? notifications.indexOf(indexNotification)
+				: notifications.findIndex(notification => get(notification, 'id') === notificationId);
 		if (index > -1) {
 			const newNotif = notifications.delete(index);
 			return prevStateProps.state.set('notifications', newNotif);

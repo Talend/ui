@@ -3,7 +3,7 @@
 /* eslint-disable react/display-name */
 import { render } from '@testing-library/react';
 import { mock } from '@talend/react-cmf';
-import { Map, fromJS } from 'immutable';
+import { List, Map, fromJS } from 'immutable';
 // eslint-disable-next-line @talend/import-depth
 import { prepareCMF } from '@talend/react-cmf/lib/mock/rtl';
 import Container from './Notification.container';
@@ -53,6 +53,36 @@ describe('Connected Notification', () => {
 		expect(deleteNotification(message)(stateProps).toJS()).toEqual({
 			notifications: [],
 		});
+	});
+
+	it('deleteNotification should delete a notification copied for rendering', () => {
+		const notification = { id: 'notification-1', message: 'hello world' };
+		const otherNotification = { id: 'notification-2', message: 'another notification' };
+		const stateProps = {
+			state: new Map({ notifications: new List([notification, otherNotification]) }),
+		};
+		const renderedNotification = stateProps.state.toJS().notifications[0];
+		expect(renderedNotification).not.toBe(notification);
+		expect(deleteNotification(renderedNotification)(stateProps).toJS()).toEqual({
+			notifications: [otherNotification],
+		});
+	});
+
+	it('deleteNotification should delete an immutable notification by id', () => {
+		const stateProps = {
+			state: fromJS({ notifications: [{ id: 'notification-1', message: 'hello world' }] }),
+		};
+		const renderedNotification = stateProps.state.toJS().notifications[0];
+		expect(deleteNotification(renderedNotification)(stateProps).toJS()).toEqual({
+			notifications: [],
+		});
+	});
+
+	it('deleteNotification should preserve notifications when the id does not exist', () => {
+		const stateProps = {
+			state: fromJS({ notifications: [{ id: 'notification-1', message: 'hello world' }] }),
+		};
+		expect(deleteNotification({ id: 'notification-2' })(stateProps)).toBe(stateProps.state);
 	});
 
 	it('deleteNotification should do nothing if the notification does not exist', () => {

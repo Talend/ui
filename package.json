@@ -14,7 +14,7 @@
     "vitest:cov": "cross-env TZ=UTC turbo run vitest:cov",
     "vitest:update": "cross-env TZ=UTC pnpm -r --if-present --workspace-concurrency=1 run vitest:update",
     "storybook:build": "turbo run storybook:build",
-    "storybook:start": "pnpm --filter @talend/ui-storybook-one run start",
+    "storybook:start": "pnpm --filter @talend/scripts-config-storybook-lib run build:lib && pnpm --filter @talend/ui-storybook-one run start",
     "storybook:start-components": "pnpm --filter @talend/react-components run start",
     "storybook:start-containers": "pnpm --filter @talend/react-containers run start",
     "storybook:start-dataviz": "pnpm --filter @talend/react-dataviz run start",
