@@ -1450,8 +1450,8 @@ importers:
         specifier: ^1.0.6
         version: 1.0.6(esbuild@0.28.1)
       i18next-http-backend:
-        specifier: ^4.0.2
-        version: 4.0.2
+        specifier: ^4.0.4
+        version: 4.0.4
       msw:
         specifier: 2.13.0
         version: 2.13.0(@types/node@25.9.5)(typescript@5.9.3)
@@ -1907,8 +1907,8 @@ importers:
         specifier: ^26.4.2
         version: 26.4.2(typescript@5.9.3)
       i18next-http-backend:
-        specifier: ^4.0.2
-        version: 4.0.2
+        specifier: ^4.0.4
+        version: 4.0.4
       lodash:
         specifier: ^4.18.1
         version: 4.18.1
@@ -6651,8 +6651,8 @@ packages:
   hyphenate-style-name@1.1.0:
     resolution: {integrity: sha512-WDC/ui2VVRrz3jOVi+XtjqkDjiVjTtFaAGiW37k6b+ohyQ5wYDOGkvCZa8+H0nx3gyvv0+BST9xuOgIyGQ00gw==}
 
-  i18next-http-backend@4.0.2:
-    resolution: {integrity: sha512-oay62dIB2kL7+WHzoUXBjWfL3+mwijD3pQkQkIEaRLhy6kjXxUhrRenV0gInwlCASAaJaDy94+XvYizK+cAGdA==}
+  i18next-http-backend@4.0.4:
+    resolution: {integrity: sha512-nG9OQKvUsPiTVUBg1rCGmvmWhzxC9GOxVbGdTYyejHVMSUjutt1hiBNVSzhB/ZE7keL9Xkb880kUfhDovV5T5g==}
     engines: {node: '>=18'}
 
   i18next-scanner-typescript@1.2.1:
@@ -14825,7 +14825,7 @@ snapshots:
 
   hyphenate-style-name@1.1.0: {}
 
-  i18next-http-backend@4.0.2: {}
+  i18next-http-backend@4.0.4: {}
 
   i18next-scanner-typescript@1.2.1(typescript@5.9.3):
     dependencies:
