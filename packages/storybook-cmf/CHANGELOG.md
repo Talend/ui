@@ -1,5 +1,11 @@
 # @talend/react-storybook-cmf
 
+## 13.0.1
+
+### Patch Changes
+
+- 99b74ca: chore(deps): bump storybook from 10.6.1 to 10.6.2
+
 ## 13.0.0
 
 ### Major Changes

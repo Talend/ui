@@ -1,5 +1,11 @@
 # @talend/scripts-config-storybook-lib
 
+## 7.0.2
+
+### Patch Changes
+
+- 99b74ca: chore(deps): bump storybook from 10.6.1 to 10.6.2
+
 ## 7.0.1
 
 ### Patch Changes

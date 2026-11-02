@@ -1,5 +1,11 @@
 # @talend/http
 
+## 4.2.5
+
+### Patch Changes
+
+- 99c6b24: fix: propagate declaration build errors and restore affected packages
+
 ## 4.2.4
 
 ### Patch Changes

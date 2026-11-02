@@ -1,5 +1,16 @@
 # @talend/react-forms
 
+## 19.0.1
+
+### Patch Changes
+
+- 99c6b24: fix: propagate declaration build errors and restore affected packages
+- 7906e9d: fix: update ajv from 6.x to 8.x
+- Updated dependencies [db6eee2]
+- Updated dependencies [fdedd8b]
+  - @talend/react-components@21.0.1
+  - @talend/design-tokens@4.1.7
+
 ## 19.0.0
 
 ### Major Changes

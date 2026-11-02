@@ -1,5 +1,13 @@
 # @talend/storybook-docs
 
+## 3.2.2
+
+### Patch Changes
+
+- 99b74ca: chore(deps): bump storybook from 10.6.1 to 10.6.2
+- Updated dependencies [fdedd8b]
+  - @talend/design-tokens@4.1.7
+
 ## 3.2.1
 
 ### Patch Changes
