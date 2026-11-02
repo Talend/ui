@@ -33,3 +33,4 @@ minimumReleaseAgeExclude:
   - css-has-pseudo@8.0.2
   - postcss-nesting@14.0.3
   - postcss-preset-env@11.6.1
+  - minimatch@11.0.4
