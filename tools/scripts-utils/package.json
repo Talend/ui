@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "fs-extra": "^10.1.0",
-    "glob": "^11.1.0",
+    "glob": "^14.0.2",
     "which": "^2.0.2"
   },
   "repository": {
