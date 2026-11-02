@@ -1,5 +1,13 @@
 # Changelog
 
+## 9.0.2
+
+### Patch Changes
+
+- 99c6b24: fix: propagate declaration build errors and restore affected packages
+- Updated dependencies [fdedd8b]
+  - @talend/design-tokens@4.1.7
+
 ## 9.0.1
 
 ### Patch Changes

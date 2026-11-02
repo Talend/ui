@@ -1,5 +1,16 @@
 # @talend/react-containers
 
+## 15.0.1
+
+### Patch Changes
+
+- f764051: Fix notifications remaining visible after expiration or manual dismissal by matching their stable identifier instead of object identity after Immutable state is converted for rendering.
+- Updated dependencies [99c6b24]
+- Updated dependencies [db6eee2]
+- Updated dependencies [7906e9d]
+  - @talend/react-forms@19.0.1
+  - @talend/react-components@21.0.1
+
 ## 15.0.0
 
 ### Major Changes
