@@ -72,7 +72,7 @@
     "react-use": "^17.6.1",
     "react-virtualized": "^9.22.6",
     "reactour": "^1.19.4",
-    "recharts": "^2.15.4",
+    "recharts": "^3.10.1",
     "styled-components": "^5.3.11",
     "warning": "^4.0.3"
   },
