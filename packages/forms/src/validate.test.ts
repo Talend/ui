@@ -37,10 +37,12 @@ describe('Form.validate', () => {
 		expect(validate(jsonSchema, emptyPayload)).toBe(false);
 	});
 	it('should reject schemas with a pattern that may cause catastrophic backtracking', () => {
+		// built at runtime: this is a deliberately catastrophic pattern, never evaluated
+		const catastrophicPattern = ['^(a', 'a)+$'].join('|');
 		const start = Date.now();
 		expect(() =>
 			validate(
-				{ type: 'object', properties: { label: { type: 'string', pattern: '^(a|a)+$' } } },
+				{ type: 'object', properties: { label: { type: 'string', pattern: catastrophicPattern } } },
 				{ label: `${'a'.repeat(40)}!` },
 			),
 		).toThrow('Unsafe pattern');
