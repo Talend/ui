@@ -545,6 +545,19 @@ function extractPartsFromTextInput(textInput, options) {
 		};
 	}
 
+	// reject over-length text before any regexp runs, whatever the mode
+	if (textInput.length > MAX_DATETIME_TEXT_LENGTH) {
+		const error = new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
+		return {
+			date: undefined,
+			time,
+			datetime: undefined,
+			textInput,
+			errors: [error],
+			errorMessage: error.message,
+		};
+	}
+
 	let date;
 	let errors = [];
 	let dateTextToParse = textInput;

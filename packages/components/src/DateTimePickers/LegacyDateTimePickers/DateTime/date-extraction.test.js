@@ -798,6 +798,51 @@ describe('Date extraction', () => {
 				],
 			});
 		});
+
+		it.each([
+			['just over the max length', 257],
+			['very long', 20000],
+		])('should reject %s text with an invalid format error in hybrid mode', (_, length) => {
+			// given
+			const textInput = `${':'.repeat(length - 1)}\n`;
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+				hybridMode: true,
+			};
+
+			// when
+			const start = Date.now();
+			const parts = extractPartsFromTextInput(textInput, options);
+			const duration = Date.now() - start;
+
+			// then
+			expect(duration).toBeLessThan(1000);
+			expect(parts.date).toBeUndefined();
+			expect(parts.datetime).toBeUndefined();
+			expect(parts.textInput).toBe(textInput);
+			expect(parts.errors).toHaveLength(1);
+			expect(parts.errors[0].code).toBe('DATETIME_INVALID_FORMAT');
+		});
+
+		it.each([
+			['without time', { useTime: false }],
+			['with time', { useTime: true }],
+			['with time in hybrid mode', { useTime: true, hybridMode: true }],
+			['without time in hybrid mode', { useTime: false, hybridMode: true }],
+		])('should reject over-length text %s', (_, extraOptions) => {
+			// given
+			const textInput = `2018-12-25 ${'1'.repeat(300)}`;
+			const options = { dateFormat: 'YYYY-MM-DD', ...extraOptions };
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts.errors).toHaveLength(1);
+			expect(parts.errors[0].code).toBe('DATETIME_INVALID_FORMAT');
+		});
 	});
 
 	describe('getFullDateFormat', () => {
