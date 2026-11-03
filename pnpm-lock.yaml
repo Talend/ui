@@ -541,8 +541,8 @@ importers:
         specifier: ^4.5.0
         version: 4.7.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-grid-layout:
-        specifier: ^1.5.3
-        version: 1.5.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^2.3.0
+        version: 2.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-is:
         specifier: ^18.3.1
         version: 18.3.1
@@ -8172,8 +8172,8 @@ packages:
       '@types/react':
         optional: true
 
-  react-grid-layout@1.5.4:
-    resolution: {integrity: sha512-AyScMfqhgRfie9ECXddQeaYmTuNlomDj9SIryF/+vtiwXS6IsxX3cI6CCWbSRXqbAePHW397nPxvnekO5gViPg==}
+  react-grid-layout@2.3.0:
+    resolution: {integrity: sha512-4ofzuR/MlYchp+ixDUVBxH6ybaw+JH51M+rpf675ik/++4Dn0Kax/Vf2Gv/7Z++mV1ZC7mY9UV2sRRycjGjKXQ==}
     peerDependencies:
       react: '>= 16.3.0'
       react-dom: '>= 16.3.0'
@@ -16730,7 +16730,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.31
 
-  react-grid-layout@1.5.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-grid-layout@2.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       clsx: 2.1.1
       fast-equals: 4.0.3
