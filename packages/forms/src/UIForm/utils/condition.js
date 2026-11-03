@@ -161,6 +161,7 @@ const MAX_CONDITION_DEPTH = 20;
 const MAX_ITERATION_NESTING = 2;
 const ITERATION_OPERATORS = new Set(['map', 'filter', 'reduce', 'all', 'none', 'some']);
 const GROWING_OPERATORS = new Set(['merge', 'cat', 'missing', 'missing_some']);
+const SCANNING_OPERATORS = new Set(['in']);
 
 function isObject(value) {
 	return value !== null && typeof value === 'object';
@@ -175,8 +176,9 @@ function isObject(value) {
  * - a reduce reinjects its result in the next step, so its logic cannot grow the accumulator
  *   (merge, cat, missing, missing_some, arrays built from non-literal values), otherwise it
  *   doubles at each step,
- * - a reduce logic cannot iterate (map, filter, reduce, all, none, some), otherwise it copies or
- *   walks the whole accumulator at each step, which is quadratic in the size of the data.
+ * - a reduce logic cannot iterate (map, filter, reduce, all, none, some) nor scan (in), otherwise
+ *   it copies or walks the whole accumulator at each step, which is quadratic in the size of the
+ *   data.
  */
 function isBoundedCondition(condition) {
 	let nodes = 0;
@@ -200,7 +202,12 @@ function isBoundedCondition(condition) {
 			return keys.length === 0;
 		}
 		const [operator] = keys;
-		if (inReduceLogic && (GROWING_OPERATORS.has(operator) || ITERATION_OPERATORS.has(operator))) {
+		if (
+			inReduceLogic &&
+			(GROWING_OPERATORS.has(operator) ||
+				ITERATION_OPERATORS.has(operator) ||
+				SCANNING_OPERATORS.has(operator))
+		) {
 			return false;
 		}
 		const nextIterations = ITERATION_OPERATORS.has(operator) ? iterations + 1 : iterations;

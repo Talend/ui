@@ -323,6 +323,23 @@ describe('shouldRender security', () => {
 			expect(Date.now() - start).toBeLessThan(100);
 		});
 
+		it('should reject an in scan inside a reduce logic', () => {
+			const condition = {
+				'!!': [
+					{
+						reduce: [
+							{ var: 'items' },
+							{ or: [{ in: [-1, { var: 'accumulator' }] }, { var: 'accumulator' }] },
+							{ var: 'items' },
+						],
+					},
+				],
+			};
+			const start = Date.now();
+			expect(shouldRender(condition, { items: new Array(100000).fill(0) })).toBe(false);
+			expect(Date.now() - start).toBeLessThan(100);
+		});
+
 		it('should reject deeply nested iteration operators', () => {
 			const start = Date.now();
 			expect(shouldRender({ '!!': [nestedMap(9)] }, {})).toBe(false);
