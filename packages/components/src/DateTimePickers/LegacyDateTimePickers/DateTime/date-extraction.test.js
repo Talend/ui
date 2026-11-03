@@ -829,9 +829,7 @@ describe('Date extraction', () => {
 		it.each([
 			['without time', { useTime: false }],
 			['with time', { useTime: true }],
-			['with time in hybrid mode', { useTime: true, hybridMode: true }],
-			['without time in hybrid mode', { useTime: false, hybridMode: true }],
-		])('should reject over-length text %s', (_, extraOptions) => {
+		])('should reject over-length text %s with an invalid date', (_, extraOptions) => {
 			// given
 			const textInput = `2018-12-25 ${'1'.repeat(300)}`;
 			const options = { dateFormat: 'YYYY-MM-DD', ...extraOptions };
@@ -842,6 +840,25 @@ describe('Date extraction', () => {
 			// then
 			expect(parts.errors).toHaveLength(1);
 			expect(parts.errors[0].code).toBe('DATETIME_INVALID_FORMAT');
+			expect(parts.datetime).toBeInstanceOf(Date);
+			expect(isNaN(parts.datetime.getTime())).toBe(true);
+		});
+
+		it.each([
+			['with time', { useTime: true, hybridMode: true }],
+			['without time', { useTime: false, hybridMode: true }],
+		])('should reject over-length text %s in hybrid mode', (_, extraOptions) => {
+			// given
+			const textInput = `2018-12-25 ${'1'.repeat(300)}`;
+			const options = { dateFormat: 'YYYY-MM-DD', ...extraOptions };
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts.errors).toHaveLength(1);
+			expect(parts.errors[0].code).toBe('DATETIME_INVALID_FORMAT');
+			expect(parts.datetime).toBeUndefined();
 		});
 	});
 

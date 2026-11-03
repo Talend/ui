@@ -551,7 +551,8 @@ function extractPartsFromTextInput(textInput, options) {
 		return {
 			date: undefined,
 			time,
-			datetime: undefined,
+			// invalid-Date sentinel outside hybrid mode, undefined (no date) in hybrid mode
+			datetime: dateAndTimeToDateTime(undefined, time, options),
 			textInput,
 			errors: [error],
 			errorMessage: error.message,
