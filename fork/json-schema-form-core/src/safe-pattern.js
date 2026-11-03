@@ -31,12 +31,25 @@ const SUBSCHEMA_MAP_KEYWORDS = [
 	'dependentSchemas',
 ];
 
-// characters used to decide if two atoms may match the same character
+// characters used to decide if two atoms may match the same character: all the Latin-1 ones, and
+// the ones above (white spaces, line terminators and others) that tell apart what an atom
+// without \u, \p or non Latin-1 characters can match
 const SAMPLES = [];
 for (let code = 0; code < 256; code += 1) {
 	SAMPLES.push(String.fromCharCode(code));
 }
-SAMPLES.push('\u0100', '\u4e00');
+SAMPLES.push(
+	'\u0100',
+	'\u1680',
+	'\u2000',
+	'\u2028',
+	'\u2029',
+	'\u202f',
+	'\u205f',
+	'\u3000',
+	'\ufeff',
+	'\u4e00',
+);
 
 const SYNTAX_CHARACTERS = /[\^$\\.*+?()[\]{}|/-]/;
 // eslint-disable-next-line no-control-regex
@@ -122,64 +135,119 @@ function isAmbiguousBody(branches) {
 }
 
 /**
- * @returns {Uint8Array|null} the samples matched by the atom, null if it is unknown (it may match anything).
+ * @returns {boolean} true if the number of occurrences of the item, or of one of the atoms it contains, may vary.
  */
-function samplesOf(item) {
-	if (item.complex || item.branches) {
-		return null;
+function containsVariable(item) {
+	if (item.variable === undefined) {
+		item.variable =
+			item.max > item.min ||
+			(item.branches !== undefined &&
+				item.branches.some(items => items.some(child => containsVariable(child))));
 	}
-	const set = new Uint8Array(SAMPLES.length);
-	if (item.literal !== undefined) {
-		set[item.literal.charCodeAt(0)] = 1;
-		return set;
-	}
-	let atom;
-	try {
-		atom = new RegExp(`^(?:${item.src})$`);
-	} catch {
-		throw new UnsafePatternError('Invalid atom');
-	}
-	SAMPLES.forEach((sample, i) => {
-		set[i] = atom.test(sample) ? 1 : 0;
-	});
-	return set;
+	return item.variable;
 }
 
 /**
- * Reject repeated atoms (variable number of occurrences) that follow each other, with only optional atoms
- * in between, and may match the same character: the number of ways to split the input between them
- * grows polynomially, or exponentially, with the input length.
+ * @returns {Uint8Array|null} the SAMPLES matched by the item (or by any of the atoms of a group),
+ * null if it is unknown: it may then match anything.
  */
-function checkSequence(items) {
-	let chain = { set: new Uint8Array(SAMPLES.length), any: false, empty: true };
-	items.forEach(item => {
-		const repeated = item.max > item.min;
-		let set;
-		if (repeated) {
-			set = samplesOf(item);
-			if (!chain.empty && (set === null || chain.any || overlaps(chain.set, set))) {
-				throw new UnsafePatternError('Overlapping sequential repetitions');
+function samplesOf(item) {
+	if (item.samples !== undefined) {
+		return item.samples;
+	}
+	let samples = null;
+	if (item.branches) {
+		const union = new Uint8Array(SAMPLES.length);
+		const known = item.branches.every(items =>
+			items.every(child => {
+				const childSamples = samplesOf(child);
+				if (childSamples) {
+					childSamples.forEach((value, i) => {
+						union[i] = union[i] || value;
+					});
+				}
+				return childSamples !== null;
+			}),
+		);
+		samples = known ? union : null;
+	} else if (!item.complex) {
+		samples = new Uint8Array(SAMPLES.length);
+		if (item.literal !== undefined) {
+			samples[SAMPLES.indexOf(item.literal)] = 1;
+		} else {
+			let atom;
+			try {
+				atom = new RegExp(`^(?:${item.src})$`);
+			} catch {
+				throw new UnsafePatternError('Invalid atom');
 			}
+			SAMPLES.forEach((sample, i) => {
+				samples[i] = atom.test(sample) ? 1 : 0;
+			});
 		}
-		if (item.min > 0) {
-			// a mandatory atom separates what precedes from what follows
-			chain = { set: new Uint8Array(SAMPLES.length), any: false, empty: true };
-		}
-		if (repeated) {
-			chain.empty = false;
-			if (set === null) {
-				chain.any = true;
-			} else {
-				set.forEach((value, i) => {
-					chain.set[i] = chain.set[i] || value;
-				});
-			}
-		}
-	});
+	}
+	// eslint-disable-next-line no-param-reassign
+	item.samples = samples;
+	return samples;
 }
 
-function overlaps(a, b) {
-	return a.some((value, i) => value === 1 && b[i] === 1);
+function newChain() {
+	return { samples: new Uint8Array(SAMPLES.length), any: false, empty: true };
+}
+
+function conflictsWith(chain, samples) {
+	return (
+		!chain.empty &&
+		(samples === null ||
+			chain.any ||
+			chain.samples.some((value, i) => value === 1 && samples[i] === 1))
+	);
+}
+
+function addToChain(chain, samples) {
+	// eslint-disable-next-line no-param-reassign
+	chain.empty = false;
+	if (samples === null) {
+		// eslint-disable-next-line no-param-reassign
+		chain.any = true;
+	} else {
+		samples.forEach((value, i) => {
+			// eslint-disable-next-line no-param-reassign
+			chain.samples[i] = chain.samples[i] || value;
+		});
+	}
+}
+
+/**
+ * Reject the repetitions (also hidden in groups) that follow each other and may match the same character:
+ * the number of ways to split the input between them grows polynomially, or exponentially,
+ * with the input length.
+ * Only an atom that cannot match any character of the preceding repetitions separates them.
+ */
+function checkSequence(items) {
+	let chain = newChain();
+	items.forEach(item => {
+		const variable = containsVariable(item);
+		if (!variable && (item.min === 0 || chain.empty)) {
+			return;
+		}
+		const samples = samplesOf(item);
+		const conflict = conflictsWith(chain, samples);
+		if (variable) {
+			if (conflict) {
+				throw new UnsafePatternError('Overlapping sequential repetitions');
+			}
+			if (item.min > 0) {
+				chain = newChain();
+			}
+			addToChain(chain, samples);
+		} else if (conflict) {
+			// it may consume characters that the repetitions could match: not a separator
+			addToChain(chain, samples);
+		} else {
+			chain = newChain();
+		}
+	});
 }
 
 function skipClass(source, index) {

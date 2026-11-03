@@ -23,6 +23,11 @@ describe('isSafePattern', () => {
 		'^a*b?a*$',
 		'^a?a?a?a?a?a?a?aaaaaaa$',
 		'^.*.*$',
+		'^[\\s]+[^\\x00-\\xff]+$',
+		'^(a+)(a+)(a+)(a+)(a+)(a+)(a+)(a+)$',
+		'^(?:a+)(?:a*)$',
+		'^a+aa+aa+aa+aa+aa+aa+aa+$',
+		'^[ab]+b[bc]+$',
 		'*',
 		'[z-a]',
 		'a{2}{3}',
@@ -44,6 +49,10 @@ describe('isSafePattern', () => {
 		'^\\d+-\\d+$',
 		'^\\d{3}\\d{4}$',
 		'^a+b*c+$',
+		'^a+b+a+$',
+		'^[\\s]+[^\\s]+$',
+		'^(a+)b(a+)$',
+		'^(a+)ab$',
 		'^(?:a|b|c|d)+$',
 	])('should accept %s', pattern => {
 		expect(isSafePattern(pattern)).toBe(true);
@@ -77,6 +86,10 @@ describe('findUnsafePattern', () => {
 	it('should ignore instance data', () => {
 		expect(findUnsafePattern({ default: { pattern: '^(a|a)+$' } })).toBeUndefined();
 		expect(findUnsafePattern({ enum: [{ pattern: '^(a|a)+$' }] })).toBeUndefined();
+	});
+
+	it('should check extension keywords, a $ref may target them', () => {
+		expect(findUnsafePattern({ 'x-metadata': { pattern: '^(a+)+$' } })).toBe('^(a+)+$');
 	});
 
 	it('should not take the names of properties for keywords', () => {
