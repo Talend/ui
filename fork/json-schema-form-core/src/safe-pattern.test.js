@@ -23,6 +23,9 @@ describe('isSafePattern', () => {
 		'^[\\s]+[^\\x00-\\xff]+[\\s]+$',
 		'^(a+)(a+)(a+)(a+)(a+)(a+)(a+)(a+)$',
 		'^a+aa+aa+aa+aa+aa+aa+aa+$',
+		'^((a+a+)(a+a+))((a+a+)(a+a+))$',
+		'^((a+a+)(a+))$',
+		'^(?:(?:a+)(?:a+))(?:a+)$',
 		`^${'(a|aa)'.repeat(22)}$`,
 		`^${'a+(b*)'.repeat(8)}a+$`,
 		`^${Array(8).fill('a+').join('(?!b)')}$`,
@@ -61,6 +64,8 @@ describe('isSafePattern', () => {
 		'^[\\s]+[^\\s]+$',
 		'^(a+)b(a+)$',
 		'^(a+)ab$',
+		'^(?:a+a+)b$',
+		'^(?:a+a+)(?:b+b+)$',
 		'^(?:a|b|c|d)+$',
 	])('should accept %s', pattern => {
 		expect(isSafePattern(pattern)).toBe(true);
@@ -91,9 +96,18 @@ describe('findUnsafePattern', () => {
 		expect(findUnsafePattern({ patternProperties: { '^(a+)+$': {} } })).toBe('^(a+)+$');
 	});
 
-	it('should scan instance data keywords, a $ref may target them', () => {
-		expect(findUnsafePattern({ default: { pattern: '^(a|a)+$' } })).toBe('^(a|a)+$');
-		expect(findUnsafePattern({ enum: [{ pattern: '^(a|a)+$' }] })).toBe('^(a|a)+$');
+	it('should not take the data of default, enum or extension keywords for schemas', () => {
+		expect(findUnsafePattern({ default: { pattern: '^(a|a)+$' } })).toBeUndefined();
+		expect(findUnsafePattern({ enum: [{ pattern: '^(a|a)+$' }] })).toBeUndefined();
+		expect(findUnsafePattern({ 'x-metadata': { pattern: '^(a+)+$' } })).toBeUndefined();
+		expect(
+			findUnsafePattern({
+				properties: { a: { type: 'object', default: { pattern: '^(a+)+$' } } },
+			}),
+		).toBeUndefined();
+	});
+
+	it('should check the data a local $ref targets', () => {
 		expect(
 			findUnsafePattern({
 				properties: {
@@ -101,10 +115,27 @@ describe('findUnsafePattern', () => {
 				},
 			}),
 		).toBe('^(a|a)+$');
+		expect(
+			findUnsafePattern({
+				properties: { a: { $ref: '#/x-metadata/a~1b/%24defs' } },
+				'x-metadata': { 'a/b': { $defs: { pattern: '^(a+)+$' } } },
+			}),
+		).toBe('^(a+)+$');
+		expect(
+			findUnsafePattern({ properties: { a: { $ref: '#/default' } }, default: { pattern: 'a+' } }),
+		).toBeUndefined();
 	});
 
-	it('should check extension keywords, a $ref may target them', () => {
-		expect(findUnsafePattern({ 'x-metadata': { pattern: '^(a+)+$' } })).toBe('^(a+)+$');
+	it('should check every object when a reference may reach anything', () => {
+		const unsafe = { pattern: '^(a|a)+$' };
+		expect(findUnsafePattern({ $ref: 'http://example.com/schema', default: unsafe })).toBe(
+			'^(a|a)+$',
+		);
+		expect(findUnsafePattern({ $ref: '#/missing', default: unsafe })).toBe('^(a|a)+$');
+		expect(findUnsafePattern({ $ref: '#foo', enum: [unsafe] })).toBe('^(a|a)+$');
+		expect(findUnsafePattern({ properties: { a: { id: 'other' } }, 'x-metadata': unsafe })).toBe(
+			'^(a|a)+$',
+		);
 	});
 
 	it('should not take the names of properties for keywords', () => {
