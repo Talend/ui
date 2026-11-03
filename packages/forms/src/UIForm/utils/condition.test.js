@@ -227,4 +227,109 @@ describe('shouldRender security', () => {
 		expect(shouldRender({ '===': [{ var: 'a.b' }, 1] }, { a: { b: 1 } })).toBe(true);
 		expect(shouldRender({ and: [{ '!==': [{ var: 'a' }, 2] }, true] }, { a: 1 })).toBe(true);
 	});
+
+	describe('evaluation cost', () => {
+		function nestedMap(depth) {
+			let rule = 1;
+			for (let i = 0; i < depth; i += 1) {
+				rule = { map: [new Array(10).fill(0), rule] };
+			}
+			return rule;
+		}
+
+		it('should reject a reduce whose accumulator doubles with merge', () => {
+			const condition = {
+				'!!': [
+					{
+						reduce: [
+							{ var: 'items' },
+							{ merge: [{ var: 'accumulator' }, { var: 'accumulator' }] },
+							[1],
+						],
+					},
+				],
+			};
+			const items = new Array(40).fill(0);
+			const start = Date.now();
+			expect(shouldRender(condition, { items })).toBe(false);
+			expect(Date.now() - start).toBeLessThan(100);
+		});
+
+		it('should reject a reduce whose accumulator doubles with cat', () => {
+			const condition = {
+				reduce: [{ var: 'items' }, { cat: [{ var: 'accumulator' }, { var: 'accumulator' }] }, 'ab'],
+			};
+			expect(shouldRender(condition, { items: new Array(40).fill(0) })).toBe(false);
+		});
+
+		it('should reject a reduce whose accumulator doubles with nested arrays', () => {
+			const condition = {
+				'!!': [
+					{
+						reduce: [
+							{ var: 'items' },
+							{ '+': [[{ var: 'accumulator' }, { var: 'accumulator' }]] },
+							[1],
+						],
+					},
+				],
+			};
+			expect(shouldRender(condition, { items: new Array(40).fill(0) })).toBe(false);
+		});
+
+		it('should reject deeply nested iteration operators', () => {
+			const start = Date.now();
+			expect(shouldRender({ '!!': [nestedMap(9)] }, {})).toBe(false);
+			expect(Date.now() - start).toBeLessThan(100);
+		});
+
+		it('should reject conditions that are too deep or too big', () => {
+			let deep = { var: 'a' };
+			for (let i = 0; i < 100; i += 1) {
+				deep = { '!': [deep] };
+			}
+			expect(shouldRender(deep, { a: 1 })).toBe(false);
+			const big = { and: new Array(1000).fill({ '===': [{ var: 'a' }, 1] }) };
+			expect(shouldRender(big, { a: 1 })).toBe(false);
+		});
+
+		it('should reject nested iteration operators up to the exponential cost', () => {
+			const start = Date.now();
+			expect(shouldRender({ '!!': [nestedMap(6)] }, {})).toBe(false);
+			expect(Date.now() - start).toBeLessThan(100);
+		});
+
+		it('should still evaluate bounded iteration operators', () => {
+			const data = { items: [{ v: 1 }, { v: 2 }], matrix: [[1, 2], [3]] };
+			expect(shouldRender({ some: [{ var: 'items' }, { '===': [{ var: 'v' }, 2] }] }, data)).toBe(
+				true,
+			);
+			expect(
+				shouldRender(
+					{
+						'===': [
+							{
+								reduce: [
+									{ var: 'items' },
+									{ '+': [{ var: 'current.v' }, { var: 'accumulator' }] },
+									0,
+								],
+							},
+							3,
+						],
+					},
+					data,
+				),
+			).toBe(true);
+			expect(
+				shouldRender(
+					{ all: [{ var: 'matrix' }, { some: [{ var: '' }, { '>': [{ var: '' }, 2] }] }] },
+					data,
+				),
+			).toBe(false);
+			expect(
+				shouldRender({ in: [2, { merge: [{ var: 'matrix.0' }, { var: 'matrix.1' }] }] }, data),
+			).toBe(true);
+		});
+	});
 });
