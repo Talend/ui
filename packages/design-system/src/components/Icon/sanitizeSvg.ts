@@ -150,6 +150,16 @@ const LOCAL_URL_REFERENCE = /url\(\s*(['"]?)#([^'")\s]*)\1\s*\)/gi;
 
 const ID_REFERENCE_LIST_ATTRIBUTES = new Set(['aria-labelledby', 'aria-describedby']);
 
+// Only presentation attributes can reference another element through url(#id); other values
+// (ex: aria-label) are literal text and must be preserved as is.
+const URL_REFERENCE_ATTRIBUTES: Record<string, true> = {
+	fill: true,
+	stroke: true,
+	filter: true,
+	mask: true,
+	'clip-path': true,
+};
+
 let remoteSvgCount = 0;
 
 /**
@@ -171,10 +181,13 @@ function scopeAttributeValue(localName: string, value: string, prefix: string) {
 			.map(id => `${prefix}${id}`)
 			.join(' ');
 	}
-	return value.replace(
-		LOCAL_URL_REFERENCE,
-		(_match, quote: string, id: string) => `url(${quote}#${prefix}${id}${quote})`,
-	);
+	if (URL_REFERENCE_ATTRIBUTES[localName] === true) {
+		return value.replace(
+			LOCAL_URL_REFERENCE,
+			(_match, quote: string, id: string) => `url(${quote}#${prefix}${id}${quote})`,
+		);
+	}
+	return value;
 }
 
 /**

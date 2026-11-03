@@ -133,6 +133,17 @@ describe('Icon security', () => {
 		expect(container.querySelector('[id$="-plain"]')?.getAttribute('fill')).toBe('#fff');
 	});
 
+	it('should keep literal text attributes untouched when they look like url references', async () => {
+		mockFetch(
+			'<svg xmlns="http://www.w3.org/2000/svg"><path id="label" d="M0 0" aria-label="Preview url(#gradient)"/></svg>',
+		);
+		const { container } = render(<Icon name="remote-https://example.com/label.svg" />);
+		await waitFor(() => expect(container.querySelector('[id$="-label"]')).toBeInTheDocument());
+		expect(container.querySelector('[id$="-label"]')?.getAttribute('aria-label')).toBe(
+			'Preview url(#gradient)',
+		);
+	});
+
 	it('should drop remote classes and scope remote ids so they cannot collide with the host', async () => {
 		mockFetch(
 			'<svg xmlns="http://www.w3.org/2000/svg" class="tc-iconsprovider" viewBox="0 0 16 16">' +
