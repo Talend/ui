@@ -42,7 +42,6 @@ const ALLOWED_ATTRIBUTES = new Set(
 	[
 		// structure / geometry
 		'id',
-		'class',
 		'viewBox',
 		'width',
 		'height',
@@ -147,7 +146,36 @@ function isAllowedAttribute(attr: Attr) {
 	return attr.namespaceURI === XLINK_NS && localName === 'href';
 }
 
-const LOCAL_URL_REFERENCE = /url\(\s*(['"]?)#[^'")\s]*\1\s*\)/gi;
+const LOCAL_URL_REFERENCE = /url\(\s*(['"]?)#([^'")\s]*)\1\s*\)/gi;
+
+const ID_REFERENCE_LIST_ATTRIBUTES = new Set(['aria-labelledby', 'aria-describedby']);
+
+let remoteSvgCount = 0;
+
+/**
+ * Remote ids live in the host document once the svg is inserted: they must never collide with
+ * the ids the library or the host rely on (ex: <use href="#trash:M">), so every id is prefixed
+ * with a value unique to the sanitized svg and every reference is rewritten accordingly.
+ */
+function scopeAttributeValue(localName: string, value: string, prefix: string) {
+	if (localName === 'id') {
+		return `${prefix}${value}`;
+	}
+	if (localName === 'href') {
+		return `#${prefix}${value.trim().slice(1)}`;
+	}
+	if (ID_REFERENCE_LIST_ATTRIBUTES.has(localName)) {
+		return value
+			.split(/\s+/)
+			.filter(Boolean)
+			.map(id => `${prefix}${id}`)
+			.join(' ');
+	}
+	return value.replace(
+		LOCAL_URL_REFERENCE,
+		(_match, quote: string, id: string) => `url(${quote}#${prefix}${id}${quote})`,
+	);
+}
 
 /**
  * Values may only reference local fragments, either as a whole (href) or through url(#id).
@@ -183,27 +211,29 @@ function stripWhitespaceAndControls(value: string) {
 		.join('');
 }
 
-function sanitizeElement(element: Element) {
+function sanitizeElement(element: Element, idPrefix: string) {
 	Array.from(element.children).forEach(child => {
 		if (!ALLOWED_ELEMENTS.has(child.localName.toLowerCase()) || child.namespaceURI !== SVG_NS) {
 			child.remove();
 			return;
 		}
-		sanitizeElement(child);
+		sanitizeElement(child, idPrefix);
 	});
 
 	Array.from(element.attributes).forEach(attr => {
-		if (
-			!isAllowedAttribute(attr) ||
-			!isSafeAttributeValue(attr.localName.toLowerCase(), attr.value)
-		) {
+		const localName = attr.localName.toLowerCase();
+		if (!isAllowedAttribute(attr) || !isSafeAttributeValue(localName, attr.value)) {
 			element.removeAttributeNode(attr);
+			return;
 		}
+		attr.value = scopeAttributeValue(localName, attr.value, idPrefix);
 	});
 }
 
 /**
  * Parse a remote svg and keep only an allowlist of elements and attributes.
+ * Classes are dropped and ids (with their local references) are made unique to this
+ * sanitized svg so that it cannot collide with ids and classes of the host document.
  * Returns the sanitized root <svg> element, or undefined when the content
  * is not a valid svg document.
  */
@@ -221,6 +251,7 @@ export function sanitizeSvg(content: string): Element | undefined {
 	) {
 		return undefined;
 	}
-	sanitizeElement(root);
+	remoteSvgCount += 1;
+	sanitizeElement(root, `tc-remote-svg-${remoteSvgCount}-`);
 	return root;
 }
