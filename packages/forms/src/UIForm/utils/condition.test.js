@@ -399,6 +399,22 @@ describe('shouldRender security', () => {
 			expect(shouldRender(condition, data)).toBe(true);
 		});
 
+		it('should evaluate a reduce with var literal paths and defaults', () => {
+			const condition = {
+				'===': [
+					{
+						reduce: [
+							{ var: 'items' },
+							{ '+': [{ var: ['current', 0] }, { var: ['accumulator', 0] }] },
+							0,
+						],
+					},
+					6,
+				],
+			};
+			expect(shouldRender(condition, { items: [1, 2, 3] })).toBe(true);
+		});
+
 		it('should reject deeply nested iteration operators', () => {
 			const start = Date.now();
 			expect(shouldRender({ '!!': [nestedMap(9)] }, {})).toBe(false);

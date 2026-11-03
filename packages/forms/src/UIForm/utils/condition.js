@@ -228,7 +228,7 @@ function hasCoercingOperator(node) {
 	if (operator === undefined) {
 		return false;
 	}
-	if (COERCING_OPERATORS.has(operator) || (operator === 'var' && isObject(node.var))) {
+	if (COERCING_OPERATORS.has(operator) || (operator === 'var' && isObject(toArgs(node.var)[0]))) {
 		return true;
 	}
 	return toArgs(node[operator]).some(hasCoercingOperator);
