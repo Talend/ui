@@ -162,9 +162,116 @@ const MAX_ITERATION_NESTING = 2;
 const ITERATION_OPERATORS = new Set(['map', 'filter', 'reduce', 'all', 'none', 'some']);
 const GROWING_OPERATORS = new Set(['merge', 'cat', 'missing', 'missing_some']);
 const SCANNING_OPERATORS = new Set(['in']);
+// operators that coerce their operands (String(array), parseFloat, toLowerCase...): O(size) per call
+const COERCING_OPERATORS = new Set([
+	'==',
+	'!=',
+	'>',
+	'>=',
+	'<',
+	'<=',
+	'+',
+	'-',
+	'*',
+	'/',
+	'%',
+	'max',
+	'min',
+	'substr',
+	'lowercase',
+	'toNumber',
+]);
+// operators whose result is always a boolean or a number, whatever their operands
+const SCALAR_RESULT_OPERATORS = new Set([
+	'==',
+	'===',
+	'!=',
+	'!==',
+	'!',
+	'!!',
+	'>',
+	'>=',
+	'<',
+	'<=',
+	'max',
+	'min',
+	'+',
+	'-',
+	'*',
+	'/',
+	'%',
+	'toNumber',
+]);
 
 function isObject(value) {
 	return value !== null && typeof value === 'object';
+}
+
+function getOperator(node) {
+	const keys = isObject(node) && !Array.isArray(node) ? Object.keys(node) : [];
+	return keys.length === 1 ? keys[0] : undefined;
+}
+
+function toArgs(args) {
+	return Array.isArray(args) ? args : [args];
+}
+
+/**
+ * Whether the node applies an operator that coerces its operands, which costs the size of the
+ * operands (a var path computed from the data is stringified too).
+ */
+function hasCoercingOperator(node) {
+	if (Array.isArray(node)) {
+		return node.some(hasCoercingOperator);
+	}
+	const operator = getOperator(node);
+	if (operator === undefined) {
+		return false;
+	}
+	if (COERCING_OPERATORS.has(operator) || (operator === 'var' && isObject(node.var))) {
+		return true;
+	}
+	return toArgs(node[operator]).some(hasCoercingOperator);
+}
+
+/**
+ * Whether the node can only evaluate to a scalar (boolean, number or literal) whatever the data.
+ * A non literal value (var) or a string produced by a coercion could be as big as the data.
+ */
+function hasScalarResult(node) {
+	if (Array.isArray(node)) {
+		return !node.some(isObject);
+	}
+	if (!isObject(node)) {
+		return true;
+	}
+	const operator = getOperator(node);
+	if (operator === undefined) {
+		return Object.keys(node).length === 0;
+	}
+	if (SCALAR_RESULT_OPERATORS.has(operator)) {
+		return true;
+	}
+	const args = toArgs(node[operator]);
+	if (operator === 'or' || operator === 'and') {
+		return args.every(hasScalarResult);
+	}
+	if (operator === 'if' || operator === '?:') {
+		// even positions but the last one are the conditions, they are not part of the result
+		return args.every(
+			(arg, index) => (index % 2 === 0 && index < args.length - 1) || hasScalarResult(arg),
+		);
+	}
+	return false;
+}
+
+/**
+ * A reduce logic coercing its operands costs the size of the accumulator at each step.
+ * It is only affordable when the accumulator is a scalar after the first step,
+ * so the result of the logic must be a scalar.
+ */
+function isBoundedReduceLogic(logic) {
+	return !hasCoercingOperator(logic) || hasScalarResult(logic);
 }
 
 /**
@@ -178,7 +285,9 @@ function isObject(value) {
  *   doubles at each step,
  * - a reduce logic cannot iterate (map, filter, reduce, all, none, some) nor scan (in), otherwise
  *   it copies or walks the whole accumulator at each step, which is quadratic in the size of the
- *   data.
+ *   data,
+ * - a reduce logic that coerces its operands (==, <, +, substr...) must return a scalar, otherwise
+ *   it coerces the whole accumulator at each step (e.g. String(array)) while keeping it unchanged.
  */
 function isBoundedCondition(condition) {
 	let nodes = 0;
@@ -214,15 +323,18 @@ function isBoundedCondition(condition) {
 		if (nextIterations > MAX_ITERATION_NESTING) {
 			return false;
 		}
-		const args = Array.isArray(node[operator]) ? node[operator] : [node[operator]];
+		const args = toArgs(node[operator]);
 		nodes += 1;
-		return args.every((arg, index) =>
-			visit(
-				arg,
-				depth + 1,
-				nextIterations,
-				inReduceLogic || (operator === 'reduce' && index === 1),
-			),
+		return (
+			args.every((arg, index) =>
+				visit(
+					arg,
+					depth + 1,
+					nextIterations,
+					inReduceLogic || (operator === 'reduce' && index === 1),
+				),
+			) &&
+			(operator !== 'reduce' || isBoundedReduceLogic(args[1]))
 		);
 	}
 
