@@ -50,6 +50,29 @@ describe('getLabelProps', () => {
 		expect(props.required).toBe(false);
 	});
 
+	it('should not render an object hint icon as a React element', () => {
+		const { container } = render(
+			<label
+				{...getLabelProps(
+					'Title',
+					{},
+					{
+						icon: { type: 'iframe', props: { srcDoc: '<script>alert(1)</script>' }, ref: null },
+					},
+				)}
+			/>,
+		);
+		expect(container.querySelector('iframe')).toBeNull();
+		expect(container.querySelector('button svg')).toBeInTheDocument();
+	});
+
+	it('should render a string hint icon', () => {
+		const { container } = render(
+			<label {...getLabelProps('Title', {}, { icon: 'talend-warning' })} />,
+		);
+		expect(container.querySelector('button svg')).toBeInTheDocument();
+	});
+
 	it('handles absent label props', () => {
 		expect(getLabelProps('Title')).toEqual({ children: 'Title' });
 	});

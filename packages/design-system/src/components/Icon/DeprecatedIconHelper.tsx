@@ -1,4 +1,4 @@
-import { cloneElement, ReactElement } from 'react';
+import { cloneElement, isValidElement, ReactElement } from 'react';
 import { IconNameWithSize } from '@talend/icons/dist/typeUtils';
 import { DataAttributes } from '../../types';
 import { Icon } from './Icon';
@@ -17,6 +17,10 @@ export function getIconWithDeprecatedSupport({
 			return <Icon name={iconSrc} {...rest} />;
 		}
 		return <SizedIcon size={size} name={iconSrc as IconNameWithSize<typeof size>} {...rest} />;
+	}
+
+	if (!isValidElement(iconSrc)) {
+		return null;
 	}
 
 	return cloneElement(iconSrc, {});

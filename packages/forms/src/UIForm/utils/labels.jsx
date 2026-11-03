@@ -31,7 +31,7 @@ export const getLabelProps = (title, rawLabelProps, hint, required) => {
 						<ButtonIcon
 							data-test={hint['icon-data-test']}
 							size="XS"
-							icon={hint.icon || 'talend-info-circle'}
+							icon={typeof hint.icon === 'string' && hint.icon ? hint.icon : 'talend-info-circle'}
 						></ButtonIcon>
 					}
 				>
