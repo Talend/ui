@@ -1,9 +1,27 @@
 /* eslint-disable react/no-unused-prop-types */
+import { isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import { Column } from 'react-virtualized';
 import TooltipTrigger from '../TooltipTrigger';
 
-function DefaultRenderer({ cellData, columnData, rowData }) {
+function isPrimitive(value) {
+	return typeof value === 'string' || typeof value === 'number';
+}
+
+// Plain objects (or arrays containing them) are not valid React children and would throw:
+// only render what is safely displayable, omit the rest.
+function toDisplayable(cellData) {
+	if (cellData == null || isPrimitive(cellData) || isValidElement(cellData)) {
+		return cellData;
+	}
+	if (Array.isArray(cellData) && cellData.every(isPrimitive)) {
+		return cellData;
+	}
+	return null;
+}
+
+function DefaultRenderer({ cellData: rawCellData, columnData, rowData }) {
+	const cellData = toDisplayable(rawCellData);
 	const { getTooltipLabel } = columnData;
 	let tooltipLabel = columnData.tooltipLabel != null ? columnData.tooltipLabel : cellData;
 	if (typeof getTooltipLabel === 'function') {

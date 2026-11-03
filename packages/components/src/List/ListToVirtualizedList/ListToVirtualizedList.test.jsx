@@ -55,7 +55,7 @@ const props = {
 		{ key: 'id', label: 'Id', type: 'customType', header: 'customType' },
 		{ key: 'label', label: 'Label', disableSort: true },
 		{ key: 'tag', label: 'Tag', type: 'badge' },
-		{ key: 'myactions', label: 'Actions', hideHeader: true },
+		{ key: 'myactions', label: 'Actions', type: 'actions', hideHeader: true },
 	],
 	titleProps: {
 		key: 'label',
@@ -181,6 +181,35 @@ describe('ListToVirtualizedList', () => {
 		expect(renderProps.children[2].props.cellRenderer).toBe(CellBadge.cellRenderer);
 		expect(renderProps.children[3].props.label).toBe('Actions');
 		expect(renderProps.children[3].props.cellRenderer).toBe(CellActions.cellRenderer);
+	});
+
+	it('should not pick the actions renderer from the shape of the item data', async () => {
+		const user = userEvent.setup();
+
+		// given
+		const items = [
+			{
+				id: 1,
+				description: [{ label: 'Open', href: 'javascript:alert(1)' }],
+				mapped: [{ label: 'Open', href: 'javascript:alert(1)' }],
+			},
+		];
+		const columns = [
+			{ key: 'description', label: 'Description' },
+			{ key: 'mapped', label: 'Mapped', type: 'mappedData' },
+		];
+		render(<ListToVirtualizedList id="list" items={items} columns={columns} />);
+
+		// when
+		await user.click(screen.getByText('getProps'));
+		const renderProps = VirtualizedList.getProps.mock.calls[0][0];
+		const CellActions = VirtualizedList.cellDictionary.actions;
+		const CellMappedData = VirtualizedList.cellDictionary.mappedData;
+
+		// then
+		expect(renderProps.children[0].props.cellRenderer).toBeUndefined();
+		expect(renderProps.children[1].props.cellRenderer).not.toBe(CellActions.cellRenderer);
+		expect(renderProps.children[1].props.cellRenderer).toBe(CellMappedData.cellRenderer);
 	});
 
 	it('should support custom header renderer', async () => {
