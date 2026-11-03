@@ -141,6 +141,15 @@ describe('ActionDropdown href hardening', () => {
 		expect(screen.getByText('Path').closest('a')).toHaveAttribute('href', '/some/path');
 	});
 
+	it('should not let a case variant of href override the validated href', async () => {
+		const user = userEvent.setup();
+		const items = [{ id: 'v', label: 'Variant', href: '/safe', HREF: 'javascript:alert(1)' }];
+		render(<ActionDropdown id="d" label="Dropdown" items={items} />);
+		await user.click(screen.getByRole('button'));
+		expect(screen.getByText('Variant').closest('a')).toHaveAttribute('href', '/safe');
+		expect(document.querySelector('a[href*="javascript" i]')).toBeNull();
+	});
+
 	it('should still call onClick of an item whose href has been dropped', async () => {
 		const user = userEvent.setup();
 		const onClick = vi.fn();
