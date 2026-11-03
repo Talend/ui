@@ -14,6 +14,7 @@ import { SizedIcon } from '../Icon';
 
 import style from './LinkableStyles.module.css';
 import { getIconWithDeprecatedSupport } from '../Icon/DeprecatedIconHelper';
+import { getSafeHref } from './getSafeHref';
 
 export type LinkableType = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'style'> & {
 	as?: 'a' | ReactElement;
@@ -33,7 +34,7 @@ export const Linkable = forwardRef(
 		{
 			as = 'a',
 			isNaturallyAligned = false,
-			href,
+			href: unsafeHref,
 			children,
 			target,
 			icon,
@@ -45,6 +46,8 @@ export const Linkable = forwardRef(
 		// Ref<any>: Linkable is polymorphic. Could be any HTML element
 		ref: Ref<any>,
 	) => {
+		const href = useMemo(() => getSafeHref(unsafeHref), [unsafeHref]);
+
 		const isExternal = useMemo(() => {
 			if (!href) {
 				return false;
