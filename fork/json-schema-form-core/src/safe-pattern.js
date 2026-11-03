@@ -5,7 +5,8 @@
  * This module statically rejects the patterns that are known to cause catastrophic backtracking:
  * - a repeated group that contains another repetition or an optional atom (nested quantifiers)
  * - a repeated group that contains alternatives (at any depth) which may overlap
- * - sequential repeated atoms that may match the same characters (e.g. `a+a+a+`)
+ * - sequential repetitions (also hidden in groups) that may match the same characters (e.g. `a+a+a+`),
+ *   up to two of them, as `^\S+@\S+$` is common
  * - patterns that are not valid JavaScript regular expressions
  * - patterns longer than MAX_PATTERN_LENGTH
  *
@@ -18,8 +19,9 @@ export const UNSAFE_PATTERN_MESSAGE =
 // The analysis cost depends on the size of the pattern, so the size is bounded.
 export const MAX_PATTERN_LENGTH = 4096;
 
-// keywords whose value is instance data, not schema
-const DATA_KEYWORDS = ['default', 'enum', 'const', 'examples', 'example'];
+// The number of overlapping repetitions that follow each other (e.g. `\S+@\S+`) is bounded:
+// n of them make the matching time grow as the power n+1 of the input length.
+const MAX_OVERLAPPING_REPETITIONS = 1;
 
 // keywords whose value is a map of named subschemas: the keys are names, not keywords
 const SUBSCHEMA_MAP_KEYWORDS = [
@@ -135,14 +137,16 @@ function isAmbiguousBody(branches) {
 }
 
 /**
- * @returns {boolean} true if the number of occurrences of the item, or of one of the atoms it contains, may vary.
+ * @returns {boolean} true if the number of occurrences of the item, of one of the atoms it contains,
+ * or the way it matches (overlapping alternatives) may vary.
  */
 function containsVariable(item) {
 	if (item.variable === undefined) {
 		item.variable =
 			item.max > item.min ||
 			(item.branches !== undefined &&
-				item.branches.some(items => items.some(child => containsVariable(child))));
+				(!areAlternativesDisjoint(item.branches) ||
+					item.branches.some(items => items.some(child => containsVariable(child)))));
 	}
 	return item.variable;
 }
@@ -192,7 +196,7 @@ function samplesOf(item) {
 }
 
 function newChain() {
-	return { samples: new Uint8Array(SAMPLES.length), any: false, empty: true };
+	return { samples: new Uint8Array(SAMPLES.length), any: false, empty: true, overlaps: 0 };
 }
 
 function conflictsWith(chain, samples) {
@@ -219,25 +223,44 @@ function addToChain(chain, samples) {
 }
 
 /**
+ * @returns {boolean} true if the item may match the empty string, so that it consumes nothing.
+ */
+function isNullable(item) {
+	if (item.nullable === undefined) {
+		item.nullable =
+			item.min === 0 ||
+			item.zeroWidth === true ||
+			(item.branches !== undefined &&
+				item.branches.some(items => items.every(child => isNullable(child))));
+	}
+	return item.nullable;
+}
+
+/**
  * Reject the repetitions (also hidden in groups) that follow each other and may match the same character:
  * the number of ways to split the input between them grows polynomially, or exponentially,
  * with the input length.
- * Only an atom that cannot match any character of the preceding repetitions separates them.
+ * Only an atom that consumes characters, none of them matched by the preceding repetitions, separates them.
+ * Two overlapping repetitions (quadratic work, like scanning an unanchored pattern) are tolerated,
+ * because common patterns such as `^\S+@\S+$` need it.
  */
 function checkSequence(items) {
 	let chain = newChain();
 	items.forEach(item => {
 		const variable = containsVariable(item);
-		if (!variable && (item.min === 0 || chain.empty)) {
+		const nullable = isNullable(item);
+		if (!variable && (nullable || chain.empty)) {
 			return;
 		}
 		const samples = samplesOf(item);
 		const conflict = conflictsWith(chain, samples);
 		if (variable) {
 			if (conflict) {
-				throw new UnsafePatternError('Overlapping sequential repetitions');
-			}
-			if (item.min > 0) {
+				chain.overlaps += 1;
+				if (chain.overlaps > MAX_OVERLAPPING_REPETITIONS) {
+					throw new UnsafePatternError('Overlapping sequential repetitions');
+				}
+			} else if (!nullable) {
 				chain = newChain();
 			}
 			addToChain(chain, samples);
@@ -307,12 +330,12 @@ function readEscape(source, index) {
 		}
 	}
 	if (/[0-9]/.test(next)) {
-		// back-reference or octal/null escape
+		// back-reference (which can match the empty string) or octal/null escape
 		const text = matchAt(BACK_REFERENCE, source, index);
-		return { item: { src: text, complex: true }, end: index + text.length };
+		return { item: { src: text, complex: true, zeroWidth: true }, end: index + text.length };
 	}
 	return {
-		item: { src: `\\${next}`, complex: /[bB]/.test(next) },
+		item: { src: `\\${next}`, complex: /[bB]/.test(next), zeroWidth: /[bB]/.test(next) },
 		end: index + 2,
 	};
 }
@@ -320,15 +343,16 @@ function readEscape(source, index) {
 function parseGroupPrefix(source, index) {
 	// index is just after "("
 	if (source[index] !== '?') {
-		return index;
+		return { end: index, assertion: false };
 	}
 	const named = matchAt(NAMED_GROUP, source, index);
 	if (named) {
-		return index + named.length;
+		return { end: index + named.length, assertion: false };
 	}
 	const kind = matchAt(GROUP_KIND, source, index);
 	if (kind) {
-		return index + kind.length;
+		// lookaheads and lookbehinds do not consume anything
+		return { end: index + kind.length, assertion: kind !== '?:' };
 	}
 	throw new UnsafePatternError('Unsupported group');
 }
@@ -353,9 +377,9 @@ function parseBranches(source, start, nested) {
 		}
 		let item;
 		if (char === '(') {
-			const bodyStart = parseGroupPrefix(source, i + 1);
-			const body = parseBranches(source, bodyStart, true);
-			item = { branches: body.branches };
+			const prefix = parseGroupPrefix(source, i + 1);
+			const body = parseBranches(source, prefix.end, true);
+			item = { branches: body.branches, zeroWidth: prefix.assertion };
 			i = body.end;
 		} else if (char === '[') {
 			const classEnd = skipClass(source, i);
@@ -416,6 +440,8 @@ export function isSafePattern(pattern) {
 
 /**
  * Look for the first unsafe `pattern` or `patternProperties` key in a schema.
+ * The whole schema is scanned, extension and instance data keywords (`default`, `enum`...) included:
+ * a `$ref` JSON pointer may target any of them, and tv4 then evaluates it as a schema.
  * @param {Object} schema A JSON Schema
  * @returns {string|undefined} The unsafe pattern, if any.
  */
@@ -448,7 +474,7 @@ export function findUnsafePattern(schema) {
 				return unsafeKey;
 			}
 		}
-		const keys = Object.keys(node).filter(key => !DATA_KEYWORDS.includes(key));
+		const keys = Object.keys(node);
 		for (let i = 0; i < keys.length; i += 1) {
 			const found = visit(node[keys[i]], SUBSCHEMA_MAP_KEYWORDS.includes(keys[i]));
 			if (found !== undefined) {

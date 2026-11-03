@@ -19,15 +19,15 @@ describe('isSafePattern', () => {
 		'^(\\t|\t)+$',
 		'^(\\n|\n)*$',
 		'^a+a+a+a+a+a+a+a+$',
-		'^\\d+\\d*$',
-		'^a*b?a*$',
 		'^a?a?a?a?a?a?a?aaaaaaa$',
-		'^.*.*$',
-		'^[\\s]+[^\\x00-\\xff]+$',
+		'^[\\s]+[^\\x00-\\xff]+[\\s]+$',
 		'^(a+)(a+)(a+)(a+)(a+)(a+)(a+)(a+)$',
-		'^(?:a+)(?:a*)$',
 		'^a+aa+aa+aa+aa+aa+aa+aa+$',
-		'^[ab]+b[bc]+$',
+		`^${'(a|aa)'.repeat(22)}$`,
+		`^${'a+(b*)'.repeat(8)}a+$`,
+		`^${Array(8).fill('a+').join('(?!b)')}$`,
+		`^${Array(8).fill('a+').join('(?=)')}$`,
+		`^${Array(8).fill('a+').join('\\b')}$`,
 		'*',
 		'[z-a]',
 		'a{2}{3}',
@@ -50,6 +50,14 @@ describe('isSafePattern', () => {
 		'^\\d{3}\\d{4}$',
 		'^a+b*c+$',
 		'^a+b+a+$',
+		'^(?:a+)(?:a*)$',
+		'^\\S+@\\S+$',
+		'^\\d+\\d*$',
+		'^a*b?a*$',
+		'^[ab]+b[bc]+$',
+		'^[\\s]+[^\\x00-\\xff]+$',
+		'^a+(?!b)a+$',
+		'^(a|aa)(a|aa)$',
 		'^[\\s]+[^\\s]+$',
 		'^(a+)b(a+)$',
 		'^(a+)ab$',
@@ -83,9 +91,16 @@ describe('findUnsafePattern', () => {
 		expect(findUnsafePattern({ patternProperties: { '^(a+)+$': {} } })).toBe('^(a+)+$');
 	});
 
-	it('should ignore instance data', () => {
-		expect(findUnsafePattern({ default: { pattern: '^(a|a)+$' } })).toBeUndefined();
-		expect(findUnsafePattern({ enum: [{ pattern: '^(a|a)+$' }] })).toBeUndefined();
+	it('should scan instance data keywords, a $ref may target them', () => {
+		expect(findUnsafePattern({ default: { pattern: '^(a|a)+$' } })).toBe('^(a|a)+$');
+		expect(findUnsafePattern({ enum: [{ pattern: '^(a|a)+$' }] })).toBe('^(a|a)+$');
+		expect(
+			findUnsafePattern({
+				properties: {
+					hero: { $ref: '#/properties/hero/default', default: { pattern: '^(a|a)+$' } },
+				},
+			}),
+		).toBe('^(a|a)+$');
 	});
 
 	it('should check extension keywords, a $ref may target them', () => {
