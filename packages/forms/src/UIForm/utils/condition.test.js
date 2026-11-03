@@ -277,6 +277,52 @@ describe('shouldRender security', () => {
 			expect(shouldRender(condition, { items: new Array(40).fill(0) })).toBe(false);
 		});
 
+		it('should reject a reduce whose accumulator grows with missing', () => {
+			const condition = {
+				'!!': [
+					{
+						reduce: [
+							{ var: 'items' },
+							{ missing: ['current', { var: 'accumulator' }, { var: 'accumulator' }] },
+							'current',
+						],
+					},
+				],
+			};
+			const start = Date.now();
+			expect(shouldRender(condition, { items: new Array(40).fill(null) })).toBe(false);
+			expect(Date.now() - start).toBeLessThan(100);
+		});
+
+		it('should reject a reduce whose accumulator grows with missing_some', () => {
+			const condition = {
+				reduce: [
+					{ var: 'items' },
+					{ missing_some: [3, ['current', { var: 'accumulator' }, { var: 'accumulator' }]] },
+					'current',
+				],
+			};
+			expect(shouldRender(condition, { items: new Array(40).fill(null) })).toBe(false);
+		});
+
+		it('should reject iteration operators inside a reduce logic', () => {
+			const condition = {
+				'!!': [
+					{
+						reduce: [
+							{ var: 'items' },
+							{ map: [{ var: 'accumulator' }, { var: '' }] },
+							{ var: 'items' },
+						],
+					},
+				],
+			};
+			const items = new Array(10000).fill(0);
+			const start = Date.now();
+			expect(shouldRender(condition, { items })).toBe(false);
+			expect(Date.now() - start).toBeLessThan(100);
+		});
+
 		it('should reject deeply nested iteration operators', () => {
 			const start = Date.now();
 			expect(shouldRender({ '!!': [nestedMap(9)] }, {})).toBe(false);
