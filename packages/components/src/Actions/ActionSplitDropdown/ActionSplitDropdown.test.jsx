@@ -208,4 +208,31 @@ describe('ActionSplitDropdown componentClass hardening', () => {
 		expect(screen.getByText('Entry').closest('li')).toBeInTheDocument();
 		expect(document.querySelector('[data-feature="action.entry"]')).toBeInTheDocument();
 	});
+
+	it('should drop unsafe href schemes on items and on the split button', () => {
+		const { container } = render(
+			<ActionSplitDropdown
+				label="Add File"
+				href="javascript:alert(1)"
+				items={[
+					{ label: 'Script', href: 'javascript:alert(2)' },
+					{ label: 'Secure', href: 'https://example.com/a' },
+					{ label: 'Path', href: '/some/path' },
+				]}
+			/>,
+		);
+		expect(container.querySelector('a[href*="javascript" i]')).toBeNull();
+		expect(screen.getByText('Secure').closest('a')).toHaveAttribute(
+			'href',
+			'https://example.com/a',
+		);
+		expect(screen.getByText('Path').closest('a')).toHaveAttribute('href', '/some/path');
+	});
+
+	it('should keep a safe href on the split button', () => {
+		const { container } = render(
+			<ActionSplitDropdown label="Add File" href="https://example.com/main" items={[]} />,
+		);
+		expect(container.querySelector('a[href="https://example.com/main"]')).toBeInTheDocument();
+	});
 });

@@ -119,6 +119,39 @@ describe('ActionDropdown componentClass hardening', () => {
 	});
 });
 
+describe('ActionDropdown href hardening', () => {
+	it('should drop unsafe href schemes and keep http(s) and relative ones', async () => {
+		const user = userEvent.setup();
+		const items = [
+			{ id: 'js', label: 'Script', href: 'javascript:alert(1)' },
+			{ id: 'js-case', label: 'Script case', href: ' JaVaScRiPt:alert(1)' },
+			{ id: 'data', label: 'Data', href: 'data:text/html,<script>alert(1)</script>' },
+			{ id: 'https', label: 'Secure', href: 'https://example.com/a' },
+			{ id: 'path', label: 'Path', href: '/some/path' },
+		];
+		render(<ActionDropdown id="d" label="Dropdown" items={items} />);
+		await user.click(screen.getByRole('button'));
+		expect(document.querySelector('a[href*="javascript" i]')).toBeNull();
+		expect(document.querySelector('a[href^="data:"]')).toBeNull();
+		expect(screen.getByText('Script')).toBeVisible();
+		expect(screen.getByText('Secure').closest('a')).toHaveAttribute(
+			'href',
+			'https://example.com/a',
+		);
+		expect(screen.getByText('Path').closest('a')).toHaveAttribute('href', '/some/path');
+	});
+
+	it('should still call onClick of an item whose href has been dropped', async () => {
+		const user = userEvent.setup();
+		const onClick = vi.fn();
+		const items = [{ id: 'js', label: 'Script', href: 'javascript:alert(1)', onClick }];
+		render(<ActionDropdown id="d" label="Dropdown" items={items} />);
+		await user.click(screen.getByRole('button'));
+		await user.click(screen.getByText('Script'));
+		expect(onClick).toHaveBeenCalled();
+	});
+});
+
 describe('getMenuItem', () => {
 	it('should return a MenuItem with divider', () => {
 		render(getMenuItem({ divider: true }));
