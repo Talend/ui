@@ -1,4 +1,4 @@
-import { validate } from './validate';
+import { validate, UNSAFE_PATTERN_MESSAGE } from './validate';
 
 describe('validate.js', () => {
 	it('should hold a validation function for testing against tv4 until an option to pass in a validator is created', () => {
@@ -27,6 +27,41 @@ describe('validate.js', () => {
 			const event = { target: { validity: { badInput: true } } };
 			let result = validate(testForm, value, event);
 			expect(result.error.message).toBe('CUSTOM_ERROR_INVALID_INPUT');
+		});
+
+		describe('pattern', () => {
+			const longValue = `${'a'.repeat(27)}!`;
+
+			it.each(['^(a|a)+$', '^(\\w+\\s?)*$'])(
+				'should reject the catastrophic pattern %s without evaluating it',
+				pattern => {
+					const patternForm = { key: ['hero'], schema: { type: 'string', pattern } };
+					const start = Date.now();
+					const result = validate(patternForm, longValue, {});
+					expect(Date.now() - start).toBeLessThan(500);
+					expect(result.valid).toBe(false);
+					expect(result.error.message).toBe(UNSAFE_PATTERN_MESSAGE);
+				},
+			);
+
+			it('should reject catastrophic patterns nested in the sub schema', () => {
+				const patternForm = {
+					key: ['hero'],
+					schema: {
+						type: 'object',
+						properties: { name: { type: 'string', pattern: '^(a|a)+$' } },
+					},
+				};
+				const result = validate(patternForm, { name: longValue }, {});
+				expect(result.valid).toBe(false);
+				expect(result.error.message).toBe(UNSAFE_PATTERN_MESSAGE);
+			});
+
+			it('should still apply safe patterns', () => {
+				const patternForm = { key: ['hero'], schema: { type: 'string', pattern: '^[a-z]+$' } };
+				expect(validate(patternForm, 'batman', {}).valid).toBe(true);
+				expect(validate(patternForm, 'Batman1', {}).valid).toBe(false);
+			});
 		});
 	});
 });

@@ -11,6 +11,7 @@ export { merge } from './merge';
 export { select } from './select';
 export { traverseSchema, traverseForm } from './traverse';
 export { validate } from './validate';
+export { isSafePattern, findUnsafePattern } from './safe-pattern';
 
 export const sfPath = sfPathImp;
 export const schemaDefaults = schemaDefaultsImp;
