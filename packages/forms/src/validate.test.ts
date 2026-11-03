@@ -36,4 +36,22 @@ describe('Form.validate', () => {
 		// eslint-disable-next-line new-cap
 		expect(validate(jsonSchema, emptyPayload)).toBe(false);
 	});
+	it('should reject schemas with a pattern that may cause catastrophic backtracking', () => {
+		const start = Date.now();
+		expect(() =>
+			validate(
+				{ type: 'object', properties: { label: { type: 'string', pattern: '^(a|a)+$' } } },
+				{ label: `${'a'.repeat(40)}!` },
+			),
+		).toThrow('Unsafe pattern');
+		expect(Date.now() - start).toBeLessThan(500);
+	});
+	it('should still apply safe patterns', () => {
+		const schema = {
+			type: 'object',
+			properties: { label: { type: 'string', pattern: '^[a-z]+$' } },
+		};
+		expect(validate(schema, { label: 'foo' })).toBe(true);
+		expect(validate(schema, { label: 'Foo1' })).toBe(false);
+	});
 });

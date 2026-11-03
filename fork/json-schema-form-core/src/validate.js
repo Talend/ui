@@ -1,5 +1,8 @@
 /*  Common code for validating a value against its form and schema definition */
 import tv4 from 'tv4';
+import { findUnsafePattern, UNSAFE_PATTERN_MESSAGE } from './safe-pattern';
+
+export { UNSAFE_PATTERN_MESSAGE };
 
 function validateTypeSpecificInput(inputType = '', event = {}) {
 	switch (inputType) {
@@ -46,6 +49,12 @@ export function validate(form, value, event) {
 	const error = validateTypeSpecificInput(form.type, event);
 	if (!error.valid && error.message) {
 		return { valid: false, error: { message: error.message } };
+	}
+
+	// tv4 evaluates `pattern` with the native backtracking RegExp on the main thread:
+	// never hand it a pattern that may trigger catastrophic backtracking (ReDoS).
+	if (findUnsafePattern(schema) !== undefined) {
+		return { valid: false, error: { message: UNSAFE_PATTERN_MESSAGE } };
 	}
 
 	// Version 4 of JSON Schema has the required property not on the
