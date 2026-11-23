@@ -1,0 +1,2 @@
+import{j as o}from"./iframe-7ahm8p6t.js";import{F as t}from"./FormatValue.component-BapJjF5u.js";import"./preload-helper-PPVm8Dsz.js";import"./escapeRegExp-C_pptlto.js";import"./constants-CZYEPhht.js";import"./index-BBjYuCO-.js";const p={title:"Components/Formatter/FormatValue",component:t,tags:["autodocs"]},i={render:()=>o.jsx(t,{value:`   Show special     chars and newline
+      `})},l=["Default"];export{i as Default,l as __namedExportsOrder,p as default};
