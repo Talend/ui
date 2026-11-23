@@ -29,8 +29,8 @@ describe('Icon', () => {
 			'<svg xmlns="http://www.w3.org/2000/svg"><path id="myicon" d="M0 0"/></svg>',
 		).as('getRemoteIcon');
 		cy.mount(<Icon name="remote-/assets/icons/my-icon.svg" />);
-		cy.get('#myicon').should('not.exist');
+		cy.get('path[id$="-myicon"]').should('not.exist');
 		cy.wait('@getRemoteIcon');
-		cy.get('#myicon').should('exist');
+		cy.get('path[id$="-myicon"]').should('exist');
 	});
 });
