@@ -459,6 +459,50 @@ describe('Date extraction', () => {
 			expect(parts.errors.length).toBeGreaterThan(0);
 		});
 
+		describe.each([
+			['whitespaces then colons then a line terminator', `${' '.repeat(127)}${':'.repeat(127)}\nx`],
+			['whitespaces then a line terminator', `${' '.repeat(254)}\nx`],
+			['alternating whitespaces and colons', `${' :'.repeat(127)}\nx`],
+			['alternating whitespaces and colons at the length limit', `${' :'.repeat(128)}`],
+			[
+				'whitespaces then colons with a trailing unicode line terminator',
+				`${' '.repeat(100)}${':'.repeat(100)}\u2028x`,
+			],
+		])('with a crafted text input made of %s', (_, textInput) => {
+			it.each([
+				['hybrid', true],
+				['non hybrid', false],
+			])('should be processed quickly in %s mode', (__, hybridMode) => {
+				// given
+				const options = { dateFormat: 'YYYY-MM-DD', useTime: true, hybridMode };
+
+				// when
+				const start = Date.now();
+				const parts = extractPartsFromTextInput(textInput, options);
+
+				// then
+				expect(Date.now() - start).toBeLessThan(100);
+				expect(parts.errors.length).toBeGreaterThan(0);
+			});
+		});
+
+		it.each([
+			['2015-09-15 12:58', '2015-09-15', '12', '58'],
+			['  2015-09-15 12:58', '2015-09-15', '12', '58'],
+			['2015-09-15\n12:58', '2015-09-15', '12', '58'],
+		])('should split date and time from "%j"', (textInput, _, hours, minutes) => {
+			// given
+			const options = { dateFormat: 'YYYY-MM-DD', useTime: true };
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts.errors).toEqual([]);
+			expect(parts.date).toEqual(new Date(2015, 8, 15));
+			expect(parts.time).toEqual({ hours, minutes, seconds: '00' });
+		});
+
 		it('should extract parts with empty string', () => {
 			// given
 			const textInput = '';

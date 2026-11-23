@@ -9,7 +9,7 @@ import { date as dateUtils } from '@talend/utils';
 
 import getErrorMessage from './error-messages';
 
-const splitDateAndTimePartsRegex = new RegExp(/^\s*(.*)\s+((.*):(.*)(:.*)?)\s*$/);
+const WHITESPACE_REGEX = /\s/;
 const MAX_DATETIME_TEXT_LENGTH = 256;
 const timePartRegex = new RegExp(/^(.*):(.*)$/);
 const timeWithSecondsPartRegex = new RegExp(/^(.*):(.*):(.*)$/);
@@ -520,6 +520,79 @@ function extractDateOrTimeHybridMode(textInput, options) {
 	return { date, time, errors };
 }
 
+function isWhitespace(char) {
+	return WHITESPACE_REGEX.test(char);
+}
+
+function isLineTerminator(char) {
+	return char === '\n' || char === '\r' || char === '\u2028' || char === '\u2029';
+}
+
+function indexOfLineTerminator(text, fromIndex = 0) {
+	for (let i = fromIndex; i < text.length; i++) {
+		if (isLineTerminator(text[i])) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+function lastIndexOfLineTerminator(text) {
+	for (let i = text.length - 1; i >= 0; i--) {
+		if (isLineTerminator(text[i])) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+/**
+ * Split a "date time" text into its date part and its time part.
+ * The time part is the last whitespace separated chunk of the last line, and it must contain a colon.
+ * The date part is everything before the last whitespace character preceding it.
+ * It runs in linear time: each character is visited a bounded number of times,
+ * so there is no backtracking whatever the input is.
+ * @param textInput {string}
+ * @returns {string[] | null} [dateText, timeText], or null if the text can't be split
+ */
+function splitDateAndTimeParts(textInput) {
+	const text = textInput.trimStart();
+	const trimmedLength = text.trimEnd().length;
+	// the time part can't contain a line terminator, and must be followed by whitespaces only
+	const lastLineStart = lastIndexOfLineTerminator(text.slice(0, trimmedLength)) + 1;
+	const lastColon = text.lastIndexOf(':', trimmedLength - 1);
+	if (lastColon < lastLineStart) {
+		return null;
+	}
+	const timeEnd = indexOfLineTerminator(text, trimmedLength);
+	const timeEndIndex = timeEnd === -1 ? text.length : timeEnd;
+	// the date part can't contain a line terminator
+	const firstLineTerminator = indexOfLineTerminator(text);
+	const dateMaxEnd = firstLineTerminator === -1 ? Infinity : firstLineTerminator;
+
+	// look for the last whitespace run which is followed by the time part
+	for (let timeStart = lastColon; timeStart >= Math.max(1, lastLineStart); timeStart--) {
+		if (!isWhitespace(text[timeStart]) && isWhitespace(text[timeStart - 1])) {
+			let runStart = timeStart - 1;
+			while (runStart > 0 && isWhitespace(text[runStart - 1])) {
+				runStart--;
+			}
+			if (runStart <= dateMaxEnd) {
+				return [
+					text.slice(0, Math.min(timeStart - 1, dateMaxEnd)),
+					text.slice(timeStart, timeEndIndex),
+				];
+			}
+		}
+	}
+
+	// no date part: the text is only made of leading whitespaces and the time part
+	if (text.length < textInput.length && lastLineStart === 0) {
+		return ['', text.slice(0, timeEndIndex)];
+	}
+	return null;
+}
+
 /**
  * Extract parts (date, time, date/time, textInput) from a string
  * @param textInput {string}
@@ -552,22 +625,20 @@ function extractPartsFromTextInput(textInput, options) {
 
 	try {
 		if (options.useTime) {
-			const splitMatches =
-				(textInput.length <= MAX_DATETIME_TEXT_LENGTH &&
-					textInput.match(splitDateAndTimePartsRegex)) ||
-				[];
-			if (!splitMatches.length) {
+			const splitParts =
+				(textInput.length <= MAX_DATETIME_TEXT_LENGTH && splitDateAndTimeParts(textInput)) || [];
+			if (!splitParts.length) {
 				if (!hybridMode) {
 					throw new DatePickerException('DATETIME_INVALID_FORMAT', 'DATETIME_INVALID_FORMAT');
 				}
 			} else {
 				dateMatched = true;
 				// extract date part from datetime
-				dateTextToParse = splitMatches[1];
+				dateTextToParse = splitParts[0];
 
 				// extract time part and parse it
 				try {
-					const timeTextToParse = splitMatches[2];
+					const timeTextToParse = splitParts[1];
 					time = strToTime(timeTextToParse, options.useSeconds);
 					checkTime(time, options);
 				} catch (error) {
