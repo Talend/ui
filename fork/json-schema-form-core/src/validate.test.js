@@ -57,6 +57,25 @@ describe('validate.js', () => {
 				expect(result.error.message).toBe(UNSAFE_PATTERN_MESSAGE);
 			});
 
+			it('should resolve local refs against the wrapper tv4 validates, not the field schema', () => {
+				// `#/properties/hero/default` targets the unsafe default in the wrapper,
+				// but the safe decoy in the field schema itself
+				const patternForm = {
+					key: ['hero'],
+					schema: {
+						type: 'object',
+						default: { pattern: '^(a|a)+$' },
+						properties: {
+							hero: { default: { pattern: '^a$' } },
+							name: { $ref: '#/properties/hero/default' },
+						},
+					},
+				};
+				const result = validate(patternForm, { name: longValue }, {});
+				expect(result.valid).toBe(false);
+				expect(result.error.message).toBe(UNSAFE_PATTERN_MESSAGE);
+			});
+
 			it('should still apply safe patterns', () => {
 				const patternForm = { key: ['hero'], schema: { type: 'string', pattern: '^[a-z]+$' } };
 				expect(validate(patternForm, 'batman', {}).valid).toBe(true);

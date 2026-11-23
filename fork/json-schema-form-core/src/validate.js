@@ -51,12 +51,6 @@ export function validate(form, value, event) {
 		return { valid: false, error: { message: error.message } };
 	}
 
-	// tv4 evaluates `pattern` with the native backtracking RegExp on the main thread:
-	// never hand it a pattern that may trigger catastrophic backtracking (ReDoS).
-	if (findUnsafePattern(schema) !== undefined) {
-		return { valid: false, error: { message: UNSAFE_PATTERN_MESSAGE } };
-	}
-
 	// Version 4 of JSON Schema has the required property not on the
 	// property itself but on the wrapping object. Since we like to test
 	// only this property we wrap it in a fake object.
@@ -66,6 +60,13 @@ export function validate(form, value, event) {
 
 	if (form.required) {
 		wrap.required = [propName];
+	}
+
+	// tv4 evaluates `pattern` with the native backtracking RegExp on the main thread:
+	// never hand it a pattern that may trigger catastrophic backtracking (ReDoS).
+	// Scan the wrapper tv4 validates against: local `$ref`s resolve against its root, not the schema.
+	if (findUnsafePattern(wrap) !== undefined) {
+		return { valid: false, error: { message: UNSAFE_PATTERN_MESSAGE } };
 	}
 
 	let valueWrap = {};
