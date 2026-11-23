@@ -15,6 +15,7 @@ import Tag from '../../Tag';
 import TooltipTrigger from '../../TooltipTrigger';
 import Icon from '../../Icon';
 import wrapOnClick from '../wrapOnClick';
+import sanitizeHref from '../sanitizeHref';
 import CircularProgress from '../../CircularProgress/CircularProgress.component';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 import getDefaultT from '../../translate';
@@ -74,7 +75,7 @@ function renderMutableMenuItem(item, index, getComponent) {
 
 	return (
 		<Renderers.MenuItem
-			{...sanitizeReactProps(item)}
+			{...sanitizeHref(sanitizeReactProps(item))}
 			key={index}
 			eventKey={item}
 			onClick={wrapOnClick(item)}
