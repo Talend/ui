@@ -41,17 +41,6 @@ export function ListToVirtualizedList(props) {
 		}
 	}
 
-	// Backward compatibility: find array in object attr:
-	const supposedActions = {};
-	if (props.items.length > 0) {
-		const item = props.items[0];
-		Object.keys(item)
-			.filter(key => Array.isArray(item[key]))
-			.forEach(key => {
-				supposedActions[key] = true;
-			});
-	}
-
 	// Allow to override or add new cell renderer from outside
 	const listCellDictionary = { ...VirtualizedList.cellDictionary, ...props.cellDictionary };
 	const listHeaderDictionary = { ...VirtualizedList.headerDictionary, ...props.headerDictionary };
@@ -92,8 +81,6 @@ export function ListToVirtualizedList(props) {
 						Object.assign(cProps, listCellDictionary.title, {
 							columnData: { ...titleProps, 'data-feature': column['data-feature'] },
 						});
-					} else if (supposedActions[column.key]) {
-						Object.assign(cProps, VirtualizedList.cellDictionary.actions);
 					} else if (column.type && listCellDictionary[column.type]) {
 						Object.assign(cProps, listCellDictionary[column.type], {
 							columnData: column.data,

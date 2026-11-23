@@ -306,4 +306,29 @@ describe('Text field', () => {
 			expect(screen.getByTitle('Help')).toHaveAttribute('href', href);
 		},
 	);
+
+	it('should only forward allowlisted string props of the password link', () => {
+		const link = {
+			href: 'https://talend.com/help',
+			title: 'Help',
+			children: 'Need help?',
+			is: 'x',
+			onmouseover: 'alert(1)',
+			onfocus: 'alert(2)',
+			onClick: 'alert(3)',
+			as: { type: 'iframe', props: { srcDoc: '<script>alert(4)</script>' } },
+			icon: { type: 'iframe', props: { srcDoc: '<script>alert(5)</script>' } },
+		};
+		const { container } = render(
+			<Text {...defaultProps} schema={{ title: 'Password', type: 'password', link }} />,
+		);
+		const anchor = screen.getByTitle('Help');
+		expect(anchor.tagName).toBe('A');
+		expect(anchor).toHaveAttribute('href', 'https://talend.com/help');
+		expect(anchor).toHaveTextContent('Need help?');
+		['is', 'onmouseover', 'onfocus', 'onclick'].forEach(name =>
+			expect(anchor).not.toHaveAttribute(name),
+		);
+		expect(container.querySelector('iframe')).toBeNull();
+	});
 });

@@ -11,14 +11,30 @@ import { getLabelProps } from '../../utils/labels';
 import { convertValue, extractDataAttributes } from '../../utils/properties';
 import { isSafeUrl } from '../../utils/url';
 
+const SAFE_LINK_TEXT_KEYS = ['target', 'title'];
+
+/**
+ * Rebuild the password field link from an explicit allowlist of string fields.
+ * The UI schema is not trusted: any other key (`is`, `on*` handlers, `as`, `icon`…)
+ * must never reach the design-system Link.
+ */
 function getSafeLink(link) {
 	if (!link || typeof link !== 'object') {
 		return null;
 	}
-	if (link.href === undefined || isSafeUrl(link.href)) {
-		return link;
+	const safeLink = {};
+	if (typeof link.href === 'string' && isSafeUrl(link.href)) {
+		safeLink.href = link.href;
 	}
-	const { href: _href, ...safeLink } = link;
+	SAFE_LINK_TEXT_KEYS.forEach(key => {
+		if (typeof link[key] === 'string') {
+			safeLink[key] = link[key];
+		}
+	});
+	const text = [link.children, link.label].find(value => typeof value === 'string');
+	if (text !== undefined) {
+		safeLink.children = text;
+	}
 	return safeLink;
 }
 

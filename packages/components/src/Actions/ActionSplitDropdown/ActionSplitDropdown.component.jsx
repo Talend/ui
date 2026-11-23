@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import Icon from '../../Icon';
 import theme from './ActionSplitDropdown.module.css';
 import wrapOnClick from '../wrapOnClick';
+import sanitizeHref from '../sanitizeHref';
 import I18N_DOMAIN_COMPONENTS from '../../constants';
 
 /**
@@ -49,11 +50,15 @@ export default function ActionSplitDropdown(props) {
 			className={classNames(className, theme['tc-split-dropdown'])}
 			aria-label={label}
 			toggleLabel={t('ACTION_MENU_OPEN', { defaultValue: 'Open {{label}} menu', label })}
-			{...sanitizeReactProps(rest)}
+			{...sanitizeHref(sanitizeReactProps(rest))}
 		>
 			{items.length ? (
 				items.map((item, index) => (
-					<MenuItem {...sanitizeReactProps(item)} key={index} onClick={wrapOnClick(item)}>
+					<MenuItem
+						{...sanitizeHref(sanitizeReactProps(item))}
+						key={index}
+						onClick={wrapOnClick(item)}
+					>
 						{item.icon && <Icon name={item.icon} />}
 						{item.label}
 					</MenuItem>
