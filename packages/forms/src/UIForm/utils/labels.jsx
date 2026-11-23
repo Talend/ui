@@ -5,14 +5,26 @@ import { sanitizeReactProps } from '@talend/utils';
 
 import styles from './labels.module.css';
 
+/**
+ * Label props come from the UI schema (untrusted data). `is` turns the label into a custom element
+ * for React, which then writes any `on*` string value as an inline event handler attribute.
+ * Only function handlers are kept.
+ */
+const isInlineHandler = (key, value) => /^on/i.test(key) && typeof value !== 'function';
+
 export const getLabelProps = (title, rawLabelProps, hint, required) => {
-	const labelProps = sanitizeReactProps(rawLabelProps || {}, [
-		'style',
-		'htmlFor',
-		'for',
-		'children',
-		'required',
-	]);
+	const labelProps = Object.fromEntries(
+		Object.entries(
+			sanitizeReactProps(rawLabelProps || {}, [
+				'style',
+				'htmlFor',
+				'for',
+				'children',
+				'required',
+				'is',
+			]),
+		).filter(([key, value]) => !isInlineHandler(key, value)),
+	);
 	if (!hint) {
 		return {
 			children: title,

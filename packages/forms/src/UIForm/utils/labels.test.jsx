@@ -38,6 +38,34 @@ describe('getLabelProps', () => {
 		expect(props).toEqual({ children: 'Title', lang: 'fr', onClick });
 	});
 
+	it('should drop the `is` custom-element switch and non-function `on*` attributes', () => {
+		const onClick = vi.fn();
+		const props = getLabelProps('Title', {
+			is: 'x-l',
+			IS: 'x-l',
+			onmouseover: 'alert(1)',
+			onclick: 'alert(1)',
+			onFocus: 'alert(1)',
+			onMouseOver: 'alert(1)',
+			lang: 'fr',
+			onClick,
+		});
+		expect(props).toEqual({ children: 'Title', lang: 'fr', onClick });
+	});
+
+	it('should not render `is` nor inline handler attributes on the label', () => {
+		render(
+			<label
+				data-testid="label"
+				{...getLabelProps('Title', { is: 'x-l', onmouseover: 'alert(1)', onclick: 'alert(1)' })}
+			/>,
+		);
+		const label = screen.getByTestId('label');
+		expect(label).not.toHaveAttribute('is');
+		expect(label).not.toHaveAttribute('onmouseover');
+		expect(label).not.toHaveAttribute('onclick');
+	});
+
 	it('should drop unsupported props when a hint is set', () => {
 		const props = getLabelProps(
 			'Title',
