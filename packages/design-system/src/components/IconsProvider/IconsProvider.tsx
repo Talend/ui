@@ -1,4 +1,4 @@
-import { ReactElement, RefObject, useEffect, useRef, useState } from 'react';
+import { ReactElement, useCallback, useEffect, useRef, useState } from 'react';
 
 import classNames from 'classnames';
 
@@ -14,19 +14,39 @@ const DEFAULT_BUNDLES = [allBundle, extraSmallBundle, smallBundle, mediumBundle,
 
 const FETCHING_BUNDLES: { [url: string]: Promise<Response> } = {};
 
-const ICONS_PROVIDER_CLASS = '.tc-iconsprovider';
+/**
+ * Icon sources are tracked by reference and never matched by class or id in the document:
+ * remote (user provided) content can carry any class or id, it must not be able to register
+ * itself as an icon source.
+ */
+const PROVIDER_ELEMENTS = new Set<Element>();
+const BUNDLE_CONTAINERS = new Set<Element>();
+
+function getBundleContainers() {
+	BUNDLE_CONTAINERS.forEach(container => {
+		if (!container.isConnected) {
+			BUNDLE_CONTAINERS.delete(container);
+		}
+	});
+	return Array.from(BUNDLE_CONTAINERS);
+}
+
+/**
+ * Containers created by IconsProvider that hold icons: rendered providers then loaded bundles
+ */
+function getIconContainers() {
+	return [...Array.from(PROVIDER_ELEMENTS), ...getBundleContainers()];
+}
+
+function queryIconContainers(selector: string) {
+	return getIconContainers().flatMap(container => Array.from(container.querySelectorAll(selector)));
+}
 
 function hasBundle(url: string) {
 	if (Object.prototype.hasOwnProperty.call(FETCHING_BUNDLES, url)) {
 		return true;
 	}
-
-	const results = document.querySelectorAll(ICONS_PROVIDER_CLASS);
-	return (
-		Array.prototype.slice.call(results).filter(e => {
-			return e.getAttribute('data-url') === url;
-		}).length >= 1
-	);
+	return getBundleContainers().some(container => container.getAttribute('data-url') === url);
 }
 
 /**
@@ -34,8 +54,7 @@ function hasBundle(url: string) {
  * @returns <Array<string>> Array of id if available icons
  */
 function getCurrentIconIds() {
-	const symbols = document.querySelectorAll(`${ICONS_PROVIDER_CLASS} symbol`);
-	return Array.from(symbols)
+	return queryIconContainers('symbol')
 		.map(symbol => symbol.getAttribute('id'))
 		.filter(Boolean);
 }
@@ -53,8 +72,7 @@ function getAllIconIds() {
  * @returns {Array<string>} Array of id if available filters
  */
 function getAllFilterIds() {
-	const symbols = document.querySelectorAll(`${ICONS_PROVIDER_CLASS} filter`);
-	return Array.from(symbols)
+	return queryIconContainers('filter')
 		.map(symbol => symbol.getAttribute('id'))
 		.filter(Boolean);
 }
@@ -66,7 +84,7 @@ function getAllFilterIds() {
  */
 function injectIcon(id: string, container: Element) {
 	// do not interpolate the id in a selector: it may not be a valid css identifier (ex: 1password)
-	const element = Array.from(document.querySelectorAll(`${ICONS_PROVIDER_CLASS} [id]`)).find(
+	const element = queryIconContainers('[id]').find(
 		candidate => candidate.getAttribute('id') === id,
 	);
 	if (element) {
@@ -97,6 +115,7 @@ function addBundle(response: Response, url: string) {
 				container.setAttribute('data-url', url);
 				container.innerHTML = content;
 				document.body.appendChild(container);
+				BUNDLE_CONTAINERS.add(container);
 			}
 			return response;
 		});
@@ -106,10 +125,10 @@ function addBundle(response: Response, url: string) {
 
 type IconSet = Record<string, ReactElement>;
 
-function isRootProvider(ref: RefObject<any>) {
-	const providers = document.querySelectorAll(ICONS_PROVIDER_CLASS);
-	if (ref !== null && ref.current && providers.length > 0) {
-		return providers[0] === ref.current;
+function isRootProvider(element: Element | null) {
+	const providers = Array.from(PROVIDER_ELEMENTS);
+	if (element && providers.length > 0) {
+		return providers[0] === element;
 	}
 	return providers.length === 1;
 }
@@ -135,7 +154,16 @@ export function IconsProvider({
 	icons?: Record<string, ReactElement>;
 }) {
 	const iconset: IconSet = { ...defaultIcons, ...icons };
-	const ref = useRef<SVGSVGElement>(null);
+	const element = useRef<SVGSVGElement | null>(null);
+	const ref = useCallback((node: SVGSVGElement | null) => {
+		if (node) {
+			element.current = node;
+			PROVIDER_ELEMENTS.add(node);
+		} else if (element.current) {
+			PROVIDER_ELEMENTS.delete(element.current);
+			element.current = null;
+		}
+	}, []);
 	const [shouldRender, setShouldRender] = useState(true);
 
 	useEffect(() => {
@@ -156,11 +184,11 @@ export function IconsProvider({
 	}, [bundles, additionalBundles]);
 
 	useEffect(() => {
-		if (!isRootProvider(ref)) {
+		if (!isRootProvider(element.current)) {
 			console.warn('IconsProvider Error: multiple instance escape');
 			setShouldRender(false);
 		}
-	}, [ref]);
+	}, []);
 
 	return (
 		(shouldRender && (

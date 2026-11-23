@@ -459,6 +459,50 @@ describe('Date extraction', () => {
 			expect(parts.errors.length).toBeGreaterThan(0);
 		});
 
+		describe.each([
+			['whitespaces then colons then a line terminator', `${' '.repeat(127)}${':'.repeat(127)}\nx`],
+			['whitespaces then a line terminator', `${' '.repeat(254)}\nx`],
+			['alternating whitespaces and colons', `${' :'.repeat(127)}\nx`],
+			['alternating whitespaces and colons at the length limit', `${' :'.repeat(128)}`],
+			[
+				'whitespaces then colons with a trailing unicode line terminator',
+				`${' '.repeat(100)}${':'.repeat(100)}\u2028x`,
+			],
+		])('with a crafted text input made of %s', (_, textInput) => {
+			it.each([
+				['hybrid', true],
+				['non hybrid', false],
+			])('should be processed quickly in %s mode', (__, hybridMode) => {
+				// given
+				const options = { dateFormat: 'YYYY-MM-DD', useTime: true, hybridMode };
+
+				// when
+				const start = Date.now();
+				const parts = extractPartsFromTextInput(textInput, options);
+
+				// then
+				expect(Date.now() - start).toBeLessThan(100);
+				expect(parts.errors.length).toBeGreaterThan(0);
+			});
+		});
+
+		it.each([
+			['2015-09-15 12:58', '2015-09-15', '12', '58'],
+			['  2015-09-15 12:58', '2015-09-15', '12', '58'],
+			['2015-09-15\n12:58', '2015-09-15', '12', '58'],
+		])('should split date and time from "%j"', (textInput, _, hours, minutes) => {
+			// given
+			const options = { dateFormat: 'YYYY-MM-DD', useTime: true };
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts.errors).toEqual([]);
+			expect(parts.date).toEqual(new Date(2015, 8, 15));
+			expect(parts.time).toEqual({ hours, minutes, seconds: '00' });
+		});
+
 		it('should extract parts with empty string', () => {
 			// given
 			const textInput = '';
@@ -797,6 +841,68 @@ describe('Date extraction', () => {
 					},
 				],
 			});
+		});
+
+		it.each([
+			['just over the max length', 257],
+			['very long', 20000],
+		])('should reject %s text with an invalid format error in hybrid mode', (_, length) => {
+			// given
+			const textInput = `${':'.repeat(length - 1)}\n`;
+			const options = {
+				dateFormat: 'YYYY-MM-DD',
+				useTime: true,
+				useSeconds: true,
+				hybridMode: true,
+			};
+
+			// when
+			const start = Date.now();
+			const parts = extractPartsFromTextInput(textInput, options);
+			const duration = Date.now() - start;
+
+			// then
+			expect(duration).toBeLessThan(1000);
+			expect(parts.date).toBeUndefined();
+			expect(parts.datetime).toBeUndefined();
+			expect(parts.textInput).toBe(textInput);
+			expect(parts.errors).toHaveLength(1);
+			expect(parts.errors[0].code).toBe('DATETIME_INVALID_FORMAT');
+		});
+
+		it.each([
+			['without time', { useTime: false }],
+			['with time', { useTime: true }],
+		])('should reject over-length text %s with an invalid date', (_, extraOptions) => {
+			// given
+			const textInput = `2018-12-25 ${'1'.repeat(300)}`;
+			const options = { dateFormat: 'YYYY-MM-DD', ...extraOptions };
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts.errors).toHaveLength(1);
+			expect(parts.errors[0].code).toBe('DATETIME_INVALID_FORMAT');
+			expect(parts.datetime).toBeInstanceOf(Date);
+			expect(isNaN(parts.datetime.getTime())).toBe(true);
+		});
+
+		it.each([
+			['with time', { useTime: true, hybridMode: true }],
+			['without time', { useTime: false, hybridMode: true }],
+		])('should reject over-length text %s in hybrid mode', (_, extraOptions) => {
+			// given
+			const textInput = `2018-12-25 ${'1'.repeat(300)}`;
+			const options = { dateFormat: 'YYYY-MM-DD', ...extraOptions };
+
+			// when
+			const parts = extractPartsFromTextInput(textInput, options);
+
+			// then
+			expect(parts.errors).toHaveLength(1);
+			expect(parts.errors[0].code).toBe('DATETIME_INVALID_FORMAT');
+			expect(parts.datetime).toBeUndefined();
 		});
 	});
 
