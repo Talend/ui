@@ -1,0 +1,81 @@
+name: "Dependabot Post-Update"
+
+on:
+  pull_request:
+    paths:
+      - "**/package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/dependabot-post-update.yml"
+
+permissions:
+  contents: write
+  pull-requests: write
+  packages: read
+
+concurrency:
+  group: "dependabot-post-update-${{ github.event.pull_request.number }}"
+  cancel-in-progress: true
+
+jobs:
+  post-update:
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    environment: pull_request_unsafe
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ secrets.CHANGESET_GITHUB_TOKEN }}
+
+      - name: Setup Node and PNPM
+        uses: ./.github/actions/setup-node
+        with:
+          NPM_TOKEN: ${{ github.token }}
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Dedupe dependencies
+        run: pnpm dedupe
+
+      - name: Generate changeset for build/runtime updates
+        run: pnpm run dependabot:changeset -- "$PR_NUMBER"
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+
+      - name: Configure git author
+        run: |
+          git config user.name "svc-pipeline"
+          git config user.email "svc-pipeline@qlik.com"
+
+      - name: Commit lockfile and changeset if needed
+        id: commit
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes needed"
+            exit 0
+          fi
+
+          git commit --no-verify -m "chore(deps): update lockfile and add changeset"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Push changes
+        if: steps.commit.outputs.changed == 'true'
+        run: git push origin "${{ github.event.pull_request.head.ref }}"
+
+      - name: Comment on PR
+        if: steps.commit.outputs.changed == 'true'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          github-token: ${{ secrets.CHANGESET_GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ Lockfile deduped and changeset generated automatically'
+            })
