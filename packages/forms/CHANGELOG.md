@@ -1,5 +1,30 @@
 # @talend/react-forms
 
+## 19.0.2
+
+### Patch Changes
+
+- 5566d97: fix(SSO-2658): bound json-logic map reduce merge in UI-schema conditions
+
+  UI-schema conditions that are too big, too deep, nest more than 2 iteration operators (map, filter, reduce, all, none, some) or grow a reduce accumulator (merge, cat, missing, missing_some, arrays of non-literal values in the reduce logic) or iterate or scan (in) inside a reduce logic, or coerce operands (==, <, +, substr...) in a reduce logic that does not return a scalar, are now rejected (the item is not rendered) instead of being evaluated with an unbounded cost.
+
+- 1ca42eb: fix(SSO-2658): reject object hint.icon cloned as React element in forms
+
+  - forms: only a string `hint.icon` is forwarded to the hint `ButtonIcon`, any other type falls back to the default `talend-info-circle` icon
+  - design-system: `getIconWithDeprecatedSupport` renders a non-string icon only when it is a valid React element
+
+- 4cc58d0: fix(SSO-2658): block `is` custom-element attribute and non-function `on*` attributes in UI-schema `labelProps`
+- f8512b8: fix(SSO-2658): allowlist password field UI-schema link props
+- Updated dependencies [57bcb30]
+- Updated dependencies [0377fb0]
+- Updated dependencies [297e352]
+- Updated dependencies [1ca42eb]
+- Updated dependencies [acc6daf]
+- Updated dependencies [68cfad6]
+- Updated dependencies [b82c034]
+  - @talend/react-components@21.0.2
+  - @talend/design-system@14.0.1
+
 ## 19.0.1
 
 ### Patch Changes
