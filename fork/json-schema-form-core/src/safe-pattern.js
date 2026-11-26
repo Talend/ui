@@ -334,10 +334,7 @@ const GROUP_KIND = /\?(?:<=|<!|:|=|!)/y;
 
 const ESCAPE_SEQUENCES = {
 	x: { pattern: /\\x[0-9a-fA-F]{2}/y, complex: false },
-	u: { pattern: /\\u(?:[0-9a-fA-F]{4}|\{[0-9a-fA-F]+\})/y, complex: true },
-	p: { pattern: /\\p\{[^}]*\}/y, complex: true },
-	P: { pattern: /\\P\{[^}]*\}/y, complex: true },
-	k: { pattern: /\\k<[^>]*>/y, complex: true },
+	u: { pattern: /\\u[0-9a-fA-F]{4}/y, complex: true },
 	c: { pattern: /\\c[a-zA-Z]/y, complex: false },
 };
 
@@ -349,6 +346,9 @@ function readEscape(source, index) {
 	const next = source[index + 1];
 	if (next === undefined) {
 		throw new UnsafePatternError('Trailing backslash');
+	}
+	if (/[pPk]/.test(next) || (next === 'u' && source[index + 2] === '{')) {
+		throw new UnsafePatternError('Mode-dependent escape');
 	}
 	if (SYNTAX_CHARACTERS.test(next)) {
 		return { item: { literal: next }, end: index + 2 };
