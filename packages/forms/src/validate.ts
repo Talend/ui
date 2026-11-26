@@ -1,17 +1,13 @@
 import Ajv, { type ValidateFunction } from 'ajv';
-import { isSafePattern } from '@talend/json-schema-form-core';
+import { createSafeRegExp } from '@talend/json-schema-form-core';
 
 import { FormDefinition } from './types';
 
-// Ajv evaluates `pattern` with the native backtracking RegExp: refuse the ones that may trigger ReDoS.
+// Ajv evaluates `pattern` and `patternProperties` using the linear-time RE2 engine (re2js)
+// so pathological patterns cannot trigger catastrophic backtracking (ReDoS).
 const safeRegExp = Object.assign(
-	(pattern: string, flags: string) => {
-		if (!isSafePattern(pattern)) {
-			throw new Error(`Unsafe pattern: ${pattern}`);
-		}
-		return new RegExp(pattern, flags);
-	},
-	{ code: 'new RegExp' },
+	(pattern: string, flags: string) => createSafeRegExp(pattern, flags),
+	{ code: 'createSafeRegExp' },
 );
 
 export default function validate(

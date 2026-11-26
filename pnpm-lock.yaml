@@ -213,9 +213,9 @@ importers:
       objectpath:
         specifier: ^1.2.2
         version: 1.2.2
-      tv4:
-        specifier: ^1.3.0
-        version: 1.3.0
+      re2js:
+        specifier: ^2.10.0
+        version: 2.10.0
     devDependencies:
       '@types/chai':
         specifier: ^3.5.2
@@ -8115,6 +8115,10 @@ packages:
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
+
+  re2js@2.10.0:
+    resolution: {integrity: sha512-/P6FNnLbHjXJMRF1dPoZoVTyHvFcuVhbDpzml9DPMlbeErYlZ18GueAaG9GhYhAm/9AN7i7Y6crmDrLX0DeJ4Q==}
+    engines: {node: '>=20.0.0'}
 
   react-a11y@0.3.4:
     resolution: {integrity: sha512-zJyNGQupqKC7BJEFgM8SKrYOpXaBZT/hMZuBYHVEtarxd8yQOj6B2iuo/hm+cONGfBejdhf1iHKk1WxjsFbgDQ==}
@@ -16652,6 +16656,8 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-is: 18.3.1
+
+  re2js@2.10.0: {}
 
   react-a11y@0.3.4:
     dependencies:

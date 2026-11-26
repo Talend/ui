@@ -1,171 +1,74 @@
-import { findUnsafePattern, isSafePattern, MAX_PATTERN_LENGTH } from './safe-pattern';
+import {
+	createSafeRegExp,
+	isSafePattern,
+	MAX_PATTERN_LENGTH,
+	UNSAFE_PATTERN_MESSAGE,
+} from './safe-pattern';
 
-describe('isSafePattern', () => {
-	it.each([
-		'^(a|a)+$',
-		'^(\\w+\\s?)*$',
-		'^(a+)+$',
-		'(.*a){20}',
-		'^(a|ab)*$',
-		'^((a)+)*$',
-		'^(?:\\d+\\.?)+$',
-		'^(a',
-		'a)',
-		'[a',
-		'^(a?a?)+$',
-		'^(a?b|b)+$',
-		'^((a|a))+$',
-		'^(?:(?:a|ab)c)+$',
-		'^(\\t|\t)+$',
-		'^(\\n|\n)*$',
-		'^(\\p{1,2})+$',
-		'^(\\P{1,2})+$',
-		'^(\\u{1,2})+$',
-		'^(\\k<a+>)+$',
-		`^${'('.repeat(2000)}a${')'.repeat(2000)}+$`,
-		'^a+a+a+a+a+a+a+a+$',
-		'^a?a?a?a?a?a?a?aaaaaaa$',
-		'^[\\s]+[^\\x00-\\xff]+[\\s]+$',
-		'^(a+)(a+)(a+)(a+)(a+)(a+)(a+)(a+)$',
-		'^a+aa+aa+aa+aa+aa+aa+aa+$',
-		'^((a+a+)(a+a+))((a+a+)(a+a+))$',
-		'^((a+a+)(a+))$',
-		'^(?:(?:a+)(?:a+))(?:a+)$',
-		`^${'(a|aa)'.repeat(22)}$`,
-		`^${'a+(b*)'.repeat(8)}a+$`,
-		`^${Array(8).fill('a+').join('(?!b)')}$`,
-		`^${Array(8).fill('a+').join('(?=)')}$`,
-		`^${Array(8).fill('a+').join('\\b')}$`,
-		'*',
-		'[z-a]',
-		'a{2}{3}',
-		`^${'a'.repeat(MAX_PATTERN_LENGTH)}$`,
-	])('should reject %s', pattern => {
-		expect(isSafePattern(pattern)).toBe(false);
-	});
+describe('safe-pattern (re2js linear-time engine)', () => {
+	describe('createSafeRegExp', () => {
+		it.each([
+			['^[a-z]+$', 'batman', true],
+			['^[a-z]+$', 'Batman1', false],
+			['^\\S+@\\S+$', 'user@example.com', true],
+			['^\\S+@\\S+$', 'invalid email', false],
+			['^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$', 'user@example.com', true],
+			['^[0-9]{4}-[0-9]{2}-[0-9]{2}$', '2026-04-20', true],
+			['foo', 'barfoobaz', true],
+			['', 'anything', true],
+		])('should match %s against %s => %s', (pattern, input, expected) => {
+			expect(createSafeRegExp(pattern).test(input)).toBe(expected);
+		});
 
-	it.each([
-		'^[a-z]+$',
-		'^\\d{3}-\\d{4}$',
-		'^(foo|bar)+$',
-		'^(?:ab|ac)*$',
-		'^(https?|ftp)://[^\\s]+$',
-		'^[\\w.+-]+@[\\w-]+\\.[\\w.]+$',
-		'^(\\d+)$',
-		'^a{2,5}$',
-		'^[(]+$',
-		'^\\d+-\\d+$',
-		'^\\d{3}\\d{4}$',
-		'^a+b*c+$',
-		'^a+b+a+$',
-		'^(?:a+)(?:a*)$',
-		'^\\S+@\\S+$',
-		'^\\d+\\d*$',
-		'^a*b?a*$',
-		'^[ab]+b[bc]+$',
-		'^[\\s]+[^\\x00-\\xff]+$',
-		'^a+(?!b)a+$',
-		'^(a|aa)(a|aa)$',
-		'^[\\s]+[^\\s]+$',
-		'^(a+)b(a+)$',
-		'^(a+)ab$',
-		'^(?:a+a+)b$',
-		'^(?:a+a+)(?:b+b+)$',
-		'^(?:a|b|c|d)+$',
-	])('should accept %s', pattern => {
-		expect(isSafePattern(pattern)).toBe(true);
-	});
-});
+		it('should support i, m, s, u, and g flags', () => {
+			expect(createSafeRegExp('^foo$', 'i').test('FOO')).toBe(true);
+			expect(createSafeRegExp('^foo$').test('a\nfoo\nb')).toBe(false);
+			expect(createSafeRegExp('^foo$', 'm').test('a\nfoo\nb')).toBe(true);
+			expect(createSafeRegExp('^a.b$').test('a\nb')).toBe(false);
+			expect(createSafeRegExp('^a.b$', 's').test('a\nb')).toBe(true);
+			expect(createSafeRegExp('^[a-z]+$', 'u').test('abc')).toBe(true);
+			expect(createSafeRegExp('foo', 'g').test('barfoobaz')).toBe(true);
+		});
 
-describe('isSafePattern with many alternatives', () => {
-	it('should accept many disjoint alternatives in a repeated group', () => {
-		const alternatives = Array.from({ length: 500 }, (_, i) => `x${String(i).padStart(4, '0')}`);
-		expect(isSafePattern(`^(${alternatives.join('|')})+$`)).toBe(true);
-	});
-
-	it('should reject many alternatives when one prefixes another', () => {
-		const alternatives = Array.from({ length: 500 }, (_, i) => `x${String(i).padStart(4, '0')}`);
-		expect(isSafePattern(`^(${alternatives.join('|')}|x00)+$`)).toBe(false);
-	});
-});
-
-describe('findUnsafePattern', () => {
-	it('should return undefined for a safe schema', () => {
-		expect(findUnsafePattern({ type: 'string', pattern: '^[a-z]+$' })).toBeUndefined();
-	});
-
-	it('should find patterns in nested schemas and patternProperties', () => {
-		expect(findUnsafePattern({ properties: { a: { items: { pattern: '^(a|a)+$' } } } })).toBe(
+		it.each([
 			'^(a|a)+$',
-		);
-		expect(findUnsafePattern({ patternProperties: { '^(a+)+$': {} } })).toBe('^(a+)+$');
-	});
+			'^(a+)+$',
+			'^(\\w+\\s?)*$',
+			'a+$',
+			'a+a+$',
+			'^a+a+$',
+			'^(?:a+){2,}$',
+			'^\\S+@\\S+$',
+			'^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$',
+		])('should evaluate pathological pattern %s in linear time', pattern => {
+			const input = `${'a'.repeat(5000)}!`;
+			const start = Date.now();
+			const re = createSafeRegExp(pattern);
+			expect(re.test(input)).toBe(false);
+			expect(Date.now() - start).toBeLessThan(200);
+		});
 
-	it('should not take the data of default, enum or extension keywords for schemas', () => {
-		expect(findUnsafePattern({ default: { pattern: '^(a|a)+$' } })).toBeUndefined();
-		expect(findUnsafePattern({ enum: [{ pattern: '^(a|a)+$' }] })).toBeUndefined();
-		expect(findUnsafePattern({ 'x-metadata': { pattern: '^(a+)+$' } })).toBeUndefined();
-		expect(
-			findUnsafePattern({
-				properties: { a: { type: 'object', default: { pattern: '^(a+)+$' } } },
-			}),
-		).toBeUndefined();
-	});
+		it.each([
+			['backreference', '^(\\w+)\\1$'],
+			['lookahead', '^(?=a)a+$'],
+			['lookbehind', '(?<=a)b'],
+			['malformed control escape', '^\\c+c+c+$'],
+			['invalid unicode property escape', '^(\\p{1,2})+$'],
+			['unbalanced parenthesis', '^([a-z]+$'],
+			['excessive repetition count', 'a{100000}'],
+			['deeply nested groups', `${'('.repeat(2000)}a${')'.repeat(2000)}`],
+			['pattern exceeding max length', 'a'.repeat(MAX_PATTERN_LENGTH + 1)],
+		])('should reject unsupported or invalid pattern (%s)', (_label, pattern) => {
+			expect(() => createSafeRegExp(pattern)).toThrow(UNSAFE_PATTERN_MESSAGE);
+			expect(isSafePattern(pattern)).toBe(false);
+		});
 
-	it('should check the data a local $ref targets', () => {
-		expect(
-			findUnsafePattern({
-				properties: {
-					hero: { $ref: '#/properties/hero/default', default: { pattern: '^(a|a)+$' } },
-				},
-			}),
-		).toBe('^(a|a)+$');
-		expect(
-			findUnsafePattern({
-				properties: { a: { $ref: '#/x-metadata/a~1b/%24defs' } },
-				'x-metadata': { 'a/b': { $defs: { pattern: '^(a+)+$' } } },
-			}),
-		).toBe('^(a+)+$');
-		expect(
-			findUnsafePattern({ properties: { a: { $ref: '#/default' } }, default: { pattern: 'a+' } }),
-		).toBeUndefined();
-	});
-
-	it('should check registered schema references', () => {
-		const schemas = {
-			'https://example.test/unsafe': { pattern: '^(a|a)+$' },
-			'https://example.test/other': { properties: { value: { pattern: 'a+' } } },
-		};
-		expect(
-			findUnsafePattern({ $ref: 'https://example.test/unsafe' }, schemas, (base, ref) => ref),
-		).toBe('^(a|a)+$');
-		expect(findUnsafePattern({ $ref: 'https://example.test/other' }, schemas)).toBeUndefined();
-	});
-
-	it('should check every object when a reference may reach anything', () => {
-		const unsafe = { pattern: '^(a|a)+$' };
-		expect(findUnsafePattern({ $ref: 'http://example.com/schema', default: unsafe })).toBe(
-			'^(a|a)+$',
-		);
-		expect(findUnsafePattern({ $ref: '#/missing', default: unsafe })).toBe('^(a|a)+$');
-		expect(findUnsafePattern({ $ref: '#foo', enum: [unsafe] })).toBe('^(a|a)+$');
-		expect(findUnsafePattern({ properties: { a: { id: 'other' } }, 'x-metadata': unsafe })).toBe(
-			'^(a|a)+$',
-		);
-	});
-
-	it('should not take the names of properties for keywords', () => {
-		const unsafe = { type: 'string', pattern: '^(a|a)+$' };
-		expect(findUnsafePattern({ properties: { default: unsafe } })).toBe('^(a|a)+$');
-		expect(findUnsafePattern({ properties: { enum: unsafe } })).toBe('^(a|a)+$');
-		expect(findUnsafePattern({ definitions: { const: unsafe } })).toBe('^(a|a)+$');
-		expect(findUnsafePattern({ allOf: [unsafe] })).toBe('^(a|a)+$');
-		expect(findUnsafePattern({ properties: { pattern: { type: 'string' } } })).toBeUndefined();
-	});
-
-	it('should not loop on circular schemas', () => {
-		const schema = { type: 'object' };
-		schema.self = schema;
-		expect(findUnsafePattern(schema)).toBeUndefined();
+		it('should reject non-string patterns and unsupported flags', () => {
+			expect(() => createSafeRegExp(null)).toThrow(UNSAFE_PATTERN_MESSAGE);
+			expect(() => createSafeRegExp(123)).toThrow(UNSAFE_PATTERN_MESSAGE);
+			expect(() => createSafeRegExp('^a$', 'y')).toThrow(UNSAFE_PATTERN_MESSAGE);
+			expect(isSafePattern(null)).toBe(false);
+			expect(isSafePattern('^a$', 'y')).toBe(false);
+		});
 	});
 });

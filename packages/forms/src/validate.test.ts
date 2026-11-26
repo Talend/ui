@@ -36,17 +36,24 @@ describe('Form.validate', () => {
 		// eslint-disable-next-line new-cap
 		expect(validate(jsonSchema, emptyPayload)).toBe(false);
 	});
-	it('should reject schemas with a pattern that may cause catastrophic backtracking', () => {
-		// built at runtime: this is a deliberately catastrophic pattern, never evaluated
+	it('should evaluate pathological patterns in linear time without catastrophic backtracking', () => {
 		const catastrophicPattern = ['^(a', 'a)+$'].join('|');
 		const start = Date.now();
-		expect(() =>
+		expect(
 			validate(
 				{ type: 'object', properties: { label: { type: 'string', pattern: catastrophicPattern } } },
-				{ label: `${'a'.repeat(40)}!` },
+				{ label: `${'a'.repeat(5000)}!` },
 			),
-		).toThrow('Unsafe pattern');
-		expect(Date.now() - start).toBeLessThan(500);
+		).toBe(false);
+		expect(Date.now() - start).toBeLessThan(200);
+	});
+	it('should reject patterns unsupported by the linear-time regex engine', () => {
+		expect(() =>
+			validate(
+				{ type: 'object', properties: { label: { type: 'string', pattern: '^(\\w+)\\1$' } } },
+				{ label: 'aa' },
+			),
+		).toThrow('linear-time regex engine');
 	});
 	it('should still apply safe patterns', () => {
 		const schema = {

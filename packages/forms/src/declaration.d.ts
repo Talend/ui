@@ -7,5 +7,9 @@ declare module '*.css' {
 }
 
 declare module '@talend/json-schema-form-core' {
-	export function isSafePattern(pattern: string): boolean;
+	export function createSafeRegExp(
+		pattern: string,
+		flags?: string,
+	): { test: (input: string) => boolean };
+	export function isSafePattern(pattern: string, flags?: string): boolean;
 }
