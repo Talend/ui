@@ -1,4 +1,4 @@
-import tv4index from 'tv4';
+import tv4index from './tv4';
 
 // eslint-disable-next-line prettier/prettier
 import * as schemaDefaultsImp from './schema-defaults';
@@ -11,6 +11,7 @@ export { merge } from './merge';
 export { select } from './select';
 export { traverseSchema, traverseForm } from './traverse';
 export { validate } from './validate';
+export { createSafeRegExp, isSafePattern } from './safe-pattern';
 
 export const sfPath = sfPathImp;
 export const schemaDefaults = schemaDefaultsImp;

@@ -1,5 +1,8 @@
 /*  Common code for validating a value against its form and schema definition */
-import tv4 from 'tv4';
+import tv4 from './tv4';
+import { UNSAFE_PATTERN_MESSAGE } from './safe-pattern';
+
+export { UNSAFE_PATTERN_MESSAGE };
 
 function validateTypeSpecificInput(inputType = '', event = {}) {
 	switch (inputType) {

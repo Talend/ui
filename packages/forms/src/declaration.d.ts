@@ -5,3 +5,11 @@ declare module '*.css' {
 	const contents: Record<string, string>;
 	export default contents;
 }
+
+declare module '@talend/json-schema-form-core' {
+	export function createSafeRegExp(
+		pattern: string,
+		flags?: string,
+	): { test: (input: string) => boolean };
+	export function isSafePattern(pattern: string, flags?: string): boolean;
+}
