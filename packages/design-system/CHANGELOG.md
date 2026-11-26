@@ -1,5 +1,20 @@
 # @talend/design-system
 
+## 14.0.1
+
+### Patch Changes
+
+- 1ca42eb: fix(SSO-2658): reject object hint.icon cloned as React element in forms
+
+  - forms: only a string `hint.icon` is forwarded to the hint `ButtonIcon`, any other type falls back to the default `talend-info-circle` icon
+  - design-system: `getIconWithDeprecatedSupport` renders a non-string icon only when it is a valid React element
+
+- 68cfad6: fix(SSO-2658): reject unsafe href schemes in design-system Linkable
+
+  `Linkable` (and so `Link`, `Breadcrumbs`, `Dropdown` links, ...) no longer renders an `href` whose scheme is not http(s) (e.g. `javascript:`, `data:`, `vbscript:`). Such values are dropped. Relative urls and anchors are still rendered.
+
+- b82c034: fix(SSO-2658): remote svg classes are dropped and ids are scoped per icon (with local references rewritten), and `IconsProvider` only reads icons from the containers it created instead of any `.tc-iconsprovider` element in the document
+
 ## 14.0.0
 
 ### Major Changes
