@@ -9,6 +9,7 @@
  *   up to two of them, as `^\S+@\S+$` is common
  * - patterns that are not valid JavaScript regular expressions
  * - patterns longer than MAX_PATTERN_LENGTH
+ * - patterns with excessive group nesting
  *
  * It is a conservative analysis: some harmless patterns are rejected as well.
  */
@@ -18,6 +19,7 @@ export const UNSAFE_PATTERN_MESSAGE =
 
 // The analysis cost depends on the size of the pattern, so the size is bounded.
 export const MAX_PATTERN_LENGTH = 4096;
+const MAX_GROUP_DEPTH = 100;
 
 // The number of overlapping repetitions that follow each other (e.g. `\S+@\S+`) is bounded:
 // n of them make the matching time grow as the power n+1 of the input length.
@@ -388,7 +390,10 @@ function parseGroupPrefix(source, index) {
 	throw new UnsafePatternError('Unsupported group');
 }
 
-function parseBranches(source, start, nested) {
+function parseBranches(source, start, nested, depth = 0) {
+	if (depth > MAX_GROUP_DEPTH) {
+		throw new UnsafePatternError('Pattern nesting is too deep');
+	}
 	const branches = [[]];
 	let i = start;
 	let end;
@@ -409,7 +414,7 @@ function parseBranches(source, start, nested) {
 		let item;
 		if (char === '(') {
 			const prefix = parseGroupPrefix(source, i + 1);
-			const body = parseBranches(source, prefix.end, true);
+			const body = parseBranches(source, prefix.end, true, depth + 1);
 			item = { branches: body.branches, zeroWidth: prefix.assertion };
 			i = body.end;
 		} else if (char === '[') {
@@ -547,27 +552,52 @@ function resolveLocalRef(root, ref) {
 	return target;
 }
 
+function resolveRegisteredRef(schemas, ref) {
+	if (Object.prototype.hasOwnProperty.call(schemas, ref)) {
+		return schemas[ref];
+	}
+	const hashIndex = ref.indexOf('#');
+	if (hashIndex === -1) {
+		return undefined;
+	}
+	const base = ref.slice(0, hashIndex);
+	if (!Object.prototype.hasOwnProperty.call(schemas, base)) {
+		return undefined;
+	}
+	const fragment = ref.slice(hashIndex);
+	return resolveLocalRef(schemas[base], fragment);
+}
+
 /**
  * Look for the first unsafe `pattern` or `patternProperties` key in a schema.
  * Only the actual subschemas are checked: `default`, `enum` or extension keywords hold data that
  * is never evaluated as a schema, unless a `$ref` targets it. The local JSON pointer references
  * are resolved and their target is checked. When tv4 may reach anything (a reference that is not a local
  * JSON pointer or that targets nothing, a nested `id` that changes the base of the references),
- * every object of the schema is checked, whatever the keyword it belongs to.
+ * every object of the schema is checked, whatever the keyword it belongs to. References to registered
+ * schemas are resolved against the provided schema map and URI resolver.
  * @param {Object} schema A JSON Schema
+ * @param {Object} registeredSchemas Schemas known to the validator
+ * @param {Function} resolveUrl Resolves references relative to their schema base URI
  * @returns {string|undefined} The unsafe pattern, if any.
  */
-export function findUnsafePattern(schema) {
+export function findUnsafePattern(schema, registeredSchemas = {}, resolveUrl) {
 	const seen = new Set();
 	let reachesAnything = false;
-	const visitSchema = node => {
+	const visitSchema = (node, baseUri = '') => {
 		if (!node || typeof node !== 'object' || seen.has(node)) {
 			return undefined;
 		}
 		seen.add(node);
+		const currentBaseUri =
+			typeof node.id === 'string' && resolveUrl
+				? resolveUrl(baseUri, node.id)
+				: typeof node.id === 'string'
+					? node.id
+					: baseUri;
 		if (Array.isArray(node)) {
 			for (let i = 0; i < node.length; i += 1) {
-				const found = visitSchema(node[i]);
+				const found = visitSchema(node[i], currentBaseUri);
 				if (found !== undefined) {
 					return found;
 				}
@@ -582,9 +612,17 @@ export function findUnsafePattern(schema) {
 			reachesAnything = true;
 		}
 		if (node.$ref !== undefined) {
-			const target = typeof node.$ref === 'string' ? resolveLocalRef(schema, node.$ref) : undefined;
+			const ref =
+				typeof node.$ref === 'string' && resolveUrl
+					? resolveUrl(currentBaseUri, node.$ref)
+					: node.$ref;
+			const target =
+				typeof ref === 'string'
+					? resolveRegisteredRef(registeredSchemas, ref) ||
+						(typeof node.$ref === 'string' ? resolveLocalRef(schema, node.$ref) : undefined)
+					: undefined;
 			if (target && typeof target === 'object') {
-				const found = visitSchema(target);
+				const found = visitSchema(target, ref.split('#')[0]);
 				if (found !== undefined) {
 					return found;
 				}
@@ -593,7 +631,7 @@ export function findUnsafePattern(schema) {
 			}
 		}
 		for (let i = 0; i < SUBSCHEMA_KEYWORDS.length; i += 1) {
-			const found = visitSchema(node[SUBSCHEMA_KEYWORDS[i]]);
+			const found = visitSchema(node[SUBSCHEMA_KEYWORDS[i]], currentBaseUri);
 			if (found !== undefined) {
 				return found;
 			}
@@ -603,7 +641,7 @@ export function findUnsafePattern(schema) {
 			if (map && typeof map === 'object' && !Array.isArray(map)) {
 				const values = Object.values(map);
 				for (let j = 0; j < values.length; j += 1) {
-					const found = visitSchema(values[j]);
+					const found = visitSchema(values[j], currentBaseUri);
 					if (found !== undefined) {
 						return found;
 					}

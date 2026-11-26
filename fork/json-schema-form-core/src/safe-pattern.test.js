@@ -22,6 +22,7 @@ describe('isSafePattern', () => {
 		'^(\\P{1,2})+$',
 		'^(\\u{1,2})+$',
 		'^(\\k<a+>)+$',
+		`^${'('.repeat(2000)}a${')'.repeat(2000)}+$`,
 		'^a+a+a+a+a+a+a+a+$',
 		'^a?a?a?a?a?a?a?aaaaaaa$',
 		'^[\\s]+[^\\x00-\\xff]+[\\s]+$',
@@ -128,6 +129,17 @@ describe('findUnsafePattern', () => {
 		expect(
 			findUnsafePattern({ properties: { a: { $ref: '#/default' } }, default: { pattern: 'a+' } }),
 		).toBeUndefined();
+	});
+
+	it('should check registered schema references', () => {
+		const schemas = {
+			'https://example.test/unsafe': { pattern: '^(a|a)+$' },
+			'https://example.test/other': { properties: { value: { pattern: 'a+' } } },
+		};
+		expect(
+			findUnsafePattern({ $ref: 'https://example.test/unsafe' }, schemas, (base, ref) => ref),
+		).toBe('^(a|a)+$');
+		expect(findUnsafePattern({ $ref: 'https://example.test/other' }, schemas)).toBeUndefined();
 	});
 
 	it('should check every object when a reference may reach anything', () => {

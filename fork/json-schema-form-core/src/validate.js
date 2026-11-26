@@ -64,8 +64,8 @@ export function validate(form, value, event) {
 
 	// tv4 evaluates `pattern` with the native backtracking RegExp on the main thread:
 	// never hand it a pattern that may trigger catastrophic backtracking (ReDoS).
-	// Scan the wrapper tv4 validates against: local `$ref`s resolve against its root, not the schema.
-	if (findUnsafePattern(wrap) !== undefined) {
+	// Scan the wrapper and registered schemas tv4 can resolve references against.
+	if (findUnsafePattern(wrap, tv4.getSchemaMap(), tv4.resolveUrl) !== undefined) {
 		return { valid: false, error: { message: UNSAFE_PATTERN_MESSAGE } };
 	}
 

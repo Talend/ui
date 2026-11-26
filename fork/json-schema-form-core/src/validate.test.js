@@ -1,4 +1,5 @@
 import { validate, UNSAFE_PATTERN_MESSAGE } from './validate';
+import tv4 from 'tv4';
 
 describe('validate.js', () => {
 	it('should hold a validation function for testing against tv4 until an option to pass in a validator is created', () => {
@@ -74,6 +75,40 @@ describe('validate.js', () => {
 				const result = validate(patternForm, { name: longValue }, {});
 				expect(result.valid).toBe(false);
 				expect(result.error.message).toBe(UNSAFE_PATTERN_MESSAGE);
+			});
+
+			it('should reject unsafe patterns in tv4 registered schemas', () => {
+				const uri = 'https://example.test/unsafe-pattern';
+				tv4.addSchema(uri, { type: 'string', pattern: '^(a|a)+$' });
+				try {
+					const result = validate(
+						{ key: ['hero'], schema: { $ref: uri } },
+						`${'a'.repeat(27)}!`,
+						{},
+					);
+					expect(result.valid).toBe(false);
+					expect(result.error.message).toBe(UNSAFE_PATTERN_MESSAGE);
+				} finally {
+					tv4.dropSchemas();
+				}
+			});
+
+			it('should resolve registered references relative to their schema base URI', () => {
+				const baseUri = 'https://example.test/registered/root.json';
+				const unsafeSchemaUri = 'https://example.test/registered/unsafe.json';
+				tv4.addSchema(baseUri, { properties: { hero: { $ref: 'unsafe.json' } } });
+				tv4.addSchema(unsafeSchemaUri, { type: 'string', pattern: '^(a|a)+$' });
+				try {
+					const result = validate(
+						{ key: ['hero'], schema: { $ref: baseUri } },
+						{ hero: `${'a'.repeat(27)}!` },
+						{},
+					);
+					expect(result.valid).toBe(false);
+					expect(result.error.message).toBe(UNSAFE_PATTERN_MESSAGE);
+				} finally {
+					tv4.dropSchemas();
+				}
 			});
 
 			it('should still apply safe patterns', () => {
